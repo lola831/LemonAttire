@@ -9,13 +9,15 @@ class OrderItem(db.Model):
         __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), nullable=False)
-    product_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('products.id')), nullable=False)
+    quantity = db.Column(db.Integer, nullable=False)
+    price = db.Column(db.Float, nullable=False)
+    order_id = db.Column(db.Integer, db.ForiegnKey(add_prefix_for_prod('orders.id'), nullable=False))
+    product_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('products.id')))
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     updated_at = db.Column(db.DateTime, default=datetime.utcnow)
 
-    product = db.relationship('Product', cascade="all, delete-orphan", lazy="joined", back_populates="favorites")
-    user = db.relationship('User', cascade="all, delete-orphan", lazy="joined", back_populates="favorites")
+    product = db.relationship('Product', lazy="joined", back_populates="order_items")
+    order = db.relationship('Order', lazy="joined", back_populates="order_items")
 
     def to_dict(self):
         return {

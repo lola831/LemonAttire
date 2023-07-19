@@ -17,11 +17,11 @@ class Product(db.Model):
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     updated_at = db.Column(db.DateTime, default=datetime.utcnow)
 
-    product_type = db.relationship('ProductType', cascade="all, delete-orphan", lazy="joined", back_populates="products")
+    product_type = db.relationship('ProductType', lazy="joined", back_populates="products")
     order_items = db.relationship('OrderItem', cascade="all, delete-orphan", lazy="joined", back_populates="product")
     favorites = db.relationship('Favorite', cascade="all, delete-orphan", lazy="joined", back_populates="product")
     styles = db.relationship('Style', cascade="all, delete-orphan", lazy="joined", back_populates="product")
-    
+
     def to_dict(self):
         return {
             'id': self.id,

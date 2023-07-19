@@ -1,7 +1,6 @@
 from .db import db, environment, SCHEMA, add_prefix_for_prod
 from datetime import datetime
 
-
 class Style(db.Model):
     __tablename__ = 'styles'
 
@@ -15,8 +14,8 @@ class Style(db.Model):
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     updated_at = db.Column(db.DateTime, default=datetime.utcnow)
 
-    product = db.relationship('Product', cascade="all, delete-orphan", lazy="joined", back_populates="styles")
-    user = db.relationship('User', cascade="all, delete-orphan", lazy="joined", back_populates="styles")
+    product = db.relationship('Product', lazy="joined", back_populates="styles")
+    user = db.relationship('User', lazy="joined", back_populates="styles")
 
     def to_dict(self):
         return {

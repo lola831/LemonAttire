@@ -15,8 +15,7 @@ class Order(db.Model):
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     updated_at = db.Column(db.DateTime, default=datetime.utcnow)
 
-    user = db.relationship('User', cascade="all, delete-orphan", lazy="joined", back_populates="orders")
-
+    user = db.relationship('User', lazy="joined", back_populates="orders")
     order_items = db.relationship('OrderItem', cascade="all, delete-orphan", lazy="joined", back_populates="order")
 
     def to_dict(self):
