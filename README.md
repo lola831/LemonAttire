@@ -1,3 +1,3 @@
 ## My Shop Project (name changing soon!)
 
-<img width="1316" alt="Screen Shot 2023-07-18 at 11 20 01 AM" src="https://github.com/lola831/my-shop/assets/110120745/49366358-3b91-461b-869d-f8fc7a94d14b">
+<img width="753" alt="Screen Shot 2023-07-18 at 5 27 52 PM" src="https://github.com/lola831/my-shop/assets/110120745/f4726c68-3e24-4c6d-8307-b87e7450710b">
