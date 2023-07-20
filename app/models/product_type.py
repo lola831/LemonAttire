@@ -10,7 +10,7 @@ class ProductType(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(225), nullable=False, unique=True)
-    description = db.Column(db.String(500), nullable=False)
+    description = db.Column(db.String(500), nullable=True)
     category_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('categories.id')))
     price = db.Column(db.Float, nullable=False )
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
