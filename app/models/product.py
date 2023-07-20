@@ -1,6 +1,6 @@
 from .db import db, environment, SCHEMA, add_prefix_for_prod
 from datetime import datetime
-from .product_styles import product_styles
+
 
 
 
@@ -22,7 +22,7 @@ class Product(db.Model):
     product_type = db.relationship('ProductType', lazy="joined", back_populates="products")
     order_items = db.relationship('OrderItem', cascade="all, delete-orphan", lazy="joined", back_populates="product")
     favorites = db.relationship('Favorite', cascade="all, delete-orphan", lazy="joined", back_populates="product")
-    styles = db.relationship('Style', secondary=product_styles, lazy="joined", back_populates="product")
+    style_items = db.relationship('StyleItem', cascade="all, delete-orphan", lazy="joined", back_populates="product" )
 
     def to_dict(self):
         return {
