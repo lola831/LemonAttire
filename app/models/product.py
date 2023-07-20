@@ -14,7 +14,10 @@ class Product(db.Model):
     product_type_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('product_types.id')), nullable=False)
     color = db.Column(db.String(20), nullable=False)
     size = db.Column(db.String(20), nullable=False)
-    image = db.Column(db.String(225), nullable=False)
+    image1 = db.Column(db.String(225), nullable=False)
+    image2 = db.Column(db.String(225), nullable=True)
+    image3 = db.Column(db.String(225), nullable=True)
+    image4 = db.Column(db.String(225), nullable=True)
     stock = db.Column(db.Integer)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     updated_at = db.Column(db.DateTime, default=datetime.utcnow)
@@ -29,7 +32,10 @@ class Product(db.Model):
             'id': self.id,
             'color': self.color,
             'size': self.size,
-            'image': self.image,
+            'image1': self.image1,
+            'image2': self.image2,
+            'image3': self.image3,
+            'image4': self.image4,
             'stock': self.stock,
             'price': self.product_type.price(),
             'productType': self.product_type.to_dict()
