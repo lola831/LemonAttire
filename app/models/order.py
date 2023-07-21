@@ -23,7 +23,8 @@ class Order(db.Model):
             'id': self.id,
             'status': self.status,
             'totalPrice': self.total_price,
-            'createdAt': self.created_at,
             'user': self.user.to_dict(),
             'orderItems': [item.to_dict() for item in self.order_items],
+            'createdAt': self.created_at,
+            'updatedAt': self.updated_at
         }
