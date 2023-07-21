@@ -11,8 +11,8 @@ class OrderItem(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     quantity = db.Column(db.Integer, nullable=False)
     price = db.Column(db.Float, nullable=False)
-    order_id = db.Column(db.Integer, db.ForiegnKey(add_prefix_for_prod('orders.id'), nullable=False))
-    product_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('products.id')))
+    order_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('orders.id')), nullable=False)
+    product_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('products.id')), nullable=True)  #nullable????
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     updated_at = db.Column(db.DateTime, default=datetime.utcnow)
 

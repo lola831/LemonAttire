@@ -5,11 +5,11 @@ from sqlalchemy.sql import text
 # Adds a demo user, you can add other users here if you want
 def seed_users():
     demo = User(
-        username='Demo', email='demo@aa.io', password='password')
+        first_name='Ashley', last_name='Smith', email='demo@aa.io', phone_number='1234567890', password='password')
     marnie = User(
-        username='marnie', email='marnie@aa.io', password='password')
+        first_name='Molly', last_name='Tucker', email='mol@aa.io', phone_number='1234567891', password='password')
     bobbie = User(
-        username='bobbie', email='bobbie@aa.io', password='password')
+        first_name='Christina', last_name='Sanchez', email='chris@aa.io', phone_number='1234567892', password='password')
 
     db.session.add(demo)
     db.session.add(marnie)
@@ -28,5 +28,5 @@ def undo_users():
         db.session.execute(f"TRUNCATE table {SCHEMA}.users RESTART IDENTITY CASCADE;")
     else:
         db.session.execute(text("DELETE FROM users"))
-        
+
     db.session.commit()
