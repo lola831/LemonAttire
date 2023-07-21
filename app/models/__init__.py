@@ -1,4 +1,4 @@
-from .db import db
+from .db import db, environment, SCHEMA
 from .category import Category
 from .favorite import Favorite
 from .order_item import OrderItem
@@ -9,4 +9,3 @@ from .review import Review
 from .style_item import StyleItem
 from .style import Style
 from .user import User
-from .db import environment, SCHEMA

@@ -17,7 +17,7 @@ class ProductType(db.Model):
     updated_at = db.Column(db.DateTime, default=datetime.utcnow)
 
     category = db.relationship('Category', lazy="joined", back_populates="product_types")
-
+    reviews= db.relationship('Review', cascade="all, delete-orphan", lazy="joined", back_populates="product_type")
     products = db.relationship("Product", cascade="all, delete-orphan", lazy="joined", back_populates="product_type")
 
 
