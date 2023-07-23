@@ -5,7 +5,7 @@ from sqlalchemy.sql import text
 # Adds a demo user, you can add other users here if you want
 def seed_order_items():
     order1 = OrderItem(
-        quantity=1, price=12.99, order_id=1, product_id=1)
+        quantity=1, price=12.99, total_price=12.99, order_id=1, product_id=1)
 
     db.session.add(order1)
 

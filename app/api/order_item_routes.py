@@ -4,9 +4,9 @@ from app.models import OrderItem, db
 from app.forms import OrderItemForm
 from datetime import datetime
 
-order_item_routes = Blueprint('/orders/<int:order_id>/order_items', __name__)
+order_item_routes = Blueprint('orders/<int:order_id>/order_items', __name__)
 
-order_id = request.args.get('order_id')
+# order_id = request.args.get('order_id')
 
 def validation_errors_to_error_messages(validation_errors):
     """
@@ -20,27 +20,30 @@ def validation_errors_to_error_messages(validation_errors):
 
 # GET ALL OF AN ORDER'S ORDER_ITEMS
 @order_item_routes.route('/')
-def all_order_items():
+def all_order_items(order_id):
     """
     Query for all order items and returns them in a list of order item dictionaries
     """
-    # order_id = request.args.get('order_id')
-    order_items = OrderItem.query.get(order_id).all()
+    # order_id = request.args.get('order_id') ?????????????????
+    order_items = OrderItem.query.filter_by(order_id=order_id)
     return {'order_items': [order_item.to_dict() for order_item in order_items]}
 
 # ADD ITEM TO ORDER
 @order_item_routes.route('/', methods=['POST'])
 @login_required
-def add_order_item():
+def add_order_item(order_id):
     """
     Creates a new order item
     """
     form = OrderItemForm()
+    print("HERRRRREEEE---------------------------------------------------")
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
+        total_price = form.data['price'] * form.data['quantity']
         order_item = OrderItem(
             quantity=form.data['quantity'],
             price = form.data['price'],
+            total_price = total_price,
             order_id = order_id,
             product_id = form.data['product_id'] # OR?? product_id from param args passed into func?
 
@@ -53,7 +56,7 @@ def add_order_item():
 # EDITS AN ORDER ITEM
 @order_item_routes.route('/<int:order_item_id>', methods=['PUT'])
 @login_required
-def edit_order_item(order_item_id):
+def edit_order_item(order_id, order_item_id):
     """
     Edits an order item
     """
@@ -65,6 +68,7 @@ def edit_order_item(order_item_id):
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         form.populate_obj(order_item)
+        order_item.total_price = order_item.price * order_item.quantity
         order_item.updated_at = datetime.utcnow()
         db.session.commit()
         return order_item.to_dict()
@@ -73,7 +77,7 @@ def edit_order_item(order_item_id):
 # DELETE AN ORDER ITEM
 @order_item_routes.route('/<int:order_item_id>', methods=['DELETE'])
 @login_required
-def delete_order_item(order_item_id):
+def delete_order_item(order_id, order_item_id):
     order_item = OrderItem.query.get(order_item_id)
     if order_item is None:
         return jsonify({'error': 'Order item not found'}), 404
