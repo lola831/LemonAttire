@@ -39,7 +39,9 @@ class User(db.Model, UserMixin):
         return {
             'id': self.id,
             'firstName': self.first_name,
-            'email': self.email
+            'lastName': self.last_name,
+            'email': self.email,
+            'phoneNumber': self.phone_number
         }
 
     def user_orders(self):
