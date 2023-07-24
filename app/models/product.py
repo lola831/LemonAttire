@@ -1,9 +1,6 @@
 from .db import db, environment, SCHEMA, add_prefix_for_prod
 from datetime import datetime
 
-
-
-
 class Product(db.Model):
     __tablename__ = 'products'
 
@@ -14,6 +11,7 @@ class Product(db.Model):
     product_type_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('product_types.id')), nullable=False)
     color = db.Column(db.String(20), nullable=False)
     size = db.Column(db.String(20), nullable=False)
+    # price = db.Column(db.Float, nullable=False )
     image1 = db.Column(db.String(225), nullable=False)
     image2 = db.Column(db.String(225), nullable=True)
     image3 = db.Column(db.String(225), nullable=True)
@@ -24,7 +22,6 @@ class Product(db.Model):
 
     product_type = db.relationship('ProductType', lazy="joined", back_populates="products")
     order_items = db.relationship('OrderItem', cascade="all, delete-orphan", lazy="joined", back_populates="product")
-    favorites = db.relationship('Favorite', cascade="all, delete-orphan", lazy="joined", back_populates="product")
     style_items = db.relationship('StyleItem', cascade="all, delete-orphan", lazy="joined", back_populates="product" )
 
     def to_dict(self):
@@ -38,5 +35,6 @@ class Product(db.Model):
             'image4': self.image4,
             'stock': self.stock,
             'price': self.product_type.price(),
-            'productType': self.product_type.to_dict()
+            # 'productType': self.product_type.to_dict()
+            'product_type_id': self.product_type_id
         }
