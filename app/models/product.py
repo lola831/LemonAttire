@@ -20,9 +20,11 @@ class Product(db.Model):
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     updated_at = db.Column(db.DateTime, default=datetime.utcnow)
 
-    product_type = db.relationship('ProductType', lazy="joined", back_populates="products")
-    order_items = db.relationship('OrderItem', cascade="all, delete-orphan", lazy="joined", back_populates="product")
-    style_items = db.relationship('StyleItem', cascade="all, delete-orphan", lazy="joined", back_populates="product" )
+    product_type = db.relationship('ProductType', back_populates="products")
+    order_items = db.relationship('OrderItem', cascade="all, delete-orphan", back_populates="product")
+    style_items = db.relationship('StyleItem', cascade="all, delete-orphan", back_populates="product" )
+    favorites = db.relationship('Favorite', cascade="all, delete-orphan", back_populates="product")
+    reviews= db.relationship('Review', cascade="all, delete-orphan", back_populates="product")
 
     def to_dict(self):
         return {

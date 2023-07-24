@@ -14,8 +14,8 @@ class Style(db.Model):
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     updated_at = db.Column(db.DateTime, default=datetime.utcnow)
 
-    user = db.relationship('User', lazy="joined", back_populates="styles")
-    style_items = db.relationship('StyleItem', cascade="all, delete-orphan", lazy="joined", back_populates="style" )
+    user = db.relationship('User', back_populates="styles")
+    style_items = db.relationship('StyleItem', cascade="all, delete-orphan", back_populates="style" )
 
 
     def to_dict(self):

@@ -13,6 +13,7 @@ from .api.styles_routes import style_routes
 from .api.style_item_routes import style_item_routes
 from .api.category_routes import category_routes
 from .api.product_type_routes import product_type_routes
+from .api.product_routes import product_routes
 from .api.review_routes import review_routes
 from .api.favorite_routes import favorite_routes
 from .seeds import seed_commands
@@ -41,6 +42,7 @@ app.register_blueprint(order_routes, url_prefix='/api/orders')
 style_routes.register_blueprint(style_item_routes, url_prefix='/<int:style_id>/style_items')
 app.register_blueprint(style_routes, url_prefix='/api/styles')
 app.register_blueprint(category_routes, url_prefix='/api/categories')
+product_type_routes.register_blueprint(product_routes, url_prefix='<int:product_type_id>/products')
 app.register_blueprint(product_type_routes, url_prefix='/api/product_types')
 app.register_blueprint(review_routes, url_prefix='/api/reviews')
 app.register_blueprint(favorite_routes, url_prefix='/api/favorites')

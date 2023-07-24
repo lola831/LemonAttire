@@ -16,10 +16,8 @@ class ProductType(db.Model):
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     updated_at = db.Column(db.DateTime, default=datetime.utcnow)
 
-    category = db.relationship('Category', lazy="joined", back_populates="product_types")
-    reviews= db.relationship('Review', cascade="all, delete-orphan", lazy="joined", back_populates="product_type")
-    products = db.relationship("Product", cascade="all, delete-orphan", lazy="joined", back_populates="product_type")
-    favorites = db.relationship('Favorite', cascade="all, delete-orphan", lazy="joined", back_populates="product_type")
+    category = db.relationship('Category', back_populates="product_types")
+    products = db.relationship("Product", cascade="all, delete-orphan", back_populates="product_type")
 
     def price(self):
         return self.price,

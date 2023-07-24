@@ -15,16 +15,16 @@ class Order(db.Model):
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     updated_at = db.Column(db.DateTime, default=datetime.utcnow)
 
-    user = db.relationship('User', lazy="joined", back_populates="orders")
-    order_items = db.relationship('OrderItem', cascade="all, delete-orphan", lazy="joined", back_populates="order")
+    user = db.relationship('User', back_populates="orders")
+    order_items = db.relationship('OrderItem', cascade="all, delete-orphan", back_populates="order")
 
     def to_dict(self):
         return {
             'id': self.id,
             'status': self.status,
             'totalPrice': self.total_price,
-            'user': self.user.to_dict(),
             'orderItems': [item.to_dict() for item in self.order_items],
+            'userId': self.user_id,
             'createdAt': self.created_at,
             'updatedAt': self.updated_at
         }
