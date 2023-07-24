@@ -19,7 +19,7 @@ class ProductType(db.Model):
     category = db.relationship('Category', lazy="joined", back_populates="product_types")
     reviews= db.relationship('Review', cascade="all, delete-orphan", lazy="joined", back_populates="product_type")
     products = db.relationship("Product", cascade="all, delete-orphan", lazy="joined", back_populates="product_type")
-
+    favorites = db.relationship('Favorite', cascade="all, delete-orphan", lazy="joined", back_populates="product_type")
 
     def price(self):
         return self.price,
@@ -32,4 +32,13 @@ class ProductType(db.Model):
             'price': self.price,
             'category': self.category.to_dict_name(),
             'products': [product.to_dict() for product in self.products]
+        }
+
+    def to_dict_simple(self):
+        return {
+            'id': self.id,
+            'name': self.name,
+            'description': self.description,
+            'price': self.price,
+            'category': self.category.to_dict_name()
         }
