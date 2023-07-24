@@ -14,8 +14,8 @@ class StyleItem(db.Model):
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     updated_at = db.Column(db.DateTime, default=datetime.utcnow)
 
-    product = db.relationship('Product', lazy="joined", back_populates="style_items")
-    style = db.relationship('Style', lazy="joined", back_populates="style_items")
+    product = db.relationship('Product', back_populates="style_items")
+    style = db.relationship('Style', back_populates="style_items")
 
     def to_dict(self):
         return {

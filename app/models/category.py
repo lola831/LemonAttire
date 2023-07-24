@@ -13,7 +13,7 @@ class Category(db.Model):
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     updated_at = db.Column(db.DateTime, default=datetime.utcnow)
 
-    product_types = db.relationship('ProductType', cascade="all, delete-orphan", lazy="joined", back_populates="category")
+    product_types = db.relationship('ProductType', cascade="all, delete-orphan", back_populates="category")
 
     def to_dict_name(self):
         return self.name
