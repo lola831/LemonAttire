@@ -18,10 +18,7 @@ class ProductType(db.Model):
 
     category = db.relationship('Category', back_populates="product_types")
     products = db.relationship("Product", cascade="all, delete-orphan", back_populates="product_type")
-
-    def price(self):
-        return self.price,
-
+    
     def to_dict(self):
         return {
             'id': self.id,

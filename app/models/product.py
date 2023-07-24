@@ -36,7 +36,5 @@ class Product(db.Model):
             'image3': self.image3,
             'image4': self.image4,
             'stock': self.stock,
-            'price': self.product_type.price(),
-            # 'productType': self.product_type.to_dict()
             'product_type_id': self.product_type_id
         }
