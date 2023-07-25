@@ -1,21 +1,56 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useDispatch } from "react-redux";
 import { NavLink } from 'react-router-dom';
+import { logout } from "../../store/session";
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import './Navigation.css';
+import { Button } from '../Button';
+
+import OpenModalButton from "../OpenModalButton";
+import LoginFormModal from "../LoginFormModal";
+import SignupFormModal from "../SignupFormModal";
 
 function Navigation({ isLoaded }) {
+	const dispatch = useDispatch();
 	const sessionUser = useSelector(state => state.session.user);
 	const [click, setClick] = useState(false)
+	const [button, setButton] = useState(true)
 
 	const handleClick = () => setClick(!click);
 	const closeMobileMenu = () => setClick(false);
+
+
+	const handleLogout = (e) => {
+		e.preventDefault();
+		dispatch(logout());
+		closeMobileMenu()
+	};
+
+	// function removes button and displays it depending on screen size
+	const showButton = () => {
+		if (window.innerWidth <= 960) {
+			setButton(false)
+		} else {
+			setButton(true)
+		}
+	};
+
+	// renders button only on first render?
+	useEffect(() => {
+		showButton();
+	}, [])
+
+	// whenever i resize the screen it will call showbutton()
+	window.addEventListener('resize', showButton)
+
+	console.log("seshhh user", sessionUser)
 
 	return (
 		<>
 			<nav className='navbar'>
 				<div className='navbar-container'>
-					<NavLink exact to="/" className="lemon-logo">
+					<NavLink exact to="/" className="lemon-logo" onClick={closeMobileMenu}>
 						<i class="fa-regular fa-lemon"></i> Lemon
 					</NavLink>
 					<div className='menu-icon' onClick={handleClick}>
@@ -29,20 +64,62 @@ function Navigation({ isLoaded }) {
 						</li>
 						<li className='nav-item'>
 							<NavLink to='/' className="nav-links" onClick={closeMobileMenu}>
-								Home
+								Shop
 							</NavLink>
 						</li>
-						<li className='nav-item'>
-							<NavLink to='/signup' className="nav-links-mobile" onClick={closeMobileMenu}>
-								Sign Up
-							</NavLink>
-						</li>
+						{
+							isLoaded && (
+							<>
+								{sessionUser ? (
+									<>
+										<li className='nav-item'>
+											<NavLink to='/account' className="nav-links" onClick={closeMobileMenu}>
+												My account
+											</NavLink>
+										</li>
+										<li className='nav-item'>
+											<NavLink to='/account' className="nav-links" onClick={handleLogout}>
+												Log out
+											</NavLink>
+										</li>
+									</>
+								) : (
+									<>
+										<li className='nav-item'>
+											<NavLink to='/signup' className="nav-links-mobile" onClick={closeMobileMenu}>
+												Sign Up
+											</NavLink>
+										</li>
+										<li className='nav-item'>
+											<NavLink to='/login' className="nav-links-mobile" onClick={closeMobileMenu}>
+												Log In
+											</NavLink>
+										</li>
+									</>
+								)}
+							</>
+							)}
 					</ul>
+					{ isLoaded && (
+						<> { !sessionUser && (
+							<>
+								{button && <Button buttonStyle='btn--outline' buttonLink='/signup'>Sign Up</Button>}
+					{button && <Button buttonStyle='btn--outline' buttonLink='/login'>Log In</Button>}
+
+							</>
+						)
+
+						}
+						</>
+					)
+
+					}
 
 
+					{/*
 						{isLoaded && (
 							<ProfileButton user={sessionUser} />
-						)}
+						)} */}
 
 				</div>
 			</nav>

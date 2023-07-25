@@ -6,6 +6,9 @@ import LoginFormPage from "./components/LoginFormPage";
 import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
 import HomePage from "./components/HomePage";
+import Account from "./components/Account";
+import { applyMiddleware } from "redux";
+import "./App.css"
 
 function App() {
   const dispatch = useDispatch();
@@ -28,6 +31,9 @@ function App() {
           </Route>
           <Route path="/signup">
             <SignupFormPage />
+          </Route>
+          <Route path="/account">
+            <Account />
           </Route>
         </Switch>
       )}
