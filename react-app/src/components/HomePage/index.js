@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation} from "react-router-dom";
 import { getAllProductsThunk } from "../../store/products";
-import { Button } from "../Button";
+// import { Button } from "../Button";
 import "./HomePage.css"
 import "../../App.css";
 import NewArrivals from "../NewArrivals";

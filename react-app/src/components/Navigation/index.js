@@ -3,23 +3,26 @@ import { useDispatch } from "react-redux";
 import { NavLink } from 'react-router-dom';
 import { logout } from "../../store/session";
 import { useSelector } from 'react-redux';
-import ProfileButton from './ProfileButton';
+// import { getCategoriesThunk } from '../../store/categories';
 import './Navigation.css';
 import { Button } from '../Button';
-
-import OpenModalButton from "../OpenModalButton";
-import LoginFormModal from "../LoginFormModal";
-import SignupFormModal from "../SignupFormModal";
+import Dropdown from '../Dropdown/Index';
 
 function Navigation({ isLoaded }) {
 	const dispatch = useDispatch();
 	const sessionUser = useSelector(state => state.session.user);
 	const [click, setClick] = useState(false)
 	const [button, setButton] = useState(true)
-
+	const categories = useSelector(state => state.categories)
 	const handleClick = () => setClick(!click);
 	const closeMobileMenu = () => setClick(false);
 
+	// useEffect(() => {
+	// 	dispatch(getCategoriesThunk())
+	// }, [])
+
+
+	// console.log("categories", categories)
 
 	const handleLogout = (e) => {
 		e.preventDefault();
@@ -67,8 +70,7 @@ function Navigation({ isLoaded }) {
 								Shop
 							</NavLink>
 						</li>
-						{
-							isLoaded && (
+						{isLoaded && (
 							<>
 								{sessionUser ? (
 									<>
@@ -107,22 +109,12 @@ function Navigation({ isLoaded }) {
 					{button && <Button buttonStyle='btn--outline' buttonLink='/login'>Log In</Button>}
 
 							</>
-						)
-
-						}
+							)}
 						</>
-					)
-
-					}
-
-
-					{/*
-						{isLoaded && (
-							<ProfileButton user={sessionUser} />
-						)} */}
-
+					)}
 				</div>
 			</nav>
+			<Dropdown />
 		</>
 	);
 }
