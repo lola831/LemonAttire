@@ -17,10 +17,17 @@ def validation_errors_to_error_messages(validation_errors):
 # GET ALL PRODUCT TYPES
 @product_type_routes.route('/')
 def all_product_types():
+    print("INNNNNN BACKENNNNNDDDDDDDDDDDD")
     """
-    Query for all product types
+    Query for all product types (results can be filtered by type)
     """
-    product_types = ProductType.query.all()
-    print("here=============================", product_types)
-    return {'product_types': [product_type.to_dict() for product_type in product_types]}
-    # return [product_type.to_dict() for product_type in product_types]
+    category = request.args.get('category')
+
+    query = ProductType.query
+
+    if category:
+        query = query.filter(ProductType.category == category)
+
+    product_types = [product.to_dict() for product in query.all()]
+
+    return jsonify({"products": product_types}), 200
