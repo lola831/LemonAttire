@@ -8,8 +8,10 @@ import Navigation from "./components/Navigation";
 import HomePage from "./components/HomePage";
 import Account from "./components/Account";
 import { applyMiddleware } from "redux";
-import "./App.css"
 import AllProducts from "./components/AllProducts";
+import ProductPage from "./components/ProductPage";
+import "./App.css"
+
 
 function App() {
   const dispatch = useDispatch();
@@ -39,6 +41,10 @@ function App() {
           <Route exact path="/shop">
             <AllProducts />
           </Route>
+          <Route exact path="/shop/:id">
+            <ProductPage />
+          </Route>
+
         </Switch>
       )}
 
