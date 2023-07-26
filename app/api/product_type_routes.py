@@ -17,7 +17,6 @@ def validation_errors_to_error_messages(validation_errors):
 # GET ALL PRODUCT TYPES
 @product_type_routes.route('/')
 def all_product_types():
-    print("INNNNNN BACKENNNNNDDDDDDDDDDDD")
     """
     Query for all product types (results can be filtered by type)
     """
@@ -31,3 +30,13 @@ def all_product_types():
     product_types = [product.to_dict() for product in query.all()]
 
     return jsonify({"products": product_types}), 200
+
+# GET PRODUCT TYPE BY ID:
+@product_type_routes.route('/<int:product_type_id>')
+def product_type(product_type_id):
+    product_type = ProductType.query.get(product_type_id)
+
+    if product_type is None:
+        return jsonify({'error': 'Product not found'}), 404
+
+    return jsonify({'productType': product_type.to_dict()}), 200

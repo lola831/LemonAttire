@@ -30,9 +30,7 @@ function AllProducts() {
     //   // document.getElementById("img-change-color").src = product.image1
     //   setColor(product.image1)
     // }
-    const check = () => {
-      console.log("CHECKKKKKKKK")
-    }
+
 
   return (
     <>
@@ -45,7 +43,13 @@ function AllProducts() {
 
             <div className='card-container'>
                <Link to={`/shop/${product.id}`} key={product.id}>
-              <img className='card-img' id="img-change-color" src={color ? color : `${product.products[0].image1}`}></img>
+              <img
+              className='card-img'
+              id="img-change-color"
+              src={color.product_type_id == product.id ? color.image1 : `${product.products[0].image1}`}
+              onMouseOver={e => (color.product_type_id == product.id ? e.currentTarget.src = color.image2 : e.currentTarget.src = `${product.products[0].image2}`)}
+              onMouseOut={e => (color.product_type_id == product.id ? e.currentTarget.src = color.image1 : e.currentTarget.src = `${product.products[0].image1}`)}>
+              </img>
               </Link>
               <div className='card-name'>{`${product.name}`}</div>
               <div className='card-price'>{`${product.price}`}</div>
@@ -55,7 +59,7 @@ function AllProducts() {
                     {
                       product.products.map(item => (
                         <>
-                        <div key={item.id} onClick={() => setColor(item.image1)}>
+                        <div key={item.id} onClick={() => setColor(item)}>
 
                         <i
                         className="fa-solid fa-circle"

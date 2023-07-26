@@ -3,11 +3,15 @@ import thunk from 'redux-thunk';
 import session from './session'
 import productsReducer from './products';
 import categoriesReducer from './categories';
+import productTypeReducer from './productType';
+import favoritesReducer from './favorites';
 
 const rootReducer = combineReducers({
   session,
   categories: categoriesReducer,
   products: productsReducer,
+  productType: productTypeReducer,
+  favorites: favoritesReducer,
 });
 
 
