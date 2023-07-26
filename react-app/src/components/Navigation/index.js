@@ -114,7 +114,7 @@ function Navigation({ isLoaded }) {
 					)}
 				</div>
 			</nav>
-			<Dropdown />
+			{/* <Dropdown /> */}
 		</>
 	);
 }

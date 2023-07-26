@@ -9,6 +9,7 @@ import HomePage from "./components/HomePage";
 import Account from "./components/Account";
 import { applyMiddleware } from "redux";
 import "./App.css"
+import AllProducts from "./components/AllProducts";
 
 function App() {
   const dispatch = useDispatch();
@@ -34,6 +35,9 @@ function App() {
           </Route>
           <Route path="/account">
             <Account />
+          </Route>
+          <Route exact path="/shop">
+            <AllProducts />
           </Route>
         </Switch>
       )}
