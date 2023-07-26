@@ -138,19 +138,19 @@ if environment == "production":
 if environment == "production":
         op.execute(f"ALTER TABLE categories SET SCHEMA {SCHEMA};")
 if environment == "production":
+        op.execute(f"ALTER TABLE orders SET SCHEMA {SCHEMA};")
+if environment == "production":
         op.execute(f"ALTER TABLE product_types SET SCHEMA {SCHEMA};")
+if environment == "production":
+        op.execute(f"ALTER TABLE styles SET SCHEMA {SCHEMA};")
 if environment == "production":
         op.execute(f"ALTER TABLE products SET SCHEMA {SCHEMA};")
 if environment == "production":
-        op.execute(f"ALTER TABLE orders SET SCHEMA {SCHEMA};")
+        op.execute(f"ALTER TABLE favorites SET SCHEMA {SCHEMA};")
 if environment == "production":
         op.execute(f"ALTER TABLE order_items SET SCHEMA {SCHEMA};")
 if environment == "production":
-        op.execute(f"ALTER TABLE favorites SET SCHEMA {SCHEMA};")
-if environment == "production":
         op.execute(f"ALTER TABLE reviews SET SCHEMA {SCHEMA};")
-if environment == "production":
-        op.execute(f"ALTER TABLE styles SET SCHEMA {SCHEMA};")
 if environment == "production":
         op.execute(f"ALTER TABLE style_items SET SCHEMA {SCHEMA};")
 
@@ -164,6 +164,6 @@ def downgrade():
     op.drop_table('styles')
     op.drop_table('product_types')
     op.drop_table('orders')
-    op.drop_table('users')
     op.drop_table('categories')
+    op.drop_table('users')
     # ### end Alembic commands ###
