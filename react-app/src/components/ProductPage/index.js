@@ -36,16 +36,16 @@ const ProductPage = () => {
     console.log("favorites: ", favorites)
     console.log("USER: ", user)
 
-    // checks if restaurant is in user's favorites
-    // useEffect(() => {
-    //     if (user && favorites.length) {
-    //         for (let i = 0; i < favorites.length; i++) {
-    //             // if(favorites[i].product== id) {                  ????? product.product_type_id?
-    //             //     setFavorite(true)
-    //             // }
-    //         }
-    //     }
-    // }, [favorites, productTypeId, user]); // product type id????
+    // checks if product is in user's favorites
+    useEffect(() => {
+        if (user && favorites.length) {
+            for (let i = 0; i < favorites.length; i++) {
+                if(favorites[i].product_type_id == id) {
+                    setFavorite(true)
+                }
+            }
+        }
+    }, [favorites, id, user]); 
 
     // const addFav = () => {
     //     dispatch(addFavorites(productTypeId, productId))
