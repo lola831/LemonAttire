@@ -71,6 +71,7 @@ const ProductPage = () => {
 
     if (Object.keys(productType).length) {
         let products = productType.products
+        console.log("products: ", products)
         let images;
         let imagesArray = [];
         for (let i = 0; i < products.length; i++){
@@ -130,10 +131,16 @@ const ProductPage = () => {
         }
 
         return (
-            <div>
-                <img
-                className="product-img"
-                src={`${productType.products[0].image1}`}></img>
+            <div className="image-row">
+                {
+                    imagesArray[0].map(image => (
+                        <img
+                        height={"200px"}
+                        className="product-img"
+                        src={image}></img>
+                    ))
+                }
+
 
 
 
