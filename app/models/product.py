@@ -31,6 +31,7 @@ class Product(db.Model):
             'id': self.id,
             'color': self.color,
             'size': self.size,
+            'images': [self.image1, self.image2, self.image3, self.image4],
             'image1': self.image1,
             'image2': self.image2,
             'image3': self.image3,
