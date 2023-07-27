@@ -7,6 +7,7 @@ import { useSelector } from 'react-redux';
 import './Navigation.css';
 import { Button } from '../Button';
 import Dropdown from '../Dropdown/Index';
+import AllProducts from '../AllProducts';
 
 function Navigation({ isLoaded }) {
 	const dispatch = useDispatch();
@@ -66,7 +67,7 @@ function Navigation({ isLoaded }) {
 							</NavLink>
 						</li>
 						<li className='nav-item'>
-							<NavLink to='/' className="nav-links" onClick={closeMobileMenu}>
+							<NavLink to='/shop/' className="nav-links" onClick={closeMobileMenu}>
 								Shop
 							</NavLink>
 						</li>
