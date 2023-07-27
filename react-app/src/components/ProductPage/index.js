@@ -40,12 +40,12 @@ const ProductPage = () => {
     useEffect(() => {
         if (user && favorites.length) {
             for (let i = 0; i < favorites.length; i++) {
-                if(favorites[i].product_type_id == id) {
+                if(favorites[i].product_type_id === id) {
                     setFavorite(true)
                 }
             }
         }
-    }, [favorites, id, user]); 
+    }, [favorites, id, user]);
 
     // const addFav = () => {
     //     dispatch(addFavorites(productTypeId, productId))
@@ -70,6 +70,15 @@ const ProductPage = () => {
     // };
 
     if (Object.keys(productType).length) {
+        let products = productType.products
+        let images;
+        let imagesArray = [];
+        for (let i = 0; i < products.length; i++){
+            images = products[i].images.filter(Boolean)
+            imagesArray.push(images)
+        }
+        console.log("images array", imagesArray)
+
         // let reviews = "Reviews";
         // if (restaurant.reviews.length === 1) reviews = "Review";
 
@@ -121,7 +130,16 @@ const ProductPage = () => {
         }
 
         return (
-            <div>Hi</div>
+            <div>
+                <img
+                className="product-img"
+                src={`${productType.products[0].image1}`}></img>
+
+
+
+
+
+            </div>
         )
     } else {
         return <div>Loading....</div>

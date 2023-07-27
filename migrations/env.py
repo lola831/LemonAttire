@@ -1,5 +1,3 @@
-from __future__ import with_statement
-
 import logging
 from logging.config import fileConfig
 
@@ -7,12 +5,12 @@ from flask import current_app
 
 from alembic import context
 
-# this is the Alembic Config object, which provides
-# access to the values within the .ini file in use.
 import os
 environment = os.getenv("FLASK_ENV")
-SCHEMA = os.environ.get('SCHEMA')
+SCHEMA = os.environ.get("SCHEMA")
 
+# this is the Alembic Config object, which provides
+# access to the values within the .ini file in use.
 config = context.config
 
 # Interpret the config file for Python logging.
@@ -30,12 +28,19 @@ def get_engine():
         return current_app.extensions['migrate'].db.engine
 
 
+def get_engine_url():
+    try:
+        return get_engine().url.render_as_string(hide_password=False).replace(
+            '%', '%%')
+    except AttributeError:
+        return str(get_engine().url).replace('%', '%%')
+
+
 # add your model's MetaData object here
 # for 'autogenerate' support
 # from myapp import mymodel
 # target_metadata = mymodel.Base.metadata
-config.set_main_option(
-    'sqlalchemy.url', str(get_engine().url).replace('%', '%%'))
+config.set_main_option('sqlalchemy.url', get_engine_url())
 target_db = current_app.extensions['migrate'].db
 
 # other values from the config, defined by the needs of env.py,
@@ -98,8 +103,7 @@ def run_migrations_online():
             process_revision_directives=process_revision_directives,
             **current_app.extensions['migrate'].configure_args
         )
-
-# Create a schema (only in production)
+        # Create a schema (only in production)
         if environment == "production":
             connection.execute(f"CREATE SCHEMA IF NOT EXISTS {SCHEMA}")
 
@@ -108,6 +112,7 @@ def run_migrations_online():
             if environment == "production":
                 context.execute(f"SET search_path TO {SCHEMA}")
             context.run_migrations()
+
 
 if context.is_offline_mode():
     run_migrations_offline()
