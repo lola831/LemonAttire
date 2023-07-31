@@ -68,7 +68,6 @@ function AllProducts() {
                         </i>
 
                         </div>
-                        {/* <img className='card-img-color' src={item.image1}></img> */}
                         </>
                       ))
                     }
@@ -76,7 +75,6 @@ function AllProducts() {
 
                 )
               }
-              {/* <div className='card-colors'>{`${product.}`}</div> */}
             </div>
 
         ))

@@ -17,6 +17,9 @@ const ProductPage = () => {
     const user = useSelector(state => state.session.user);
     const [loadingFavorites, setLoadingFavorites] = useState(true);
     const [favorite, setFavorite] = useState(false);
+    const [color, setColor] = useState("")
+    const [item, setItem] = useState("")
+
 
     useEffect(() => {
         dispatch(getProductType(id));
@@ -78,6 +81,7 @@ const ProductPage = () => {
             imagesArray.push(images)
         }
         console.log("images array", imagesArray)
+        console.log("COLOR: ", color)
 
         // let reviews = "Reviews";
         // if (restaurant.reviews.length === 1) reviews = "Review";
@@ -129,16 +133,45 @@ const ProductPage = () => {
             return <div>Loading favorites....</div>
         }
 
+        let index = 0;
+        if (color) index = color.id - 1;
+        console.log("INDEX: ", index)
+        console.log("ITEM: ", item)
+
         return (
             <div className="product-page-container">
-            <div className="product-img-container">
-                <div className="product-small-area">
-                {imagesArray[0].map(img => (
-                    <img className="product-img-small" src={`${img}`}></img>
-                ))}
+                <div className="product-area">
+
+
+                <div className="product-img-container">
+                    <div className="product-small-area">
+                        {imagesArray[index].map((img, i) => (
+                            <img className="product-img-small" src={`${img}`} onMouseOver={() => setItem(i)}></img>
+                        ))}
+                    </div>
+                    <img className="product-img-big" src={item ? `${imagesArray[index][item]}` : `${imagesArray[index][0]}`}></img>
                 </div>
-            <img className="product-img-big" src={`${imagesArray[0][0]}`}></img>
-            </div>
+                <div className="product-info">
+                    <div className="product-name">{`${productType.name}`}</div>
+                    <div>
+                        {
+                            productType.products.map(item => (
+                                <>
+                                <div key={item.id} onClick={() => setColor(item)} onMouseOver={() => setColor(item)}>
+
+                                <i
+                                className="fa-solid fa-circle"
+                                style={{color: `${item.color}`}}
+                                >
+                                </i>
+
+                                </div>
+                                </>
+                            ))
+                        }
+                    </div>
+                </div>
+                </div>
             </div>
         )
     } else {
