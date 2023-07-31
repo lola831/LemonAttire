@@ -40,7 +40,7 @@ const ProductPage = () => {
     useEffect(() => {
         if (user && favorites.length) {
             for (let i = 0; i < favorites.length; i++) {
-                if(favorites[i].product_type_id === id) {
+                if (favorites[i].product_type_id === id) {
                     setFavorite(true)
                 }
             }
@@ -73,7 +73,7 @@ const ProductPage = () => {
         let products = productType.products
         let images;
         let imagesArray = [];
-        for (let i = 0; i < products.length; i++){
+        for (let i = 0; i < products.length; i++) {
             images = products[i].images.filter(Boolean)
             imagesArray.push(images)
         }
@@ -95,7 +95,7 @@ const ProductPage = () => {
         //     for (let i = 1; i <= emptyStars; i++) {
         //         starArr.push(0);
         //     }
-    // }
+        // }
 
         // const monthNames = ["January", "February", "March", "April", "May", "June",
         // "July", "August", "September", "October", "November", "December"
@@ -120,7 +120,7 @@ const ProductPage = () => {
         //         }
         //     }
         //     return starArr;
-                    // }
+        // }
 
 
 
@@ -130,15 +130,15 @@ const ProductPage = () => {
         }
 
         return (
-            <div>
-                <img
-                className="product-img"
-                src={`${productType.products[0].image1}`}></img>
-
-
-
-
-
+            <div className="product-page-container">
+            <div className="product-img-container">
+                <div className="product-small-area">
+                {imagesArray[0].map(img => (
+                    <img className="product-img-small" src={`${img}`}></img>
+                ))}
+                </div>
+            <img className="product-img-big" src={`${imagesArray[0][0]}`}></img>
+            </div>
             </div>
         )
     } else {

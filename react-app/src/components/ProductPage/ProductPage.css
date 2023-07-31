@@ -1,0 +1,35 @@
+.product-page-container {
+    display: grid;
+    place-items: center;
+    margin-top: 10px;
+    /* background-color: pink; */
+}
+
+.product-img-container {
+    display: grid;
+    grid-template-columns: 125px auto;
+    grid-template-rows: auto;
+    grid-template-areas:
+    "product-small-area product-img-big";
+    /* margin-left: 10px;
+    margin-top: 10px; */
+    gap: 5px;
+
+}
+
+.product-small-area {
+    grid-area: product-small-area;
+}
+
+.product-img-small {
+    grid-area: product-img-small;
+    height: 175px;
+    width: 125px;
+}
+
+.product-img-big {
+    grid-area: product-img-big;
+    height: 750px;
+    width: 500px;
+
+}
