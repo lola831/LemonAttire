@@ -44,34 +44,39 @@ const ProductPage = () => {
     useEffect(() => {
         if (user && favorites.length) {
             for (let i = 0; i < favorites.length; i++) {
-                if (favorites[i].product_type_id === id) {
+                console.log("id: ",favorites[i].product_type_id)
+                console.log("id: ",id)
+                if (favorites[i].product_type_id == id) {
                     setFavorite(true)
                 }
+                console.log("FAVORITE???? ", favorite)
             }
         }
     }, [favorites, id, user]);
 
-    // const addFav = () => {
-    //     dispatch(addFavorites(productTypeId, productId))
-    //         .then(() => dispatch(getUserFavorites()))
-    //         .then(() => setFavorite(true))
-    //         .catch((error) => console.log("Error adding favorite: ", error));
-    // };
+    const addFav = () => {
+        let productId = 0;
+        if (color) productId = color.id;
+        dispatch(addFavorites(productType.id, productId))
+            .then(() => dispatch(getUserFavorites()))
+            .then(() => setFavorite(true))
+            .catch((error) => console.log("Error adding favorite: ", error));
+    };
 
-    // const deleteFav = () => {
-    //     let favId;
-    //     for (let i = 0; i < favorites.length; i++) {
-    //         // if(favorites[i].restaurantId == id) {           ???product.product_type_id>??
-    //         //     favId = favorites[i].id
-    //         // }
-    //     }
-    //     // console.log("hereeeee, ", favId)
-    //             dispatch(deleteFavorites(favId))
-    //                 .then(() => dispatch(getUserFavorites()))
-    //                 .then(() => setFavorite(false))
-    //                 .catch((error) => console.log("Error deleting favorite: ", error));
+    const deleteFav = () => {
+        let favId;
+        for (let i = 0; i < favorites.length; i++) {
+            if(favorites[i].product_type_id == id) {
+                favId = favorites[i].id
+            }
+        }
+        // console.log("hereeeee, ", favId)
+                dispatch(deleteFavorites(favId))
+                    .then(() => dispatch(getUserFavorites()))
+                    .then(() => setFavorite(false))
+                    .catch((error) => console.log("Error deleting favorite: ", error));
 
-    // };
+    };
 
     if (Object.keys(productType).length) {
         let products = productType.products
@@ -148,7 +153,26 @@ const ProductPage = () => {
                                 <img className="product-img-small" src={`${img}`} onMouseOver={() => setItem(i)}></img>
                             ))}
                         </div>
+                        <div className="product-img-big-container">
                         <img className="product-img-big" src={item ? `${imagesArray[index][item]}` : `${imagesArray[index][0]}`}></img>
+                        {
+                            user && (
+                                <>
+                                    {
+                                        favorite ? (
+                                            <button className="fav-button" onClick={deleteFav}>
+                                                <i className="fa-solid fa-heart"></i>
+                                            </button>
+                                        ) : (
+                                            <button className="fav-button" onClick={addFav}>
+                                                <i className="far fa-heart"></i>
+                                            </button>
+                                        )
+                                    }
+                                </>
+                            )
+                        }
+                        </div>
                     </div>
                     <div className="product-info">
                         <div className="product-name">{`${productType.name}`}</div>
