@@ -21,6 +21,11 @@ function LoginFormPage() {
     }
   };
 
+  const demoUser = e => {
+    e.preventDefault();
+    dispatch(login('demo@aa.io', 'password'));
+  }
+
   return (
     <>
       <h1>Log In</h1>
@@ -49,6 +54,7 @@ function LoginFormPage() {
           />
         </label>
         <button type="submit">Log In</button>
+        <button onClick={demoUser} type='submit'>Demo User</button>
       </form>
     </>
   );
