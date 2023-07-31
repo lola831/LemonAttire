@@ -8,6 +8,7 @@ import { getProductType } from "../../store/productType";
 // import ReservationForm from "../../ReservationForm";
 import { getUserFavorites, addFavorites, deleteFavorites } from "../../store/favorites";
 import './ProductPage.css'
+import "../../App.css";
 
 const ProductPage = () => {
     const dispatch = useDispatch();
@@ -141,36 +142,30 @@ const ProductPage = () => {
         return (
             <div className="product-page-container">
                 <div className="product-area">
-
-
-                <div className="product-img-container">
-                    <div className="product-small-area">
-                        {imagesArray[index].map((img, i) => (
-                            <img className="product-img-small" src={`${img}`} onMouseOver={() => setItem(i)}></img>
-                        ))}
+                    <div className="product-img-container">
+                        <div className="product-small-area">
+                            {imagesArray[index].map((img, i) => (
+                                <img className="product-img-small" src={`${img}`} onMouseOver={() => setItem(i)}></img>
+                            ))}
+                        </div>
+                        <img className="product-img-big" src={item ? `${imagesArray[index][item]}` : `${imagesArray[index][0]}`}></img>
                     </div>
-                    <img className="product-img-big" src={item ? `${imagesArray[index][item]}` : `${imagesArray[index][0]}`}></img>
-                </div>
-                <div className="product-info">
-                    <div className="product-name">{`${productType.name}`}</div>
-                    <div>
-                        {
-                            productType.products.map(item => (
-                                <>
-                                <div key={item.id} onClick={() => setColor(item)} onMouseOver={() => setColor(item)}>
-
-                                <i
-                                className="fa-solid fa-circle"
-                                style={{color: `${item.color}`}}
-                                >
-                                </i>
-
-                                </div>
-                                </>
-                            ))
-                        }
+                    <div className="product-info">
+                        <div className="product-name">{`${productType.name}`}</div>
+                        <div>${`${productType.price}`}</div>
+                        <div>COLOR
+                            {productType.products.map(item => (
+                                    <>
+                                        <div key={item.id} onClick={() => setColor(item)} onMouseOver={() => setColor(item)}>
+                                            <i className="fa-solid fa-circle" style={{ color: `${item.color}` }}></i>
+                                        </div>
+                                    </>
+                                ))}
+                        </div>
+                        <div>DESCRIPTION
+                            <div>{`${productType.description}`}</div>
+                        </div>
                     </div>
-                </div>
                 </div>
             </div>
         )
