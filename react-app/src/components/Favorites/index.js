@@ -25,7 +25,16 @@ function Favorites() {
 
 
   return (
-    <div>Favorites</div>
+    <div>
+      <h1>My Favorites</h1>
+      {
+        favorites.map(fav => (
+          <div>
+            <img className="fav-img" src={`${fav.image}`}></img>
+          </div>
+        ))
+      }
+    </div>
   )
 }
 

@@ -42,3 +42,6 @@ class Product(db.Model):
 
     def to_dict_simple(self):
         return self.product_type_id
+
+    def to_dict_image(self):
+        return self.image1

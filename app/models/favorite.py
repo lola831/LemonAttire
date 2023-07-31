@@ -22,5 +22,6 @@ class Favorite(db.Model):
             'id': self.id,
             'user_id': self.user_id,
             'product_id': self.product_id,
-            'product_type_id': self.product.to_dict_simple()
+            'product_type_id': self.product.to_dict_simple(),
+            'image': self.product.to_dict_image()
         }

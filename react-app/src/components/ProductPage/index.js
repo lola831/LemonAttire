@@ -21,6 +21,8 @@ const ProductPage = () => {
     const [color, setColor] = useState("")
     const [item, setItem] = useState("")
 
+    let index = 0;
+
 
     useEffect(() => {
         dispatch(getProductType(id));
@@ -44,8 +46,8 @@ const ProductPage = () => {
     useEffect(() => {
         if (user && favorites.length) {
             for (let i = 0; i < favorites.length; i++) {
-                console.log("id: ",favorites[i].product_type_id)
-                console.log("id: ",id)
+                console.log("id: ", favorites[i].product_type_id)
+                console.log("id: ", id)
                 if (favorites[i].product_type_id == id) {
                     setFavorite(true)
                 }
@@ -55,8 +57,10 @@ const ProductPage = () => {
     }, [favorites, id, user]);
 
     const addFav = () => {
-        let productId = 0;
-        if (color) productId = color.id;
+        let productId = 1;
+        if (index != 0) productId = index;
+        console.log("PRODUCT ID: ", productId)
+        console.log("PRODUCT TYPE ID: ", productType.id)
         dispatch(addFavorites(productType.id, productId))
             .then(() => dispatch(getUserFavorites()))
             .then(() => setFavorite(true))
@@ -66,15 +70,15 @@ const ProductPage = () => {
     const deleteFav = () => {
         let favId;
         for (let i = 0; i < favorites.length; i++) {
-            if(favorites[i].product_type_id == id) {
+            if (favorites[i].product_type_id == id) {
                 favId = favorites[i].id
             }
         }
         // console.log("hereeeee, ", favId)
-                dispatch(deleteFavorites(favId))
-                    .then(() => dispatch(getUserFavorites()))
-                    .then(() => setFavorite(false))
-                    .catch((error) => console.log("Error deleting favorite: ", error));
+        dispatch(deleteFavorites(favId))
+            .then(() => dispatch(getUserFavorites()))
+            .then(() => setFavorite(false))
+            .catch((error) => console.log("Error deleting favorite: ", error));
 
     };
 
@@ -139,7 +143,7 @@ const ProductPage = () => {
             return <div>Loading favorites....</div>
         }
 
-        let index = 0;
+        // let index = 0;
         if (color) index = color.id - 1;
         console.log("INDEX: ", index)
         console.log("ITEM: ", item)
@@ -150,42 +154,46 @@ const ProductPage = () => {
                     <div className="product-img-container">
                         <div className="product-small-area">
                             {imagesArray[index].map((img, i) => (
-                                <img className="product-img-small" src={`${img}`} onMouseOver={() => setItem(i)}></img>
+                                <img key={i} className="product-img-small" src={`${img}`} onMouseOver={() => setItem(i)}></img>
                             ))}
                         </div>
                         <div className="product-img-big-container">
-                        <img className="product-img-big" src={item ? `${imagesArray[index][item]}` : `${imagesArray[index][0]}`}></img>
-                        {
-                            user && (
-                                <>
-                                    {
-                                        favorite ? (
-                                            <button className="fav-button" onClick={deleteFav}>
-                                                <i className="fa-solid fa-heart"></i>
-                                            </button>
-                                        ) : (
-                                            <button className="fav-button" onClick={addFav}>
-                                                <i className="far fa-heart"></i>
-                                            </button>
-                                        )
-                                    }
-                                </>
-                            )
-                        }
+                            <img className="product-img-big" src={item ? `${imagesArray[index][item]}` : `${imagesArray[index][0]}`}></img>
+                            {
+                                user && (
+                                    <>
+                                        {
+                                            favorite ? (
+                                                <button className="fav-button" onClick={deleteFav}>
+                                                    <i className="fa-solid fa-heart"></i>
+                                                </button>
+                                            ) : (
+                                                <button className="fav-button" onClick={addFav}>
+                                                    <i className="far fa-heart"></i>
+                                                </button>
+                                            )
+                                        }
+                                    </>
+                                )
+                            }
                         </div>
                     </div>
                     <div className="product-info">
                         <div className="product-name">{`${productType.name}`}</div>
                         <div>${`${productType.price}`}</div>
-                        <div>COLOR
-                            {productType.products.map(item => (
-                                    <>
-                                        <div key={item.id} onClick={() => setColor(item)} onMouseOver={() => setColor(item)}>
-                                            <i className="fa-solid fa-circle" style={{ color: `${item.color}` }}></i>
-                                        </div>
-                                    </>
-                                ))}
-                        </div>
+                        {
+                            productType.products.length > 1 && (
+                                <>
+                                    {productType.products.map(item => (
+                                        <>
+                                            <div key={item.id} onClick={() => setColor(item)} onMouseOver={() => setColor(item)}>
+                                                <i className="fa-solid fa-circle" style={{ color: `${item.color}` }}></i>
+                                            </div>
+                                        </>
+                                    ))}
+                                </>
+                            )
+                        }
                         <div>DESCRIPTION
                             <div>{`${productType.description}`}</div>
                         </div>
