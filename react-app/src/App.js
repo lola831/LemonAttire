@@ -7,6 +7,7 @@ import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
 import HomePage from "./components/HomePage";
 import Account from "./components/Account";
+import Favorites from "./components/Favorites";
 import { applyMiddleware } from "redux";
 import AllProducts from "./components/AllProducts";
 import ProductPage from "./components/ProductPage";
@@ -43,6 +44,9 @@ function App() {
           </Route>
           <Route exact path="/shop/:id">
             <ProductPage />
+          </Route>
+          <Route path="/favorites">
+            <Favorites />
           </Route>
 
         </Switch>

@@ -22,6 +22,7 @@ export const deleteFavorite = (favorite) => ({
 
 // Thunks
 export const getUserFavorites = () => async (dispatch) => {
+    console.log("in thunk")
     const response = await fetch(`/api/favorites/current`, {
         headers: {
             'Content-Type': 'application/json'
@@ -29,6 +30,7 @@ export const getUserFavorites = () => async (dispatch) => {
     });
     if (response.ok) {
         const favorites = await response.json();
+        console.log("in thunk response, ", favorites)
         dispatch(loadUserFavorites(favorites));
         return favorites;
     }
