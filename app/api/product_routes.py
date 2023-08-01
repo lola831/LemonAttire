@@ -2,6 +2,7 @@ from flask import Blueprint, request, jsonify
 from flask_login import login_required, current_user
 from app.models import Product, Review, Favorite, db
 from app.forms import ReviewForm
+from app.forms import FavoriteForm
 
 product_routes = Blueprint('product_types/<int:product_types_id>/products', __name__)
 
@@ -69,12 +70,30 @@ def product_favs(product_type_id, product_id):
 @product_routes.route('/<int:product_id>/favorites', methods=['POST'])
 @login_required
 def create_fav(product_type_id, product_id):
+    print("==============================================================>")
+    print("PRODUCTTTTT TYPPPPPEEEEEE IDDDDDD", product_type_id)
+    print("PRODUCT IDDDDDDDDDDDDD", product_id)
+    image = request.get_json()
+    print("IMAAAAGEEEEEEEE", image)
     """
     Creates a new favorite
     """
+    # form = FavoriteForm()
+    # form['csrf_token'].data = request.cookies['csrf_token']
+    # if form.validate_on_submit():
+    #     fav = Favorite(user_id=form['userId'].data,
+    #                       product_id=form['productId'].data)
+    #     db.session.add(fav)
+    #     db.session.commit()
+    #     return fav.to_dict()
+    # else:
+    #     return {'errors': validation_errors_to_error_messages(form.errors)}, 400
+    print("user id: ", current_user.id)
     fav = Favorite(
-        user_id= current_user.id,
-        product_id= product_id,
+        user_id=current_user.id,
+        product_id=product_id,
+        product_type_id=product_type_id,
+        image=image['image'],
     )
     db.session.add(fav)
     db.session.commit()

@@ -59,9 +59,11 @@ const ProductPage = () => {
     const addFav = () => {
         let productId = 1;
         if (index != 0) productId = index;
+        let image = productType.products[productId-1].image1
         console.log("PRODUCT ID: ", productId)
         console.log("PRODUCT TYPE ID: ", productType.id)
-        dispatch(addFavorites(productType.id, productId))
+        console.log("IMAGGEEEE, ", image)
+        dispatch(addFavorites(productType.id, productId, image))
             .then(() => dispatch(getUserFavorites()))
             .then(() => setFavorite(true))
             .catch((error) => console.log("Error adding favorite: ", error));
@@ -74,7 +76,6 @@ const ProductPage = () => {
                 favId = favorites[i].id
             }
         }
-        // console.log("hereeeee, ", favId)
         dispatch(deleteFavorites(favId))
             .then(() => dispatch(getUserFavorites()))
             .then(() => setFavorite(false))
@@ -90,8 +91,6 @@ const ProductPage = () => {
             images = products[i].images.filter(Boolean)
             imagesArray.push(images)
         }
-        console.log("images array", imagesArray)
-        console.log("COLOR: ", color)
 
         // let reviews = "Reviews";
         // if (restaurant.reviews.length === 1) reviews = "Review";

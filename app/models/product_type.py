@@ -18,6 +18,7 @@ class ProductType(db.Model):
 
     category = db.relationship('Category', back_populates="product_types")
     products = db.relationship("Product", cascade="all, delete-orphan", back_populates="product_type")
+    favorites = db.relationship("Favorite", cascade="all, delete-orphan", back_populates="product_type")
 
     def to_dict(self):
         return {
@@ -37,5 +38,3 @@ class ProductType(db.Model):
             'price': self.price,
             'category': self.category.to_dict_name()
         }
-
-  

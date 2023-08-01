@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, NavLink, Redirect } from "react-router-dom";
-import { getUserFavorites } from "../../store/favorites";
+import { getUserFavorites, deleteFavorites } from "../../store/favorites";
 import "./Favorites.css"
 
 
@@ -23,6 +23,14 @@ function Favorites() {
         <Redirect to='/login'></Redirect>
     )
 
+    const deleteFav = (favId) => {
+      dispatch(deleteFavorites(favId))
+          .catch((error) => console.log("Error deleting favorite: ", error));
+
+  };
+
+
+
 
   return (
     <div>
@@ -31,6 +39,8 @@ function Favorites() {
         favorites.map(fav => (
           <div>
             <img className="fav-img" src={`${fav.image}`}></img>
+            <i className="fa-solid fa-x" onClick={() => deleteFav(fav.id)}></i>
+
           </div>
         ))
       }

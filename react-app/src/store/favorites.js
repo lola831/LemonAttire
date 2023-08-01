@@ -36,15 +36,19 @@ export const getUserFavorites = () => async (dispatch) => {
     }
 }
 
-export const addFavorites = (productTypeId, productId) => async (dispatch) => {
+export const addFavorites = (productTypeId, productId, image) => async (dispatch) => {
+    console.log("in thunk, product id = ", productId)
+    console.log("in thunk, product type id", productTypeId)
+    console.log("in thunk, product image", image)
     const response = await fetch(`/api/product_types/${productTypeId}/products/${productId}/favorites`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ productTypeId, productId })
+        body: JSON.stringify({image: image})
     });
 
     if (response.ok) {
         const favorite = await response.json();
+        console.log("response!!!!! ", favorite)
         dispatch(addFavorite(favorite));
         return favorite;
     }
