@@ -71,10 +71,22 @@
     cursor: pointer;
 }
 
+.color-container {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
 .color-options {
     background-color: aqua;
     height: 20px;
     width: 20px;
+}
+
+.size-container {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
 }
 
 .circle {
@@ -90,8 +102,8 @@
 }
 
 .color-circle {
-    width: 1.3em;
-    height: 1.3em;
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
     vertical-align: middle;
     border: 1px solid #ddd;
@@ -103,4 +115,22 @@
 
 .color-circle:checked {
     border: solid thin black;
+}
+
+.quantity-container {
+    display: flex;
+    flex-direction: row;
+    height: 20px;
+}
+
+.add, .subtract {
+    width: 25px;
+}
+
+.number {
+    width: 50px;
+    border: thin solid grey;
+    background-color: #ddd;
+    display: flex;
+    justify-content: center;
 }

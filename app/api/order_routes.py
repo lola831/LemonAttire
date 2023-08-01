@@ -37,7 +37,7 @@ def current_order():
     # curr_user_id = current_user.id
     order = Order.query.filter_by(user_id=current_user.id, status="pending").first()
     if order is None:
-        return ""
+        return {}
     else:
         return order.to_dict()
 

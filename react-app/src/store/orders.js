@@ -29,16 +29,13 @@ export const deleteOrder = (order) => ({
 // Thunks
 export const getCurrentOrder = () => async (dispatch) => {
     console.log("in thunk")
-    const response = await fetch(`/api/orders/current/pending`, {
-        headers: {
-            'Content-Type': 'application/json'
-        },
-    });
+    const response = await fetch(`/api/orders/current/pending`);
     if (response.ok) {
+        console.log("IN RESSSPONSSSEEEEEEEEE")
         const order = await response.json();
         console.log("in thunk response, ", order)
         dispatch(currentOrder(order));
-        return order;
+        return response;
     }else {
         return response;
     }
@@ -117,16 +114,19 @@ export const removeOrder = (orderId) => async (dispatch) => {
     //    }
 }
 
-const initialState = [];
+const initialState = {};
 
 const ordersReducer = (state = initialState, action) => {
+    let newState;
     switch (action.type) {
       case GET_USER_ORDERS: {
           return action.payload.orders;
         }
-      case GET_CURRENT_ORDER: {
-          return action.payload.order;
-        }
+      case GET_CURRENT_ORDER:
+        newState = {...state};
+        console.log("ACTION PAYLOAD: ", action.payload)
+        newState = action.payload;
+        return newState;
       case ADD_ORDER: {
         return [...state, action.payload];
       }

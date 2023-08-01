@@ -87,7 +87,7 @@ export const removeOrderItem = (orderId, orderItemId) => async (dispatch) => {
     return response;
 }
 
-const initialState = [];
+const initialState = {};
 
 const orderItemsReducer = (state = initialState, action) => {
     switch (action.type) {

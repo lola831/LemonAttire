@@ -6,6 +6,8 @@ import { getProductType } from "../../store/productType";
 // import DeleteReviewForm from "../../Reviews/DeleteReview";
 // import ReservationForm from "../../ReservationForm";
 import { getUserFavorites, addFavorites, deleteFavorites } from "../../store/favorites";
+import { getCurrentOrder } from "../../store/orders";
+import { newOrderItem } from "../../store/orderItems";
 
 // import OpenModalButton from "../OpenModalButton";
 import AddOrderItem from "../AddOrderItem";
@@ -18,18 +20,23 @@ const ProductPage = () => {
     const productType = useSelector(state => state.productType);
     const favorites = useSelector(state => state.favorites);
     const user = useSelector(state => state.session.user);
+    const order = useSelector(state => state.orders)
     const [loadingFavorites, setLoadingFavorites] = useState(true);
     const [favorite, setFavorite] = useState(false);
     const [item, setItem] = useState("")
     const [size, setSize] = useState("")
     const [imageIndex, setImageIndex] = useState("")
     const [orderItem, setOrderItem] = useState({})
-
+    const [quantity, setQuantity] = useState(1)
+    const addOne = () => setQuantity(quantity + 1)
+    const minusOne = () => setQuantity(quantity - 1)
 
     let index = 0;
 
     useEffect(() => {
         dispatch(getProductType(id));
+        dispatch(getCurrentOrder())
+
         if (user) {
             dispatch(getUserFavorites())
                 .then(() => setLoadingFavorites(false))
@@ -46,17 +53,15 @@ const ProductPage = () => {
     console.log("favorites: ", favorites)
     console.log("USER: ", user)
     console.log("ITEM: ", item)
+    console.log("ORDER: ", order)
 
     // checks if product is in user's favorites
     useEffect(() => {
         if (user && favorites.length) {
             for (let i = 0; i < favorites.length; i++) {
-                console.log("id: ", favorites[i].product_type_id)
-                console.log("id: ", id)
                 if (favorites[i].product_type_id == id) {
                     setFavorite(true)
                 }
-                console.log("FAVORITE???? ", favorite)
             }
         }
     }, [favorites, id, user]);
@@ -65,9 +70,6 @@ const ProductPage = () => {
         let productId = 1;
         if (index != 0) productId = index;
         let image = productType.products[productId-1].image1
-        console.log("PRODUCT ID: ", productId)
-        console.log("PRODUCT TYPE ID: ", productType.id)
-        console.log("IMAGGEEEE, ", image)
         dispatch(addFavorites(productType.id, productId, image))
             .then(() => dispatch(getUserFavorites()))
             .then(() => setFavorite(true))
@@ -88,8 +90,19 @@ const ProductPage = () => {
 
     };
 
-    const addItem = () => {
 
+
+    const addItem = () => {
+        // create order item
+        const itemData = {
+
+        }
+        dispatch(newOrderItem())
+
+        if (!Object.keys(order).length){
+            // no order
+
+        }
     }
 
     if (Object.keys(productType).length) {
@@ -100,8 +113,6 @@ const ProductPage = () => {
         // }
 
         console.log("ORDER ITEMMMMMM: ", orderItem)
-
-
 
         let images;
         let imagesArray = [];
@@ -114,10 +125,7 @@ const ProductPage = () => {
             return <div>Loading favorites....</div>
         }
 
-        // let index = 0;
         if (item) index = item.id - 1;
-        console.log("INDEX: ", index)
-        console.log("IMAGEINDEX: ", imageIndex)
 
         return (
             <div className="product-page-container">
@@ -154,7 +162,7 @@ const ProductPage = () => {
                         <div>${`${productType.price}`}</div>
                         {
                             productType.products.length > 1 && (
-                                <>
+                                <div className="color-container">
                                     {productType.products.map(item => (
                                         <>
                                             <div className="color-options" key={item.id} onMouseOver={() => setItem(item)}>
@@ -162,12 +170,26 @@ const ProductPage = () => {
                                             </div>
                                         </>
                                     ))}
-                                </>
+                                </div>
                             )
                         }
+                        <div className="size-container">
                         <button className="circle" onClick={() => setSize("Small")}>S</button>
                         <button className="circle" onClick={() => setSize("Medium")}>M</button>
                         <button className="circle" onClick={() => setSize("Large")}>L</button>
+                        </div>
+
+                        <div className="quantity-container">
+                        <div>Qty: </div>
+                        <button className="add" disabled={quantity >= 10 ? true : false} onClick={addOne}>
+                        <i className="fa-solid fa-plus"></i>
+                        </button>
+                        <div className="number">{`${quantity}`}</div>
+                        <button className="subtract"disabled={quantity <= 0 ? true : false} onClick={minusOne}>
+                        <i class="fa-solid fa-minus"></i>
+                        </button>
+                        </div>
+
                         <button onClick={addItem} >ADD TO BAG</button>
                         <div>DESCRIPTION
                             <div>{`${productType.description}`}</div>
