@@ -27,16 +27,19 @@ def all_orders():
     orders = Order.query.all()
     return {'orders': [order.to_dict() for order in orders]}
 
-# GET USER'S LAST ORDER
-@order_routes.route('/current/last')
+# GET USER'S CURRENT ORDER
+@order_routes.route('/current/pending')
 @login_required
-def last_order():
+def current_order():
     """
-    Query for user's last order and returns that order in a dictionary
+    Query for user's current order and returns that order in a dictionary
     """
     # curr_user_id = current_user.id
-    order = Order.query.filter_by(user_id=current_user.id).first()
-    return order.to_dict()
+    order = Order.query.filter_by(user_id=current_user.id, status="pending").first()
+    if order is None:
+        return ""
+    else:
+        return order.to_dict()
 
 # GET ALL USER'S ORDERS
 @order_routes.route('/current')

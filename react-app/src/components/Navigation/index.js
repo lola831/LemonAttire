@@ -81,6 +81,11 @@ function Navigation({ isLoaded }) {
 											</NavLink>
 										</li>
 										<li className='nav-item'>
+											<NavLink to='/checkout' className="nav-links" onClick={closeMobileMenu}>
+												My Bag
+											</NavLink>
+										</li>
+										<li className='nav-item'>
 											<NavLink to='/account' className="nav-links" onClick={handleLogout}>
 												Log out
 											</NavLink>

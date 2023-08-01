@@ -4,9 +4,11 @@ import { useParams } from "react-router-dom";
 import { getProductType } from "../../store/productType";
 // import EditReviewForm from "../../Reviews/EditReview";
 // import DeleteReviewForm from "../../Reviews/DeleteReview";
-// import OpenModalButton from "../../OpenModalButton";
 // import ReservationForm from "../../ReservationForm";
 import { getUserFavorites, addFavorites, deleteFavorites } from "../../store/favorites";
+
+// import OpenModalButton from "../OpenModalButton";
+import AddOrderItem from "../AddOrderItem";
 import './ProductPage.css'
 import "../../App.css";
 
@@ -18,11 +20,13 @@ const ProductPage = () => {
     const user = useSelector(state => state.session.user);
     const [loadingFavorites, setLoadingFavorites] = useState(true);
     const [favorite, setFavorite] = useState(false);
-    const [color, setColor] = useState("")
     const [item, setItem] = useState("")
+    const [size, setSize] = useState("")
+    const [imageIndex, setImageIndex] = useState("")
+    const [orderItem, setOrderItem] = useState({})
+
 
     let index = 0;
-
 
     useEffect(() => {
         dispatch(getProductType(id));
@@ -41,6 +45,7 @@ const ProductPage = () => {
     console.log("PRODUCT TYPE: ", productType)
     console.log("favorites: ", favorites)
     console.log("USER: ", user)
+    console.log("ITEM: ", item)
 
     // checks if product is in user's favorites
     useEffect(() => {
@@ -83,8 +88,21 @@ const ProductPage = () => {
 
     };
 
+    const addItem = () => {
+
+    }
+
     if (Object.keys(productType).length) {
         let products = productType.products
+
+        // if (products.length < 2 ) {
+        //     setOrderItem(products[0])
+        // }
+
+        console.log("ORDER ITEMMMMMM: ", orderItem)
+
+
+
         let images;
         let imagesArray = [];
         for (let i = 0; i < products.length; i++) {
@@ -92,60 +110,14 @@ const ProductPage = () => {
             imagesArray.push(images)
         }
 
-        // let reviews = "Reviews";
-        // if (restaurant.reviews.length === 1) reviews = "Review";
-
-        // star rating
-        // const fullStars = Math.floor(restaurant.averageRating);
-        // const starArr = [];
-        // for (let i = 1; i <= fullStars; i++) {
-        //     starArr.push(1);
-        // }
-        // if (restaurant.averageRating < 5) {
-        //     const partialStar = restaurant.averageRating - fullStars;
-        //     starArr.push(partialStar);
-        //     const emptyStars = 5 - starArr.length;
-        //     for (let i = 1; i <= emptyStars; i++) {
-        //         starArr.push(0);
-        //     }
-        // }
-
-        // const monthNames = ["January", "February", "March", "April", "May", "June",
-        // "July", "August", "September", "October", "November", "December"
-        // ];
-
-        // const convertDate = (date) => {
-        //     const month = monthNames[new Date(date).getMonth()];
-        //     const year = new Date(date).getFullYear();
-
-        //     return (
-        //         <p className="reviews-date">{month} {year}</p>
-        //     )
-        // }
-
-        // const makeStars = (rating) => {
-        //     const starArr = [];
-        //     for (let i = 1; i <= 5; i++) {
-        //         if (i <= rating) {
-        //             starArr.push(<i key={i} className='fa-solid fa-star '></i>);
-        //         } else {
-        //             starArr.push(<i key={i} className='fa-regular fa-star'></i>);
-        //         }
-        //     }
-        //     return starArr;
-        // }
-
-
-
-        // console.log("STARRRRR", starArr)
         if (loadingFavorites && !user) {
             return <div>Loading favorites....</div>
         }
 
         // let index = 0;
-        if (color) index = color.id - 1;
+        if (item) index = item.id - 1;
         console.log("INDEX: ", index)
-        console.log("ITEM: ", item)
+        console.log("IMAGEINDEX: ", imageIndex)
 
         return (
             <div className="product-page-container">
@@ -153,11 +125,11 @@ const ProductPage = () => {
                     <div className="product-img-container">
                         <div className="product-small-area">
                             {imagesArray[index].map((img, i) => (
-                                <img key={i} className="product-img-small" src={`${img}`} onMouseOver={() => setItem(i)}></img>
+                                <img key={i} className="product-img-small" src={`${img}`} onMouseOver={() => setImageIndex(i)}></img>
                             ))}
                         </div>
                         <div className="product-img-big-container">
-                            <img className="product-img-big" src={item ? `${imagesArray[index][item]}` : `${imagesArray[index][0]}`}></img>
+                            <img className="product-img-big" src={imageIndex ? `${imagesArray[index][imageIndex]}` : `${imagesArray[index][0]}`}></img>
                             {
                                 user && (
                                     <>
@@ -185,14 +157,18 @@ const ProductPage = () => {
                                 <>
                                     {productType.products.map(item => (
                                         <>
-                                            <div key={item.id} onClick={() => setColor(item)} onMouseOver={() => setColor(item)}>
-                                                <i className="fa-solid fa-circle" style={{ color: `${item.color}` }}></i>
+                                            <div className="color-options" key={item.id} onMouseOver={() => setItem(item)}>
+                                            <input type="checkbox" className="color-circle" key={item.id} style={{ backgroundColor: `${item.color}` }} onClick={() => setItem(item)} onMouseOver={() => setItem(item)}></input>
                                             </div>
                                         </>
                                     ))}
                                 </>
                             )
                         }
+                        <button className="circle" onClick={() => setSize("Small")}>S</button>
+                        <button className="circle" onClick={() => setSize("Medium")}>M</button>
+                        <button className="circle" onClick={() => setSize("Large")}>L</button>
+                        <button onClick={addItem} >ADD TO BAG</button>
                         <div>DESCRIPTION
                             <div>{`${productType.description}`}</div>
                         </div>
