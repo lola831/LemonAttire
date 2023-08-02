@@ -36,6 +36,7 @@ def add_order_item(order_id):
     """
     Creates a new order item
     """
+
     form = OrderItemForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():

@@ -64,27 +64,30 @@ export const getUserOrders = () => async (dispatch) => {
     }
 }
 
-export const newOrder = data => async dispatch => {
-    console.log("in thunk, data", data)
+export const newOrder = (orderData, itemData) => async dispatch => {
+    console.log("in thunk, data", orderData)
     const response = await fetch('/api/orders/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
+        body: JSON.stringify(orderData)
     });
 
     if (response.ok) {
         const order = await response.json();
         console.log("response!!!!! ", order)
         dispatch(addOrder(order));
+        dispatch(newOrderItem(itemData, order.id))
         return order;
     }else {
+
         return response;
     }
 }
 
 export const newOrderItem = (data, orderId) => async dispatch => {
-    console.log("in thunk, data = ", data)
+    console.log("in new order item thunk, data = ", data)
     console.log("ORDER ID: ", orderId)
+    console.log("item DATA: ", data)
 
     const response = await fetch(`/api/orders/${orderId}/order_items/`, {
         method: 'POST',
@@ -94,10 +97,11 @@ export const newOrderItem = (data, orderId) => async dispatch => {
 
     if (response.ok) {
         const orderItem = await response.json();
-        console.log("response!!!!! ", orderItem)
+        console.log("ORDER ITEM response!!!!! ", orderItem)
         dispatch(addOrderItem(orderItem));
         return orderItem;
     }else {
+        console.log("EERROR: ", response)
         return response
     }
 }

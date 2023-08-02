@@ -64,7 +64,7 @@ def create_order():
     if form.validate_on_submit():
         order = Order(
             status=form.data['status'],
-            total_price=form.data['total_price'],
+            # total_price=0.00,
             user_id=current_user.id
         )
         db.session.add(order)

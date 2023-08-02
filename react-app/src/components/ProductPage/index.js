@@ -96,19 +96,6 @@ const ProductPage = () => {
     const addItem = () => {
 
 
-        if (!Object.keys(order).length){
-            // order doesnt exist and must create new one
-            let orderData = {
-                status: "pending",
-                total_price: productType.price * quantity
-            }
-
-            dispatch(newOrder(orderData))
-            dispatch(getCurrentOrder())
-        }
-        console.log("AFTER CREATING ORDER DISPATCH GET CURRENT ORDER: ", order)
-
-
         let itemData = {
             product_id: item ? item.id : productType.products[0].id,
             product_type_id: productType.id,
@@ -116,20 +103,23 @@ const ProductPage = () => {
             quantity: quantity,
             color: item ? item.color: productType.products[0].color,
             size: item ? size : productType.products[0].size,
-            image: item ? item.image1 : productType.products[0].image1
-
+            image: item ? item.image1 : productType.products[0].image1,
+            name: productType.name
         }
-        console.log(itemData)
 
-        dispatch(newOrderItem(itemData, order.id))
+        if (!Object.keys(order).length){
+            // order doesnt exist and must create new one
+            let orderData = {status: "pending"}
+
+            dispatch(newOrder(orderData, itemData))
+
+        }else {
+            dispatch(newOrderItem(itemData, order.id))
+        }
     }
 
     if (Object.keys(productType).length) {
         let products = productType.products
-
-        // if (products.length < 2 ) {
-        //     setOrderItem(products[0])
-        // }
 
         console.log("ORDER ITEMMMMMM: ", orderItem)
 

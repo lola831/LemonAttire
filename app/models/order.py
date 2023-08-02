@@ -10,7 +10,7 @@ class Order(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     status = db.Column(db.String(40), nullable=False)
-    total_price = db.Column(db.Float, nullable=False)
+    total_price = db.Column(db.Float, nullable=True)
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     updated_at = db.Column(db.DateTime, default=datetime.utcnow)
