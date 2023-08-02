@@ -50,6 +50,8 @@ def add_order_item(order_id):
             total_price = total_price,
             color = form.data['color'],
             size = form.data['size'],
+            image = form.data['image'],
+            name = form.data['name']
         )
         db.session.add(order_item)
         db.session.commit()

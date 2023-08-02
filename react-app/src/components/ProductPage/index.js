@@ -115,7 +115,9 @@ const ProductPage = () => {
             price: productType.price,
             quantity: quantity,
             color: item ? item.color: productType.products[0].color,
-            size: item ? size : productType.products[0].size
+            size: item ? size : productType.products[0].size,
+            image: item ? item.image1 : productType.products[0].image1
+
         }
         console.log(itemData)
 

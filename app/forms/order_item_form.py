@@ -10,3 +10,5 @@ class OrderItemForm(FlaskForm):
     quantity = IntegerField('quantity', validators=[DataRequired()])
     color = StringField('color', validators=[DataRequired()])
     size = StringField('size', validators=[DataRequired()])
+    image = StringField('image', validators=[DataRequired()])
+    name = StringField('name', validators=[DataRequired()])

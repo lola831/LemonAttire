@@ -12,7 +12,9 @@ def seed_order_items():
         quantity=1,
         total_price=24.00,
         color="Pink",
-        size="Small"
+        size="Small",
+        image="https://img.tobi.com/product_images/md/1/pink-jake-ribbed-knit-crop-top@2x.jpg",
+        name="Jay Ribbed Knit Crop Top"
 )
 
     db.session.add(order1)

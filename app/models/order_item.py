@@ -17,6 +17,8 @@ class OrderItem(db.Model):
     total_price = db.Column(db.Float, nullable=False)
     color = db.Column(db.String(50), nullable=False)
     size = db.Column(db.String(50), nullable=False)
+    image = db.Column(db.String(225), nullable=False)
+    name = db.Column(db.String(50), nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     updated_at = db.Column(db.DateTime, default=datetime.utcnow)
 
@@ -35,4 +37,6 @@ class OrderItem(db.Model):
             'total_price': self.total_price,
             'color': self.color,
             'size': self.size,
+            'image': self.image,
+            'name': self.name
         }
