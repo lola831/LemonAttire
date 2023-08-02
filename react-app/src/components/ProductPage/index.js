@@ -8,6 +8,7 @@ import { getProductType } from "../../store/productType";
 import { getUserFavorites, addFavorites, deleteFavorites } from "../../store/favorites";
 import { getCurrentOrder } from "../../store/orders";
 import { newOrderItem } from "../../store/orderItems";
+import { newOrder } from "../../store/orders";
 
 // import OpenModalButton from "../OpenModalButton";
 import AddOrderItem from "../AddOrderItem";
@@ -93,16 +94,31 @@ const ProductPage = () => {
 
 
     const addItem = () => {
-        // create order item
-        const itemData = {
 
-        }
-        dispatch(newOrderItem())
 
         if (!Object.keys(order).length){
-            // no order
+            // order already exists!
+            let orderData = {
+                status: "pending",
+                total_price: productType.price * quantity
+            }
 
+            dispatch(newOrder(orderData))
+            dispatch(getCurrentOrder())
         }
+        console.log("AFTER CREATING ORDER DISPATCH GET CURRENT ORDER: ", order)
+
+        let itemData = {
+            product_id: item.id,
+            product_type_id: productType.id,
+            price: productType.price,
+            quantity: quantity,
+            color: item.color,
+            size: size
+        }
+        console.log(itemData)
+
+        dispatch(newOrderItem(itemData, order.id))
     }
 
     if (Object.keys(productType).length) {

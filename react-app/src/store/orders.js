@@ -60,7 +60,7 @@ export const getUserOrders = () => async (dispatch) => {
 
 export const newOrder = data => async dispatch => {
     console.log("in thunk, data", data)
-    const response = await fetch(`/api/orders`, {
+    const response = await fetch('/api/orders/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
@@ -128,7 +128,9 @@ const ordersReducer = (state = initialState, action) => {
         newState = action.payload;
         return newState;
       case ADD_ORDER: {
-        return [...state, action.payload];
+        newState = {...state};
+        newState = action.payload
+        return newState;
       }
       case DELETE_ORDER: {
         return state.filter((order) => order.id !== action.payload);

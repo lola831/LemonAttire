@@ -40,12 +40,14 @@ def add_order_item(order_id):
     if form.validate_on_submit():
         total_price = form.data['price'] * form.data['quantity']
         order_item = OrderItem(
-            quantity=form.data['quantity'],
-            price = form.data['price'],
-            total_price = total_price,
             order_id = order_id,
-            product_id = form.data['product_id'] # OR?? product_id from param args passed into func?
-
+            product_id = form.data['product_id'],
+            product_type_id=form.data['product_type_id'],
+            price = form.data['price'],
+            quantity=form.data['quantity'],
+            total_price = total_price,
+            color = form.data['color'],
+            size = form.data['size'],
         )
         db.session.add(order_item)
         db.session.commit()
