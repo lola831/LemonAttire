@@ -7,7 +7,7 @@ import { getProductType } from "../../store/productType";
 // import ReservationForm from "../../ReservationForm";
 import { getUserFavorites, addFavorites, deleteFavorites } from "../../store/favorites";
 import { getCurrentOrder } from "../../store/orders";
-import { newOrderItem } from "../../store/orderItems";
+import { newOrderItem } from "../../store/orders";
 import { newOrder } from "../../store/orders";
 
 // import OpenModalButton from "../OpenModalButton";
@@ -36,9 +36,9 @@ const ProductPage = () => {
 
     useEffect(() => {
         dispatch(getProductType(id));
-        dispatch(getCurrentOrder())
 
         if (user) {
+            dispatch(getCurrentOrder())
             dispatch(getUserFavorites())
                 .then(() => setLoadingFavorites(false))
                 .catch((error) => {
@@ -60,7 +60,7 @@ const ProductPage = () => {
     useEffect(() => {
         if (user && favorites.length) {
             for (let i = 0; i < favorites.length; i++) {
-                if (favorites[i].product_type_id == id) {
+                if (favorites[i].product_type_id === id) {
                     setFavorite(true)
                 }
             }
@@ -69,7 +69,7 @@ const ProductPage = () => {
 
     const addFav = () => {
         let productId = 1;
-        if (index != 0) productId = index;
+        if (index !== 0) productId = index;
         let image = productType.products[productId-1].image1
         dispatch(addFavorites(productType.id, productId, image))
             .then(() => dispatch(getUserFavorites()))
@@ -80,7 +80,7 @@ const ProductPage = () => {
     const deleteFav = () => {
         let favId;
         for (let i = 0; i < favorites.length; i++) {
-            if (favorites[i].product_type_id == id) {
+            if (favorites[i].product_type_id === id) {
                 favId = favorites[i].id
             }
         }
@@ -97,7 +97,7 @@ const ProductPage = () => {
 
 
         if (!Object.keys(order).length){
-            // order already exists!
+            // order doesnt exist and must create new one
             let orderData = {
                 status: "pending",
                 total_price: productType.price * quantity
@@ -108,13 +108,14 @@ const ProductPage = () => {
         }
         console.log("AFTER CREATING ORDER DISPATCH GET CURRENT ORDER: ", order)
 
+
         let itemData = {
-            product_id: item.id,
+            product_id: item ? item.id : productType.products[0].id,
             product_type_id: productType.id,
             price: productType.price,
             quantity: quantity,
-            color: item.color,
-            size: size
+            color: item ? item.color: productType.products[0].color,
+            size: item ? size : productType.products[0].size
         }
         console.log(itemData)
 

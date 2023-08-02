@@ -43,12 +43,12 @@ function AllProducts() {
 
             <div className='card-container'>
                <Link to={`/shop/${product.id}`} key={product.id}>
-              <img
+              <img alt=""
               className='card-img'
               id="img-change-color"
-              src={color.product_type_id == product.id ? color.image1 : `${product.products[0].image1}`}
-              onMouseOver={e => (color.product_type_id == product.id ? e.currentTarget.src = color.image2 : e.currentTarget.src = `${product.products[0].image2}`)}
-              onMouseOut={e => (color.product_type_id == product.id ? e.currentTarget.src = color.image1 : e.currentTarget.src = `${product.products[0].image1}`)}>
+              src={color.product_type_id === product.id ? color.image1 : `${product.products[0].image1}`}
+              onMouseOver={e => (color.product_type_id === product.id ? e.currentTarget.src = color.image2 : e.currentTarget.src = `${product.products[0].image2}`)}
+              onMouseOut={e => (color.product_type_id === product.id ? e.currentTarget.src = color.image1 : e.currentTarget.src = `${product.products[0].image1}`)}>
               </img>
               </Link>
               <div className='card-name'>{`${product.name}`}</div>

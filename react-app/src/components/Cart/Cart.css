@@ -1,0 +1,16 @@
+.cart-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 20px;
+    align-items: center;
+    background-color: aquamarine;
+}
+
+.order-items-container {
+    background-color: pink;
+    height: 150px;
+    width: 600px;
+}
+
+

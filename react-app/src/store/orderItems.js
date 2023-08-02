@@ -2,7 +2,7 @@
 // Action Types
 const GET_ORDER_ITEM = 'orderItems/GET_ORDER_ITEM'
 const GET_ORDER_ITEMS = 'orderItems/GET_ORDER_ITEMS';
-const ADD_ORDER_ITEM = 'orderItems/ADD_ORDER_ITEM';
+// const ADD_ORDER_ITEM = 'orderItems/ADD_ORDER_ITEM';
 const DELETE_ORDER_ITEM = 'orderItems/DELETE_ORDER_ITEMS';
 
 // Action Creators
@@ -16,10 +16,10 @@ export const getOrderItems = (orderItems) => ({
     payload: orderItems
 });
 
-export const addOrderItem = (orderItem) => ({
-    type: ADD_ORDER_ITEM,
-    payload: orderItem
-});
+// export const addOrderItem = (orderItem) => ({
+//     type: ADD_ORDER_ITEM,
+//     payload: orderItem
+// });
 
 export const deleteOrderItem = (orderItem) => ({
     type: DELETE_ORDER_ITEM,
@@ -59,24 +59,25 @@ export const getOrderItemsThunk = (orderId) => async dispatch => {
 //     }
 // }
 
-export const newOrderItem = (data, orderId) => async dispatch => {
-    console.log("in thunk, data = ", data)
+// export const newOrderItem = (data, orderId) => async dispatch => {
+//     console.log("in thunk, data = ", data)
+//     console.log("ORDER ID: ", orderId)
 
-    const response = await fetch(`/api/orders/${orderId}/order_items`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-    });
+//     const response = await fetch(`/api/orders/${orderId}/order_items/`, {
+//         method: 'POST',
+//         headers: { 'Content-Type': 'application/json' },
+//         body: JSON.stringify(data)
+//     });
 
-    if (response.ok) {
-        const orderItem = await response.json();
-        console.log("response!!!!! ", orderItem)
-        dispatch(addOrderItem(orderItem));
-        return orderItem;
-    }else {
-        return response
-    }
-}
+//     if (response.ok) {
+//         const orderItem = await response.json();
+//         console.log("response!!!!! ", orderItem)
+//         dispatch(addOrderItem(orderItem));
+//         return orderItem;
+//     }else {
+//         return response
+//     }
+// }
 
 export const removeOrderItem = (orderId, orderItemId) => async (dispatch) => {
     const response = await fetch(`/api/orders/${orderId}/order_items/${orderItemId}`, {
@@ -90,6 +91,7 @@ export const removeOrderItem = (orderId, orderItemId) => async (dispatch) => {
 const initialState = {};
 
 const orderItemsReducer = (state = initialState, action) => {
+    let newState;
     switch (action.type) {
       case GET_ORDER_ITEMS: {
           return action.payload.orderItems;
@@ -97,9 +99,11 @@ const orderItemsReducer = (state = initialState, action) => {
       case GET_ORDER_ITEM: {
           return action.payload.orderItem;
         }
-      case ADD_ORDER_ITEM: {
-        return [...state, action.payload];
-      }
+    //   case ADD_ORDER_ITEM: {
+    //     newState = {...state};
+    //     newState = action.payload
+    //     return newState;
+    //   }
       case DELETE_ORDER_ITEM: {
         return state.filter((orderItem) => orderItem.id !== action.payload);
       }

@@ -8,7 +8,7 @@ import Navigation from "./components/Navigation";
 import HomePage from "./components/HomePage";
 import Account from "./components/Account";
 import Favorites from "./components/Favorites";
-import Checkout from "./components/Checkout";
+import Cart from "./components/Cart";
 import { applyMiddleware } from "redux";
 import AllProducts from "./components/AllProducts";
 import ProductPage from "./components/ProductPage";
@@ -50,7 +50,7 @@ function App() {
             <Favorites />
           </Route>
           <Route path="/checkout">
-            <Checkout />
+            <Cart />
           </Route>
 
         </Switch>

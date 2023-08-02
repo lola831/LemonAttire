@@ -3,6 +3,7 @@
 const GET_CURRENT_ORDER = 'orders/GET_CURRENT_ORDER'
 const GET_USER_ORDERS = 'orders/GET_USER_ORDERS';
 const ADD_ORDER = 'orders/ADD_ORDER';
+const ADD_ORDER_ITEM = 'orderItems/ADD_ORDER_ITEM';
 const DELETE_ORDER = 'orders/DELETE_ORDER';
 
 // Action Creators
@@ -19,6 +20,11 @@ export const loadOrders = (orders) => ({
 export const addOrder = (order) => ({
     type: ADD_ORDER,
     payload: order
+});
+
+export const addOrderItem = (orderItem) => ({
+    type: ADD_ORDER_ITEM,
+    payload: orderItem
 });
 
 export const deleteOrder = (order) => ({
@@ -76,6 +82,26 @@ export const newOrder = data => async dispatch => {
     }
 }
 
+export const newOrderItem = (data, orderId) => async dispatch => {
+    console.log("in thunk, data = ", data)
+    console.log("ORDER ID: ", orderId)
+
+    const response = await fetch(`/api/orders/${orderId}/order_items/`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+    });
+
+    if (response.ok) {
+        const orderItem = await response.json();
+        console.log("response!!!!! ", orderItem)
+        dispatch(addOrderItem(orderItem));
+        return orderItem;
+    }else {
+        return response
+    }
+}
+
 export const modifyOrder = (order) => async dispatch => {
     // console.log("HERE")
          const response = await fetch(`/api/orders/${order.id}`, {
@@ -130,6 +156,13 @@ const ordersReducer = (state = initialState, action) => {
       case ADD_ORDER: {
         newState = {...state};
         newState = action.payload
+        return newState;
+      }
+      case ADD_ORDER_ITEM: {
+          newState = {...state};
+          console.log("NEW STATE:  ", newState)
+          newState.orderItems.push(action.payload)
+        // newState = action.payload
         return newState;
       }
       case DELETE_ORDER: {
