@@ -92,7 +92,7 @@ function Cart() {
         <div>TOTAL PRICE: ${order.totalPrice}</div>
         </div>
 
-     
+
             <OpenModalButton
               buttonText="EMPTY BAG"
               modalComponent={<DeleteOrder order={order}/>}
@@ -101,7 +101,16 @@ function Cart() {
       </div>
     )
   } else {
-    return <>Loading...</>
+    return (
+    <div>
+      <div>Your Shopping bag is currently empty.</div>
+      <Link to="/shop">
+        <button>
+          CONTINUE SHOPPING
+        </button>
+      </Link>
+    </div>
+    )
   }
 }
 
