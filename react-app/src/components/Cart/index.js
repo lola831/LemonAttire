@@ -19,9 +19,6 @@ function Cart() {
   console.log("ORDER: ", order)
 
   const addOne = (item) => {
-    // console.log("item before add: ", item)
-    // item.quantity = item.quantity + 1;
-    // item.total_price = item.price * item.quantity;
     let quantity = item.quantity + 1;
     let total_price = item.price * quantity;
     let data = {
@@ -29,15 +26,15 @@ function Cart() {
       total_price
     }
     dispatch(modifyItem(order.id, item.id, data))
-    console.log("DATA: ", data)
-
   }
   const minusOne = (item) => {
-    // console.log("item before add: ", item)
-    // item.quantity = item.quantity + 1;
-    // console.log("item after add: ", item)
-    // // dispatch(modifyItem())
-
+    let quantity = item.quantity - 1;
+    let total_price = item.price * quantity;
+    let data = {
+      quantity,
+      total_price
+    }
+    dispatch(modifyItem(order.id, item.id, data))
   }
 
   if (Object.keys(order).length) {
@@ -62,7 +59,7 @@ function Cart() {
                         <i className="fa-solid fa-plus"></i>
                         </button>
                         <div className="number">{item.quantity}</div>
-                        <button className="subtract" onClick={minusOne(item)}>
+                        <button className="subtract" onClick={() => minusOne(item)}>
                         <i class="fa-solid fa-minus"></i>
                         </button>
                         </div>

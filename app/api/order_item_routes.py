@@ -63,7 +63,6 @@ def add_order_item(order_id):
 @order_item_routes.route('/<int:order_item_id>', methods=['PUT'])
 @login_required
 def edit_order_item(order_id, order_item_id):
-    print("IN BACKENFD ***********************************")
     """
     Edits an order item
     """

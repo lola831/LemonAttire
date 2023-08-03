@@ -6,9 +6,10 @@ import { getProductType } from "../../store/productType";
 // import DeleteReviewForm from "../../Reviews/DeleteReview";
 // import ReservationForm from "../../ReservationForm";
 import { getUserFavorites, addFavorites, deleteFavorites } from "../../store/favorites";
-import { getCurrentOrder } from "../../store/orders";
+import { getCurrentOrder, modifyItem } from "../../store/orders";
 import { newOrderItem } from "../../store/orders";
 import { newOrder } from "../../store/orders";
+
 
 // import OpenModalButton from "../OpenModalButton";
 import AddOrderItem from "../AddOrderItem";
@@ -114,7 +115,25 @@ const ProductPage = () => {
             dispatch(newOrder(orderData, itemData))
 
         }else {
+            //check if item already exists in cart
+            let orderItems = order.orderItems;
+            for (let i = 0; i < orderItems.length; i++) {
+                let item = orderItems[i]
+                if (item.image === itemData.image
+                    && item.size === itemData.size) {
+                        console.log("ALREADY IN CARTTTTTTTTTT")
+                         let quantity = item.quantity + itemData.quantity
+                         let total_price = item.price * quantity
+                         let data = {
+                            quantity,
+                            total_price
+                         }
+                        dispatch(modifyItem(order.id, item.id, data))
+                        return;
+                }
+            }
             dispatch(newOrderItem(itemData, order.id))
+
         }
     }
 

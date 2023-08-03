@@ -199,14 +199,6 @@ const ordersReducer = (state = initialState, action) => {
         let index = newState.orderItems.findIndex(x => x.id === action.payload.id);
         console.log("INDEX: ", index)
         newState.orderItems[index] = action.payload
-        // newState.orderItems.map((item, index) => {
-        //     console.log("ITEM.ID: ", item.id)
-
-        //     if (item.id === action.payload.id) {
-        //         console.log("HERE")
-        //         item[index] = action.payload
-        //     }
-        // })
         return newState;
       }
 
