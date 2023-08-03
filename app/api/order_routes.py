@@ -91,26 +91,36 @@ def edit_order(order_id):
 
     if 'delete' in data.keys():
         print("DELETE--------------------------------")
-        order.total_price -= data["delete"]
+        order.price -= data["delete"]
+        order.tax = (order.price * 7.25) / 100
+        order.total_price = order.price + order.tax
         db.session.commit()
         return order.to_dict()
 
     if 'add' in data.keys():
         print("ADD------------------------", data["add"])
-        order.total_price += data["add"]
+        order.price += data["add"]
+        order.tax = (order.price * 7.25) / 100
+        order.total_price = order.price + order.tax
         db.session.commit()
         return order.to_dict()
 
     if 'minus' in data.keys():
         print("MINUS------------------------", data["minus"])
-        order.total_price -= data["minus"]
+        order.price -= data["minus"]
+        order.tax = (order.price * 7.25) / 100
+        order.total_price = order.price + order.tax
         db.session.commit()
         return order.to_dict()
 
-    if order.total_price is None:
-        order.total_price = data["total_price"]
+    if order.price is None:
+        order.price = data["total_price"]
+        order.tax = (order.price * 7.25) / 100
+        order.total_price = order.price + order.tax
     else:
-        order.total_price += data["total_price"]
+        order.price += data["total_price"]
+        order.tax = (order.price * 7.25) / 100
+        order.total_price = order.price + order.tax
 
 
     db.session.commit()

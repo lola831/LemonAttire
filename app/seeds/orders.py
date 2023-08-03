@@ -5,7 +5,7 @@ from sqlalchemy.sql import text
 # Adds a demo user, you can add other users here if you want
 def seed_orders():
     order1 = Order(
-        status="paid", total_price=12.99, user_id=1 )
+        status="paid", price=12.99, tax=0.94, total_price=13.93, user_id=1 )
 
     db.session.add(order1)
 

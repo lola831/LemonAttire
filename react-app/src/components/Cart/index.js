@@ -85,6 +85,8 @@ function Cart() {
         }
         <div className="order-summary-container">
         <div>ORDER SUMMARY</div>
+        <div>PRICE: ${order.price}</div>
+        <div>TAX: ${order.tax}</div>
         <div>TOTAL PRICE: ${order.totalPrice}</div>
 
         </div>

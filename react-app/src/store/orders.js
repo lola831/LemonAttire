@@ -229,13 +229,10 @@ const ordersReducer = (state = initialState, action) => {
             newState = { ...state };
             console.log("NEW STATE:  ", newState)
             newState.orderItems.push(action.payload)
-            // newState = action.payload
             return newState;
         }
         case EDIT_ORDER_ITEM: {
             newState = { ...state };
-            console.log("NEWS STATE ORDER ITEMS: ", newState.orderItems)
-            console.log("ACTION PAYLOAD", action.payload)
             let index = newState.orderItems.findIndex(x => x.id === action.payload.id);
             console.log("INDEX: ", index)
             newState.orderItems[index] = action.payload
@@ -243,9 +240,9 @@ const ordersReducer = (state = initialState, action) => {
         }
         case EDIT_ORDER: {
             newState = { ...state };
-            console.log("NEWS STATE: ", newState)
-            console.log("ACTION PAYLOAD", action.payload)
             newState.totalPrice = action.payload.totalPrice
+            newState.tax = action.payload.tax
+            newState.price = action.payload.price
             return newState;
         }
 
