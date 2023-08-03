@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getCurrentOrder } from "../../store/orders";
-import { modifyItem } from "../../store/orders";
+import { getCurrentOrder, modifyItem, deleteItem } from "../../store/orders";
+
 import "./Cart.css"
 
 function Cart() {
@@ -37,6 +37,14 @@ function Cart() {
     dispatch(modifyItem(order.id, item.id, data))
   }
 
+  const removeItem = (itemId) => {
+    console.log("Order  id : ", order.id)
+    console.log("ITEM id : ", itemId)
+    dispatch(deleteItem(order.id, itemId))
+    // dispatch(getCurrentOrder())
+
+  }
+
   if (Object.keys(order).length) {
 
 
@@ -62,7 +70,8 @@ function Cart() {
                         <button className="subtract" onClick={() => minusOne(item)}>
                         <i class="fa-solid fa-minus"></i>
                         </button>
-                        </div>
+                </div>
+                <button onClick={() => removeItem(item.id)}>Remove</button>
 
               </div>
             </div>
