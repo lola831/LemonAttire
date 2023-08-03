@@ -27,13 +27,13 @@ def all_products(product_type_id):
     return {'products': [product.to_dict() for product in products]}
 
 
-# GET ALL REVIEWS BY PRODUCT ID
-@product_routes.route('/<int:product_id>/reviews')
-def product_reviews(product_type_id, product_id):
-    if Product.query.get(product_id) is None:
-         return jsonify({'error': 'Product not found'}), 404
-    reviews = Review.query.filter_by(product_id=product_id)
-    return {'reviews': [review.to_dict() for review in reviews]}
+# # GET ALL REVIEWS BY PRODUCT ID
+# @product_routes.route('/<int:product_id>/reviews')
+# def product_reviews(product_type_id, product_id):
+#     if Product.query.get(product_id) is None:
+#          return jsonify({'error': 'Product not found'}), 404
+#     reviews = Review.query.filter_by(product_id=product_id)
+#     return {'reviews': [review.to_dict() for review in reviews]}
 
 # CREATE A REVIEW BASED ON PRODUCT ID
 @product_routes.route('/<int:product_id>/reviews', methods=['POST'])

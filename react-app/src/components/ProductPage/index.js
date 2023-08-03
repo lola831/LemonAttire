@@ -14,6 +14,7 @@ import { newOrder } from "../../store/orders";
 // import OpenModalButton from "../OpenModalButton";
 import './ProductPage.css'
 import "../../App.css";
+import { loadProductReviews } from "../../store/reviews";
 
 const ProductPage = () => {
     const dispatch = useDispatch();
@@ -22,6 +23,7 @@ const ProductPage = () => {
     const favorites = useSelector(state => state.favorites);
     const user = useSelector(state => state.session.user);
     const order = useSelector(state => state.orders)
+    const reviews = useSelector(state => state.reviews)
     const [loadingFavorites, setLoadingFavorites] = useState(true);
     const [favorite, setFavorite] = useState(false);
     const [item, setItem] = useState("")
@@ -35,6 +37,7 @@ const ProductPage = () => {
 
     useEffect(() => {
         dispatch(getProductType(id));
+        // dispatch(loadProductReviews(productType.id))
 
         if (user) {
             dispatch(getCurrentOrder())
