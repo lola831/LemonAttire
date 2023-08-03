@@ -112,21 +112,19 @@ export const newOrderItem = (data, orderId) => async dispatch => {
     }
 }
 
-export const modifyOrder = (order) => async dispatch => {
+export const modifyOrder = (orderId, itemId, data) => async dispatch => {
     // console.log("HERE")
-         const response = await fetch(`/api/orders/${order.id}`, {
-           method: 'PUT',
-           headers: {
-             'Content-Type': 'application/json'
-           },
-           body: JSON.stringify(order)
-         });
+    const response = await fetch(`/api/orders/${orderId}/order_items/${itemId}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+    });
         //  console.log("MODIFY ORDER RESPONSE", response)
          if (response.ok){
-        //    dispatch(getSpotDetails(spot.id));
-        //    dispatch(getAllSpots());
-        //    dispatch(getSpotsUser());
-           return response;
+            const orderItem = await response.json();
+            console.log("ORDER ITEM response!!!!! ", orderItem)
+            dispatch(editOrderItem(orderItem));
+            return orderItem;
          } else {
           return response;
          }
@@ -134,7 +132,7 @@ export const modifyOrder = (order) => async dispatch => {
 
      export const modifyItem = (orderId, itemId, data) => async dispatch => {
         console.log("HEREeeeeeeeeeeeeee", orderId, itemId, data )
-             const response = await fetch(`/api/orders/${orderId}/order_items/${itemId}/`, {
+             const response = await fetch(`/api/orders/${orderId}/order_items/${itemId}`, {
                method: 'PUT',
                headers: {
                  'Content-Type': 'application/json'
@@ -198,12 +196,18 @@ const ordersReducer = (state = initialState, action) => {
         newState = {...state};
         console.log("NEWS STATE ORDER ITEMS: ", newState.orderItems)
         console.log("ACTION PAYLOAD", action.payload)
-        // newState.orderItems.map((item) => {
+        let index = newState.orderItems.findIndex(x => x.id === action.payload.id);
+        console.log("INDEX: ", index)
+        newState.orderItems[index] = action.payload
+        // newState.orderItems.map((item, index) => {
+        //     console.log("ITEM.ID: ", item.id)
+
         //     if (item.id === action.payload.id) {
-        //         item = action.payload
+        //         console.log("HERE")
+        //         item[index] = action.payload
         //     }
         // })
-        // return newState;
+        return newState;
       }
 
       case DELETE_ORDER: {

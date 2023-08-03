@@ -72,8 +72,10 @@ def edit_order_item(order_id, order_item_id):
     if order_item is None:
         return jsonify({'error': 'Order item not found'}), 404
 
-    quantity = request.get_json()
-    total_price = request.get_json()
+    data = request.get_json()
+    print("DATA: ", data)
+    quantity = data["quantity"]
+    total_price = data["total_price"]
     print("DAAATTAAAAAAAA =====================", quantity, total_price)
 
     order_item.quantity = quantity
