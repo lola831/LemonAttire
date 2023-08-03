@@ -31,9 +31,9 @@ export const addOrderItem = (orderItem) => ({
     payload: orderItem
 });
 
-export const deleteOrder = (order) => ({
+export const deleteOrder = (orderId) => ({
     type: DELETE_ORDER,
-    payload: order
+    payload: orderId
 })
 
 export const editOrderItem = (orderItem) => ({
@@ -178,14 +178,12 @@ export const removeOrder = (orderId) => async (dispatch) => {
         }
     });
 
-    // if (response.ok){
-    //     // console.log("here after  delete order fetch")
-    //     //  dispatch(getAllSpots());
-    //     // //  dispatch(getSpotsUser());
-    //      return response;
-    //    }else {
-    //     return response;
-    //    }
+    if (response.ok){
+        dispatch(deleteOrder(orderId))
+         return response;
+       }else {
+        return response;
+       }
 }
 
 export const deleteItem = (orderId, item) => async (dispatch) => {
@@ -247,7 +245,12 @@ const ordersReducer = (state = initialState, action) => {
         }
 
         case DELETE_ORDER: {
-            return state.filter((order) => order.id !== action.payload);
+            newState = { ...state };
+            if (newState.id === action.payload){
+                console.log("SAMMMMEEEE ID ")
+                newState = {}
+            }
+            return newState;
         }
         case REMOVE_ORDER_ITEM: {
             newState = { ...state };

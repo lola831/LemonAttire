@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getCurrentOrder, modifyItem, deleteItem } from "../../store/orders";
+import OpenModalButton from "../OpenModalButton";
+import DeleteOrder from "../DeleteOrder";
 
 import "./Cart.css"
 
@@ -88,8 +90,14 @@ function Cart() {
         <div>PRICE: ${order.price}</div>
         <div>TAX: ${order.tax}</div>
         <div>TOTAL PRICE: ${order.totalPrice}</div>
-
         </div>
+
+     
+            <OpenModalButton
+              buttonText="EMPTY BAG"
+              modalComponent={<DeleteOrder order={order}/>}
+            />
+
       </div>
     )
   } else {
