@@ -245,7 +245,7 @@ const ordersReducer = (state = initialState, action) => {
             newState = { ...state };
             console.log("NEWS STATE: ", newState)
             console.log("ACTION PAYLOAD", action.payload)
-            newState.totalPrice = action.payload.total_price
+            newState.totalPrice = action.payload.totalPrice
             return newState;
         }
 

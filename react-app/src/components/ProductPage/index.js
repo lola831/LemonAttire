@@ -122,9 +122,11 @@ const ProductPage = () => {
                         console.log("ALREADY IN CARTTTTTTTTTT")
                          let quantity = item.quantity + itemData.quantity
                          let total_price = item.price * quantity
+                         let add = itemData.total_price
                          let data = {
                             quantity,
-                            total_price
+                            total_price,
+                            add
                          }
                         dispatch(modifyItem(order.id, item.id, data))
                         return;

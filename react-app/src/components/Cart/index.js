@@ -22,18 +22,22 @@ function Cart() {
   const addOne = (item) => {
     let quantity = item.quantity + 1;
     let total_price = item.price * quantity;
+    let add = item.price;
     let data = {
       quantity,
-      total_price
+      total_price,
+      add
     }
     dispatch(modifyItem(order.id, item.id, data))
   }
   const minusOne = (item) => {
     let quantity = item.quantity - 1;
     let total_price = item.price * quantity;
+    let minus = item.price
     let data = {
       quantity,
-      total_price
+      total_price,
+      minus
     }
     dispatch(modifyItem(order.id, item.id, data))
   }

@@ -95,11 +95,23 @@ def edit_order(order_id):
         db.session.commit()
         return order.to_dict()
 
+    if 'add' in data.keys():
+        print("ADD------------------------", data["add"])
+        order.total_price += data["add"]
+        db.session.commit()
+        return order.to_dict()
+
+    if 'minus' in data.keys():
+        print("MINUS------------------------", data["minus"])
+        order.total_price -= data["minus"]
+        db.session.commit()
+        return order.to_dict()
+
     if order.total_price is None:
         order.total_price = data["total_price"]
     else:
         order.total_price += data["total_price"]
- 
+
 
     db.session.commit()
     return order.to_dict()
