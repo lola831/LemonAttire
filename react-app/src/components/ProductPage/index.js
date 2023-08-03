@@ -60,7 +60,10 @@ const ProductPage = () => {
     useEffect(() => {
         if (user && favorites.length) {
             for (let i = 0; i < favorites.length; i++) {
-                if (favorites[i].product_type_id === id) {
+                console.log("ID: ", id)
+                console.log("FAV PRODUCT ID", favorites[i].product_type_id)
+                if (favorites[i].product_type_id == id) {
+                    console.log("HERE IN FAV")
                     setFavorite(true)
                 }
             }
@@ -80,7 +83,7 @@ const ProductPage = () => {
     const deleteFav = () => {
         let favId;
         for (let i = 0; i < favorites.length; i++) {
-            if (favorites[i].product_type_id === id) {
+            if (favorites[i].product_type_id == id) {
                 favId = favorites[i].id
             }
         }
