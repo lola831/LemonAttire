@@ -83,16 +83,20 @@ def edit_order(order_id):
     if order is None:
         return jsonify({'error': 'Order not found'}), 404
     if current_user.id is not order.user_id:
-        return jsonify({'error': 'You are not authorized to edit this post'}), 400
+        return jsonify({'error': 'You are not authorized to edit this Order'}), 400
 
-    form = OrderForm()
-    form['csrf_token'].data = request.cookies['csrf_token']
-    if form.validate_on_submit():
-        form.populate_obj(order)
-        order.updated_at = datetime.utcnow()
-        db.session.commit()
-        return order.to_dict()
-    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+    data = request.get_json()
+    price = data["quantity"] * data["price"]
+    print("PRRRICE --------------------------------->", price)
+    print("old price-------: ", order.total_price)
+    if order.total_price is None:
+        order.total_price = price
+    else:
+        order.total_price += price
+    print("NEWWWWW PRice", order.total_price)
+
+    db.session.commit()
+    return order.to_dict()
 
 # DELETE AN ORDER
 @order_routes.route('/<int:order_id>', methods=['DELETE'])

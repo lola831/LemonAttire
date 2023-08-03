@@ -79,6 +79,11 @@ function Cart() {
             </div>
           ))
         }
+        <div className="order-summary-container">
+        <div>ORDER SUMMARY</div>
+        <div>TOTAL PRICE: ${order.totalPrice}</div>
+
+        </div>
       </div>
     )
   } else {

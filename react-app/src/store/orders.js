@@ -6,6 +6,7 @@ const ADD_ORDER = 'orders/ADD_ORDER';
 const ADD_ORDER_ITEM = 'orderItems/ADD_ORDER_ITEM';
 const DELETE_ORDER = 'orders/DELETE_ORDER';
 const EDIT_ORDER_ITEM = 'orders/EDIT_ORDER_ITEM';
+const EDIT_ORDER = 'orders/EDIT_ORDER';
 const REMOVE_ORDER_ITEM = 'orders/REMOVE_ORDER_ITEM';
 
 
@@ -38,6 +39,11 @@ export const deleteOrder = (order) => ({
 export const editOrderItem = (orderItem) => ({
     type: EDIT_ORDER_ITEM,
     payload: orderItem
+})
+
+export const editOrder = (order) => ({
+    type: EDIT_ORDER,
+    payload: order
 })
 
 export const removeItem = (orderItemId) => ({
@@ -101,6 +107,7 @@ export const newOrderItem = (data, orderId) => async dispatch => {
     console.log("in new order item thunk, data = ", data)
     console.log("ORDER ID: ", orderId)
     console.log("item DATA: ", data)
+    dispatch(modifyOrder(orderId, data))
 
     const response = await fetch(`/api/orders/${orderId}/order_items/`, {
         method: 'POST',
@@ -117,21 +124,24 @@ export const newOrderItem = (data, orderId) => async dispatch => {
         console.log("EERROR: ", response)
         return response
     }
+
+
 }
 
-export const modifyOrder = (orderId, itemId, data) => async dispatch => {
+export const modifyOrder = (orderId, data) => async dispatch => {
     // console.log("HERE")
-    const response = await fetch(`/api/orders/${orderId}/order_items/${itemId}`, {
+     const response = await fetch(`/api/orders/${orderId}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
-    });
+    })
+
     //  console.log("MODIFY ORDER RESPONSE", response)
     if (response.ok) {
-        const orderItem = await response.json();
-        console.log("ORDER ITEM response!!!!! ", orderItem)
-        dispatch(editOrderItem(orderItem));
-        return orderItem;
+        const order = await response.json();
+        console.log("ORDER response!!!!! ", order)
+        dispatch(editOrder(order));
+        return order;
     } else {
         return response;
     }
@@ -222,6 +232,13 @@ const ordersReducer = (state = initialState, action) => {
             let index = newState.orderItems.findIndex(x => x.id === action.payload.id);
             console.log("INDEX: ", index)
             newState.orderItems[index] = action.payload
+            return newState;
+        }
+        case EDIT_ORDER: {
+            newState = { ...state };
+            console.log("NEWS STATE: ", newState)
+            console.log("ACTION PAYLOAD", action.payload)
+            newState.totalPrice = action.payload.total_price
             return newState;
         }
 
