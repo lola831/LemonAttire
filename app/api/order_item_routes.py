@@ -40,15 +40,14 @@ def add_order_item(order_id):
     form = OrderItemForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
-        total_price = form.data['price'] * form.data['quantity']
-        print("===================", total_price)
+
         order_item = OrderItem(
             order_id = order_id,
             product_id = form.data['product_id'],
             product_type_id=form.data['product_type_id'],
             price = form.data['price'],
             quantity=form.data['quantity'],
-            total_price = total_price,
+            total_price = form.data['total_price'],
             color = form.data['color'],
             size = form.data['size'],
             image = form.data['image'],
@@ -81,16 +80,6 @@ def edit_order_item(order_id, order_item_id):
     order_item.total_price = total_price
     db.session.commit()
     return order_item.to_dict()
-
-    # form = OrderItemForm()
-    # form['csrf_token'].data = request.cookies['csrf_token']
-    # if form.validate_on_submit():
-    #     form.populate_obj(order_item)
-    #     # order_item.total_price = order_item.price * order_item.quantity
-    #     order_item.updated_at = datetime.utcnow()
-    #     db.session.commit()
-    #     return order_item.to_dict()
-    # return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 # DELETE AN ORDER ITEM
 @order_item_routes.route('/<int:order_item_id>', methods=['DELETE'])

@@ -86,14 +86,20 @@ def edit_order(order_id):
         return jsonify({'error': 'You are not authorized to edit this Order'}), 400
 
     data = request.get_json()
-    price = data["quantity"] * data["price"]
-    print("PRRRICE --------------------------------->", price)
-    print("old price-------: ", order.total_price)
+    print("*********************************************", data)
+
+
+    if 'delete' in data.keys():
+        print("DELETE--------------------------------")
+        order.total_price -= data["delete"]
+        db.session.commit()
+        return order.to_dict()
+
     if order.total_price is None:
-        order.total_price = price
+        order.total_price = data["total_price"]
     else:
-        order.total_price += price
-    print("NEWWWWW PRice", order.total_price)
+        order.total_price += data["total_price"]
+ 
 
     db.session.commit()
     return order.to_dict()

@@ -38,11 +38,11 @@ function Cart() {
     dispatch(modifyItem(order.id, item.id, data))
   }
 
-  const removeItem = (itemId) => {
+  const removeItem = (item) => {
     console.log("Order  id : ", order.id)
-    console.log("ITEM id : ", itemId)
-    dispatch(deleteItem(order.id, itemId))
-    // dispatch(getCurrentOrder())
+    console.log("ITEM $$$$$$$$$$$ : ", item)
+    dispatch(deleteItem(order.id, item))
+
 
   }
 
@@ -73,7 +73,7 @@ function Cart() {
                         <i class="fa-solid fa-minus"></i>
                         </button>
                 </div>
-                <button onClick={() => removeItem(item.id)}>Remove</button>
+                <button onClick={() => removeItem(item)}>Remove</button>
 
               </div>
             </div>

@@ -129,7 +129,7 @@ export const newOrderItem = (data, orderId) => async dispatch => {
 }
 
 export const modifyOrder = (orderId, data) => async dispatch => {
-    // console.log("HERE")
+    console.log("in thunkkkkkkk for edit order", data)
      const response = await fetch(`/api/orders/${orderId}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
@@ -148,7 +148,11 @@ export const modifyOrder = (orderId, data) => async dispatch => {
 };
 
 export const modifyItem = (orderId, itemId, data) => async dispatch => {
+
     console.log("HEREeeeeeeeeeeeeee", orderId, itemId, data)
+
+    dispatch(modifyOrder(orderId, data))
+
     const response = await fetch(`/api/orders/${orderId}/order_items/${itemId}`, {
         method: 'PUT',
         headers: {
@@ -184,7 +188,10 @@ export const removeOrder = (orderId) => async (dispatch) => {
     //    }
 }
 
-export const deleteItem = (orderId, itemId) => async (dispatch) => {
+export const deleteItem = (orderId, item) => async (dispatch) => {
+    let itemId = item.id;
+    console.log("in thunkkkkkkk for delete item")
+    dispatch(modifyOrder(orderId, {delete: item.total_price}))
     const response = await fetch(`/api/orders/${orderId}/order_items/${itemId}`, {
         method: 'DELETE',
         headers: {

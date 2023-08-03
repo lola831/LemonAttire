@@ -92,6 +92,7 @@ const ProductPage = () => {
     };
 
     const addItem = () => {
+        let totalPrice = quantity * productType.price
         let itemData = {
             product_id: item ? item.id : productType.products[0].id,
             product_type_id: productType.id,
@@ -100,7 +101,9 @@ const ProductPage = () => {
             color: item ? item.color: productType.products[0].color,
             size: size ? size : "Small",
             image: item ? item.image1 : productType.products[0].image1,
-            name: productType.name
+            name: productType.name,
+            total_price: totalPrice
+
         }
         console.log("ITEMM DATA: ", itemData)
 

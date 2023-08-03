@@ -12,3 +12,4 @@ class OrderItemForm(FlaskForm):
     size = StringField('size', validators=[DataRequired()])
     image = StringField('image', validators=[DataRequired()])
     name = StringField('name', validators=[DataRequired()])
+    total_price = FloatField('total_price', validators=[DataRequired()])
