@@ -5,40 +5,40 @@ from sqlalchemy.sql import text
 # Adds a demo user, you can add other users here if you want
 def seed_products():
     jay_ribbed_knit_crop_top_pink_s = Product(
-        product_type_id=1, color="Pink", size="S",
+        product_type_id=1, color="Pink",
         image1="https://img.tobi.com/product_images/md/1/pink-jake-ribbed-knit-crop-top@2x.jpg", #from image source">
         image2="https://img.tobi.com/product_images/sm/2/pink-jake-ribbed-knit-crop-top@2x.jpg",
         image3="https://img.tobi.com/product_images/sm/3/pink-jake-ribbed-knit-crop-top@2x.jpg",
         image4="https://img.tobi.com/product_images/sm/4/pink-jake-ribbed-knit-crop-top@2x.jpg",
         stock=100)
     jay_ribbed_knit_crop_top_yellow_s = Product(
-        product_type_id=1, color="Yellow", size="S",
+        product_type_id=1, color="Yellow",
         image1="https://img.tobi.com/product_images/md/1/yellow-jake-ribbed-knit-crop-top@2x.jpg",
         image2="https://img.tobi.com/product_images/sm/2/yellow-jake-ribbed-knit-crop-top@2x.jpg",
         image3="https://img.tobi.com/product_images/sm/3/yellow-jake-ribbed-knit-crop-top@2x.jpg",
         image4="https://img.tobi.com/product_images/sm/4/yellow-jake-ribbed-knit-crop-top@2x.jpg",
         stock=100)
     jay_ribbed_knit_crop_top_white_s = Product(
-        product_type_id=1, color="White", size="S",
+        product_type_id=1, color="White",
         image1="https://img.tobi.com/product_images/md/1/off-white-jake-ribbed-knit-crop-top@2x.jpg",
         image2="https://img.tobi.com/product_images/sm/2/off-white-jake-ribbed-knit-crop-top@2x.jpg",
         image3="https://img.tobi.com/product_images/sm/3/off-white-jake-ribbed-knit-crop-top@2x.jpg",
         stock=100)
     charlie_ribbed_cropped_top_white_s = Product(
-        product_type_id=2, color="White", size="S",
+        product_type_id=2, color="White",
         image1="https://img.tobi.com/product_images/md/1/cream-eagerly-anticipate-ribbed-cropped-top@2x.jpg",
         image2="https://img.tobi.com/product_images/sm/2/cream-eagerly-anticipate-ribbed-cropped-top@2x.jpg",
         image3="https://img.tobi.com/product_images/sm/3/cream-eagerly-anticipate-ribbed-cropped-top@2x.jpg",
         image4="https://img.tobi.com/product_images/sm/4/cream-eagerly-anticipate-ribbed-cropped-top@2x.jpg",
         stock=100)
     abby_maxi_dress_taupe_s = Product(
-        product_type_id=3, color="Taupe", size="S",
+        product_type_id=3, color="Taupe",
         image1="https://img.tobi.com/product_images/md/1/taupe-abegayle-plunging-maxi-dress@2x.jpg",
         image2="https://img.tobi.com/product_images/sm/2/taupe-abegayle-plunging-maxi-dress@2x.jpg",
         image3="https://img.tobi.com/product_images/sm/3/taupe-abegayle-plunging-maxi-dress@2x.jpg",
         stock=100)
     france_white_belted_crop_pants_s = Product(
-        product_type_id=4, color="White", size="S",
+        product_type_id=4, color="White",
         image1="https://img.tobi.com/product_images/md/1/white-belgium-belted-cropped-pants@2x.jpg",
         image2="https://img.tobi.com/product_images/sm/2/white-belgium-belted-cropped-pants@2x.jpg",
         image3="https://img.tobi.com/product_images/sm/3/white-belgium-belted-cropped-pants@2x.jpg",

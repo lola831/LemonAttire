@@ -63,22 +63,33 @@ def add_order_item(order_id):
 @order_item_routes.route('/<int:order_item_id>', methods=['PUT'])
 @login_required
 def edit_order_item(order_id, order_item_id):
+    print("IN BACKENFD ***********************************")
     """
     Edits an order item
     """
     order_item = OrderItem.query.get(order_item_id)
+
     if order_item is None:
         return jsonify({'error': 'Order item not found'}), 404
 
-    form = OrderItemForm()
-    form['csrf_token'].data = request.cookies['csrf_token']
-    if form.validate_on_submit():
-        form.populate_obj(order_item)
-        order_item.total_price = order_item.price * order_item.quantity
-        order_item.updated_at = datetime.utcnow()
-        db.session.commit()
-        return order_item.to_dict()
-    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+    quantity = request.get_json()
+    total_price = request.get_json()
+    print("DAAATTAAAAAAAA =====================", quantity, total_price)
+
+    order_item.quantity = quantity
+    order_item.total_price = total_price
+    db.session.commit()
+    return order_item.to_dict()
+
+    # form = OrderItemForm()
+    # form['csrf_token'].data = request.cookies['csrf_token']
+    # if form.validate_on_submit():
+    #     form.populate_obj(order_item)
+    #     # order_item.total_price = order_item.price * order_item.quantity
+    #     order_item.updated_at = datetime.utcnow()
+    #     db.session.commit()
+    #     return order_item.to_dict()
+    # return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 # DELETE AN ORDER ITEM
 @order_item_routes.route('/<int:order_item_id>', methods=['DELETE'])

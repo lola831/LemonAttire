@@ -102,7 +102,7 @@ const ProductPage = () => {
             price: productType.price,
             quantity: quantity,
             color: item ? item.color: productType.products[0].color,
-            size: item ? size : productType.products[0].size,
+            size: item ? size : "Small",
             image: item ? item.image1 : productType.products[0].image1,
             name: productType.name
         }
@@ -194,7 +194,7 @@ const ProductPage = () => {
                         <i className="fa-solid fa-plus"></i>
                         </button>
                         <div className="number">{`${quantity}`}</div>
-                        <button className="subtract"disabled={quantity <= 0 ? true : false} onClick={minusOne}>
+                        <button className="subtract"disabled={quantity <= 1 ? true : false} onClick={minusOne}>
                         <i class="fa-solid fa-minus"></i>
                         </button>
                         </div>

@@ -4,13 +4,29 @@
     gap: 20px;
     margin-top: 20px;
     align-items: center;
-    background-color: aquamarine;
+    /* background-color: aquamarine; */
 }
 
-.order-items-container {
-    background-color: pink;
+.order-item-container {
+    /* background-color: pink; */
     height: 150px;
     width: 600px;
+    display: grid;
+    grid-template-columns: 110px auto;
+    grid-template-rows: auto;
+    gap: 10px;
+
 }
 
+.order-item-img {
+    height: 150px;
+    width: 110px;
+}
 
+.order-item-info {
+    background-color: lightseagreen;
+}
+
+.item-color-size {
+    font-size: 12px;
+}

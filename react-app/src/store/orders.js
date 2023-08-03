@@ -5,6 +5,7 @@ const GET_USER_ORDERS = 'orders/GET_USER_ORDERS';
 const ADD_ORDER = 'orders/ADD_ORDER';
 const ADD_ORDER_ITEM = 'orderItems/ADD_ORDER_ITEM';
 const DELETE_ORDER = 'orders/DELETE_ORDER';
+const EDIT_ORDER_ITEM = 'orders/EDIT_ORDER_ITEM';
 
 // Action Creators
 export const currentOrder = (order) => ({
@@ -30,6 +31,11 @@ export const addOrderItem = (orderItem) => ({
 export const deleteOrder = (order) => ({
     type: DELETE_ORDER,
     payload: order
+})
+
+export const editOrderItem = (orderItem) => ({
+    type: EDIT_ORDER_ITEM,
+    payload: orderItem
 })
 
 // Thunks
@@ -126,6 +132,25 @@ export const modifyOrder = (order) => async dispatch => {
          }
      };
 
+     export const modifyItem = (orderId, itemId, data) => async dispatch => {
+        console.log("HEREeeeeeeeeeeeeee", orderId, itemId, data )
+             const response = await fetch(`/api/orders/${orderId}/order_items/${itemId}/`, {
+               method: 'PUT',
+               headers: {
+                 'Content-Type': 'application/json'
+               },
+               body: JSON.stringify(data)
+             });
+            //  console.log("MODIFY ORDER RESPONSE", response)
+             if (response.ok){
+                const orderItem = await response.json();
+                dispatch(editOrderItem(orderItem))
+               return orderItem;
+             } else {
+              return response;
+             }
+         };
+
 export const removeOrder = (orderId) => async (dispatch) => {
     const response = await fetch(`/api/orders/${orderId}`, {
         method: 'DELETE',
@@ -169,6 +194,18 @@ const ordersReducer = (state = initialState, action) => {
         // newState = action.payload
         return newState;
       }
+      case EDIT_ORDER_ITEM: {
+        newState = {...state};
+        console.log("NEWS STATE ORDER ITEMS: ", newState.orderItems)
+        console.log("ACTION PAYLOAD", action.payload)
+        // newState.orderItems.map((item) => {
+        //     if (item.id === action.payload.id) {
+        //         item = action.payload
+        //     }
+        // })
+        // return newState;
+      }
+
       case DELETE_ORDER: {
         return state.filter((order) => order.id !== action.payload);
       }

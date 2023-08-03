@@ -10,7 +10,6 @@ class Product(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     product_type_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('product_types.id')), nullable=False)
     color = db.Column(db.String(20), nullable=False)
-    size = db.Column(db.String(20), nullable=False)
     # price = db.Column(db.Float, nullable=False )
     image1 = db.Column(db.String(225), nullable=False)
     image2 = db.Column(db.String(225), nullable=True)
@@ -30,7 +29,6 @@ class Product(db.Model):
         return {
             'id': self.id,
             'color': self.color,
-            'size': self.size,
             'images': [self.image1, self.image2, self.image3, self.image4],
             'image1': self.image1,
             'image2': self.image2,
