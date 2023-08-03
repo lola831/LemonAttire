@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getCurrentOrder, modifyItem, deleteItem } from "../../store/orders";
 
@@ -54,8 +55,9 @@ function Cart() {
           order.orderItems.map((item, i) => (
 
             <div key={i} className="order-item-container">
+              <Link to={`/shop/${item.productTypeId}`}>
               <img className="order-item-img" src={item.image}></img>
-
+              </Link>
               <div className="order-item-info">
                 <div>{`${item.name}`}</div>
                 <div className="order-item-color-size">{`${item.color}`}, {`${item.size}`}</div>
@@ -63,11 +65,11 @@ function Cart() {
 
                 <div className="quantity-container">
                         <div>Qty: </div>
-                        <button className="add" onClick={() => addOne(item)}>
+                        <button className="add" disabled={item.quantity >=10 ? true : false} onClick={() => addOne(item)}>
                         <i className="fa-solid fa-plus"></i>
                         </button>
                         <div className="number">{item.quantity}</div>
-                        <button className="subtract" onClick={() => minusOne(item)}>
+                        <button className="subtract" disabled={item.quantity <= 1 ? true : false} onClick={() => minusOne(item)}>
                         <i class="fa-solid fa-minus"></i>
                         </button>
                 </div>

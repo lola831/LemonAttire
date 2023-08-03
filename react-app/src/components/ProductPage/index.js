@@ -12,7 +12,6 @@ import { newOrder } from "../../store/orders";
 
 
 // import OpenModalButton from "../OpenModalButton";
-import AddOrderItem from "../AddOrderItem";
 import './ProductPage.css'
 import "../../App.css";
 
@@ -28,7 +27,6 @@ const ProductPage = () => {
     const [item, setItem] = useState("")
     const [size, setSize] = useState("")
     const [imageIndex, setImageIndex] = useState("")
-    const [orderItem, setOrderItem] = useState({})
     const [quantity, setQuantity] = useState(1)
     const addOne = () => setQuantity(quantity + 1)
     const minusOne = () => setQuantity(quantity - 1)
@@ -56,6 +54,7 @@ const ProductPage = () => {
     console.log("USER: ", user)
     console.log("ITEM: ", item)
     console.log("ORDER: ", order)
+    console.log("SIZE: ", size)
 
     // checks if product is in user's favorites
     useEffect(() => {
@@ -92,26 +91,22 @@ const ProductPage = () => {
 
     };
 
-
-
     const addItem = () => {
-
-
         let itemData = {
             product_id: item ? item.id : productType.products[0].id,
             product_type_id: productType.id,
             price: productType.price,
             quantity: quantity,
             color: item ? item.color: productType.products[0].color,
-            size: item ? size : "Small",
+            size: size ? size : "Small",
             image: item ? item.image1 : productType.products[0].image1,
             name: productType.name
         }
+        console.log("ITEMM DATA: ", itemData)
 
         if (!Object.keys(order).length){
             // order doesnt exist and must create new one
             let orderData = {status: "pending"}
-
             dispatch(newOrder(orderData, itemData))
 
         }else {
@@ -133,15 +128,11 @@ const ProductPage = () => {
                 }
             }
             dispatch(newOrderItem(itemData, order.id))
-
         }
     }
 
     if (Object.keys(productType).length) {
         let products = productType.products
-
-        console.log("ORDER ITEMMMMMM: ", orderItem)
-
         let images;
         let imagesArray = [];
         for (let i = 0; i < products.length; i++) {
