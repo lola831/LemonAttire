@@ -54,7 +54,7 @@ def add_style_item(style_id):
 
         style_item = StyleItem(
             style_id = style_id,
-            product_id = form.data['product_id']
+            product_type_id = form.data['product_id']
         )
         db.session.add(style_item)
         db.session.commit()

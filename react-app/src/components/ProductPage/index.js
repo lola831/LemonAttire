@@ -9,6 +9,8 @@ import { getUserFavorites, addFavorites, deleteFavorites } from "../../store/fav
 import { getCurrentOrder, modifyItem } from "../../store/orders";
 import { newOrderItem } from "../../store/orders";
 import { newOrder } from "../../store/orders";
+import OpenModalButton from "../OpenModalButton";
+import AddStyleItem from "../Styles/AddStyleItem";
 
 
 // import OpenModalButton from "../OpenModalButton";
@@ -224,6 +226,12 @@ const ProductPage = () => {
                         <div>DESCRIPTION
                             <div>{`${productType.description}`}</div>
                         </div>
+                    </div>
+                    <div>
+                    <OpenModalButton
+                    buttonText="ADD TO YOUR STYLE"
+                    modalComponent={<AddStyleItem styleItem={productType} />}
+                />
                     </div>
                 </div>
             </div>

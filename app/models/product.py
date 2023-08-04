@@ -21,9 +21,8 @@ class Product(db.Model):
 
     product_type = db.relationship('ProductType', back_populates="products")
     order_items = db.relationship('OrderItem', cascade="all, delete-orphan", back_populates="product")
-    style_items = db.relationship('StyleItem', cascade="all, delete-orphan", back_populates="product" )
     favorites = db.relationship('Favorite', cascade="all, delete-orphan", back_populates="product")
-    
+
 
     def to_dict(self):
         return {
