@@ -18,6 +18,7 @@ function Account() {
     <div>My account</div>
     <ul>
       <li><NavLink to='/favorites'>My Favorites</NavLink></li>
+      <li><NavLink to='/styles'>My Styles</NavLink></li>
     </ul>
     </>
 

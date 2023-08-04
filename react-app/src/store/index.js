@@ -7,6 +7,8 @@ import productTypeReducer from './productType';
 import favoritesReducer from './favorites';
 import ordersReducer from './orders';
 import reviewsReducer from './reviews';
+import stylesReducer from './styles';
+
 
 const rootReducer = combineReducers({
   session,
@@ -15,7 +17,9 @@ const rootReducer = combineReducers({
   productType: productTypeReducer,
   reviews: reviewsReducer,
   favorites: favoritesReducer,
+  styles: stylesReducer,
   orders: ordersReducer,
+
 });
 
 

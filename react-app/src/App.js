@@ -12,6 +12,7 @@ import Cart from "./components/Cart";
 import { applyMiddleware } from "redux";
 import AllProducts from "./components/AllProducts";
 import ProductPage from "./components/ProductPage";
+import Styles from "./components/Styles";
 import "./App.css"
 
 
@@ -51,6 +52,9 @@ function App() {
           </Route>
           <Route path="/checkout">
             <Cart />
+          </Route>
+          <Route path="/styles">
+            <Styles />
           </Route>
 
         </Switch>
