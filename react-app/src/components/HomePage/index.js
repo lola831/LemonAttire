@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useLocation} from "react-router-dom";
 import { getAllProductsThunk } from "../../store/products";
 // import { Button } from "../Button";
@@ -13,8 +13,8 @@ function HomePage() {
     const queryParams = new URLSearchParams(location.search);
     const category = queryParams.get("category");
 
-    const AllProducts = useSelector(state => state.products)
-    const productValues = Object.values(AllProducts)
+    // const AllProducts = useSelector(state => state.products)
+
 
     useEffect(() => {
         dispatch(getAllProductsThunk(category));

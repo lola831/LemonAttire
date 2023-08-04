@@ -35,6 +35,17 @@ def user_styles():
     styles = Style.query.filter_by(user_id=current_user.id).order_by(Style.created_at) #.desc() ????
     return {'user_styles': [style.to_dict() for style in styles]}
 
+# GET STYLE BY STYLE ID:
+@style_routes.route('/current/<int:style_id>')
+@login_required
+def user_style(style_id):
+    style = Style.query.get(style_id)
+    if style is None:
+        return jsonify({'error': 'Style not found'}), 404
+    if current_user.id is not style.user_id:
+        return jsonify({'error': 'You are not authorized to edit this post'}), 400
+    return style.to_dict()
+
 # CREATE NEW STYLE
 @style_routes.route('/', methods=['POST'])
 @login_required

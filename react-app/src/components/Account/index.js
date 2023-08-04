@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Link, NavLink, Redirect } from "react-router-dom";
+import React from "react";
+import { useSelector } from "react-redux";
+import { NavLink, Redirect } from "react-router-dom";
 import "./Account.css"
 
 function Account() {
 
-    const dispatch = useDispatch();
+   
 
     const currentUser = useSelector(state => state.session.user)
 

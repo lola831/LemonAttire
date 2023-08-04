@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, NavLink, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import { getUserFavorites, deleteFavorites } from "../../store/favorites";
 import "./Favorites.css"
 
@@ -38,7 +38,7 @@ function Favorites() {
       {
         favorites.map(fav => (
           <div>
-            <img className="fav-img" src={`${fav.image}`}></img>
+            <img alt="" className="fav-img" src={`${fav.image}`}></img>
             <i className="fa-solid fa-x" onClick={() => deleteFav(fav.id)}></i>
 
           </div>

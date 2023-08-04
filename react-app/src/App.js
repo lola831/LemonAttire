@@ -9,10 +9,11 @@ import HomePage from "./components/HomePage";
 import Account from "./components/Account";
 import Favorites from "./components/Favorites";
 import Cart from "./components/Cart";
-import { applyMiddleware } from "redux";
+// import { applyMiddleware } from "redux";
 import AllProducts from "./components/AllProducts";
 import ProductPage from "./components/ProductPage";
 import Styles from "./components/Styles";
+import StylesDetails from "./components/Styles/StylesDetails";
 import "./App.css"
 
 
@@ -52,6 +53,9 @@ function App() {
           </Route>
           <Route path="/checkout">
             <Cart />
+          </Route>
+          <Route exact path="/styles/:styleId">
+            <StylesDetails />
           </Route>
           <Route path="/styles">
             <Styles />

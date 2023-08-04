@@ -6,15 +6,15 @@ import { useSelector } from 'react-redux';
 // import { getCategoriesThunk } from '../../store/categories';
 import './Navigation.css';
 import { Button } from '../Button';
-import Dropdown from '../Dropdown/Index';
-import AllProducts from '../AllProducts';
+// import Dropdown from '../Dropdown/Index';
+// import AllProducts from '../AllProducts';
 
 function Navigation({ isLoaded }) {
 	const dispatch = useDispatch();
 	const sessionUser = useSelector(state => state.session.user);
 	const [click, setClick] = useState(false)
 	const [button, setButton] = useState(true)
-	const categories = useSelector(state => state.categories)
+	// const categories = useSelector(state => state.categories)
 	const handleClick = () => setClick(!click);
 	const closeMobileMenu = () => setClick(false);
 
@@ -48,14 +48,13 @@ function Navigation({ isLoaded }) {
 	// whenever i resize the screen it will call showbutton()
 	window.addEventListener('resize', showButton)
 
-	console.log("seshhh user", sessionUser)
 
 	return (
 		<>
 			<nav className='navbar'>
 				<div className='navbar-container'>
 					<NavLink exact to="/" className="lemon-logo" onClick={closeMobileMenu}>
-						<i class="fa-regular fa-lemon"></i> Lemon
+						<i className="fa-regular fa-lemon"></i> Lemon
 					</NavLink>
 					<div className='menu-icon' onClick={handleClick}>
 						<i className={click ? 'fa-solid fa-xmark' : 'fa-solid fa-bars'}></i>

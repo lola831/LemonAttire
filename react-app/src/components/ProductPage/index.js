@@ -14,7 +14,7 @@ import { newOrder } from "../../store/orders";
 // import OpenModalButton from "../OpenModalButton";
 import './ProductPage.css'
 import "../../App.css";
-import { loadProductReviews } from "../../store/reviews";
+// import { loadProductReviews } from "../../store/reviews";
 
 const ProductPage = () => {
     const dispatch = useDispatch();
@@ -23,7 +23,7 @@ const ProductPage = () => {
     const favorites = useSelector(state => state.favorites);
     const user = useSelector(state => state.session.user);
     const order = useSelector(state => state.orders)
-    const reviews = useSelector(state => state.reviews)
+    // const reviews = useSelector(state => state.reviews)
     const [loadingFavorites, setLoadingFavorites] = useState(true);
     const [favorite, setFavorite] = useState(false);
     const [item, setItem] = useState("")
@@ -163,7 +163,7 @@ const ProductPage = () => {
                     <div className="product-img-container">
                         <div className="product-small-area">
                             {imagesArray[index].map((img, i) => (
-                                <img key={i} className="product-img-small" src={`${img}`} onMouseOver={() => setImageIndex(i)}></img>
+                                <img key={i} alt="" className="product-img-small" src={`${img}`} onMouseOver={() => setImageIndex(i)}></img>
                             ))}
                         </div>
                         <div className="product-img-big-container">
@@ -216,7 +216,7 @@ const ProductPage = () => {
                         </button>
                         <div className="number">{`${quantity}`}</div>
                         <button className="subtract"disabled={quantity <= 1 ? true : false} onClick={minusOne}>
-                        <i class="fa-solid fa-minus"></i>
+                        <i className="fa-solid fa-minus"></i>
                         </button>
                         </div>
 
