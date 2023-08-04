@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getCurrentOrder, modifyItem, deleteItem } from "../../store/orders";
 import OpenModalButton from "../OpenModalButton";
@@ -11,6 +11,7 @@ function Cart() {
 
   const dispatch = useDispatch();
   const order = useSelector(state => state.orders)
+  const user = useSelector(state => state.session.user )
   // const [quantity, setQuantity] = useState()
   // const addOne = () => setQuantity(quantity + 1)
   // const minusOne = () => setQuantity(quantity - 1)
@@ -18,6 +19,10 @@ function Cart() {
   useEffect(() => {
     dispatch(getCurrentOrder())
   }, [dispatch]);
+
+  if (!user) return (
+    <Redirect to='/login'></Redirect>
+)
 
   console.log("ORDER: ", order)
 

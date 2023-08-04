@@ -6,6 +6,7 @@ export const addStyle = style => ({
 })
 
 export const createStyle = data => async (dispatch) => {
+    console.log("IN THUNK", data)
     const response = await fetch(`/api/styles/`, {
         method: "POST",
         headers: { 'Content-Type': 'application/json' },
@@ -13,11 +14,19 @@ export const createStyle = data => async (dispatch) => {
     })
     if (response.ok) {
         const style = await response.json();
+        console.log("style response: ", style)
         dispatch(addStyle(style))
         return style;
-    }else {
-        return response
-    }
+    }else if (response.status < 500) {
+		const data = await response.json();
+        console.log("DATAAAAAAAAAAAA:", data)
+		if (data.errors) {
+            console.log("DATA ERRORS:", data.errors)
+			return data;
+		}
+	} else {
+		return ["An error occurred. Please try again."];
+	}
 }
 
 const initialState = [];
@@ -26,8 +35,10 @@ const stylesReducer = (state = initialState, action) => {
     let newState;
     switch (action.type) {
         case ADD_STYLE: {
-            newState = state;
-            newState.push(action.payload)
+            newState = {
+                ...state,
+                [action.payload.id]: action.payload
+            }
             return newState;
         }
         default:

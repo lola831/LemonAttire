@@ -13,7 +13,7 @@ def validation_errors_to_error_messages(validation_errors):
     errorMessages = []
     for field in validation_errors:
         for error in validation_errors[field]:
-            errorMessages.append(f'{field} : {error}')
+            errorMessages.append({field: error})
     return errorMessages
 
 # GET ALL STYLES
@@ -39,12 +39,15 @@ def user_styles():
 @style_routes.route('/', methods=['POST'])
 @login_required
 def create_style():
+    print("IN BACKEND ======================")
     """
     Creates a new style
     """
     form = StyleForm()
     form['csrf_token'].data = request.cookies['csrf_token']
+
     if form.validate_on_submit():
+        print("IN FORM VAL: ", form.data)
         style = Style(
             title=form.data['title'],
             user_id=current_user.id
