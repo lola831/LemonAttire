@@ -10,7 +10,8 @@ function AddStyleItem({ styleItem }) {
     const styles = useSelector(state => state.styles)
     const [newStyle, setNewStyle] = useState(false)
     const [open, setOpen] = useState(false);
-    const [style, setStyle] = useState(false)
+    const [chosenStyle, setChosenStyle] = useState(false)
+    const [styleExists, setStyleExists] = useState(false)
     console.log("STYLES, ", styles)
 
     useEffect(() => {
@@ -24,12 +25,19 @@ function AddStyleItem({ styleItem }) {
 
     const addToStyle = (style) => {
         console.log("HEREEEE", style)
-        // setOpen(false)
-        //check if style item already exists in style
-        //if its already there show options again setting style to false?
-        //add style item to style
+        setChosenStyle(style)
+        setOpen(false)
 
+        for (let i = 0; i < style.styleItems.length; i++) {
+            if (style.styleItems[i].productTypeId == styleItem.id) {
+                console.log("ALREADY IN HERREEEE")
+                setStyleExists(true)
+                return;
+            }
+        }
 
+        console.log("GOOD TO ADD")
+        dispatch(newStyleItem(styleItem.id, style.id))
 
     }
 
@@ -55,6 +63,11 @@ function AddStyleItem({ styleItem }) {
 
                                 </ul>
                             ) : null}
+                            {
+                                styleExists && (
+                                    <div>This Style already has this item, please choose a different Style or create a new one</div>
+                                )
+                            }
 
                         </div>
                     </>

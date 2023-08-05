@@ -112,25 +112,26 @@ export const createStyle = data => async (dispatch) => {
 	}
 }
 
-export const newStyleItem = (data, styleId) => async dispatch => {
-    console.log("in new style item thunk, data = ", data)
-    console.log("style ID: ", styleId)
-    console.log("item DATA: ", data)
-    dispatch(addStyleItem(styleId, data))
+export const newStyleItem = (styleItemId, styleId) => async dispatch => {
 
     const response = await fetch(`/api/styles/${styleId}/style_items/`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
+        body: JSON.stringify(styleItemId)
     });
 
+
     if (response.ok) {
-        const styleItem = await response.json();
-        console.log("style ITEM response!!!!! ", styleItem)
-        dispatch(addStyleItem(styleItem));
-        return styleItem;
+        const res= await response.json();
+        console.log("resss", res)
+        if (res.error) {
+            console.log("in errorrrrrrr", res.error)
+            return res
+        }
+        console.log("style ITEM response!!!!! ", res)
+        dispatch(addStyleItem(res));
+        return res;
     } else {
-        console.log("EERROR: ", response)
         return response
     }
 
@@ -161,6 +162,7 @@ const stylesReducer = (state = initialState, action) => {
     let newState;
     switch (action.type) {
         case GET_USER_STYLES: {
+            console.log("newState")
             newState = action.payload.user_styles
             return newState
         }
@@ -179,6 +181,7 @@ const stylesReducer = (state = initialState, action) => {
         case ADD_STYLE_ITEM: {
             newState = { ...state };
             console.log("NEW STATE:  ", newState)
+            console.log("payload: ", action.payload)
             newState.styleItems.push(action.payload)
             return newState;
         }
