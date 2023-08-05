@@ -1,0 +1,14 @@
+.style-details-container {
+    display: grid;
+
+}
+
+.style-details-title {
+    width: 200px;
+    background-color: greenyellow;
+}
+
+.style-details-title-edit{
+    width: 200px;
+    background-color: aqua;
+}

@@ -146,12 +146,12 @@ export const newStyleItem = (styleItemId, styleId) => async dispatch => {
 
 }
 
-export const modifyStyle = (styleId, data) => async dispatch => {
-    console.log("in thunkkkkkkk for  edit style", data)
+export const modifyStyle = (styleId, title) => async dispatch => {
+    console.log("in thunkkkkkkk for  edit style", styleId, title)
      const response = await fetch(`/api/styles/${styleId}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
+        body: JSON.stringify(title)
     })
 
     //  console.log("MODIFY ORDER RESPONSE", response)
@@ -229,8 +229,7 @@ const stylesReducer = (state = initialState, action) => {
         }
         case EDIT_STYLE: {
             newState = { ...state };
-            newState.title = action.payload.title
-            newState.styleItems = action.payload.styleItems
+            newState[action.payload.id] = action.payload
             return newState;
         }
         case REMOVE_STYLE: {
