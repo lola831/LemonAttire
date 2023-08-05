@@ -60,7 +60,6 @@ function AddStyleItem({ styleItem }) {
                                             </li>
                                         ))
                                     }
-
                                 </ul>
                             ) : null}
                             {

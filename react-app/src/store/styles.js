@@ -160,15 +160,17 @@ export const modifyStyle = (styleId, data) => async dispatch => {
     }
 };
 
-const initialState = [];
+const initialState = {};
 
 const stylesReducer = (state = initialState, action) => {
     let newState;
     switch (action.type) {
         case GET_USER_STYLES: {
-            console.log("newState")
-            newState = action.payload.user_styles
-            return newState
+            newState = { ...state };
+            action.payload.user_styles.forEach(style => {
+                newState[style.id] = style;
+            });
+            return newState;
         }
         case GET_STYLE_ITEMS: {
             console.log("action payload, ", action.payload)
@@ -186,7 +188,19 @@ const stylesReducer = (state = initialState, action) => {
             newState = { ...state };
             console.log("NEW STATE:  ", newState)
             console.log("payload: ", action.payload)
-            newState.styleItems.push(action.payload)
+
+            // for (let i = 0; i < newState.length; i++) {
+            //     console.log(newState[i])
+
+            //     if (newState[i].id === action.payload.style_id) {
+            //         console.log("found")
+
+            //           newState[i].styleItems.push(action.payload)
+            //     }
+            // }
+
+            newState[action.payload.style_id].styleItems.push(action.payload)
+
             return newState;
         }
         case GET_STYLE: {

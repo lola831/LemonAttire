@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect, Link } from "react-router-dom";
 import { getUserStyles } from "../../store/styles";
@@ -24,20 +24,22 @@ function Styles() {
 
 
 
-    if (user && styles.length) {
+    if (Object.keys(styles).length) {
+        let stylesArray = Object.entries(styles).map((style) => ( style[1]))
+    
         return (
             <div>
                 <div>My Styles</div>
                 <OpenModalButton
                     buttonText="NEW STYLE"
-                    modalComponent={<StylesFormPage styles={styles} />}
+                    modalComponent={<StylesFormPage styles={stylesArray} />}
                 />
                 <div className="styles-cards-container">
                     {
-                        styles.map(style => (
-                            <div key={style.id} className="style-card">
-                                <Link to={`/styles/${style.id}`}>
-                                    <div>{style.title}</div>
+                        stylesArray.map((style, i) => (
+                            <div key={i} className="style-card">
+                                <Link  to={`/styles/${style.id}`}>
+                                    <div >{style.title}</div>
                                 </Link>
                             </div>
                         ))
@@ -51,7 +53,7 @@ function Styles() {
             <div>You have no styles</div>
             <OpenModalButton
                     buttonText="NEW STYLE"
-                    modalComponent={<StylesFormPage styles={styles} />}
+                    modalComponent={<StylesFormPage />}
                 />
                 </>
         )
