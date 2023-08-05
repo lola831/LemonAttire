@@ -13,9 +13,12 @@ function StylesDetails() {
   const [edit, setEdit] = useState(false)
   const [title, setTitle] = useState(style ? style.title : "")
   const [isDeleted, setIsDeleted] = useState(false)
+  const [error, setError] = useState("")
 
   console.log("STYLE: ", style)
   console.log("EDIT: ", edit)
+  console.log("EROOR: ", error)
+  console.log("STYLES ", styles)
 
   useEffect(() => {
     dispatch(getUserStyles())
@@ -32,21 +35,28 @@ if (isDeleted) {
 const removeStyle = async () => {
   dispatch(deleteStyle(style.id))
   setIsDeleted(true)
-  // .then(() => <Redirect to="/styles"></Redirect>)
 }
 
-const changeTitle = (e) => {
-  // dispatch(modifyStyle(style.id, title))
-  // setEdit(!edit)
+const changeTitle = async (e) => {
   console.log("in title change func")
   console.log("title value: ", title)
-  // setSaveStyle(style)
   if (e.code === "Enter") {
     console.log("in enter validate")
     setTitle(e.target.value)
     console.log("title val: ", title)
-    dispatch(modifyStyle(style.id, {title}))
-    setEdit(false)
+    const data = await dispatch(modifyStyle(style.id, {title}))
+    console.log("data back in component, ", data)
+    if (data.errors) {
+      console.log("here!!!!!!")
+      // let stylesArray = Object.entries(styles).map((style) => ( style[1])) looop??
+      // console.log(stylesArray)
+
+      setError(data.errors[0].title)
+
+    }
+    else {
+      setEdit(false)
+    }
   }
 }
 
@@ -61,20 +71,22 @@ if (Object.keys(styles).length) {
           <form>
           <input
           className='style-details-title-edit'
-          value={title ? title : style.title}
+          // value={title ? title : style.title}
+          value = {title}
           onChange={(e) => setTitle(e.target.value)}
           type="text"
-          required
           onKeyDown={(e) => changeTitle(e)}
+          required
           // defaultValue={style.title}
           // onClick={changeTitle}
           />
+         {error && <span className="error">{error}</span>}
           </form>
         )
       }
 
     <button onClick={removeStyle}>Delete style</button>
-    <Link to="/styles">Go back to all style</Link>
+    <Link to="/styles">Go back to all styles</Link>
 
     </div>
 

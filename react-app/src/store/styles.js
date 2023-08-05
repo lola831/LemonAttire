@@ -160,9 +160,16 @@ export const modifyStyle = (styleId, title) => async dispatch => {
         console.log("style response!!!!! ", style)
         dispatch(editStyle(style));
         return style;
-    } else {
-        return response;
-    }
+    } else if (response.status < 500) {
+		const data = await response.json();
+        console.log("DATAAAAAAAAAAAA:", data)
+		if (data.errors) {
+            console.log("DATA ERRORS:", data.errors)
+			return data;
+		}
+	} else {
+		return ["An error occurred. Please try again."];
+	}
 };
 
 export const deleteStyle = (styleId) => async (dispatch) => {
@@ -174,6 +181,7 @@ export const deleteStyle = (styleId) => async (dispatch) => {
     });
     if (response.ok) {
         dispatch(removeStyle(styleId))
+        dispatch(getUserStyles())
         return response;
     } else {
         return response;

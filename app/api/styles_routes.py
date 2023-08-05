@@ -92,7 +92,7 @@ def edit_style(style_id):
         style.updated_at = datetime.utcnow()
         db.session.commit()
         return style.to_dict()
-
+    print("^^^^^^^^^^^^^^^^ ERROR: ", form.errors)
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 # DELETE A STYLE
