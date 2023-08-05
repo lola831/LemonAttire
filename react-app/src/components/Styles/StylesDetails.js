@@ -1,7 +1,8 @@
 import { React, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams, Redirect, Link } from 'react-router-dom';
-import { getStyle, deleteStyle, getUserStyles, modifyStyle } from '../../store/styles';
+import { deleteStyle, getUserStyles, modifyStyle } from '../../store/styles';
+import DisplayProducts from '../DisplayProducts';
 import "./StyleDetails.css"
 
 function StylesDetails() {
@@ -84,6 +85,18 @@ if (Object.keys(styles).length) {
           </form>
         )
       }
+
+    <div>
+      {
+        // style.styleItems.map((style, i) => (
+        //   <div key={i}>
+        //     <img className="style-item-image" alt="style-item" src={style.product.products[0].image1}></img>
+
+        //   </div>
+        // ))
+        <DisplayProducts productValues={style.styleItems} />
+      }
+    </div>
 
     <button className="delete-style-button" onClick={removeStyle}>Delete style</button>
     <Link to="/styles">Go back to all styles</Link>

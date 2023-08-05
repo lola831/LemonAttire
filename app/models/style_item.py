@@ -22,5 +22,6 @@ class StyleItem(db.Model):
             'id': self.id,
             'stylesId': self.style_id,
             'productTypeId': self.product_type_id,
-            'createdAt': self.created_at
+            'createdAt': self.created_at,
+            'product': self.product_type.to_dict()
         }

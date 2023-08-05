@@ -17,3 +17,8 @@
 .delete-style-button {
     width: 200px;
 }
+
+.style-item-image {
+    height: 200px;
+    width: 200px;
+}
