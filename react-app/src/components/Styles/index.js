@@ -13,6 +13,7 @@ function Styles() {
     console.log("USER: ", user)
     console.log("STYLES: ", styles)
 
+
     useEffect(() => {
         dispatch(getUserStyles())
     }, [dispatch]);
@@ -20,6 +21,8 @@ function Styles() {
     if (!user) return (
         <Redirect to='/login'></Redirect>
     )
+
+
 
     if (user && styles.length) {
         return (
@@ -42,11 +45,18 @@ function Styles() {
                 </div>
             </div>
         )
-    } else {
+    }else {
         return (
-            <div>Loading...</div>
+            <>
+            <div>You have no styles</div>
+            <OpenModalButton
+                    buttonText="NEW STYLE"
+                    modalComponent={<StylesFormPage styles={styles} />}
+                />
+                </>
         )
     }
+
 }
 
 export default Styles

@@ -46,7 +46,11 @@ export const getUserStyles = () => async (dispatch) => {
     if (response.ok) {
         const styles = await response.json();
         console.log("in thunk response, ", styles)
+
         dispatch(loadUserStyles(styles));
+        if (!styles.length) {
+            return null
+        }
         return styles;
     } else {
         return response;
