@@ -1,6 +1,6 @@
 import { React, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import { useParams, Redirect } from 'react-router-dom';
+import { useParams, Redirect, Link } from 'react-router-dom';
 import { getStyle, deleteStyle, getUserStyles, modifyStyle } from '../../store/styles';
 import "./StyleDetails.css"
 
@@ -12,24 +12,27 @@ function StylesDetails() {
   const style = useSelector(state => state.styles[styleId])
   const [edit, setEdit] = useState(false)
   const [title, setTitle] = useState(style ? style.title : "")
-  // const [saveStyle, setSaveStyle] = useState(style ? style : true)
+  const [isDeleted, setIsDeleted] = useState(false)
 
   console.log("STYLE: ", style)
-  // console.log("SAVE STYLE: ", saveStyle)
   console.log("EDIT: ", edit)
 
   useEffect(() => {
-    // dispatch(getStyle(styleId))
     dispatch(getUserStyles())
 }, [dispatch]);
 
 if (!user) return (
     <Redirect to='/login'></Redirect>
 )
+if (isDeleted) {
+  console.log("NO STYLE ON DETAILS PAGE REDIRECT TO STYLE PAGE")
+  return <Redirect to="/styles"></Redirect>
+}
 
 const removeStyle = async () => {
-  dispatch(deleteStyle(style.id)).then(() => <Redirect to="/styles"></Redirect>)
-  // setSaveStyle(false)
+  dispatch(deleteStyle(style.id))
+  setIsDeleted(true)
+  // .then(() => <Redirect to="/styles"></Redirect>)
 }
 
 const changeTitle = (e) => {
@@ -45,14 +48,7 @@ const changeTitle = (e) => {
     dispatch(modifyStyle(style.id, {title}))
     setEdit(false)
   }
-
 }
-
-// if (!saveStyle) {
-//   console.log("NO STYLE ON DETAILS PAGE REDIRECT TO STYLE PAGE")
-//   return <Redirect to="/styles"></Redirect>
-// }
-
 
 if (Object.keys(styles).length) {
 
@@ -78,6 +74,7 @@ if (Object.keys(styles).length) {
       }
 
     <button onClick={removeStyle}>Delete style</button>
+    <Link to="/styles">Go back to all style</Link>
 
     </div>
 
