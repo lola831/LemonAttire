@@ -5,7 +5,8 @@ import { useModal } from '../../context/Modal'
 import { createStyle } from '../../store/styles';
 import "./StylesFormPage.css"
 
-function StylesFormPage() {
+function StylesFormPage({ styleReturned }) {
+    console.log("IN STYLES FORM PAGE")
     const { closeModal } = useModal();
     const dispatch = useDispatch();
     const user = useSelector(state => state.session.user)
@@ -28,6 +29,12 @@ function StylesFormPage() {
            setErrors(data.errors[0])
 
         }else {
+
+            if (styleReturned) {
+                console.log("child component style returned", data)
+                styleReturned(data)
+            }
+
             setShowMessage(true)
             setTimeout(() => {
                 closeModal()

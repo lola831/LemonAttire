@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useModal } from '../../context/Modal'
 import { getUserStyles } from "../../store/styles";
 import { newStyleItem } from "../../store/styles";
+import StylesFormPage from "./StylesFormPage";
+import OpenModalButton from '../OpenModalButton'
 import "./AddStyleItem.css"
 
 
@@ -27,6 +29,9 @@ function AddStyleItem({ styleItem }) {
         setOpen(!open);
     };
 
+
+
+
     const addToStyle = (style) => {
         console.log("HEREEEE", style)
         setChosenStyle(style)
@@ -43,10 +48,11 @@ function AddStyleItem({ styleItem }) {
         console.log("GOOD TO ADD")
         dispatch(newStyleItem(styleItem.id, style.id))
         closeModal()
-
-
     }
 
+    const styleReturned = (returnedStyle) => {
+        addToStyle(returnedStyle)
+    }
 
     return (
         <div className="add-style-item-container">
@@ -81,7 +87,7 @@ function AddStyleItem({ styleItem }) {
 
             {newStyle && (
                 <>
-                    <div>Name your Style: </div>
+                    <StylesFormPage styleReturned={styleReturned}/>
                     <button onClick={() => setNewStyle(false)}>Nevermind, I want to add it to an existing Style</button>
 
                 </>
