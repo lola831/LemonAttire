@@ -2,7 +2,7 @@ import { React, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams, Redirect, Link } from 'react-router-dom';
 import { deleteStyle, getUserStyles, modifyStyle } from '../../store/styles';
-import DisplayProducts from '../DisplayProducts';
+import DisplayStyleItems from './DisplayStyleItems';
 import "./StyleDetails.css"
 
 function StylesDetails() {
@@ -23,90 +23,87 @@ function StylesDetails() {
 
   useEffect(() => {
     dispatch(getUserStyles())
-}, [dispatch]);
+  }, [dispatch]);
 
-if (!user) return (
+  if (!user) return (
     <Redirect to='/login'></Redirect>
-)
-if (isDeleted) {
-  console.log("NO STYLE ON DETAILS PAGE REDIRECT TO STYLE PAGE")
-  return <Redirect to="/styles"></Redirect>
-}
+  )
+  if (isDeleted) {
+    console.log("NO STYLE ON DETAILS PAGE REDIRECT TO STYLE PAGE")
+    return <Redirect to="/styles"></Redirect>
+  }
 
-const removeStyle = async () => {
-  dispatch(deleteStyle(style.id))
-  setIsDeleted(true)
-}
+  const removeStyle = async () => {
+    dispatch(deleteStyle(style.id))
+    setIsDeleted(true)
+  }
 
-const changeTitle = async (e) => {
-  console.log("in title change func")
-  console.log("title value: ", title)
-  if (e.code === "Enter") {
-    console.log("in enter validate")
-    setTitle(e.target.value)
-    console.log("title val: ", title)
-    const data = await dispatch(modifyStyle(style.id, {title}))
-    console.log("data back in component, ", data)
-    if (data.errors) {
-      console.log("here!!!!!!")
-      // let stylesArray = Object.entries(styles).map((style) => ( style[1])) looop??
-      // console.log(stylesArray)
+  const changeTitle = async (e) => {
+    console.log("in title change func")
+    console.log("title value: ", title)
+    if (e.code === "Enter") {
+      console.log("in enter validate")
+      setTitle(e.target.value)
+      console.log("title val: ", title)
+      const data = await dispatch(modifyStyle(style.id, { title }))
+      console.log("data back in component, ", data)
+      if (data.errors) {
+        console.log("here!!!!!!")
+        // let stylesArray = Object.entries(styles).map((style) => ( style[1])) looop??
+        // console.log(stylesArray)
 
-      setError(data.errors[0].title)
+        setError(data.errors[0].title)
 
-    }
-    else {
-      setEdit(false)
+      }
+      else {
+        setEdit(false)
+      }
     }
   }
-}
 
-if (Object.keys(styles).length) {
+  if (Object.keys(styles).length) {
 
-  return (
-    <div className='style-details-container'>
-      {
-        !edit ? (
-          <div className='style-details-title' onClick={() => setEdit(true)}>{style.title}</div>
-        ) : (
-          <form>
-          <input
-          className='style-details-title-edit'
-          // value={title ? title : style.title}
-          value = {title}
-          onChange={(e) => setTitle(e.target.value)}
-          type="text"
-          onKeyDown={(e) => changeTitle(e)}
-          required
-          // defaultValue={style.title}
-          // onClick={changeTitle}
-          />
-         {error && <span className="error">{error}</span>}
-          </form>
-        )
-      }
+    return (
+      <div className='style-details-container'>
+        {
+          !edit ? (
+            <div className='style-details-title' onClick={() => setEdit(true)}>{style.title}</div>
+          ) : (
+            <form>
+              <input
+                className='style-details-title-edit'
+                // value={title ? title : style.title}
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+                type="text"
+                onKeyDown={(e) => changeTitle(e)}
+                required
+              // defaultValue={style.title}
+              // onClick={changeTitle}
+              />
+              {error && <span className="error">{error}</span>}
+            </form>
+          )
+        }
 
-    <div>
-      {
-        // style.styleItems.map((style, i) => (
-        //   <div key={i}>
-        //     <img className="style-item-image" alt="style-item" src={style.product.products[0].image1}></img>
+        <div>
 
-        //   </div>
-        // ))
-        <DisplayProducts productValues={style.styleItems} />
-      }
-    </div>
+          <DisplayStyleItems productValues={style.styleItems} />
+        </div>
 
-    <button className="delete-style-button" onClick={removeStyle}>Delete style</button>
-    <Link to="/styles">Go back to all styles</Link>
+        <div>
+        <button className="delete-style-button" onClick={removeStyle}>Delete style</button>
 
-    </div>
+        </div>
 
-  )
-}else{
-  return <div>Loading...</div>
-}
+        <Link to="/styles">Go back to all styles</Link>
+
+      </div>
+
+    )
+  } else {
+    return <div>Loading...</div>
+  }
 }
 
 export default StylesDetails

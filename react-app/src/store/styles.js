@@ -189,6 +189,22 @@ export const deleteStyle = (styleId) => async (dispatch) => {
     }
 }
 
+export const deleteStyleItem = (styleId, styleItemId) => async (dispatch) => {
+    const response = await fetch(`/api/styles/${styleId}/style_items/${styleItemId}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+    if (response.ok) {
+        // dispatch(removeStyleItem(styleItemId))
+        dispatch(getUserStyles())
+        return response;
+    } else {
+        return response;
+    }
+}
+
 const initialState = {};
 
 const stylesReducer = (state = initialState, action) => {
