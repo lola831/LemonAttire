@@ -138,7 +138,8 @@ export const newStyleItem = (styleItemId, styleId) => async dispatch => {
             return res
         }
         console.log("style ITEM response!!!!! ", res)
-        dispatch(addStyleItem(res));
+        // dispatch(addStyleItem(res));
+        dispatch(getUserStyles())
         return res;
     } else {
         return response
@@ -212,25 +213,25 @@ const stylesReducer = (state = initialState, action) => {
             }
             return newState;
         }
-        case ADD_STYLE_ITEM: {
-            newState = { ...state };
-            console.log("NEW STATE:  ", newState)
-            console.log("payload: ", action.payload)
+        // case ADD_STYLE_ITEM: {
+        //     newState = { ...state };
+        //     console.log("NEW STATE:  ", newState)
+        //     console.log("payload: ", action.payload)
 
-            // for (let i = 0; i < newState.length; i++) {
-            //     console.log(newState[i])
+        //     // for (let i = 0; i < newState.length; i++) {
+        //     //     console.log(newState[i])
 
-            //     if (newState[i].id === action.payload.style_id) {
-            //         console.log("found")
+        //     //     if (newState[i].id === action.payload.style_id) {
+        //     //         console.log("found")
 
-            //           newState[i].styleItems.push(action.payload)
-            //     }
-            // }
+        //     //           newState[i].styleItems.push(action.payload)
+        //     //     }
+        //     // }
 
-            newState[action.payload.style_id].styleItems.push(action.payload)
+        //     newState[action.payload.style_id].styleItems.push(action.payload)
 
-            return newState;
-        }
+        //     return newState;
+        // }
         case GET_STYLE: {
             newState = action.payload
             return newState

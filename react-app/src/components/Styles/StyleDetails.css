@@ -1,5 +1,6 @@
 .style-details-container {
     display: grid;
+    gap: 40px;
 
 }
 
@@ -11,4 +12,8 @@
 .style-details-title-edit{
     width: 200px;
     background-color: aqua;
+}
+
+.delete-style-button {
+    width: 200px;
 }

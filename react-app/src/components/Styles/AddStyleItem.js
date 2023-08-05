@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useModal } from '../../context/Modal'
 import { getUserStyles } from "../../store/styles";
 import { newStyleItem } from "../../store/styles";
 import "./AddStyleItem.css"
@@ -7,12 +8,15 @@ import "./AddStyleItem.css"
 
 function AddStyleItem({ styleItem }) {
     const dispatch = useDispatch()
+    const { closeModal } = useModal();
     const styles = useSelector(state => state.styles)
     const [newStyle, setNewStyle] = useState(false)
     const [open, setOpen] = useState(false);
     const [chosenStyle, setChosenStyle] = useState(false)
     const [styleExists, setStyleExists] = useState(false)
     console.log("STYLES, ", styles)
+    let stylesArray = Object.entries(styles).map((style) => ( style[1]))
+    console.log("styles array: ", stylesArray)
 
     useEffect(() => {
         dispatch(getUserStyles())
@@ -38,6 +42,8 @@ function AddStyleItem({ styleItem }) {
 
         console.log("GOOD TO ADD")
         dispatch(newStyleItem(styleItem.id, style.id))
+        closeModal()
+
 
     }
 
@@ -54,7 +60,7 @@ function AddStyleItem({ styleItem }) {
                             {open ? (
                                 <ul >
                                     {
-                                        styles.map(style => (
+                                        stylesArray.map(style => (
                                             <li key={style.id}>
                                                 <button onClick={() => addToStyle(style)}>{style.title}</button>
                                             </li>

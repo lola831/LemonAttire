@@ -85,7 +85,7 @@ if (Object.keys(styles).length) {
         )
       }
 
-    <button onClick={removeStyle}>Delete style</button>
+    <button className="delete-style-button" onClick={removeStyle}>Delete style</button>
     <Link to="/styles">Go back to all styles</Link>
 
     </div>
