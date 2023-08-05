@@ -4,6 +4,7 @@ import { Redirect, Link } from "react-router-dom";
 import { getUserStyles } from "../../store/styles";
 import OpenModalButton from '../OpenModalButton'
 import StylesFormPage from './StylesFormPage'
+import StylesDetails from "./StylesDetails";
 
 function Styles() {
     const dispatch = useDispatch()
@@ -26,7 +27,7 @@ function Styles() {
 
     if (Object.keys(styles).length) {
         let stylesArray = Object.entries(styles).map((style) => ( style[1]))
-    
+
         return (
             <div>
                 <div>My Styles</div>

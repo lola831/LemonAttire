@@ -4,6 +4,7 @@ const ADD_STYLE = 'styles/ADD_STYLE'
 const ADD_STYLE_ITEM = 'styles/ADD_STYLE_ITEM';
 const GET_STYLE_ITEMS = 'styles/GET_STYLE_ITEMS'
 const EDIT_STYLE = 'styles/EDIT_STYLE'
+const REMOVE_STYLE = 'styles/REMOVE_STYLE'
 
 export const loadUserStyles = styles => ({
     type: GET_USER_STYLES,
@@ -35,6 +36,10 @@ export const editStyle = (style) => ({
     payload: style
 })
 
+export const removeStyle = styleId => ({
+    type: REMOVE_STYLE,
+    payload: styleId
+})
 
 export const getUserStyles = () => async (dispatch) => {
     console.log("in thunk")
@@ -160,6 +165,21 @@ export const modifyStyle = (styleId, data) => async dispatch => {
     }
 };
 
+export const deleteStyle = (styleId) => async (dispatch) => {
+    const response = await fetch(`/api/styles/${styleId}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+    if (response.ok) {
+        dispatch(removeStyle(styleId))
+        return response;
+    } else {
+        return response;
+    }
+}
+
 const initialState = {};
 
 const stylesReducer = (state = initialState, action) => {
@@ -212,6 +232,14 @@ const stylesReducer = (state = initialState, action) => {
             newState.title = action.payload.title
             newState.styleItems = action.payload.styleItems
             return newState;
+        }
+        case REMOVE_STYLE: {
+            newState = { ...state };
+            console.log("NEW STATE", newState)
+            console.log("????: ", newState[action.payload])
+            delete newState[action.payload]
+            console.log("updated state: ", newState)
+            return newState
         }
         default:
             return state;
