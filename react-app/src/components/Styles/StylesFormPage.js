@@ -14,7 +14,6 @@ function StylesFormPage({ styleReturned }) {
     const [title, setTitle] = useState("")
     const [showMessage, setShowMessage] = useState(false)
 
-
     if (!user) return <Redirect to="/login" />
 
     const handleSubmit = async (e) => {

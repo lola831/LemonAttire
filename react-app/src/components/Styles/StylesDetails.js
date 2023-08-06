@@ -14,11 +14,11 @@ function StylesDetails() {
   const [edit, setEdit] = useState(false)
   const [title, setTitle] = useState(style ? style.title : "")
   const [isDeleted, setIsDeleted] = useState(false)
-  const [error, setError] = useState("")
+  const [errors, setErrors] = useState("")
 
   console.log("STYLE: ", style)
   console.log("EDIT: ", edit)
-  console.log("EROOR: ", error)
+  console.log("EROOR: ", errors)
   console.log("STYLES ", styles)
 
   useEffect(() => {
@@ -38,28 +38,47 @@ function StylesDetails() {
     setIsDeleted(true)
   }
 
-  const changeTitle = async (e) => {
-    console.log("in title change func")
-    console.log("title value: ", title)
-    if (e.code === "Enter") {
-      console.log("in enter validate")
-      setTitle(e.target.value)
-      console.log("title val: ", title)
-      const data = await dispatch(modifyStyle(style.id, { title }))
-      console.log("data back in component, ", data)
-      if (data.errors) {
-        console.log("here!!!!!!")
-        // let stylesArray = Object.entries(styles).map((style) => ( style[1])) looop??
-        // console.log(stylesArray)
+  // const onSubmit = async (e) => {
+  //   console.log("in title change func")
+  //   console.log("title value: ", title)
+  //   if (e.code === "Enter") {
+  //     console.log("in enter validate")
+  //     setTitle(e.target.value)
+  //     console.log("title val: ", title)
+  //     const data = await dispatch(modifyStyle(style.id, { title }))
+  //     console.log("data back in component, ", data)
+  //     if (data.errors) {
+  //       console.log("here!!!!!!")
+  //       // let stylesArray = Object.entries(styles).map((style) => ( style[1])) looop??
+  //       // console.log(stylesArray)
 
-        setError(data.errors[0].title)
+  //       setError(data.errors[0].title)
+  //       console.log("ERROR AFTER SETTING IT", error)
 
-      }
-      else {
+  //     }
+  //     else {
+  //       console.log("TITLE CHANGE SUCCESFUL")
+  //       setEdit(false)
+  //     }
+  //   }
+  // }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    console.log("errors: ", errors)
+    if (errors.title) errors.title = "";
+
+    const data = await dispatch(modifyStyle(style.id, {title}))
+    if (data.errors) {
+       setErrors(data.errors[0])
+
+    }else {
         setEdit(false)
-      }
     }
-  }
+}
+
+  console.log("ERROR OUTSIDE OF CHNAGT TTITLE", errors)
 
   if (Object.keys(styles).length) {
 
@@ -67,21 +86,35 @@ function StylesDetails() {
       <div className='style-details-container'>
         {
           !edit ? (
-            <div className='style-details-title' onClick={() => setEdit(true)}>{style.title}</div>
+            <div className='style-title-container'>
+              <div className='style-details-title'>{style.title}</div>
+              <button className='change-title-button' onClick={() => setEdit(true)}>Change title name</button>
+            </div>
           ) : (
-            <form>
+            // <form>
+            //   <input
+            //     className='style-details-title-edit'
+            //     // value={title ? title : style.title}
+            //     value={title}
+            //     onChange={(e) => setTitle(e.target.value)}
+            //     type="text"
+            //     onKeyDown={(e) => changeTitle(e)}
+            //     required
+            //   // defaultValue={style.title}
+            //   // onClick={changeTitle}
+            //   />
+            //   {error && <span className="error">{error}</span>}
+            // </form>
+            <form onSubmit={handleSubmit}>
               <input
-                className='style-details-title-edit'
-                // value={title ? title : style.title}
+                type="text"
+                className="new-style-title"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
-                type="text"
-                onKeyDown={(e) => changeTitle(e)}
                 required
-              // defaultValue={style.title}
-              // onClick={changeTitle}
               />
-              {error && <span className="error">{error}</span>}
+              {errors.title && ( <span className="error">{errors.title}</span> )}
+              <button type='submit'>Save Title</button>
             </form>
           )
         }
@@ -92,7 +125,7 @@ function StylesDetails() {
         </div>
 
         <div>
-        <button className="delete-style-button" onClick={removeStyle}>Delete style</button>
+          <button className="delete-style-button" onClick={removeStyle}>Delete style</button>
 
         </div>
 
