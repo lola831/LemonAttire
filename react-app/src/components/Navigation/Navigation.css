@@ -7,6 +7,8 @@
 } */
 
 .navbar {
+  /* background-color: #96609F; */
+  /* background-color: #6B5875; */
   background-color: black;
   height: 80px;
   display: flex;
@@ -27,7 +29,9 @@
 }
 
 .lemon-logo {
-  color: #fff;
+  /* color: #fff; */
+  /* color: #eae6e1; */
+  color: white;
   justify-self: start;
   margin-left: 20px;
   cursor: pointer;
@@ -35,11 +39,14 @@
   font-size: 2rem;
   display: flex;
   align-items: center;
+  /* font-family: Ultra; */
+  font-family: Ribeye;
 }
 
 .fa-lemon {
   margin-left: 0.5rem;
   font-size: 1.8rem;
+  color: #FFE6A9;
 }
 
 .menu {
@@ -58,7 +65,7 @@
 }
 
 .nav-links {
-  color: #fff;
+  color: #eae6e1;
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -67,12 +74,12 @@
 }
 
 .nav-links:hover {
-  border-bottom: 4px solid #fff;
+  border-bottom: 4px solid #eae6e1;
   transition: all 0.2s ease-out;
 }
 
 .fa-bars, .fa-xmark {
-  color: #fff;
+  color: #eae6e1;
 }
 
 .nav-links-mobile {
@@ -92,7 +99,8 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 90vh;
+    /* height: 90vh; */
+    height: 500px;     /* change here */
     position: absolute;
     top: 80px;
     left: -100%;
@@ -102,7 +110,7 @@
 
   /* mobile menu */
   .menu.active {
-    background: #242222;
+    background: #93829B;
     left: 0;
     opacity: 1;
     transition: all 0.5s ease;
@@ -114,15 +122,14 @@
     padding: 2rem;
     width: 100%;
     display: table;
-    /* background-color: pink; */
     margin-top: -30px;
     justify-content: center;
 
   }
 
   .nav-links:hover {
-    background-color: #fff;
-    color: #242424;
+    background-color: #eae6e1;
+    color: #6B5875;
     border-radius: 0;
   }
 
@@ -144,7 +151,7 @@
   }
 
   .fa-times {
-    color: #fff;
+    color: #eae6e1;
     font-size: 2rem;
   }
 
@@ -157,17 +164,16 @@
     text-decoration: none;
     font-size: 1.5rem;
     background-color: transparent;
-    color: #fff;
+    color: #eae6e1;
     padding: 14px 20px;
-    border: 1px solid #fff;
+    border: 1px solid #eae6e1;
     transition: all 0.3s ease-out;
-    /* margin: -300px; */
-
   }
 
   .nav-links-mobile:hover {
-    background: #fff;
-    color: #242424;
+    background: #eae6e1;
+    /* color: #6B5875; */
+    color: black;
     transition: 250ms;
   }
 }

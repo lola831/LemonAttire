@@ -27,6 +27,10 @@ def seed_product_types():
         name="Satin Slit Mini Dress",
         category_id=4,
         price=44.00)
+    product_type6 = ProductType(
+        name="Go Glam Strapless Maxi Dress",
+        category_id=4,
+        price=69.00)
 
 
 
@@ -35,6 +39,8 @@ def seed_product_types():
     db.session.add(product_type2)
     db.session.add(product_type3)
     db.session.add(product_type4)
+    db.session.add(product_type5)
+    db.session.add(product_type6)
 
     db.session.commit()
 
