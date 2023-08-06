@@ -14,6 +14,7 @@ import AllProducts from "./components/AllProducts";
 import ProductPage from "./components/ProductPage";
 import Styles from "./components/Styles";
 import StylesDetails from "./components/Styles/StylesDetails";
+import NewArrivals from "./components/NewArrivals";
 import "./App.css"
 
 
@@ -47,6 +48,9 @@ function App() {
           </Route>
           <Route exact path="/shop/:id">
             <ProductPage />
+          </Route>
+          <Route exact path="/new-arrivals">
+            <NewArrivals />
           </Route>
           <Route path="/favorites">
             <Favorites />
