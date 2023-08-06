@@ -233,6 +233,10 @@ const ProductPage = () => {
                     modalComponent={<AddStyleItem styleItem={productType} />}
                 />
                     </div>
+                    <div>
+                        <div>Reviews</div>
+                        
+                    </div>
                 </div>
             </div>
         )

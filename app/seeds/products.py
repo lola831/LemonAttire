@@ -5,14 +5,14 @@ from sqlalchemy.sql import text
 # Adds a demo user, you can add other users here if you want
 def seed_products():
     jay_ribbed_knit_crop_top_pink_s = Product(
-        product_type_id=1, color="Pink",
+        product_type_id=1, color="lightpink",
         image1="https://img.tobi.com/product_images/md/1/pink-jake-ribbed-knit-crop-top@2x.jpg", #from image source">
         image2="https://img.tobi.com/product_images/sm/2/pink-jake-ribbed-knit-crop-top@2x.jpg",
         image3="https://img.tobi.com/product_images/sm/3/pink-jake-ribbed-knit-crop-top@2x.jpg",
         image4="https://img.tobi.com/product_images/sm/4/pink-jake-ribbed-knit-crop-top@2x.jpg",
         stock=100)
     jay_ribbed_knit_crop_top_yellow_s = Product(
-        product_type_id=1, color="Yellow",
+        product_type_id=1, color="lightyellow",
         image1="https://img.tobi.com/product_images/md/1/yellow-jake-ribbed-knit-crop-top@2x.jpg",
         image2="https://img.tobi.com/product_images/sm/2/yellow-jake-ribbed-knit-crop-top@2x.jpg",
         image3="https://img.tobi.com/product_images/sm/3/yellow-jake-ribbed-knit-crop-top@2x.jpg",
@@ -43,6 +43,21 @@ def seed_products():
         image2="https://img.tobi.com/product_images/sm/2/white-belgium-belted-cropped-pants@2x.jpg",
         image3="https://img.tobi.com/product_images/sm/3/white-belgium-belted-cropped-pants@2x.jpg",
         stock=100)
+    satin_slit_mini_dress_blue = Product (
+        product_type_id=5, color="lightblue",
+        image1="https://img.tobi.com/product_images/md/1/light-blue-in-depth-satin-slit-mini-slit-dress@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/light-blue-in-depth-satin-slit-mini-slit-dress@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/light-blue-in-depth-satin-slit-mini-slit-dress@2x.jpg",
+        image4="https://img.tobi.com/product_images/sm/4/light-blue-in-depth-satin-slit-mini-slit-dress@2x.jpg",
+        stock=100)
+    satin_slit_mini_dress_green = Product (
+        product_type_id=5, color="lightgreen",
+        image1="https://img.tobi.com/product_images/md/1/green-in-depth-satin-slit-mini-slit-dress@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/green-in-depth-satin-slit-mini-slit-dress@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/green-in-depth-satin-slit-mini-slit-dress@2x.jpg",
+        image4="https://img.tobi.com/product_images/sm/4/green-in-depth-satin-slit-mini-slit-dress@2x.jpg",
+        stock=100)
+
 
 
     db.session.add(jay_ribbed_knit_crop_top_pink_s)
@@ -51,6 +66,8 @@ def seed_products():
     db.session.add(charlie_ribbed_cropped_top_white_s)
     db.session.add(abby_maxi_dress_taupe_s)
     db.session.add(france_white_belted_crop_pants_s)
+    db.session.add(satin_slit_mini_dress_blue)
+    db.session.add(satin_slit_mini_dress_green)
 
     db.session.commit()
 
