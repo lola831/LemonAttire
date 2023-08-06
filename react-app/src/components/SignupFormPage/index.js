@@ -22,10 +22,12 @@ function SignupFormPage() {
     if (password === confirmPassword) {
       const data = await dispatch(signUp(firstName, lastName, email, password));
       if (data) {
+        console.log("data ", data)
         setErrors(data)
+        console.log("errrors", errors)
       }
     } else {
-      setErrors(['Confirm Password field must be the same as the Password field']);
+      setErrors({password: "Confirm Password field must be the same as the Password field."})
     }
   };
 
@@ -34,11 +36,8 @@ function SignupFormPage() {
 
         <h1 className="create-account">Create Account</h1>
 
-
         <form  className="sign-up-form" onSubmit={handleSubmit}>
-          <ul>
-            {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-          </ul>
+
           <label className="sign-up-label">
             First Name
           </label>
@@ -69,6 +68,7 @@ function SignupFormPage() {
               onChange={(e) => setEmail(e.target.value)}
               required
             />
+           { errors.email && (<p>{errors.email}</p>)}
           <label className="sign-up-label">
             Password
           </label>
@@ -89,7 +89,8 @@ function SignupFormPage() {
               onChange={(e) => setConfirmPassword(e.target.value)}
               required
             />
-          <button className="sign-up-button" type="submit">Sign Up</button>
+            { errors.password && (<p>{errors.password}</p>)}
+          <button className="sign-up-button" type="submit">Create</button>
         </form>
 
     </div>
