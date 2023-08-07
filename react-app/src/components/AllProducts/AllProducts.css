@@ -1,7 +1,7 @@
 .all-prods-container {
-    background-color: black;
-    color: white;
-    /* margin-top: 30px; */
+    /* background-color: black;
+    color: white; */
+
     padding-top: 20px;
 
 
@@ -9,9 +9,11 @@
 
 .product-cards {
     display: flex;
-    flex-flow: column wrap;
+    flex-wrap: wrap;
+    /* display: flex;
+    flex-flow: column wrap; */
     /* height: auto; */
-    gap: 10px;
+    /* gap: 10px; */
 
 
 }
@@ -21,13 +23,15 @@
     height: 300px;
     width: 300px; */
     width: 400px;
-    background-color: lightblue;
+    /* background-color: lightblue; */
     padding: 10px;
+    font-size: 12px;
 }
 
 .card-img {
     height: 250px;
     width: 200px;
+    border-radius: 5px;
 }
 
 .card-img-color {
