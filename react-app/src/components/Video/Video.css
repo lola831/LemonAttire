@@ -1,12 +1,13 @@
 .new-arrivals-container {
-    height: 100vh;
+    margin-top: -110px; /* added to erase white line and keep 100vh */
+    height: 100vh; /* original was 100vh but gave white line underneath  79vh doesnt*/
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-end;
-
     object-fit: contain;
+    /* background-color: blue; */
 }
 
 
@@ -28,6 +29,7 @@ video {
     z-index: -100;
     background-size: cover;
     overflow: hidden;
+    object-fit: cover;
 }
 
 

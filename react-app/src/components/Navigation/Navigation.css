@@ -59,6 +59,7 @@
   width: 60vw;
   justify-content: end;
   margin-right: 2rem;
+  height: 500px;  /* ???? added to try fix white bar under vid */
 }
 
 .nav-item {
