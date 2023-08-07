@@ -41,7 +41,8 @@ function AllProducts() {
           productValues.map(product => (
 
             <div className='card-container'>
-              <Link to={`/shop/${product.id}`} key={product.id}>
+              <div>
+              <Link className='all-prod-link-prod' to={`/shop/${product.id}`} key={product.id}>
                 <img alt=""
                   className='card-img'
                   id="img-change-color"
@@ -50,32 +51,35 @@ function AllProducts() {
                   onMouseOut={e => (color.product_type_id === product.id ? e.currentTarget.src = color.image1 : e.currentTarget.src = `${product.products[0].image1}`)}>
                 </img>
               </Link>
+              </div>
               <div className='all-prods-info'>
                 <div className='card-name'>{`${product.name.toUpperCase()}`}</div>
                 <div className='card-price'>${`${product.price}`}.00</div>
-                {
-                  product.products.length > 1 && (
-                    <div className="all-prods-color-container">
-                      {
-                        product.products.map(item => (
+                <div>
+                  {
+                    product.products.length > 1 && (
+                      <div className="all-prods-color-container">
+                        {
+                          product.products.map(item => (
 
-                          <div key={item.id} className="all-prods-color-container" onClick={() => setColor(item)}>
+                            <div key={item.id} className="all-prods-color-container" onClick={() => setColor(item)}>
 
-                            <i
-                              className="fa-solid fa-circle"
-                              style={{ color: `${item.color}` }}
-                            >
-                            </i>
+                              <i
+                                className="fa-solid fa-circle"
+                                style={{ color: `${item.color}` }}
+                              >
+                              </i>
 
-                          </div>
+                            </div>
 
-                        ))
-                      }
-                    </div>
+                          ))
+                        }
+                      </div>
 
 
-                  )
-                }
+                    )
+                  }
+                </div>
               </div>
             </div>
 
