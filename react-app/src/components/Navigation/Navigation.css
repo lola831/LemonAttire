@@ -12,29 +12,35 @@
   /* background-color: black; */
   background-color: #caafa8;
   height: 80px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  /* display: flex;
+  justify-content: end;
+  align-items: center; */
   font-size: 1.2rem;
   position: sticky;
   top: 0;
   z-index: 999;
+  background-color: blue;
+
 }
 
 .navbar-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: center; */
   height: 80px;
   max-width: 1500px;
+  background-color: pink;
+  display: grid;
+  grid-template-columns: 50% auto;
+
 }
 
 .lemon-logo {
   /* color: #fff; */
   /* color: #eae6e1; */
   color: white;
-  justify-self: start;
-  margin-left: 20px;
+  /* justify-self: start; */
+  /* margin-left: 20px; */
   cursor: pointer;
   text-decoration: none;
   font-size: 2rem;
@@ -42,6 +48,9 @@
   align-items: center;
   /* font-family: Ultra; */
   font-family: Italiana;
+  background-color: green;
+
+
 }
 
 .fa-lemon {
@@ -51,15 +60,19 @@
 }
 
 .menu {
-  display: grid;
+  /* background-color: orange; */
+  /* display: grid;
   grid-template-columns: repeat(5, auto);
   grid-gap: 10px;
   list-style: none;
   text-align: center;
   width: 60vw;
   justify-content: end;
-  margin-right: 2rem;
-  height: 500px;  /* ???? added to try fix white bar under vid */
+  margin-right: 2rem; */
+
+  display: flex;
+  /* background-color: orange; */
+
 }
 
 .nav-item {

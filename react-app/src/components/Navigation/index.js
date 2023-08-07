@@ -23,7 +23,7 @@ function Navigation({ isLoaded }) {
 	// 	dispatch(getCategoriesThunk())
 	// }, [])
 
-
+	console.log("CLICK:  ", click)
 	// console.log("categories", categories)
 
 	const handleLogout = (e) => {
@@ -106,16 +106,16 @@ function Navigation({ isLoaded }) {
 									</>
 								)}
 							</>
-							)}
+						)}
 					</ul>
-					{ isLoaded && (
-						<> { !sessionUser && (
+					{isLoaded && (
+						<> {!sessionUser && (
 							<>
 								{button && <Button buttonStyle='btn--outline' buttonLink='/signup'>Sign Up</Button>}
-					{button && <Button buttonStyle='btn--outline' buttonLink='/login'>Log In</Button>}
+								{button && <Button buttonStyle='btn--outline' buttonLink='/login'>Log In</Button>}
 
 							</>
-							)}
+						)}
 						</>
 					)}
 				</div>

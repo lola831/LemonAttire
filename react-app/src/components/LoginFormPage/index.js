@@ -22,6 +22,7 @@ function LoginFormPage() {
   };
 
   const demoUser = e => {
+    console.log("IN DEMO USER BUTTON CLICK")
     e.preventDefault();
     dispatch(login('demo@aa.io', 'password'));
   }
