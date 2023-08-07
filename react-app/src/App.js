@@ -14,6 +14,7 @@ import AllProducts from "./components/AllProducts";
 import ProductPage from "./components/ProductPage";
 import Styles from "./components/Styles";
 import StylesDetails from "./components/Styles/StylesDetails";
+import Footer from "./components/Footer";
 // import NewArrivals from "./components/NewArrivals";
 import "./App.css"
 
@@ -64,10 +65,9 @@ function App() {
           <Route path="/styles">
             <Styles />
           </Route>
-
         </Switch>
       )}
-
+        <Footer />
     </>
   );
 }
