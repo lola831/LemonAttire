@@ -49,9 +49,18 @@ video {
     border: 2px solid white;
     padding: 12px 26px;
     font-size: 20px;
+    font-family: Italiana;
+    font-weight:bolder;
+    margin-top: 60px;;
 
 }
 
+/* .summer-collection-text {
+    font-family: Italiana;
+    font-weight: bolder;
+    color: white;
+    font-size: 100px;
+} */
 
 
 .link-new-arrivals:hover {

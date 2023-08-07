@@ -6,7 +6,8 @@
     justify-content: center;
     padding-top: 20px;
     /* background-color: #eae6e1; */
-    background-color: black;
+    /* background-color: black; */
+    background-color: #caafa8;
     /* color: #6B5875; */
     color: white;
     gap: 10px;
@@ -33,7 +34,11 @@
     height: 40px;
     align-items: flex-end;
     padding-bottom: 10px;
-    font-size: 15px;
+    font-size: 12px;
+    font-weight: lighter;
+    /* font-family: Montserrat; */
+
+
 
 
 
@@ -57,10 +62,17 @@
     margin-top: 30px;
     height: 50px;
     font-size: 20px;
+    font-weight: lighter;
+    /* font-family: Italiana; */
+    color: #caafa8;
+    background-color: #ffffff;
+    border: none;
 }
 
 .sign-up-button:hover {
-    background-color: black;
+    /* background-color: black; */
+    background-color: #caafa8;
+    /* color: #fdf9f5; */
     color: white;
     border: 2px solid white;
 }

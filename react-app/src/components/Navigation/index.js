@@ -8,6 +8,7 @@ import './Navigation.css';
 import { Button } from '../Button';
 // import Dropdown from '../Dropdown/Index';
 // import AllProducts from '../AllProducts';
+import "../../App.css"
 
 function Navigation({ isLoaded }) {
 	const dispatch = useDispatch();

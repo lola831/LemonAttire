@@ -6,7 +6,7 @@ import { getAllProductsThunk } from "../../store/products";
 import AllProducts from "../AllProducts";
 import "./HomePage.css"
 import "../../App.css";
-import NewArrivals from "../NewArrivals";
+// import NewArrivals from "../NewArrivals";
 import Video from "../Video";
 
 function HomePage() {

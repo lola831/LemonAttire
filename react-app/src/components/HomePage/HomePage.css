@@ -52,15 +52,14 @@
 .featured-collection-box {
     display: flex;
     height: 300px;
-    /* background-color: black;
-    color: white; */
+    background-color: #fdf9f5;
     justify-content: center;
     align-items: center;
 
 }
 
 .feature-collection-text {
-    font-family: Ribeye;
+    font-family: Italiana;
     font-size: 50px;
     /* border-top: thin white solid;
     border-bottom: thin white solid; */
