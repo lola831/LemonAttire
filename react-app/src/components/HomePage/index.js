@@ -26,10 +26,17 @@ function HomePage() {
 
   return (
     <div className="homepage-container">
+      <div className="vid-container">
+          <Video />
+      </div>
 
-          {<Video />}
+      <div className="featured-collection-box">
+        <div className="feature-collection-text">
+        Featured Collection
+        </div>
+      </div>
 
-      <div>
+      <div className="all-prods-container">
         <AllProducts />
       </div>
 

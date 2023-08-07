@@ -33,10 +33,9 @@ function AllProducts() {
 
 
   return (
-    <>
-    <div>
-      All products
-    </div>
+  
+    <div className='all-prods-container'>
+
     <div className='product-cards'>
       {
         productValues.map(product => (
@@ -80,7 +79,8 @@ function AllProducts() {
         ))
       }
     </div>
-    </>
+    </div>
+
   )
 }
 
