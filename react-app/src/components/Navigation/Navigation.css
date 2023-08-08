@@ -51,7 +51,7 @@
   align-items: center;
   /* font-family: Ultra; */
   font-family: Italiana;
-  /* background-color: green; */
+  width: 150px;
 
 
 }
@@ -114,6 +114,22 @@
 
 .menu-icon {
   display: none;
+}
+
+
+.nav-bag-circle {
+
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    padding: 2px;
+    background: transparent;
+    border: 1px solid white;
+    color: #caafa8;
+    background-color: white;
+    text-align: center;
+    font-size: 15px;
+    margin-bottom: 20px;
 }
 
 @media screen and (max-width: 960px) {

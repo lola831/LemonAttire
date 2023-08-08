@@ -60,7 +60,7 @@ export const getCurrentOrder = () => async (dispatch) => {
         const order = await response.json();
         console.log("in thunk response, ", order)
         dispatch(currentOrder(order));
-        return response;
+        return order;
     } else {
         return response;
     }
@@ -216,6 +216,10 @@ const ordersReducer = (state = initialState, action) => {
         case GET_CURRENT_ORDER:
             newState = { ...state };
             console.log("ACTION PAYLOAD: ", action.payload)
+            if (!Object.keys(action.payload).length) {
+                newState = null;
+                return newState
+            }
             newState = action.payload;
             return newState;
         case ADD_ORDER: {

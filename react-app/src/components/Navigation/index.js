@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { NavLink } from 'react-router-dom';
 import { logout } from "../../store/session";
 import { useSelector } from 'react-redux';
+import { getCurrentOrder } from '../../store/orders';
 // import { getCategoriesThunk } from '../../store/categories';
 import './Navigation.css';
 // import { Button } from '../Button';
@@ -10,20 +11,28 @@ import './Navigation.css';
 // import AllProducts from '../AllProducts';
 import "../../App.css"
 
-function Navigation({ isLoaded }) {
+function Navigation({ isLoaded, bag}) {
+
 	const dispatch = useDispatch();
 	const sessionUser = useSelector(state => state.session.user);
 	const [click, setClick] = useState(false)
+	const [bagItems, setBagItems] = useState(false)
+	const order = useSelector(state => state.orders)
+	console.log("INNNNNNNNN NAVIGATION COMPONENT!!!!!!!!!!ORDER", order)
+	console.log("bagggg ", bag)
 	// const [button, setButton] = useState(true)
 	// const categories = useSelector(state => state.categories)
 	const handleClick = () => setClick(!click);
 	const closeMobileMenu = () => setClick(false);
 
-	// useEffect(() => {
-	// 	dispatch(getCategoriesThunk())
-	// }, [])
+	useEffect(() => {
+		if (sessionUser) {
+			dispatch(getCurrentOrder())
+		}
+	}, [dispatch, sessionUser])
 
 	console.log("CLICK:  ", click)
+	console.log("BAG ITEMS ", bagItems)
 	// console.log("categories", categories)
 
 	const handleLogout = (e) => {
@@ -32,22 +41,18 @@ function Navigation({ isLoaded }) {
 		closeMobileMenu()
 	};
 
-	// // function removes button and displays it depending on screen size
-	// const showButton = () => {
-	// 	if (window.innerWidth <= 960) {
-	// 		setButton(false)
-	// 	} else {
-	// 		setButton(true)
-	// 	}
-	// };
+	useEffect(() => {
 
-	// // renders button only on first render?
-	// useEffect(() => {
-	// 	showButton();
-	// }, [])
+        if (sessionUser && order && Object.keys(order).length) {
+           if (order.orderItems.length) {
+			setBagItems(order.orderItems.length)
+		   }
+        }
+    }, [order, sessionUser, bagItems]);
 
-	// // whenever i resize the screen it will call showbutton()
-	// window.addEventListener('resize', showButton)
+
+
+
 
 
 	return (
@@ -62,11 +67,6 @@ function Navigation({ isLoaded }) {
 					</div>
 					<ul className={click ? 'menu active' : 'menu'}>
 						<li className='nav-item'>
-							<NavLink to='/' className="nav-links" onClick={closeMobileMenu}>
-								Home
-							</NavLink>
-						</li>
-						<li className='nav-item'>
 							<NavLink to='/shop/' className="nav-links" onClick={closeMobileMenu}>
 								Shop
 							</NavLink>
@@ -76,13 +76,20 @@ function Navigation({ isLoaded }) {
 								{sessionUser ? (
 									<>
 										<li className='nav-item'>
-											<NavLink to='/account' className="nav-links" onClick={closeMobileMenu}>
-												My account
+											<NavLink to='/favorites' className="nav-links" onClick={closeMobileMenu}>
+												My Favorites
 											</NavLink>
 										</li>
 										<li className='nav-item'>
-											<NavLink to='/checkout' className="nav-links" onClick={closeMobileMenu}>
+											<NavLink to='/styles' className="nav-links" onClick={closeMobileMenu}>
+												My Styles
+											</NavLink>
+										</li>
+										<li className='nav-item'>
+											<NavLink to='/checkout' className="nav-links my-bag" onClick={closeMobileMenu}>
 												My Bag
+
+											{bag && <div className='nav-bag-circle'>{bag}</div>}
 											</NavLink>
 										</li>
 										<li className='nav-item'>
@@ -108,21 +115,12 @@ function Navigation({ isLoaded }) {
 							</>
 						)}
 					</ul>
-					{/* {isLoaded && (
-						<> {!sessionUser && (
-							<>
-								{button && <Button buttonStyle='btn--outline' buttonLink='/signup'>Sign Up</Button>}
-								{button && <Button buttonStyle='btn--outline' buttonLink='/login'>Log In</Button>}
-
-							</>
-						)}
-						</>
-					)} */}
 				</div>
 			</nav>
 			{/* <Dropdown /> */}
 		</>
 	);
+
 }
 
 export default Navigation;

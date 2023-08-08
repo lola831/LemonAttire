@@ -7,7 +7,7 @@ import DeleteOrder from "../DeleteOrder";
 
 import "./Cart.css"
 
-function Cart() {
+function Cart({ bag, updateBag }) {
 
   const dispatch = useDispatch();
   const order = useSelector(state => state.orders)
@@ -35,6 +35,7 @@ function Cart() {
       total_price,
       add
     }
+    updateBag(bag + 1)
     dispatch(modifyItem(order.id, item.id, data))
   }
   const minusOne = (item) => {
@@ -46,6 +47,7 @@ function Cart() {
       total_price,
       minus
     }
+    updateBag(bag - 1)
     dispatch(modifyItem(order.id, item.id, data))
   }
 
@@ -53,13 +55,11 @@ function Cart() {
     console.log("Order  id : ", order.id)
     console.log("ITEM $$$$$$$$$$$ : ", item)
     dispatch(deleteItem(order.id, item))
-
-
   }
 
-  if (Object.keys(order).length) {
-
-
+  // if (Object.keys(order).length) {
+    console.log("ORDER LINE 61 CART: ", order)
+    if (order && Object.keys(order).length) {
     return (
       <div className="cart-container">
         {
@@ -100,7 +100,7 @@ function Cart() {
 
             <OpenModalButton
               buttonText="EMPTY BAG"
-              modalComponent={<DeleteOrder order={order}/>}
+              modalComponent={<DeleteOrder order={order} bag={bag} updateBag={updateBag}/>}
             />
 
       </div>

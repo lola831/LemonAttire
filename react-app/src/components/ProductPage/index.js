@@ -19,7 +19,7 @@ import './ProductPage.css'
 import "../../App.css";
 // import { loadProductReviews } from "../../store/reviews";
 
-const ProductPage = () => {
+const ProductPage = ({ bag, updateBag}) => {
     const dispatch = useDispatch();
     const { id } = useParams();
     const productType = useSelector(state => state.productType);
@@ -38,6 +38,8 @@ const ProductPage = () => {
     const [quantity, setQuantity] = useState(1)
     const addOne = () => setQuantity(quantity + 1)
     const minusOne = () => setQuantity(quantity - 1)
+
+    console.log("UPDATE BAG: ", updateBag)
 
     let index = 0;
 
@@ -119,7 +121,7 @@ const ProductPage = () => {
         }
         console.log("ITEMM DATA: ", itemData)
 
-        if (!Object.keys(order).length) {
+        if (!order) {
             // order doesnt exist and must create new one
             let orderData = { status: "pending" }
             dispatch(newOrder(orderData, itemData))
@@ -144,6 +146,7 @@ const ProductPage = () => {
                     return;
                 }
             }
+            updateBag(bag + 1)
             dispatch(newOrderItem(itemData, order.id))
 
         }
@@ -169,7 +172,7 @@ const ProductPage = () => {
 
     }
 
-    if (Object.keys(productType).length) {
+    if (Object.keys(productType).length && (order === null || Object.keys(order).length)) {
         let products = productType.products
         let images;
         let imagesArray = [];
