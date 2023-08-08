@@ -78,7 +78,7 @@ const ProductPage = () => {
     const addFav = () => {
         let productId = 1;
         if (index !== 0) productId = index;
-        let image = productType.products[productId-1].image1
+        let image = productType.products[productId - 1].image1
         dispatch(addFavorites(productType.id, productId, image))
             .then(() => dispatch(getUserFavorites()))
             .then(() => setFavorite(true))
@@ -106,7 +106,7 @@ const ProductPage = () => {
             product_type_id: productType.id,
             price: productType.price,
             quantity: quantity,
-            color: item ? item.color: productType.products[0].color,
+            color: item ? item.color : productType.products[0].color,
             size: size ? size : "Small",
             image: item ? item.image1 : productType.products[0].image1,
             name: productType.name,
@@ -115,29 +115,29 @@ const ProductPage = () => {
         }
         console.log("ITEMM DATA: ", itemData)
 
-        if (!Object.keys(order).length){
+        if (!Object.keys(order).length) {
             // order doesnt exist and must create new one
-            let orderData = {status: "pending"}
+            let orderData = { status: "pending" }
             dispatch(newOrder(orderData, itemData))
 
-        }else {
+        } else {
             //check if item already exists in cart
             let orderItems = order.orderItems;
             for (let i = 0; i < orderItems.length; i++) {
                 let item = orderItems[i]
                 if (item.image === itemData.image
                     && item.size === itemData.size) {
-                        console.log("ALREADY IN CARTTTTTTTTTT")
-                         let quantity = item.quantity + itemData.quantity
-                         let total_price = item.price * quantity
-                         let add = itemData.total_price
-                         let data = {
-                            quantity,
-                            total_price,
-                            add
-                         }
-                        dispatch(modifyItem(order.id, item.id, data))
-                        return;
+                    console.log("ALREADY IN CARTTTTTTTTTT")
+                    let quantity = item.quantity + itemData.quantity
+                    let total_price = item.price * quantity
+                    let add = itemData.total_price
+                    let data = {
+                        quantity,
+                        total_price,
+                        add
+                    }
+                    dispatch(modifyItem(order.id, item.id, data))
+                    return;
                 }
             }
             dispatch(newOrderItem(itemData, order.id))
@@ -175,13 +175,19 @@ const ProductPage = () => {
                                     <>
                                         {
                                             favorite ? (
-                                                <button className="fav-button" onClick={deleteFav}>
-                                                    <i className="fa-solid fa-heart"></i>
-                                                </button>
+                                                <>
+                                                    <button className="fav-button" title="Remove from Favorites" onClick={deleteFav}>
+                                                        <i className="fa-solid fa-heart"></i>
+                                                    </button>
+
+                                                </>
                                             ) : (
-                                                <button className="fav-button" onClick={addFav}>
-                                                    <i className="far fa-heart"></i>
-                                                </button>
+                                                <>
+                                                    <button className="fav-button" title="Add to favorites" onClick={addFav}>
+                                                        <i className="far fa-heart"></i>
+                                                    </button>
+
+                                                </>
                                             )
                                         }
                                     </>
@@ -191,14 +197,14 @@ const ProductPage = () => {
                     </div>
                     <div className="product-info">
                         <div className="product-name">{`${productType.name}`}</div>
-                        <div>${`${productType.price}`}</div>
+                        <div className="prod-price">${`${productType.price}`}.00</div>
                         {
                             productType.products.length > 1 && (
                                 <div className="color-container">
                                     {productType.products.map(item => (
                                         <>
                                             <div className="color-options" key={item.id} onMouseOver={() => setItem(item)}>
-                                            <input type="checkbox" className="color-circle" key={item.id} style={{ backgroundColor: `${item.color}` }} onClick={() => setItem(item)} onMouseOver={() => setItem(item)}></input>
+                                                <input type="checkbox" className="color-circle" key={item.id} style={{ backgroundColor: `${item.color}` }} onClick={() => setItem(item)} onMouseOver={() => setItem(item)}></input>
                                             </div>
                                         </>
                                     ))}
@@ -206,36 +212,38 @@ const ProductPage = () => {
                             )
                         }
                         <div className="size-container">
-                        <button className="circle" onClick={() => setSize("Small")}>S</button>
-                        <button className="circle" onClick={() => setSize("Medium")}>M</button>
-                        <button className="circle" onClick={() => setSize("Large")}>L</button>
+                            <button className="circle" onClick={() => setSize("Small")}>S</button>
+                            <button className="circle" onClick={() => setSize("Medium")}>M</button>
+                            <button className="circle" onClick={() => setSize("Large")}>L</button>
                         </div>
 
                         <div className="quantity-container">
-                        <div>Qty: </div>
-                        <button className="add" disabled={quantity >= 10 ? true : false} onClick={addOne}>
-                        <i className="fa-solid fa-plus"></i>
-                        </button>
-                        <div className="number">{`${quantity}`}</div>
-                        <button className="subtract"disabled={quantity <= 1 ? true : false} onClick={minusOne}>
-                        <i className="fa-solid fa-minus"></i>
-                        </button>
+                            <div>Quantity : </div>
+                            <div className="plusminus">
+                                <button className="add" disabled={quantity >= 10 ? true : false} onClick={addOne}>
+                                    <i className="fa-solid fa-plus"></i>
+                                </button>
+                                <div className="number">{`${quantity}`}</div>
+                                <button className="subtract" disabled={quantity <= 1 ? true : false} onClick={minusOne}>
+                                    <i className="fa-solid fa-minus"></i>
+                                </button>
+                            </div>
                         </div>
 
-                        <button onClick={addItem} >ADD TO BAG</button>
-                        <div>DESCRIPTION
-                            <div>{`${productType.description}`}</div>
-                        </div>
+                        <button className="add-to-bag-button" onClick={addItem} >Add to bag</button>
+                        <div className="description">Description</div>
+                        <div className="description-text">{`${productType.description}`}</div>
+
                     </div>
                     <div>
-                    <OpenModalButton
-                    buttonText="ADD TO YOUR STYLE"
-                    modalComponent={<AddStyleItem styleItem={productType} />}
-                />
+                        <OpenModalButton
+                            buttonText="ADD TO YOUR STYLE"
+                            modalComponent={<AddStyleItem styleItem={productType} />}
+                        />
                     </div>
                     <div>
                         <div>Reviews</div>
-                        
+
                     </div>
                 </div>
             </div>
