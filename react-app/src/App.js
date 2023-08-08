@@ -40,7 +40,11 @@ function App() {
         .then((order) => {
           if (Object.keys(order).length) {
             if (order.orderItems.length) {
-              updateBag(order.orderItems.length)
+              let totalItems = 0;
+              order.orderItems.map( item => {
+                totalItems += item.quantity
+              })
+              updateBag(totalItems)
             }
           }
         })

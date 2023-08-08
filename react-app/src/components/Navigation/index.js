@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from "react-redux";
-import { NavLink } from 'react-router-dom';
+import { NavLink, Redirect } from 'react-router-dom';
 import { logout } from "../../store/session";
 import { useSelector } from 'react-redux';
 import { getCurrentOrder } from '../../store/orders';
@@ -10,6 +10,7 @@ import './Navigation.css';
 // import Dropdown from '../Dropdown/Index';
 // import AllProducts from '../AllProducts';
 import "../../App.css"
+import HomePage from '../HomePage';
 
 function Navigation({ isLoaded, bag}) {
 
@@ -37,8 +38,17 @@ function Navigation({ isLoaded, bag}) {
 
 	const handleLogout = (e) => {
 		e.preventDefault();
-		dispatch(logout());
-		closeMobileMenu()
+		console.log("IN HANDLE LOG OUTTTTTTTT")
+		// dispatch(logout());
+		dispatch(logout()).then(() => closeMobileMenu()).then(() => {
+			return (<Redirect to="/"></Redirect>)
+		} )
+
+
+		// closeMobileMenu()
+		// return (
+		// 	<Redirect to="/"></Redirect>
+		// )
 	};
 
 	useEffect(() => {

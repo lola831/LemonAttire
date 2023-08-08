@@ -55,6 +55,7 @@ function Cart({ bag, updateBag }) {
     console.log("Order  id : ", order.id)
     console.log("ITEM $$$$$$$$$$$ : ", item)
     dispatch(deleteItem(order.id, item))
+    updateBag(bag - item.quantity)
   }
 
   // if (Object.keys(order).length) {

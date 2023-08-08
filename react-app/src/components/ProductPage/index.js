@@ -125,6 +125,8 @@ const ProductPage = ({ bag, updateBag}) => {
             // order doesnt exist and must create new one
             let orderData = { status: "pending" }
             dispatch(newOrder(orderData, itemData))
+            // updateBag(bag + 1)
+            updateBag(bag + quantity)
 
         } else {
             //check if item already exists in cart
@@ -133,6 +135,7 @@ const ProductPage = ({ bag, updateBag}) => {
                 let item = orderItems[i]
                 if (item.image === itemData.image
                     && item.size === itemData.size) {
+                        updateBag(bag + itemData.quantity)
                     console.log("ALREADY IN CARTTTTTTTTTT")
                     let quantity = item.quantity + itemData.quantity
                     let total_price = item.price * quantity
@@ -143,10 +146,11 @@ const ProductPage = ({ bag, updateBag}) => {
                         add
                     }
                     dispatch(modifyItem(order.id, item.id, data))
+
                     return;
                 }
             }
-            updateBag(bag + 1)
+            updateBag(bag + quantity)
             dispatch(newOrderItem(itemData, order.id))
 
         }
