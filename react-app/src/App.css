@@ -10,6 +10,28 @@ h1 {
   font-family: Italiana;
 }
 
+.store-button {
+  height: 45px;
+  font-size: 15px;
+  font-weight: lighter;
+  /* font-family: Italiana; */
+  background-color: #caafa8;
+  color: white;
+  border: none;
+  cursor: pointer;
+  width: 250px;
+  border: white 2px solid;
+
+
+}
+
+.store-button:hover {
+  /* background-color: #caafa8;
+  color: white; */
+  color: #caafa8;
+  background-color: white;
+  border: 2px solid white;
+}
 
 /*
   .home,

@@ -13,6 +13,7 @@ import OpenModalButton from "../OpenModalButton";
 import AddStyleItem from "../Styles/AddStyleItem";
 
 
+
 // import OpenModalButton from "../OpenModalButton";
 import './ProductPage.css'
 import "../../App.css";
@@ -31,6 +32,9 @@ const ProductPage = () => {
     const [item, setItem] = useState("")
     const [size, setSize] = useState("")
     const [imageIndex, setImageIndex] = useState("")
+    const [circleS, setCircleS] = useState(true)
+    const [circleM, setCircleM] = useState(false)
+    const [circleL, setCircleL] = useState(false)
     const [quantity, setQuantity] = useState(1)
     const addOne = () => setQuantity(quantity + 1)
     const minusOne = () => setQuantity(quantity - 1)
@@ -141,7 +145,28 @@ const ProductPage = () => {
                 }
             }
             dispatch(newOrderItem(itemData, order.id))
+
         }
+    }
+
+    const addSize = (checkedSize) => {
+        setSize(checkedSize)
+        if (checkedSize === "Small") {
+            setCircleS(true)
+            setCircleM(false)
+            setCircleL(false)
+        }
+        if (checkedSize === "Medium") {
+            setCircleM(true)
+            setCircleS(false)
+            setCircleL(false)
+        }
+        if (checkedSize === "Large") {
+            setCircleL(true)
+            setCircleM(false)
+            setCircleS(false)
+        }
+
     }
 
     if (Object.keys(productType).length) {
@@ -212,9 +237,9 @@ const ProductPage = () => {
                             )
                         }
                         <div className="size-container">
-                            <button className="circle" onClick={() => setSize("Small")}>S</button>
-                            <button className="circle" onClick={() => setSize("Medium")}>M</button>
-                            <button className="circle" onClick={() => setSize("Large")}>L</button>
+                            <button className={circleS ? "circle" : "no-circle"} onClick={() => addSize("Small")}>S</button>
+                            <button className={circleM ? "circle" : "no-circle"} onClick={() => addSize("Medium")}>M</button>
+                            <button className={circleL ? "circle" : "no-circle"} onClick={() => addSize("Large")}>L</button>
                         </div>
 
                         <div className="quantity-container">
@@ -231,15 +256,13 @@ const ProductPage = () => {
                         </div>
 
                         <button className="add-to-bag-button" onClick={addItem} >Add to bag</button>
-                        <div className="description">Description</div>
-                        <div className="description-text">{`${productType.description}`}</div>
-
-                    </div>
-                    <div>
+                    <div className="add-style">
                         <OpenModalButton
-                            buttonText="ADD TO YOUR STYLE"
+
+                            buttonText="Add to your style"
                             modalComponent={<AddStyleItem styleItem={productType} />}
                         />
+                    </div>
                     </div>
                     <div>
                         <div>Reviews</div>

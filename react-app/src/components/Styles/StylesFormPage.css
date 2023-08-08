@@ -1,7 +1,61 @@
 .styles-form-container {
+    height: 200px;
+    width: 800px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /* background-color: pink; */
+    border-radius: 5px;
+}
+
+.new-style-form {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.bla {
+    display: flex;
+    flex-direction: row;
+
+    /* background-color: blue; */
+}
+
+.title-label {
+    font-size: 18px;
+    padding-right: 5px;
+    font-weight: lighter;
+    /* background-color: pink; */
+}
+
+.title-style-box {
+    height: 30px;
+    /* background-color: green; */
+    padding-top: 5px;
+    padding-right: 5px;
+}
+
+.new-style-title-input {
+    width: 400px;
+    font-size: 18px;
+    border: none;
+    border-bottom: 2px solid white;
+    cursor: pointer;
+    outline: none;
+
+    background-color: #caafa8;
     display: grid;
-    height: 600px;
-    width: 500px;
-    margin-top: 200px;
-    margin-left: 50px;
+    justify-content: end;
+
+    color: #544643;
+    font-size: 20px;
+
+}
+
+.add-style-button {
+    /* background-color: hotpink; */
+    margin-bottom: 20px;
 }

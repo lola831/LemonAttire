@@ -1,5 +1,91 @@
 .add-style-item-container {
-    margin-top: 50px;
-    height: 500px;
-    width: 600px;
+    /* margin-top: 20%; */
+    height: auto;
+    width: auto;
+    background-color: #caafa8;
+    border-radius: 10px;
+    color: white;
+    font-weight: lighter;
+
+}
+
+.would-you-box {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    padding: 20px;
+    gap: 20px;
+    height: 200px;
+}
+
+.would-you {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.would-you-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.nevermind-new-style {
+    text-decoration: none;
+    border: none;
+    background-color: transparent;
+    color: white;
+    font-weight: lighter;
+    font-size: 13px;
+    /* margin-bottom: 80px; */
+    padding-bottom: 80px;
+    cursor: pointer;
+}
+
+.nevermind-new-style:hover {
+    font-size: 14px;
+}
+
+.new-style-modal-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.drop-down-menu-styles {
+    height: 80px;
+    overflow-y: scroll;
+    background-color: white;
+    position: absolute;
+    padding: 10px;
+    padding-bottom: 2px;
+    padding-left: 10px;
+    width: 250px;
+    cursor: pointer;
+    border-top: 1px solid #caafa8;
+}
+
+.style-list-item {
+    text-decoration: none;
+    border: none;
+    color: #caafa8;
+    background-color: transparent;
+    /* background-color: pink; */
+    width: 230px;
+    cursor: pointer;
+    display: grid;
+    justify-content: start;
+    margin-bottom: 3px;
+    font-weight: lighter;
+
+
+}
+
+.style-list-item:hover {
+    background-color: #caafa8;
+    color: white;
+}
+
+.already-has-item {
+    margin-top: 5px;
 }

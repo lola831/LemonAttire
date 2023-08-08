@@ -58,17 +58,18 @@ function AddStyleItem({ styleItem }) {
         <div className="add-style-item-container">
             {
                 !newStyle && (
-                    <>
-                        <div>Would you like to add to an existing Style or create a new one?</div>
-                        <button onClick={() => setNewStyle(true)}>Create a New One</button>
+                    <div className="would-you-box">
+                        <div className="would-you">Would you like to add to an existing Style or create a new one?</div>
+                        <div className="would-you-buttons">
+                        <button className="store-button would-you-new-style" onClick={() => setNewStyle(true)}>Create a New One</button>
                         <div className="dropdown-styles">
-                            <button onClick={handleOpen}>Your Styles</button>
+                            <button className="store-button" onClick={handleOpen}>Your Styles</button>
                             {open ? (
-                                <ul >
+                                <ul className="drop-down-menu-styles" >
                                     {
                                         stylesArray.map(style => (
                                             <li key={style.id}>
-                                                <button onClick={() => addToStyle(style)}>{style.title}</button>
+                                                <button className="style-list-item" onClick={() => addToStyle(style)}>{style.title}</button>
                                             </li>
                                         ))
                                     }
@@ -76,21 +77,22 @@ function AddStyleItem({ styleItem }) {
                             ) : null}
                             {
                                 styleExists && (
-                                    <div>This Style already has this item, please choose a different Style or create a new one</div>
+                                    <div className="already-has-item">*This Style already has this item</div>
                                 )
                             }
 
                         </div>
-                    </>
+                        </div>
+                    </div>
                 )
             }
 
             {newStyle && (
-                <>
+                <div className="new-style-modal-container">
                     <StylesFormPage styleReturned={styleReturned}/>
-                    <button onClick={() => setNewStyle(false)}>Nevermind, I want to add it to an existing Style</button>
+                    <button className="nevermind-new-style" onClick={() => setNewStyle(false)}>Nevermind, I want to add it to an existing Style</button>
 
-                </>
+                </div>
             )}
         </div>
     )
