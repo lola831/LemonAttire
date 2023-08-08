@@ -1,0 +1,137 @@
+.log-in-container {
+    display: grid;
+    grid-template-rows:
+    "auto"
+    "auto"
+    "auto";
+    justify-content: center;
+    padding-top: 20px;
+    padding-bottom: 200px;
+    background-color: #caafa8;
+    color: white;
+
+}
+
+.log-in-title-box {
+    /* background-color: aqua; */
+}
+
+.log-in-form-box {
+    /* background-color: blueviolet; */
+}
+
+.log-in {
+    display: grid;
+    justify-items: center;
+    font-size: 35px;
+    /* background-color: pink; */
+    height: 50px;
+
+}
+
+.log-in-form{
+    display: flex;
+    flex-direction: column;
+    /* gap: 10px; */
+    width: 400px;
+    /* height: 550px; */
+    /* background-color: yellow; */
+}
+
+/* .no-errors-box {
+    height: 0px;
+    display: none;
+} */
+
+.log-in-label {
+    display: grid;
+    /* background-color: pink; */
+    height: 40px;
+    align-items: flex-end;
+    margin-bottom: 5px;
+    font-size: 12px;
+    font-weight: lighter;
+    /* font-family: Montserrat; */
+}
+
+.log-in-input {
+
+    border: none;
+    border-bottom: 2px solid white;
+    /* padding-left: 8px; */
+    outline: none;
+    height: 30px;
+    margin-bottom: 20px;
+    background-color: #caafa8;
+    display: grid;
+    justify-content: end;
+    /* color: white; */
+    color: #544643;
+    font-size: 15px;
+
+}
+/* .sign-up-input:focus {
+    background-color: pink;
+    box-shadow: none;
+
+} */
+
+.log-in-button {
+    margin-top: 30px;
+    height: 50px;
+    font-size: 20px;
+    font-weight: lighter;
+    /* font-family: Italiana; */
+    color: #caafa8;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.log-in-button:hover {
+    /* background-color: black; */
+    background-color: #caafa8;
+    /* color: #fdf9f5; */
+    color: white;
+    border: 2px solid white;
+}
+
+.log-in-demo-button {
+    margin-top: 30px;
+    height: 50px;
+    font-size: 20px;
+    font-weight: lighter;
+    /* font-family: Italiana; */
+    color: #caafa8;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.log-in-demo-button:hover {
+       /* background-color: black; */
+       background-color: #caafa8;
+       /* color: #fdf9f5; */
+       color: white;
+       border: 2px solid white;
+}
+
+.link-to-sign-up {
+    text-decoration: none;
+    color: white;
+    font-size: 12px;
+    font-weight: lighter;
+    cursor: pointer;
+    height: 20px;
+    width: 100px;
+    margin-top: 50px;
+    justify-content: center;
+    align-items: center;
+    display: grid;
+
+}
+
+.link-to-sign-up:hover {
+    font-size: 13px;
+    color: #544643;
+}

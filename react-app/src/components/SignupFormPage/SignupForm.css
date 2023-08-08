@@ -25,7 +25,7 @@
     grid-template-rows: repeat(12, 30px);
     gap: 10px;
     width: 400px;
-    height: 550px;
+    height: 615px;
 }
 
 .sign-up-label {
@@ -33,7 +33,7 @@
     /* background-color: pink; */
     height: 40px;
     align-items: flex-end;
-    padding-bottom: 10px;
+    margin-bottom: 0px;
     font-size: 12px;
     font-weight: lighter;
     /* font-family: Montserrat; */
@@ -45,12 +45,16 @@
 }
 
 .sign-up-input {
-
     border: none;
-    border-bottom: 2px solid white;
-    padding-left: 8px;
+    border-bottom: 1px solid white;
+    /* padding-left: 8px; */
     outline: none;
-
+    background-color: #caafa8;
+    /* color: white; */
+    color: #544643;
+    display: grid;
+    justify-content: end;
+    font-size: 15px;
 }
 /* .sign-up-input:focus {
     background-color: pink;
@@ -65,8 +69,9 @@
     font-weight: lighter;
     /* font-family: Italiana; */
     color: #caafa8;
-    background-color: #ffffff;
+    background-color: white;
     border: none;
+    cursor: pointer;
 }
 
 .sign-up-button:hover {

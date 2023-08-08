@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import { signUp } from "../../store/session";
 import './SignupForm.css';
 import "../../App.css"
@@ -92,6 +92,7 @@ function SignupFormPage() {
             { errors.password && (<p>{errors.password}</p>)}
           <button className="sign-up-button" type="submit">Create</button>
         </form>
+      
 
     </div>
   );
