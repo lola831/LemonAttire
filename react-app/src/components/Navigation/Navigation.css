@@ -19,7 +19,7 @@
   position: sticky;
   top: 0;
   z-index: 999;
-  background-color: blue;
+  /* background-color: blue; */
 
 }
 
@@ -29,9 +29,12 @@
   /* align-items: center; */
   height: 80px;
   max-width: 1500px;
-  background-color: pink;
+  /* background-color: pink; */
   display: grid;
-  grid-template-columns: 50% auto;
+  grid-template-columns: auto auto;
+  padding-left: 5%;
+  padding-right: 5%;
+
 
 }
 
@@ -48,7 +51,7 @@
   align-items: center;
   /* font-family: Ultra; */
   font-family: Italiana;
-  background-color: green;
+  /* background-color: green; */
 
 
 }
@@ -60,7 +63,7 @@
 }
 
 .menu {
-  /* background-color: orange; */
+  /* background-color: yellow; */
   /* display: grid;
   grid-template-columns: repeat(5, auto);
   grid-gap: 10px;
@@ -71,13 +74,19 @@
   margin-right: 2rem; */
 
   display: flex;
+  justify-content: flex-end;
+  list-style: none;
   /* background-color: orange; */
 
 }
 
 .nav-item {
   height: 80px;
-  background-color: orange;
+  /* background-color: orange; */
+  /* display: flex; */
+  /* justify-content:flex-end;
+  width: auto; */
+
 }
 
 .nav-links {

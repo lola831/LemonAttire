@@ -5,7 +5,7 @@ import { logout } from "../../store/session";
 import { useSelector } from 'react-redux';
 // import { getCategoriesThunk } from '../../store/categories';
 import './Navigation.css';
-import { Button } from '../Button';
+// import { Button } from '../Button';
 // import Dropdown from '../Dropdown/Index';
 // import AllProducts from '../AllProducts';
 import "../../App.css"
@@ -14,7 +14,7 @@ function Navigation({ isLoaded }) {
 	const dispatch = useDispatch();
 	const sessionUser = useSelector(state => state.session.user);
 	const [click, setClick] = useState(false)
-	const [button, setButton] = useState(true)
+	// const [button, setButton] = useState(true)
 	// const categories = useSelector(state => state.categories)
 	const handleClick = () => setClick(!click);
 	const closeMobileMenu = () => setClick(false);
@@ -32,22 +32,22 @@ function Navigation({ isLoaded }) {
 		closeMobileMenu()
 	};
 
-	// function removes button and displays it depending on screen size
-	const showButton = () => {
-		if (window.innerWidth <= 960) {
-			setButton(false)
-		} else {
-			setButton(true)
-		}
-	};
+	// // function removes button and displays it depending on screen size
+	// const showButton = () => {
+	// 	if (window.innerWidth <= 960) {
+	// 		setButton(false)
+	// 	} else {
+	// 		setButton(true)
+	// 	}
+	// };
 
-	// renders button only on first render?
-	useEffect(() => {
-		showButton();
-	}, [])
+	// // renders button only on first render?
+	// useEffect(() => {
+	// 	showButton();
+	// }, [])
 
-	// whenever i resize the screen it will call showbutton()
-	window.addEventListener('resize', showButton)
+	// // whenever i resize the screen it will call showbutton()
+	// window.addEventListener('resize', showButton)
 
 
 	return (
@@ -94,12 +94,12 @@ function Navigation({ isLoaded }) {
 								) : (
 									<>
 										<li className='nav-item'>
-											<NavLink to='/signup' className="nav-links-mobile" onClick={closeMobileMenu}>
+											<NavLink to='/signup' className="nav-links" onClick={closeMobileMenu}>
 												Sign Up
 											</NavLink>
 										</li>
 										<li className='nav-item'>
-											<NavLink to='/login' className="nav-links-mobile" onClick={closeMobileMenu}>
+											<NavLink to='/login' className="nav-links" onClick={closeMobileMenu}>
 												Log In
 											</NavLink>
 										</li>
@@ -108,7 +108,7 @@ function Navigation({ isLoaded }) {
 							</>
 						)}
 					</ul>
-					{isLoaded && (
+					{/* {isLoaded && (
 						<> {!sessionUser && (
 							<>
 								{button && <Button buttonStyle='btn--outline' buttonLink='/signup'>Sign Up</Button>}
@@ -117,7 +117,7 @@ function Navigation({ isLoaded }) {
 							</>
 						)}
 						</>
-					)}
+					)} */}
 				</div>
 			</nav>
 			{/* <Dropdown /> */}
