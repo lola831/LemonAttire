@@ -30,11 +30,12 @@ function Styles() {
 
         return (
             <div>
-                <div>My Styles</div>
+                <h1>My Styles</h1>
                 <OpenModalButton
-                    buttonText="NEW STYLE"
+                    buttonText="new style"
                     modalComponent={<StylesFormPage styles={stylesArray} />}
                 />
+
                 <div className="styles-cards-container">
                     {
                         stylesArray.map((style, i) => (

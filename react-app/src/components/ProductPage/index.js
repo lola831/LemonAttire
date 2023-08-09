@@ -41,7 +41,6 @@ const ProductPage = ({ bag, updateBag}) => {
 
     console.log("UPDATE BAG: ", updateBag)
 
-    let index = 0;
 
     useEffect(() => {
         dispatch(getProductType(id));
@@ -177,31 +176,30 @@ const ProductPage = ({ bag, updateBag}) => {
     }
 
     if (Object.keys(productType).length && (order === null || Object.keys(order).length)) {
-        let products = productType.products
-        let images;
-        let imagesArray = [];
-        for (let i = 0; i < products.length; i++) {
-            images = products[i].images.filter(Boolean)
-            imagesArray.push(images)
-        }
 
         if (loadingFavorites && !user) {
             return <div>Loading favorites....</div>
         }
 
-        if (item) index = item.id - 1;
+        const itemImageCheck = () => {
+            if (item) {
+                return item.images
+            }else {
+                return productType.products[0].images
+            }
+        }
 
         return (
             <div className="product-page-container">
                 <div className="product-area">
                     <div className="product-img-container">
                         <div className="product-small-area">
-                            {imagesArray[index].map((img, i) => (
+                            {itemImageCheck().map((img, i) => (
                                 <img key={i} alt="" className="product-img-small" src={`${img}`} onMouseOver={() => setImageIndex(i)}></img>
                             ))}
                         </div>
                         <div className="product-img-big-container">
-                            <img className="product-img-big" src={imageIndex ? `${imagesArray[index][imageIndex]}` : `${imagesArray[index][0]}`}></img>
+                            <img className="product-img-big" src={imageIndex ? `${itemImageCheck()[imageIndex]}` : `${itemImageCheck()[0]}`}></img>
                             {
                                 user && (
                                     <>
