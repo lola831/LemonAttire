@@ -21,6 +21,7 @@ function Navigation({ isLoaded, bag}) {
 	const order = useSelector(state => state.orders)
 	console.log("INNNNNNNNN NAVIGATION COMPONENT!!!!!!!!!!ORDER", order)
 	console.log("bagggg ", bag)
+	console.log(bag === 0)
 	// const [button, setButton] = useState(true)
 	// const categories = useSelector(state => state.categories)
 	const handleClick = () => setClick(!click);
@@ -99,7 +100,7 @@ function Navigation({ isLoaded, bag}) {
 											<NavLink to='/checkout' className="nav-links my-bag" onClick={closeMobileMenu}>
 												My Bag
 
-											{bag && <div className='nav-bag-circle'>{bag}</div>}
+											{bag > 0 && <div className='nav-bag-circle'>{bag}</div>}
 											</NavLink>
 										</li>
 										<li className='nav-item'>
