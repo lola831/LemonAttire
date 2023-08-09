@@ -12,7 +12,7 @@ function Styles() {
     const dispatch = useDispatch()
     const user = useSelector(state => state.session.user)
     const styles = useSelector(state => state.styles)
-    const [imageChange, setImageChange] = useState(0)
+
 
     console.log("USER: ", user)
     console.log("STYLES: ", styles)
@@ -40,31 +40,33 @@ function Styles() {
 
                     <h1>My Styles</h1>
                 </div>
-                <OpenModalButton
-                    buttonText="new style"
-                    modalComponent={<StylesFormPage styles={stylesArray} />}
-                />
-
                 <div className="styles-cards-container">
                     <div className="style-cards-box">
                         {
                             stylesArray.map((style, i) => (
                                 <div key={i} className="style-card">
-                                    <div className="style-card-image-container">
-                                  <img className="style-card-image1" onMouseEnter={() => setImageChange(imageChange ? 0 : 1)} src={style.styleItems.length > 0 ? style.styleItems[0].product.products[imageChange].image1 : greyImage}></img>
+                                    <Link className="style-link" to={`/styles/${style.id}`}>
+                                        <div className="style-card-image-container">
+                                            <img className="style-card-image1" src={style.styleItems.length > 0 ? style.styleItems[0].product.products[0].image1 : greyImage}></img>
 
-                                        <div className="style-small-images">
-                                            <img className="style-card-image2" src={style.styleItems.length > 1 ? style.styleItems[1].product.products[0].image1 : greyImage}></img>
-                                            <img className="style-card-image3" src={style.styleItems.length > 2 ? style.styleItems[2].product.products[0].image1 : greyImage}></img>
+                                            <div className="style-small-images">
+                                                <img className="style-card-image2" src={style.styleItems.length > 1 ? style.styleItems[1].product.products[0].image1 : greyImage}></img>
+                                                <img className="style-card-image3" src={style.styleItems.length > 2 ? style.styleItems[2].product.products[0].image1 : greyImage}></img>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <Link to={`/styles/${style.id}`}>
-                                        <div >{style.title}</div>
+
+                                        <div className="style-card-title">{style.title.toLowerCase()}</div>
                                     </Link>
                                 </div>
                             ))
                         }
                     </div>
+                </div>
+                <div className="new-style-button-container">
+                <OpenModalButton
+                    buttonText="add new style"
+                    modalComponent={<StylesFormPage styles={stylesArray} />}
+                />
                 </div>
             </div>
         )

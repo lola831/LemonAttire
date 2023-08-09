@@ -10,7 +10,7 @@
 .my-styles-header {
     background-color: #fdf9f5;
     color: #caafa8;
-    height: 200px;
+    height: 250px;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -18,12 +18,17 @@
     font-size:  25px;
 }
 
+.new-style-button-container {
+    display: flex;
+    justify-content: center;
+}
+
 
 .styles-cards-container {
     display: flex;
     align-content: center;
-    margin-left: 65px;
-    margin-right: 65px;
+    margin-left: 8%;
+    margin-right: 8%;
     width: auto;
     background-color: #caafa8;
 
@@ -31,22 +36,28 @@
 
 .style-cards-box {
     display: flex;
-    /* justify-content: space-around; */
     flex-direction: row;
     flex-wrap: wrap;
-    /* background-color: lightblue; */
-    gap: 30px;
-    margin-top: 50px;
+    gap: 4%;
+    margin-top: 200px;
+}
 
+.style-card {
+    height: 300px;
+    cursor: pointer;
+}
+
+
+.style-link {
+    text-decoration: none;
 }
 
 .style-card-image-container {
-    height: 302px;
-    width: 439px;
-    /* background-color: pink; */
+    height: 220px;
     display: grid;
-    grid-template-columns: 288px 148px;
-    gap: 1.25px;
+    grid-template-columns: 165px 125px;
+    gap: 2.5px;
+    margin-bottom: 10px;
 }
 
 .style-small-images {
@@ -56,22 +67,33 @@
 }
 
 .style-card-image1 {
-    height: 302px;
-    width: 288px;
+    height: 220px;
+    width: 165px;
     object-fit: cover;
-    border-radius: 30px 0px 0px 30px;
+    border-radius: 20px 0px 0px 20px;
 }
 
 .style-card-image2 {
-    height: 150px;
-    width: 149px;
+    height: 109px;
+    width: 125px;
     object-fit: cover;
-    border-radius: 0Px 30px 0px 0px;
+    border-radius: 0px 20px 0px 0px;
 }
 
 .style-card-image3 {
-    height: 150px;
-    width: 150px;
+    height: 109px;
+    width: 125px;
     object-fit: cover;
-    border-radius: 0px 0px 30px 0px;
+    border-radius: 0px 0px 20px 0px;
+}
+
+.style-card-title {
+    text-decoration: none;
+    color: #fdf9f5;
+    font-weight: lighter;
+    font-size: 18px;
+    padding-left: 15px;
+    /* margin-top: 15px; */
+    /* padding-top: 10px; */
+    /* margin-bottom: 50px; */
 }

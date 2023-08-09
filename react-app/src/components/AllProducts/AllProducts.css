@@ -2,7 +2,8 @@
 
 .all-prods-container {
     background-color: #caafa8;
-    color: white;
+    /* color: white; */
+    color: #fdf9f5;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -29,7 +30,8 @@
     width: 23%;
     /* background-color: lightblue; */
     /* font-size: 12px; */
-    font-size: 12px;
+    font-size: 15px;
+    font-weight: lighter;
     /* height: auto; */
     height: 40%;
     display: grid;

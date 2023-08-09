@@ -34,27 +34,23 @@ video {
 
 
 .link-new-arrivals {
-    /* text-decoration: none;
-    border: white 3px solid;
-    margin: 20px;
-    padding: 10px; */
     text-decoration: none;
-    /* background-color: grey;
-    opacity: .5; */
+    /* opacity: .5; */
     padding: 8px 20px;
     border-radius: 2px;
     border: none;
     cursor: pointer;
     margin-right: 50px;
-    color: white;
+    color: #fdf9f5;
+    /* color: #caafa8; */
     padding: 8px 10px;
     border: 2px solid white;
     padding: 12px 26px;
     font-size: 20px;
-    font-family: Italiana;
-    font-weight:bolder;
-    margin-top: 60px;;
-
+    font-weight: lighter;
+    margin-top: 200px;;
+    /* background-color: #caafa8; */
+    /* background-color: #fdf9f5; */
 }
 
 /* .summer-collection-text {
@@ -66,9 +62,12 @@ video {
 
 
 .link-new-arrivals:hover {
-    background: white;
-    color:rgb(36, 31, 31);
+    background-color: #fdf9f5;
+    color: #caafa8;
+    /* color: #fdf9f5;
+    background-color: #caafa8; */
     transition: all 0.3s ease-out;
+    /* border: none; */
 }
 
 

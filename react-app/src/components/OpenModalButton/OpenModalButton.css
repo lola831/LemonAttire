@@ -1,20 +1,19 @@
 .openModalButton {
-    height: 45px;
-    font-size: 15px;
-    font-weight: lighter;
-    background-color: #caafa8;
-    color: white;
-    border: none;
-    cursor: pointer;
-    width: 300px;
-    border: white 2px solid;
+        margin-top: 30px;
+        height: 50px;
+        font-size: 20px;
+        font-weight: lighter;
+        color: #caafa8;
+        /* background-color: white; */
+        background-color: #fdf9f5;
+        border: none;
+        cursor: pointer;
 
 }
 
 .openModalButton:hover {
-    /* background-color: #caafa8;
-    color: white; */
-    color: #caafa8;
-    background-color: white;
-    border: 2px solid white;
+        background-color: #caafa8;
+        color: #fdf9f5;
+        /* color: white; */
+        border: 2px solid white;
 }

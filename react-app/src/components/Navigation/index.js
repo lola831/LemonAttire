@@ -79,7 +79,7 @@ function Navigation({ isLoaded, bag}) {
 					<ul className={click ? 'menu active' : 'menu'}>
 						<li className='nav-item'>
 							<NavLink to='/shop/' className="nav-links" onClick={closeMobileMenu}>
-								Shop
+								shop
 							</NavLink>
 						</li>
 						{isLoaded && (
@@ -88,24 +88,24 @@ function Navigation({ isLoaded, bag}) {
 									<>
 										<li className='nav-item'>
 											<NavLink to='/favorites' className="nav-links" onClick={closeMobileMenu}>
-												My Favorites
+												my favorites
 											</NavLink>
 										</li>
 										<li className='nav-item'>
 											<NavLink to='/styles' className="nav-links" onClick={closeMobileMenu}>
-												My Styles
+												my styles
 											</NavLink>
 										</li>
 										<li className='nav-item'>
 											<NavLink to='/checkout' className="nav-links my-bag" onClick={closeMobileMenu}>
-												My Bag
+												my bag
 
 											{bag > 0 && <div className='nav-bag-circle'>{bag}</div>}
 											</NavLink>
 										</li>
 										<li className='nav-item'>
 											<NavLink to='/account' className="nav-links" onClick={handleLogout}>
-												Log out
+												log out
 											</NavLink>
 										</li>
 									</>
@@ -113,12 +113,12 @@ function Navigation({ isLoaded, bag}) {
 									<>
 										<li className='nav-item'>
 											<NavLink to='/signup' className="nav-links" onClick={closeMobileMenu}>
-												Sign Up
+												sign up
 											</NavLink>
 										</li>
 										<li className='nav-item'>
 											<NavLink to='/login' className="nav-links" onClick={closeMobileMenu}>
-												Log In
+												log in
 											</NavLink>
 										</li>
 									</>
