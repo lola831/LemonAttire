@@ -1,1 +1,77 @@
+.styles-container {
+    height: auto;
+    width: 100%;
+    background-color: #caafa8;
+    padding-bottom: 100px;
+    /* background-color: aqua;
+ */
+}
 
+.my-styles-header {
+    background-color: #fdf9f5;
+    color: #caafa8;
+    height: 200px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size:  25px;
+}
+
+
+.styles-cards-container {
+    display: flex;
+    align-content: center;
+    margin-left: 65px;
+    margin-right: 65px;
+    width: auto;
+    background-color: #caafa8;
+
+}
+
+.style-cards-box {
+    display: flex;
+    /* justify-content: space-around; */
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* background-color: lightblue; */
+    gap: 30px;
+    margin-top: 50px;
+
+}
+
+.style-card-image-container {
+    height: 302px;
+    width: 439px;
+    /* background-color: pink; */
+    display: grid;
+    grid-template-columns: 288px 148px;
+    gap: 1.25px;
+}
+
+.style-small-images {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: 2px;
+}
+
+.style-card-image1 {
+    height: 302px;
+    width: 288px;
+    object-fit: cover;
+    border-radius: 30px 0px 0px 30px;
+}
+
+.style-card-image2 {
+    height: 150px;
+    width: 149px;
+    object-fit: cover;
+    border-radius: 0Px 30px 0px 0px;
+}
+
+.style-card-image3 {
+    height: 150px;
+    width: 150px;
+    object-fit: cover;
+    border-radius: 0px 0px 30px 0px;
+}

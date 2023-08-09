@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect, Link } from "react-router-dom";
 import { getUserStyles } from "../../store/styles";
@@ -6,13 +6,18 @@ import OpenModalButton from '../OpenModalButton'
 import StylesFormPage from './StylesFormPage'
 import StylesDetails from "./StylesDetails";
 
+import "./Styles.css"
+
 function Styles() {
     const dispatch = useDispatch()
     const user = useSelector(state => state.session.user)
     const styles = useSelector(state => state.styles)
+    const [imageChange, setImageChange] = useState(0)
 
     console.log("USER: ", user)
     console.log("STYLES: ", styles)
+
+    let greyImage = "https://garden.spoonflower.com/c/5090068/p/f/m/3yDyWOWB4oECjSmqcc9qmveAYXj9WfizlmWcqq8S3gEqvqlo5DilMA/Light%20Gray%20Solid.jpg"
 
 
     useEffect(() => {
@@ -26,38 +31,52 @@ function Styles() {
 
 
     if (Object.keys(styles).length) {
-        let stylesArray = Object.entries(styles).map((style) => ( style[1]))
+        let stylesArray = Object.entries(styles).map((style) => (style[1]))
+        console.log("STYLES ARRAY: ", stylesArray)
 
         return (
-            <div>
-                <h1>My Styles</h1>
+            <div className="styles-container">
+                <div className="my-styles-header">
+
+                    <h1>My Styles</h1>
+                </div>
                 <OpenModalButton
                     buttonText="new style"
                     modalComponent={<StylesFormPage styles={stylesArray} />}
                 />
 
                 <div className="styles-cards-container">
-                    {
-                        stylesArray.map((style, i) => (
-                            <div key={i} className="style-card">
-                                <Link  to={`/styles/${style.id}`}>
-                                    <div >{style.title}</div>
-                                </Link>
-                            </div>
-                        ))
-                    }
+                    <div className="style-cards-box">
+                        {
+                            stylesArray.map((style, i) => (
+                                <div key={i} className="style-card">
+                                    <div className="style-card-image-container">
+                                  <img className="style-card-image1" onMouseEnter={() => setImageChange(imageChange ? 0 : 1)} src={style.styleItems.length > 0 ? style.styleItems[0].product.products[imageChange].image1 : greyImage}></img>
+
+                                        <div className="style-small-images">
+                                            <img className="style-card-image2" src={style.styleItems.length > 1 ? style.styleItems[1].product.products[0].image1 : greyImage}></img>
+                                            <img className="style-card-image3" src={style.styleItems.length > 2 ? style.styleItems[2].product.products[0].image1 : greyImage}></img>
+                                        </div>
+                                    </div>
+                                    <Link to={`/styles/${style.id}`}>
+                                        <div >{style.title}</div>
+                                    </Link>
+                                </div>
+                            ))
+                        }
+                    </div>
                 </div>
             </div>
         )
-    }else {
+    } else {
         return (
             <>
-            <div>You have no styles</div>
-            <OpenModalButton
+                <div>You have no styles</div>
+                <OpenModalButton
                     buttonText="NEW STYLE"
                     modalComponent={<StylesFormPage />}
                 />
-                </>
+            </>
         )
     }
 
