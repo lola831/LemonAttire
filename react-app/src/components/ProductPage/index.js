@@ -19,7 +19,7 @@ import './ProductPage.css'
 import "../../App.css";
 // import { loadProductReviews } from "../../store/reviews";
 
-const ProductPage = ({ bag, updateBag}) => {
+const ProductPage = ({ bag, updateBag }) => {
     const dispatch = useDispatch();
     const { id } = useParams();
     const productType = useSelector(state => state.productType);
@@ -81,9 +81,9 @@ const ProductPage = ({ bag, updateBag}) => {
     }, [favorites, id, user]);
 
     const addFav = () => {
-        let productId = 1;
-        if (index !== 0) productId = index;
-        let image = productType.products[productId - 1].image1
+        let productId = productType.products[0].id
+        if (item) productId = item.id;
+        let image = item ? item.image1 : productType.products[0].image1
         dispatch(addFavorites(productType.id, productId, image))
             .then(() => dispatch(getUserFavorites()))
             .then(() => setFavorite(true))
@@ -134,7 +134,7 @@ const ProductPage = ({ bag, updateBag}) => {
                 let item = orderItems[i]
                 if (item.image === itemData.image
                     && item.size === itemData.size) {
-                        updateBag(bag + itemData.quantity)
+                    updateBag(bag + itemData.quantity)
                     console.log("ALREADY IN CARTTTTTTTTTT")
                     let quantity = item.quantity + itemData.quantity
                     let total_price = item.price * quantity
@@ -184,7 +184,7 @@ const ProductPage = ({ bag, updateBag}) => {
         const itemImageCheck = () => {
             if (item) {
                 return item.images
-            }else {
+            } else {
                 return productType.products[0].images
             }
         }
@@ -261,13 +261,13 @@ const ProductPage = ({ bag, updateBag}) => {
                         </div>
 
                         <button className="add-to-bag-button" onClick={addItem} >Add to bag</button>
-                    <div className="add-style">
-                        <OpenModalButton
+                        <div className="add-style">
+                            <OpenModalButton
 
-                            buttonText="Add to your style"
-                            modalComponent={<AddStyleItem styleItem={productType} />}
-                        />
-                    </div>
+                                buttonText="Add to your style"
+                                modalComponent={<AddStyleItem styleItem={productType} />}
+                            />
+                        </div>
                     </div>
                     <div>
                         <div>Reviews</div>
