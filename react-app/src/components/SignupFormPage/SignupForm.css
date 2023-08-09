@@ -50,8 +50,8 @@
     /* padding-left: 8px; */
     outline: none;
     background-color: #caafa8;
-    /* color: white; */
-    color: #544643;
+    color: #fdf9f5;
+    /* color: #544643; */
     display: grid;
     justify-content: end;
     font-size: 15px;
@@ -72,6 +72,7 @@
     background-color: white;
     border: none;
     cursor: pointer;
+    border-radius: 3px;
 }
 
 .sign-up-button:hover {

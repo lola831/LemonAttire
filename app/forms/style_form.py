@@ -8,7 +8,7 @@ def style_title_exists(form, field):
     style = Style.query.filter(Style.title == title).first()
     print("===================== style found? ", style)
     if style:
-        raise ValidationError('You already have a Style with this title. Please choose a new title.')
+        raise ValidationError('*you already have a style with this title, please choose a new one')
 
 class StyleForm(FlaskForm):
     title = StringField('title', validators=[DataRequired(), style_title_exists])

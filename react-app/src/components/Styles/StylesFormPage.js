@@ -12,7 +12,7 @@ function StylesFormPage({ styleReturned }) {
     const user = useSelector(state => state.session.user)
     const [errors, setErrors] = useState({})
     const [title, setTitle] = useState("")
-    const [showMessage, setShowMessage] = useState(false)
+
 
     if (!user) return <Redirect to="/login" />
 
@@ -33,11 +33,6 @@ function StylesFormPage({ styleReturned }) {
                 console.log("child component style returned", data)
                 styleReturned(data)
             }
-
-            setShowMessage(true)
-            setTimeout(() => {
-                closeModal()
-            }, 1500);
         }
     }
 
@@ -46,12 +41,11 @@ function StylesFormPage({ styleReturned }) {
         <div className='styles-form-container'>
 
             <form className='new-style-form' onSubmit={handleSubmit}>
-                {/* <div>My New Style</div> */}
                 <div className="new-style-box">
                     <div className='bla'>
                         <div className='title-style-box'>
                             <label className='title-label'>
-                                Title:
+                                title:
                             </label>
                         </div>
                         <div>
@@ -68,12 +62,10 @@ function StylesFormPage({ styleReturned }) {
                         {errors.title && <span className="error">{errors.title}</span>}
                     </div>
                 </div>
-                <button className='store-button add-style-button' type='submit'> Create Your New Style </button>
+                <div>
+                    <button className='add-style-button' type='submit'> create style </button>
+                </div>
             </form>
-            {showMessage && (
-                <div>YOUR STYLE HAS BEEN CREATED</div>
-            )}
-
         </div>
     )
 }

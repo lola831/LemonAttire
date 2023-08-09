@@ -65,10 +65,9 @@
     background-color: #caafa8;
     display: grid;
     justify-content: end;
-    /* color: white; */
-    color: #544643;
+    color: #fdf9f5;
+    /* color: #544643; */
     font-size: 15px;
-
 }
 /* .sign-up-input:focus {
     background-color: pink;
@@ -86,13 +85,14 @@
     background-color: white;
     border: none;
     cursor: pointer;
+    border-radius: 3px;
 }
 
 .log-in-button:hover {
     /* background-color: black; */
     background-color: #caafa8;
-    /* color: #fdf9f5; */
-    color: white;
+    color: #fdf9f5;
+    /* color: white; */
     border: 2px solid white;
 }
 
@@ -103,22 +103,24 @@
     font-weight: lighter;
     /* font-family: Italiana; */
     color: #caafa8;
-    background-color: white;
+    background-color:#fdf9f5;
     border: none;
     cursor: pointer;
+    border-radius: 3px;
 }
 
 .log-in-demo-button:hover {
        /* background-color: black; */
        background-color: #caafa8;
-       /* color: #fdf9f5; */
-       color: white;
-       border: 2px solid white;
+       color: #fdf9f5;
+       /* color: white; */
+       border: 2px solid #fdf9f5;
 }
 
 .link-to-sign-up {
     text-decoration: none;
-    color: white;
+    /* color: white; */
+    color: #fdf9f5;
     font-size: 12px;
     font-weight: lighter;
     cursor: pointer;
@@ -133,5 +135,5 @@
 
 .link-to-sign-up:hover {
     font-size: 13px;
-    color: #544643;
+    /* color: #544643; */
 }
