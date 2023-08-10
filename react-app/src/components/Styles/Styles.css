@@ -3,19 +3,6 @@
     width: 100%;
     background-color: #caafa8;
     padding-bottom: 100px;
-    /* background-color: aqua;
- */
-}
-
-.my-styles-header {
-    background-color: #fdf9f5;
-    color: #caafa8;
-    height: 250px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size:  25px;
 }
 
 .new-style-button-container {

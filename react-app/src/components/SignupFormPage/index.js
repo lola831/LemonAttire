@@ -34,7 +34,7 @@ function SignupFormPage() {
   return (
     <div className="sign-up-container">
 
-        <h1 className="create-account">Create Account</h1>
+        <h1 className="create-account">Sign up</h1>
 
         <form  className="sign-up-form" onSubmit={handleSubmit}>
 
@@ -68,7 +68,7 @@ function SignupFormPage() {
               onChange={(e) => setEmail(e.target.value)}
               required
             />
-           { errors.email && (<p>{errors.email}</p>)}
+           { errors.email && (<p className="sign-up-errors">*{errors.email}</p>)}
           <label className="sign-up-label">
             Password
           </label>
@@ -90,9 +90,11 @@ function SignupFormPage() {
               required
             />
             { errors.password && (<p>{errors.password}</p>)}
-          <button className="sign-up-button" type="submit">Create</button>
+            <div className="sign-up-button">
+          <button className="store-button-white sign-up-b" type="submit">Sign up</button>
+          </div>
         </form>
-      
+
 
     </div>
   );

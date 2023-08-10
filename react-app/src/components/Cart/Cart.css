@@ -30,3 +30,15 @@
 .item-color-size {
     font-size: 12px;
 }
+
+
+.empty-cart {
+    /* background-color: #caafa8; */
+    background-color: #fdf9f5;
+    height: 600px;
+    color: #caafa8;
+}
+
+.empty-cart-message {
+    font-family: Quicksand;
+}

@@ -2,22 +2,16 @@
 
 .all-prods-container {
     background-color: #caafa8;
-    /* color: white; */
     color: #fdf9f5;
     width: 100%;
     display: flex;
     justify-content: center;
-    /* background-color: blueviolet; */
     height: auto;
-
     padding-top: 1%;
     padding-bottom: 2%;
-
-    /* flex-flow: row wrap; */
 }
 
 .product-cards {
-    /* background-color: pink; */
     display: flex;
     flex-flow: row wrap;
     gap: 2.45%;
@@ -26,13 +20,7 @@
 }
 
 .card-container {
-    /* width: 320px; */
     width: 23%;
-    /* background-color: lightblue; */
-    /* font-size: 12px; */
-    font-size: 15px;
-    font-weight: lighter;
-    /* height: auto; */
     height: 40%;
     display: grid;
     margin-top: 10px;
@@ -40,12 +28,10 @@
 }
 
 .all-prod-link-prod {
-    /* background-color: green; */
     height: 92%;
 }
 
 .card-img {
-    /* height: 450px; */
     height: 90%;
     width: 100%;
     border-radius: 5px;
@@ -63,7 +49,6 @@
     align-items: center;
     height: 90px;
     gap: 10px;
-    /* background-color: orange; */
     margin-top: -10px;
     margin-bottom: 10px;
 }
@@ -75,7 +60,6 @@
     gap: 20%;
     font-size: 20px;
     justify-content: center;
-    /* background-color: yellow; */
 }
 
 .fa-circle {

@@ -5,19 +5,14 @@
     "auto";
     justify-content: center;
     padding-top: 20px;
-    /* background-color: #eae6e1; */
-    /* background-color: black; */
     background-color: #caafa8;
-    /* color: #6B5875; */
-    color: white;
-    gap: 10px;
+    color: #fdf9f5;
+    /* gap: 10px; */
 }
 
 .create-account {
     display: grid;
     justify-items: center;
-    font-size: 35px;
-    /* background-color: pink; */
 }
 
 .sign-up-form{
@@ -30,31 +25,24 @@
 
 .sign-up-label {
     display: grid;
-    /* background-color: pink; */
     height: 40px;
     align-items: flex-end;
-    margin-bottom: 0px;
-    font-size: 12px;
-    font-weight: lighter;
-    /* font-family: Montserrat; */
-
-
-
-
-
 }
 
 .sign-up-input {
     border: none;
     border-bottom: 1px solid white;
-    /* padding-left: 8px; */
     outline: none;
-    background-color: #caafa8;
+    background-color: #d1bfba;
     color: #fdf9f5;
-    /* color: #544643; */
     display: grid;
     justify-content: end;
-    font-size: 15px;
+    padding-left: 10px;
+
+}
+
+.sign-up-errors {
+    color: #786560;
 }
 /* .sign-up-input:focus {
     background-color: pink;
@@ -63,22 +51,12 @@
 } */
 
 .sign-up-button {
-    margin-top: 30px;
-    height: 50px;
-    font-size: 20px;
-    font-weight: lighter;
-    /* font-family: Italiana; */
-    color: #caafa8;
-    background-color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 3px;
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
-.sign-up-button:hover {
-    /* background-color: black; */
-    background-color: #caafa8;
-    /* color: #fdf9f5; */
-    color: white;
-    border: 2px solid white;
+.sign-up-b {
+    width: 200px;
 }

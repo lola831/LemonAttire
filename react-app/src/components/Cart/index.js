@@ -108,11 +108,11 @@ function Cart({ bag, updateBag }) {
     )
   } else {
     return (
-    <div>
-      <div>Your Shopping bag is currently empty.</div>
+    <div className="empty-cart">
+      <div className="empty-cart-message">Your Shopping bag is currently empty.</div>
       <Link to="/shop">
-        <button>
-          CONTINUE SHOPPING
+        <button className="store-button-white">
+          Continue Shopping
         </button>
       </Link>
     </div>

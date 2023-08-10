@@ -36,7 +36,7 @@ function Styles() {
 
         return (
             <div className="styles-container">
-                <div className="my-styles-header">
+                <div className="page-header">
 
                     <h1>My Styles</h1>
                 </div>
