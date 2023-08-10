@@ -53,7 +53,7 @@ function AllProducts() {
                 </Link>
               </div>
               <div className='all-prods-info'>
-                <div className='card-name'>{`${product.name.toLowerCase()}`}</div>
+                <div className='card-name'>{`${product.name}`}</div>
                 <div className='card-price'>${`${product.price}`}.00</div>
                 <div>
                   {

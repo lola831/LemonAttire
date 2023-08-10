@@ -88,7 +88,7 @@ function Cart({ bag, updateBag }) {
                         <i className="fa-solid fa-minus"></i>
                       </button>
                     </div>
-                    <button className="store-button-white" onClick={() => removeItem(item)}>Remove</button>
+                    <button className="store-button-white remove-order-item" onClick={() => removeItem(item)}>Remove</button>
 
                   </div>
                 </div>
@@ -119,7 +119,7 @@ function Cart({ bag, updateBag }) {
   } else {
     return (
       <div className="empty-cart">
-        <div className="empty-cart-message">Your Shopping bag is currently empty.</div>
+        <div className="empty-cart-message">Your shopping bag is empty.</div>
         <Link to="/shop">
           <button className="store-button-white">
             Continue Shopping

@@ -2,6 +2,7 @@ import React from 'react'
 import { useModal } from '../../context/Modal'
 import { getCurrentOrder, removeOrder } from '../../store/orders'
 import { useDispatch } from 'react-redux'
+import "./DeleteOrder.css"
 
 function DeleteOrder({ order, bag, updateBag }) {
     console.log("ORDER: ", order)
@@ -16,10 +17,12 @@ function DeleteOrder({ order, bag, updateBag }) {
     }
 
   return (
-    <div>
-    <div>Are you sure you want to empty your bag?</div>
-    <button onClick={emptyBag}>Yes, I'm sure</button>
-    <button onClick={closeModal} >Ooops, no I don't</button>
+    <div className='delete-order-container'>
+    <div className='delete-question'>Are you sure you want to empty your bag?</div>
+    <div className='delete-buttons-container'>
+    <button className='store-button delete-order-buttons' onClick={emptyBag}>Yes, I'm sure</button>
+    <button  className='store-button delete-order-buttons' onClick={closeModal} >Ooops, no I don't</button>
+    </div>
     </div>
   )
 }

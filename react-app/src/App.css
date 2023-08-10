@@ -27,17 +27,18 @@ h1 {
   font-size: 15px;
   font-weight: lighter;
   background-color: #caafa8;
-  color: white;
-  border: none;
+  color: #fdf9f5;
+  /* border: none; */
   cursor: pointer;
   width: 250px;
-  border: white 2px solid;
+  border-radius: 3px;
+  border: #fdf9f5 2px solid;
 }
 
 .store-button:hover {
   color: #caafa8;
-  background-color: white;
-  border: 2px solid white;
+  background-color: #fdf9f5;
+  border: 2px solid #fdf9f5;
 }
 
 .store-button-white {
@@ -49,6 +50,7 @@ h1 {
   cursor: pointer;
   width: 250px;
   border: #caafa8 2px solid;
+  border-radius: 3px;
 }
 
 .store-button-white:hover {

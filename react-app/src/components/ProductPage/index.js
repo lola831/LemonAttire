@@ -274,12 +274,17 @@ const ProductPage = ({ bag, updateBag }) => {
                         </div>
 
                         <button className="store-button add-to-bag-button" onClick={addItem} >Add to bag</button>
-
-                            <OpenModalButton
+                        {
+                            user && (
+                                 <OpenModalButton
                                 className="store-button add-to-style"
                                 buttonText="Add to style"
                                 modalComponent={<AddStyleItem styleItem={productType} />}
                             />
+                            )
+
+                        }
+
 
                     </div>
                     <div>
