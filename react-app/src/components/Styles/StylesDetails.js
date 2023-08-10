@@ -88,13 +88,13 @@ function StylesDetails() {
           )
         }
         </div>
-        <div>
+        <div className='style-items-display'>
 
           <DisplayStyleItems productValues={style.styleItems} />
         </div>
 
         <div>
-          <button className="delete-style-button" onClick={removeStyle}>Delete style</button>
+          <button className="delete-style-button store-button" onClick={removeStyle}>Delete style</button>
 
         </div>
 

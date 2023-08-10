@@ -46,7 +46,7 @@
 
 .card-img {
     /* height: 450px; */
-    height: 100%;
+    height: 90%;
     width: 100%;
     border-radius: 5px;
 }
@@ -54,6 +54,7 @@
 .card-img-color {
     display: hidden;
 }
+
 
 .all-prods-info {
     display: flex;
@@ -63,7 +64,7 @@
     height: 90px;
     gap: 10px;
     /* background-color: orange; */
-    margin-top: 20px;
+    margin-top: -10px;
     margin-bottom: 10px;
 }
 

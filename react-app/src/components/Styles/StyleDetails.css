@@ -1,6 +1,7 @@
 .style-details-container {
     display: grid;
     gap: 40px;
+    background-color: #caafa8;
 
 }
 
@@ -116,4 +117,11 @@
 
 .error {
     color:#caafa8;
+}
+
+.style-items-display {
+    background-color: #caafa8;
+    padding-top: 40px;
+    margin-left: 5%;
+    margin-right: 5%;
 }

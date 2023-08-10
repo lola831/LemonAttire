@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { Redirect, useParams } from "react-router-dom";
 import { getProductType } from "../../store/productType";
 // import EditReviewForm from "../../Reviews/EditReview";
 // import DeleteReviewForm from "../../Reviews/DeleteReview";
@@ -105,6 +105,9 @@ const ProductPage = ({ bag, updateBag }) => {
     };
 
     const addItem = () => {
+        // if (!user) return (
+        //     <Redirect to='/login'></Redirect>
+        // )
         let totalPrice = quantity * productType.price
         let itemData = {
             product_id: item ? item.id : productType.products[0].id,

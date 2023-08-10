@@ -34,16 +34,20 @@ function Favorites() {
 
   return (
     <div>
+      <div className="fav-header">
       <h1>My Favorites</h1>
+      </div>
+      <div className="fav-main-container">
       {
         favorites.map(fav => (
-          <div>
+          <div >
             <img alt="" className="fav-img" src={`${fav.image}`}></img>
             <i className="fa-solid fa-x" onClick={() => deleteFav(fav.id)}></i>
 
           </div>
         ))
       }
+      </div>
     </div>
   )
 }
