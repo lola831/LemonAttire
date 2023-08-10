@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect, useParams } from "react-router-dom";
+import { Redirect, useHistory, useParams} from "react-router-dom";
 import { getProductType } from "../../store/productType";
 // import EditReviewForm from "../../Reviews/EditReview";
 // import DeleteReviewForm from "../../Reviews/DeleteReview";
@@ -21,6 +21,7 @@ import "../../App.css";
 
 const ProductPage = ({ bag, updateBag }) => {
     const dispatch = useDispatch();
+    const history = useHistory();
     const { id } = useParams();
     const productType = useSelector(state => state.productType);
     const favorites = useSelector(state => state.favorites);
@@ -104,10 +105,15 @@ const ProductPage = ({ bag, updateBag }) => {
 
     };
 
+
     const addItem = () => {
-        // if (!user) return (
-        //     <Redirect to='/login'></Redirect>
-        // )
+        console.log("in add item")
+        if (!user) {
+         history.push("/login")
+         return
+        }
+
+
         let totalPrice = quantity * productType.price
         let itemData = {
             product_id: item ? item.id : productType.products[0].id,
@@ -178,7 +184,8 @@ const ProductPage = ({ bag, updateBag }) => {
 
     }
 
-    if (Object.keys(productType).length && (order === null || Object.keys(order).length)) {
+    // if (Object.keys(productType).length && (order === null || Object.keys(order).length)) {
+        if (Object.keys(productType).length) {
 
         if (loadingFavorites && !user) {
             return <div>Loading favorites....</div>
