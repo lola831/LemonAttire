@@ -30,26 +30,26 @@ function App() {
   console.log("BAG IN APP.JS: ", bag)
   useEffect(() => {
     dispatch(authenticate())
-    .then((data) => {
-      setIsLoaded(true)
-      console.log("IN app.js ==================== ", data)
-    })
-    .then(() => {
-      if (user) {
-        dispatch(getCurrentOrder())
-        .then((order) => {
-          if (Object.keys(order).length) {
-            if (order.orderItems.length) {
-              let totalItems = 0;
-              order.orderItems.map( item => {
-                totalItems += item.quantity
-              })
-              updateBag(totalItems)
-            }
-          }
-        })
-      }
-    })
+      .then((data) => {
+        setIsLoaded(true)
+        console.log("IN app.js ==================== ", data)
+      })
+      .then(() => {
+        if (user) {
+          dispatch(getCurrentOrder())
+            .then((order) => {
+              if (Object.keys(order).length) {
+                if (order.orderItems.length) {
+                  let totalItems = 0;
+                  order.orderItems.map(item => {
+                    totalItems += item.quantity
+                  })
+                  updateBag(totalItems)
+                }
+              }
+            })
+        }
+      })
     // .then(() => dispatch() );
     // if (user) {
     //   dispatch(getCurrentOrder()).then(() => {
@@ -80,7 +80,7 @@ function App() {
             <AllProducts />
           </Route>
           <Route exact path="/shop/:id">
-            <ProductPage bag={bag} updateBag={updateBag}/>
+            <ProductPage bag={bag} updateBag={updateBag} />
           </Route>
           {/* <Route exact path="/new-arrivals">
             <NewArrivals />
@@ -89,7 +89,7 @@ function App() {
             <Favorites />
           </Route>
           <Route path="/checkout">
-            <Cart bag={bag} updateBag={updateBag}/>
+            <Cart bag={bag} updateBag={updateBag} />
           </Route>
           <Route exact path="/styles/:styleId">
             <StylesDetails />
@@ -99,7 +99,7 @@ function App() {
           </Route>
         </Switch>
       )}
-        <Footer />
+      <Footer />
     </>
   );
 }

@@ -41,17 +41,19 @@ function StylesDetails() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (title === style.title) setEdit(false)
+
     console.log("errors: ", errors)
     if (errors.title) errors.title = "";
 
-    const data = await dispatch(modifyStyle(style.id, {title}))
+    const data = await dispatch(modifyStyle(style.id, { title }))
     if (data.errors) {
-       setErrors(data.errors[0])
+      setErrors(data.errors[0])
 
-    }else {
-        setEdit(false)
+    } else {
+      setEdit(false)
     }
-}
+  }
 
   console.log("ERROR OUTSIDE OF CHNAGT TTITLE", errors)
 
@@ -59,27 +61,33 @@ function StylesDetails() {
 
     return (
       <div className='style-details-container'>
+        <div className='style-title-box'>
         {
           !edit ? (
             <div className='style-title-container'>
               <div className='style-details-title'>{style.title}</div>
-              <button className='change-title-button' onClick={() => setEdit(true)}>Change title name</button>
+              <button className='change-title-button' onClick={() => setEdit(true)}>
+              <i className="fa-solid fa-pen-to-square"></i>
+              </button>
             </div>
           ) : (
-            <form onSubmit={handleSubmit}>
+            <form className='edit-style-title-container' onSubmit={handleSubmit}>
+              <div className="new-style-title">
               <input
                 type="text"
-                className="new-style-title"
+                className="new-style-title-input"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
                 required
               />
-              {errors.title && ( <span className="error">{errors.title}</span> )}
-              <button type='submit'>Save Title</button>
+              </div>
+              {errors.title && (<span className="error">{errors.title}</span>)}
+              <button className='store-button style-submit-title' type='submit'>save title</button>
+              <button className='store-button cancel-title' onClick={()=> setEdit(false)}>cancel</button>
             </form>
           )
         }
-
+        </div>
         <div>
 
           <DisplayStyleItems productValues={style.styleItems} />
