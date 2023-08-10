@@ -1,10 +1,8 @@
 .product-page-container {
     display: grid;
-    /* place-items: center; */
     justify-items: center;
     padding-top: 10px;
     padding-bottom: 50px;
-    /* background-color: pink; */
     background-color: #caafa8;
 
 }
@@ -24,10 +22,8 @@
     grid-template-rows: auto;
     grid-template-areas:
     "product-small-area product-img-big-container";
-    /* margin-left: 10px;
-    margin-top: 10px; */
     gap: 20px;
-    /* background-color: aquamarine; */
+
 
 }
 
@@ -180,34 +176,34 @@
 
 .add, .subtract {
     width: 25px;
-    color: white;
+    color: #fdf9f5;
     background-color: transparent;
-    border: white 1px solid;
+    border: #fdf9f5 1px solid;
 }
 
 .add:hover, .subtract:hover {
-    background-color: white;
+    background-color: #fdf9f5;
     color:#caafa8;
-    border: #544643 2px solid;
+    /* border: #544643 2px solid; */
 
 }
 
 .number {
     width: 50px;
-    border: thin solid white;
+    border: thin solid #fdf9f5;
     /* background-color: #ddd; */
     display: flex;
     justify-content: center;
-    background-color: white;
+    background-color: #fdf9f5;
     color:#caafa8;
 }
 
-.add-to-bag-button {
+/* .add-to-bag-button {
     margin-top: 30px;
     height: 45px;
     font-size: 15px;
     font-weight: lighter;
-    /* font-family: Italiana; */
+
     background-color: #caafa8;
     color: white;
     border: none;
@@ -218,12 +214,11 @@
 }
 
 .add-to-bag-button:hover {
-    /* background-color: #caafa8;
-    color: white; */
+
     color: #caafa8;
     background-color: white;
     border: 2px solid white;
-}
+} */
 
 /* .description {
     color: white;

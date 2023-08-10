@@ -193,7 +193,10 @@ const ProductPage = ({ bag, updateBag }) => {
 
         const itemImageCheck = () => {
             if (item) {
-                return item.images
+                console.log("ITEMMMMM IMGGGG", item)
+                let images = item.images.filter(ele => ele !== null)
+                console.log("imageeeeee", images)
+                return images
             } else {
                 return productType.products[0].images
             }
@@ -270,14 +273,14 @@ const ProductPage = ({ bag, updateBag }) => {
                             </div>
                         </div>
 
-                        <button className="add-to-bag-button" onClick={addItem} >Add to bag</button>
-                        <div className="add-style">
-                            <OpenModalButton
+                        <button className="store-button add-to-bag-button" onClick={addItem} >Add to bag</button>
 
-                                buttonText="Add to your style"
+                            <OpenModalButton
+                                className="store-button add-to-style"
+                                buttonText="Add to style"
                                 modalComponent={<AddStyleItem styleItem={productType} />}
                             />
-                        </div>
+
                     </div>
                     <div>
                         <div>Reviews</div>

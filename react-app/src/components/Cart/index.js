@@ -11,7 +11,7 @@ function Cart({ bag, updateBag }) {
 
   const dispatch = useDispatch();
   const order = useSelector(state => state.orders)
-  const user = useSelector(state => state.session.user )
+  const user = useSelector(state => state.session.user)
   // const [quantity, setQuantity] = useState()
   // const addOne = () => setQuantity(quantity + 1)
   // const minusOne = () => setQuantity(quantity - 1)
@@ -22,7 +22,7 @@ function Cart({ bag, updateBag }) {
 
   if (!user) return (
     <Redirect to='/login'></Redirect>
-)
+  )
 
   console.log("ORDER: ", order)
 
@@ -59,63 +59,73 @@ function Cart({ bag, updateBag }) {
   }
 
   // if (Object.keys(order).length) {
-    console.log("ORDER LINE 61 CART: ", order)
-    if (order && Object.keys(order).length) {
+  console.log("ORDER LINE 61 CART: ", order)
+  if (order && Object.keys(order).length) {
     return (
-      <div className="cart-container">
-        {
-          order.orderItems.map((item, i) => (
+      <>
+        <h1 className="page-header">My bag</h1>
+        <div className="cart-container">
+          <div className="order-items-container">
+            {
+              order.orderItems.map((item, i) => (
 
-            <div key={i} className="order-item-container">
-              <Link to={`/shop/${item.productTypeId}`}>
-              <img alt="" className="order-item-img" src={item.image}></img>
-              </Link>
-              <div className="order-item-info">
-                <div>{`${item.name}`}</div>
-                <div className="order-item-color-size">{`${item.color}`}, {`${item.size}`}</div>
-                <div className="order-item-price">${`${item.total_price}`}</div>
+                <div key={i} className="order-item-container">
+                  <Link to={`/shop/${item.productTypeId}`}>
+                    <img alt="" className="order-item-img" src={item.image}></img>
+                  </Link>
+                  <div className="order-item-info">
+                    <div>{`${item.name}`}</div>
+                    <div className="order-item-color-size">{`${item.color}`}, {`${item.size}`}</div>
+                    <div className="order-item-price">${`${item.total_price}`}</div>
 
-                <div className="quantity-container">
-                        <div>Qty: </div>
-                        <button className="add" disabled={item.quantity >=10 ? true : false} onClick={() => addOne(item)}>
+                    <div className="quantity-container">
+                      <div>Qty: </div>
+                      <button className="add" disabled={item.quantity >= 10 ? true : false} onClick={() => addOne(item)}>
                         <i className="fa-solid fa-plus"></i>
-                        </button>
-                        <div className="number">{item.quantity}</div>
-                        <button className="subtract" disabled={item.quantity <= 1 ? true : false} onClick={() => minusOne(item)}>
+                      </button>
+                      <div className="number">{item.quantity}</div>
+                      <button className="subtract" disabled={item.quantity <= 1 ? true : false} onClick={() => minusOne(item)}>
                         <i className="fa-solid fa-minus"></i>
-                        </button>
+                      </button>
+                    </div>
+                    <button className="store-button-white" onClick={() => removeItem(item)}>Remove</button>
+
+                  </div>
                 </div>
-                <button onClick={() => removeItem(item)}>Remove</button>
-
+              ))
+            }
+          </div>
+          <div>
+            <div className="order-summary-container">
+              <div className="order-summary">Order Summary</div>
+              <div className="order-price">
+                subtotal:<span>${order.price}.00</span>
               </div>
+              <div className="order-price">
+              tax:<span>${order.tax.toFixed(2)}</span>
+                </div>
+              <div className="order-price total">
+              total price:<span>${order.totalPrice.toFixed(2)}</span>
+                </div>
             </div>
-          ))
-        }
-        <div className="order-summary-container">
-        <div>ORDER SUMMARY</div>
-        <div>PRICE: ${order.price}.00</div>
-        <div>TAX: ${order.tax}</div>
-        <div>TOTAL PRICE: ${order.totalPrice}</div>
-        </div>
-
-
             <OpenModalButton
-              buttonText="EMPTY BAG"
-              modalComponent={<DeleteOrder order={order} bag={bag} updateBag={updateBag}/>}
+              buttonText="Empty bag"
+              modalComponent={<DeleteOrder order={order} bag={bag} updateBag={updateBag} />}
             />
-
-      </div>
+          </div>
+        </div>
+      </>
     )
   } else {
     return (
-    <div className="empty-cart">
-      <div className="empty-cart-message">Your Shopping bag is currently empty.</div>
-      <Link to="/shop">
-        <button className="store-button-white">
-          Continue Shopping
-        </button>
-      </Link>
-    </div>
+      <div className="empty-cart">
+        <div className="empty-cart-message">Your Shopping bag is currently empty.</div>
+        <Link to="/shop">
+          <button className="store-button-white">
+            Continue Shopping
+          </button>
+        </Link>
+      </div>
     )
   }
 }
