@@ -33,7 +33,7 @@ def user_styles():
     Query for all styles by user id and returns them in a list of style dictionaries ordered by most recent first
     """
     styles = Style.query.filter_by(user_id=current_user.id).order_by(Style.created_at) #.desc() ????
-
+    print("USERRRRRRRR------------------ID: ", current_user.id)
     return {'user_styles': [style.to_dict() for style in styles]}
 
 # GET STYLE BY STYLE ID:

@@ -17,10 +17,10 @@ function StylesDetails() {
   const [isDeleted, setIsDeleted] = useState(false)
   const [errors, setErrors] = useState("")
 
+  console.log("STYLES ", styles)
   console.log("STYLE: ", style)
   console.log("EDIT: ", edit)
   console.log("EROOR: ", errors)
-  console.log("STYLES ", styles)
 
   useEffect(() => {
     dispatch(getUserStyles())
@@ -61,6 +61,7 @@ function StylesDetails() {
   console.log("ERROR OUTSIDE OF CHNAGT TTITLE", errors)
 
   if (Object.keys(styles).length) {
+    
 
     return (
       <div className='style-details-container'>
