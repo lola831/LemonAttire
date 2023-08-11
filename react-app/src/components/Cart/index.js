@@ -76,10 +76,10 @@ function Cart({ bag, updateBag }) {
                   <div className="order-item-info">
                     <div>{`${item.name}`}</div>
                     <div className="order-item-color-size">{`${item.color}`}, {`${item.size}`}</div>
-                    <div className="order-item-price">${`${item.total_price}`}</div>
+                    <div className="order-item-price">${`${item.price}`}.00</div>
 
                     <div className="quantity-container">
-                      <div>Qty: </div>
+                      <div>quantity: </div>
                       <button className="add" disabled={item.quantity >= 10 ? true : false} onClick={() => addOne(item)}>
                         <i className="fa-solid fa-plus"></i>
                       </button>
@@ -88,13 +88,17 @@ function Cart({ bag, updateBag }) {
                         <i className="fa-solid fa-minus"></i>
                       </button>
                     </div>
-                    <button className="store-button-white remove-order-item" onClick={() => removeItem(item)}>Remove</button>
+                    {item.quantity > 1 && (
+                       <div className="order-item-price">total: ${`${item.total_price}`}.00</div>
+                    )}
+                    <button className="store-button remove-order-item" onClick={() => removeItem(item)}>Remove</button>
 
                   </div>
                 </div>
               ))
             }
           </div>
+          
           <div>
             <div className="order-summary-container">
               <div className="order-summary">Order Summary</div>
@@ -108,6 +112,7 @@ function Cart({ bag, updateBag }) {
               total price:<span>${order.totalPrice.toFixed(2)}</span>
                 </div>
             </div>
+            <button className="store-button-white checkout-now">Checkout now</button>
             <OpenModalButton
               buttonText="Empty bag"
               modalComponent={<DeleteOrder order={order} bag={bag} updateBag={updateBag} />}

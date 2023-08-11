@@ -8,7 +8,7 @@ import OpenModalButton from '../OpenModalButton'
 import "./AddStyleItem.css"
 
 
-function AddStyleItem({ styleItem }) {
+function AddStyleItem({ styleItem, setMsg }) {
     const dispatch = useDispatch()
     const { closeModal } = useModal();
     const styles = useSelector(state => state.styles)
@@ -47,12 +47,14 @@ function AddStyleItem({ styleItem }) {
 
         console.log("GOOD TO ADD")
         dispatch(newStyleItem(styleItem.id, style.id))
+        setMsg({"style": "This item has been added to your style"})
         closeModal()
     }
 
     const styleReturned = (returnedStyle) => {
         addToStyle(returnedStyle)
     }
+
 
     return (
         <div className="add-style-item-container">
@@ -66,14 +68,14 @@ function AddStyleItem({ styleItem }) {
                             <button className="store-button" onClick={handleOpen}>Your Styles</button>
                             {open ? (
                                 <ul className="drop-down-menu-styles" >
-                                    {
-                                        stylesArray.map(style => (
-                                            <li key={style.id}>
-                                                <button className="style-list-item" onClick={() => addToStyle(style)}>{style.title}</button>
-                                            </li>
-                                        ))
-                                    }
-                                </ul>
+                                {
+                                    stylesArray.map(style => (
+                                        <li key={style.id}>
+                                            <button className="style-list-item" onClick={() => addToStyle(style)}>{style.title}</button>
+                                        </li>
+                                    ))
+                                }
+                            </ul>
                             ) : null}
                             {
                                 styleExists && (
@@ -89,7 +91,7 @@ function AddStyleItem({ styleItem }) {
 
             {newStyle && (
                 <div className="new-style-modal-container">
-                    <StylesFormPage styleReturned={styleReturned}/>
+                    <StylesFormPage styleReturned={styleReturned} setMsg={setMsg}/>
                     <button className="nevermind-new-style" onClick={() => setNewStyle(false)}>Nevermind, I want to add it to an existing Style</button>
 
                 </div>

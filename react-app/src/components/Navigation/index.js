@@ -12,7 +12,7 @@ import './Navigation.css';
 import "../../App.css"
 import HomePage from '../HomePage';
 
-function Navigation({ isLoaded, bag}) {
+function Navigation({ isLoaded, bag, updateBag}) {
 
 	const dispatch = useDispatch();
 	const sessionUser = useSelector(state => state.session.user);
@@ -42,6 +42,7 @@ function Navigation({ isLoaded, bag}) {
 		console.log("IN HANDLE LOG OUTTTTTTTT")
 		// dispatch(logout());
 		dispatch(logout()).then(() => closeMobileMenu()).then(() => {
+			updateBag(0)
 			return (<Redirect to="/"></Redirect>)
 		} )
 
@@ -98,9 +99,9 @@ function Navigation({ isLoaded, bag}) {
 										</li>
 										<li className='nav-item'>
 											<NavLink to='/checkout' className="nav-links my-bag" onClick={closeMobileMenu}>
-												My Bag
+												My Bag{bag > 0 && (` (${bag})`)}
 
-											{bag > 0 && <div className='nav-bag-circle'>{bag}</div>}
+											{/* {bag > 0 && <div className='nav-bag-circle'>{bag}</div>} */}
 											</NavLink>
 										</li>
 										<li className='nav-item'>

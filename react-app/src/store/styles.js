@@ -42,7 +42,7 @@ export const removeStyle = styleId => ({
 })
 
 export const getUserStyles = () => async (dispatch) => {
-    console.log("in thunk")
+    console.log("in thunk USEERRRRRRR STYLESSSSSS GEEEEETTTTTTTTTT")
     const response = await fetch(`/api/styles/current`, {
         headers: {
             'Content-Type': 'application/json'
@@ -50,7 +50,7 @@ export const getUserStyles = () => async (dispatch) => {
     });
     if (response.ok) {
         const styles = await response.json();
-        console.log("in thunk response, ", styles)
+        console.log("IN GET USER STYLES THUNK RESPONSE, ", styles)
 
         dispatch(loadUserStyles(styles));
         if (!styles.length) {
@@ -104,10 +104,10 @@ export const createStyle = data => async (dispatch) => {
         body: JSON.stringify(data)
     })
     if (response.ok) {
-        dispatch(getUserStyles())
         const style = await response.json();
-        console.log("style response: ", style)
         dispatch(addStyle(style))
+        dispatch(getUserStyles())
+        console.log("style response: ", style)
         return style;
     }else if (response.status < 500) {
 		const data = await response.json();
@@ -174,6 +174,7 @@ export const modifyStyle = (styleId, title) => async dispatch => {
 };
 
 export const deleteStyle = (styleId) => async (dispatch) => {
+    console.log("IN DELETE STYLE THUNK", styleId)
     const response = await fetch(`/api/styles/${styleId}`, {
         method: 'DELETE',
         headers: {
@@ -181,6 +182,7 @@ export const deleteStyle = (styleId) => async (dispatch) => {
         }
     });
     if (response.ok) {
+        console.log("IN RESPONSE OK THUNK")
         dispatch(removeStyle(styleId))
         dispatch(getUserStyles())
         return response;
