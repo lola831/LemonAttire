@@ -1,0 +1,28 @@
+.delete-order-container {
+    height: 200px;
+    width: 600px;
+    background-color: #caafa8;
+    color: #fdf9f5;
+    border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+}
+
+.delete-question {
+    display: flex;
+    justify-content: center;
+}
+
+.delete-order-buttons {
+    width: 180px;
+    height: 40px;
+}
+
+.delete-buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+

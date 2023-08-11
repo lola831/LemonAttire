@@ -32,20 +32,26 @@ def all_order_items(order_id):
 @order_item_routes.route('/', methods=['POST'])
 @login_required
 def add_order_item(order_id):
+    print("===========IN ADD ORDER ITEM BACKEND===============================")
     """
     Creates a new order item
     """
+
     form = OrderItemForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
-        total_price = form.data['price'] * form.data['quantity']
-        order_item = OrderItem(
-            quantity=form.data['quantity'],
-            price = form.data['price'],
-            total_price = total_price,
-            order_id = order_id,
-            product_id = form.data['product_id'] # OR?? product_id from param args passed into func?
 
+        order_item = OrderItem(
+            order_id = order_id,
+            product_id = form.data['product_id'],
+            product_type_id=form.data['product_type_id'],
+            price = form.data['price'],
+            quantity=form.data['quantity'],
+            total_price = form.data['total_price'],
+            color = form.data['color'],
+            size = form.data['size'],
+            image = form.data['image'],
+            name = form.data['name']
         )
         db.session.add(order_item)
         db.session.commit()
@@ -60,18 +66,20 @@ def edit_order_item(order_id, order_item_id):
     Edits an order item
     """
     order_item = OrderItem.query.get(order_item_id)
+
     if order_item is None:
         return jsonify({'error': 'Order item not found'}), 404
 
-    form = OrderItemForm()
-    form['csrf_token'].data = request.cookies['csrf_token']
-    if form.validate_on_submit():
-        form.populate_obj(order_item)
-        order_item.total_price = order_item.price * order_item.quantity
-        order_item.updated_at = datetime.utcnow()
-        db.session.commit()
-        return order_item.to_dict()
-    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+    data = request.get_json()
+    print("DATA: ", data)
+    quantity = data["quantity"]
+    total_price = data["total_price"]
+    print("DAAATTAAAAAAAA =====================", quantity, total_price)
+
+    order_item.quantity = quantity
+    order_item.total_price = total_price
+    db.session.commit()
+    return order_item.to_dict()
 
 # DELETE AN ORDER ITEM
 @order_item_routes.route('/<int:order_item_id>', methods=['DELETE'])

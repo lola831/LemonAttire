@@ -1,5 +1,269 @@
+<<<<<<< HEAD
 .product-img {
     height: 300;
     width: 200;
 }
 
+=======
+.product-page-container {
+    display: grid;
+    justify-items: center;
+    padding-top: 10px;
+    padding-bottom: 50px;
+    background-color: #caafa8;
+
+}
+
+.product-area {
+    display: grid;
+    grid-template-columns: auto 300px;
+    grid-template-areas:
+    "product-img-container product-info";
+    gap: 20px;
+
+}
+
+.product-img-container {
+    display: grid;
+    grid-template-columns: 125px auto;
+    grid-template-rows: auto;
+    grid-template-areas:
+    "product-small-area product-img-big-container";
+    gap: 20px;
+
+
+}
+
+.product-small-area {
+    grid-area: product-small-area;
+}
+
+.product-img-small {
+    grid-area: product-img-small;
+    height: 175px;
+    width: 125px;
+    cursor: pointer;
+}
+
+.product-img-big-container {
+    position: relative;
+    display: inline-flex;
+}
+
+.product-img-big {
+    grid-area: product-img-big;
+    height: 750px;
+    width: 500px;
+}
+
+.product-info {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding-top: 50px;
+
+    /* background-color: plum; */
+
+
+}
+
+.product-name {
+    font-size: 40px;
+    font-family: Italiana;
+    color: white;
+}
+
+.fav-button {
+    position: absolute;
+    background: transparent;
+    /* background-color: pink; */
+    border-style: none;
+    margin-left: 430px;
+    margin-top: 20px;
+    /* transition: all ease-in-out 0.2s; */
+
+
+}
+
+
+
+.fav-button:hover {
+    cursor: pointer;
+
+
+}
+
+.fa-heart {
+    font-size: 40px;
+    color: #caafa8;
+}
+
+
+
+
+.color-container {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.color-options {
+    /* background-color: aqua; */
+    height: 20px;
+    width: 20px;
+}
+
+.size-container {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+
+}
+
+.circle {
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    padding: 10px;
+    background: transparent;
+    border: 1px solid white;
+    color: white;
+    text-align: center;
+    font-size: 12px;
+}
+
+.no-circle {
+    width: 32px;
+    height: 32px;
+    padding: 10px;
+    background: transparent;
+    color: white;
+    text-align: center;
+    font-size: 12px;
+    border: none;
+    cursor: pointer;
+}
+
+.no-circle:hover {
+    font-size: 13px;
+}
+
+
+.color-circle {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    vertical-align: middle;
+    /* border: 1px solid #ddd; */
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.checked-color {
+    border: 1px solid #fdf9f5;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    vertical-align: middle;
+    /* border: 1px solid #ddd; */
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    cursor: pointer;
+}
+
+/* .color-circle:checked {
+    border: solid thin black;
+} */
+
+.quantity-container {
+    display: flex;
+    flex-direction: row;
+    height: 20px;
+    color: white;
+    font-size: 14px;
+    font-weight: lighter;
+    gap: 5px;
+
+}
+
+.plusminus {
+    display: flex;
+}
+
+
+.add, .subtract {
+    width: 25px;
+    color: #fdf9f5;
+    background-color: transparent;
+    border: #fdf9f5 1px solid;
+}
+
+.add:hover, .subtract:hover {
+    background-color: #fdf9f5;
+    color:#caafa8;
+    /* border: #544643 2px solid; */
+
+}
+
+.number {
+    width: 50px;
+    border: thin solid #fdf9f5;
+    /* background-color: #ddd; */
+    display: flex;
+    justify-content: center;
+    background-color: #fdf9f5;
+    color:#caafa8;
+}
+
+/* .add-to-bag-button {
+    margin-top: 30px;
+    height: 45px;
+    font-size: 15px;
+    font-weight: lighter;
+
+    background-color: #caafa8;
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: 300px;
+    border: white 2px solid;
+
+}
+
+.add-to-bag-button:hover {
+
+    color: #caafa8;
+    background-color: white;
+    border: 2px solid white;
+} */
+
+/* .description {
+    color: white;
+    font-size: 15px;
+    font-weight: lighter;
+    border-bottom: 1px solid white;
+    width: 76px;
+}
+
+.description-text {
+    color: white;
+    font-size: 12px;
+    line-height: 20px;
+} */
+
+.prod-price {
+    color: white;
+}
+
+.add-style {
+    /* font-family: Italiana; */
+    background-color: green;
+}
+
+/* .openModalButton {
+
+} */
+>>>>>>> frontend

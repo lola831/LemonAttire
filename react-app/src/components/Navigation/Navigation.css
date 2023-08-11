@@ -7,58 +7,77 @@
 } */
 
 .navbar {
-  background-color: black;
+  background-color: #caafa8;
   height: 80px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.2rem;
   position: sticky;
   top: 0;
   z-index: 999;
 }
 
 .navbar-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   height: 80px;
-  max-width: 1500px;
+  display: grid;
+  grid-template-columns: auto auto;
+  padding-left: 8%;
+  padding-right: 8%;
+
+
 }
 
 .lemon-logo {
-  color: #fff;
-  justify-self: start;
-  margin-left: 20px;
+  /* color: #fff; */
+  /* color: #eae6e1; */
+  color: white;
+  /* justify-self: start; */
+  /* margin-left: 20px; */
   cursor: pointer;
   text-decoration: none;
   font-size: 2rem;
   display: flex;
   align-items: center;
+  /* font-family: Ultra; */
+  font-family: Italiana;
+  width: 150px;
+
+
 }
 
 .fa-lemon {
   margin-left: 0.5rem;
   font-size: 1.8rem;
+  color: #FFE6A9;
 }
 
 .menu {
-  display: grid;
-  grid-template-columns: repeat(4, auto);
+  /* background-color: yellow; */
+  /* display: grid;
+  grid-template-columns: repeat(5, auto);
   grid-gap: 10px;
   list-style: none;
   text-align: center;
   width: 60vw;
   justify-content: end;
-  margin-right: 2rem;
+  margin-right: 2rem; */
+
+  display: flex;
+  justify-content: flex-end;
+  list-style: none;
+  /* background-color: orange; */
+
 }
 
 .nav-item {
   height: 80px;
+  /* background-color: orange; */
+  /* display: flex; */
+  /* justify-content:flex-end;
+  width: auto; */
+
 }
 
 .nav-links {
-  color: #fff;
+  /* color: white; */
+  color: #fdf9f5;
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -67,12 +86,13 @@
 }
 
 .nav-links:hover {
-  border-bottom: 4px solid #fff;
+  border-bottom: 2px solid white;
   transition: all 0.2s ease-out;
 }
 
 .fa-bars, .fa-xmark {
-  color: #fff;
+  font-size: 25px;
+  color: white;
 }
 
 .nav-links-mobile {
@@ -81,6 +101,22 @@
 
 .menu-icon {
   display: none;
+}
+
+
+.nav-bag-circle {
+
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    padding: 2px;
+    background: transparent;
+    border: 1px solid white;
+    color: #caafa8;
+    background-color: white;
+    text-align: center;
+    font-size: 15px;
+    margin-bottom: 20px;
 }
 
 @media screen and (max-width: 960px) {
@@ -92,7 +128,8 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 90vh;
+    /* height: 90vh; */
+    height: 500px;     /* change here */
     position: absolute;
     top: 80px;
     left: -100%;
@@ -102,11 +139,17 @@
 
   /* mobile menu */
   .menu.active {
-    background: #242222;
+    /* background: #93829B; */
+    background-color: #CDBBB6;
+    /* background: #CDBBB6; */
     left: 0;
     opacity: 1;
     transition: all 0.5s ease;
     z-index: 1;
+    display: flex;
+    justify-content: flex-start;
+    padding-top: 60px;
+
   }
 
   .nav-links {
@@ -114,15 +157,16 @@
     padding: 2rem;
     width: 100%;
     display: table;
-    /* background-color: pink; */
     margin-top: -30px;
     justify-content: center;
+    font-size: 15px;
 
   }
 
   .nav-links:hover {
-    background-color: #fff;
-    color: #242424;
+    background-color: #fdf9f5;
+    /* color: #6B5875; */
+    color: #CDBBB6;
     border-radius: 0;
   }
 
@@ -141,10 +185,12 @@
     transform: translate(-100%, 60%);
     font-size: 1.8rem;
     cursor: pointer;
+
+    font-weight: lighter;
   }
 
   .fa-times {
-    color: #fff;
+    color: white;
     font-size: 2rem;
   }
 
@@ -157,17 +203,19 @@
     text-decoration: none;
     font-size: 1.5rem;
     background-color: transparent;
-    color: #fff;
+    /* color: #eae6e1; */
+    color: white;
     padding: 14px 20px;
-    border: 1px solid #fff;
+    border: 1px solid white;
     transition: all 0.3s ease-out;
-    /* margin: -300px; */
-
   }
 
   .nav-links-mobile:hover {
-    background: #fff;
-    color: #242424;
+    background: white;
+    /* color: #6B5875; */
+    /* color: black; */
+    color: #caafa8;
+
     transition: 250ms;
   }
 }

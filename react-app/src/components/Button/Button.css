@@ -1,6 +1,6 @@
-:root {
+/* :root {
     --primary: #fff;
-}
+} */
 
 .btn {
     padding: 8px 20px;
@@ -30,6 +30,7 @@
 .btn-medium {
     padding: 8px 20px;
     font-size: 20px;
+
 }
 
 .btn--large {

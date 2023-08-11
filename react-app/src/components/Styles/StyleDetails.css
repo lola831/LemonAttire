@@ -1,0 +1,128 @@
+.style-details-container {
+    display: grid;
+    gap: 40px;
+    background-color: #caafa8;
+
+}
+
+
+.style-title-box {
+    /* background-color: hotpink; */
+    height: 250px;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fdf9f5;
+}
+
+.style-title-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    /* background-color: orange; */
+
+}
+
+.style-details-title {
+    display: flex;
+    align-items: center;
+    width: auto;
+    /* background-color: greenyellow; */
+    font-family: Italiana;
+    font-size: 50px;
+    color: #caafa8;
+}
+
+.change-title-button {
+    width: 40px;
+    height: 100px;
+    background: transparent;
+    /* background-color: blue; */
+    border: none;
+    display: flex;
+    padding-left: 3px;
+}
+
+.fa-pen-to-square {
+    font-size: 30px;
+    cursor: pointer;
+    color: #caafa8;
+    font-weight: lighter;
+}
+
+.fa-pen-to-square:hover {
+    font-weight: bolder;
+}
+
+.edit-style-title-container {
+    display: grid;
+    grid-template-areas:
+    "new-style-title style-submit-title"
+    "new-style-title cancel-title"
+    "error error";
+    grid-template-rows: auto;
+    gap: 5px;
+}
+
+.new-style-title {
+    grid-area: new-style-title;
+    display: flex;
+    align-items: flex-end;
+    width: auto;
+}
+
+.new-style-title-input {
+    display: flex;
+    align-items: center;
+    width: auto;
+    /* background-color: red; */
+    font-family: Italiana;
+    font-size: 50px;
+    color: #fdf9f5;
+}
+
+.cancel-title {
+    grid-area: cancel-title;
+    border-radius: 3px;
+    background-color: #fdf9f5;
+    color: #caafa8;
+    border: 2px solid #caafa8;
+}
+
+.cancel-title:hover {
+    color: #fdf9f5;
+    background-color: #caafa8;
+}
+
+.style-submit-title {
+    grid-area: style-submit-title;
+    border-radius: 3px;
+    background-color: #fdf9f5;
+    color: #caafa8;
+    border: 2px solid #caafa8;
+}
+
+.style-submit-title:hover {
+    color: #fdf9f5;
+    background-color: #caafa8;
+}
+
+.delete-style-button {
+    width: 200px;
+}
+
+.style-item-image {
+    height: 200px;
+    width: 200px;
+}
+
+.error {
+    color:#caafa8;
+}
+
+.style-items-display {
+    background-color: #caafa8;
+    padding-top: 40px;
+    margin-left: 5%;
+    margin-right: 5%;
+}

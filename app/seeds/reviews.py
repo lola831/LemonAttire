@@ -5,13 +5,13 @@ from sqlalchemy.sql import text
 # Adds a demo user, you can add other users here if you want
 def seed_reviews():
     review1 = Review(
-        user_id=1, product_id=1, description="I love this crop top! It is so comfy and soft.",
+        user_id=1, product_type_id=1, description="I love this crop top! It is so comfy and soft.",
         rating=5)
     review2 = Review(
-        user_id=2, product_id=1, description="Top is smaller than expected. I would recommend sizing up. Apart from that, I think it's a great buy!",
+        user_id=2, product_type_id=1, description="Top is smaller than expected. I would recommend sizing up. Apart from that, I think it's a great buy!",
         rating=4)
     review3 = Review(
-        user_id=3, product_id=1, description="Horrible! It fit me really weird and I wasn't a fan of the color. Will be returning.",
+        user_id=3, product_type_id=1, description="Horrible! It fit me really weird and I wasn't a fan of the color. Will be returning.",
         rating=1)
 
     db.session.add(review1)

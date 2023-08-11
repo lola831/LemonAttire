@@ -5,13 +5,21 @@ import productsReducer from './products';
 import categoriesReducer from './categories';
 import productTypeReducer from './productType';
 import favoritesReducer from './favorites';
+import ordersReducer from './orders';
+import reviewsReducer from './reviews';
+import stylesReducer from './styles';
+
 
 const rootReducer = combineReducers({
   session,
   categories: categoriesReducer,
   products: productsReducer,
   productType: productTypeReducer,
+  reviews: reviewsReducer,
   favorites: favoritesReducer,
+  styles: stylesReducer,
+  orders: ordersReducer,
+
 });
 
 

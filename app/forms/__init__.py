@@ -5,3 +5,4 @@ from .style_form import StyleForm
 from .order_item_form import OrderItemForm
 from .style_item_form import StyleItemForm
 from .review_form import ReviewForm
+from .favorite_form import FavoriteForm

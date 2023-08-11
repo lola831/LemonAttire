@@ -1,0 +1,71 @@
+.style-i-cards {
+    width: auto
+}
+
+.style-i-info {
+    margin-top: -40px;
+    /* background-color: hotpink; */
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    height: 170px;
+    justify-content: center;
+    margin-bottom: 25px;
+    color: #fdf9f5;
+
+}
+
+.all-prods-color-container-i {
+    display: flex;
+    flex-direction: row;
+    height: auto;
+    gap: 60%;
+    font-size: 20px;
+    justify-content: center;
+    /* background-color: yellow; */
+}
+
+.style-i {
+    padding: 2px;
+}
+
+.style-i-card-name {
+    /* background-color: green; */
+    display: flex;
+    justify-content: center;
+    height: 30px;
+    font-size: 15px;
+    font-weight: lighter;
+    color: #fdf9f5;
+}
+
+.style-i-card-price {
+  display: flex;
+  justify-content: center;
+}
+
+.color-style-i-box {
+    display: flex;
+    height: 35px;
+    /* background-color: blue; */
+   justify-content: center;
+   align-items: center;
+}
+ .style-i-colors {
+    /* background-color: yellow; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+ }
+
+ .style-i-remove-container {
+    display: flex;
+    justify-content: center;
+    /* background-color: palegoldenrod; */
+    height: 60px;
+    align-items: center;
+ }
+
+ .style-i-remove-button {
+    width: 200px;
+ }

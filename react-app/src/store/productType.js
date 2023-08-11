@@ -1,3 +1,5 @@
+import { loadProductReviews } from "./reviews";
+
 const GET_PRODUCT_TYPE = "productTypes/GET_PRODUCT_TYPE";
 
 export const loadProductType = (productType) => ({
@@ -10,6 +12,7 @@ export const getProductType = ( productTypeId) => async (dispatch) => {
     if (response.ok) {
         const productType = await response.json();
         dispatch(loadProductType(productType));
+        dispatch(loadProductReviews(productType.productType.id))
         return response;
     }
 }

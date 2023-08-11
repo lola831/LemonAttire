@@ -5,7 +5,9 @@ from sqlalchemy.sql import text
 # Adds a demo user, you can add other users here if you want
 def seed_favorites():
     fav1 = Favorite(
-        user_id=1, product_id=1)
+        user_id=1, product_id=1, product_type_id=1,
+        image="https://img.tobi.com/product_images/md/1/pink-jake-ribbed-knit-crop-top@2x.jpg", #from image source">
+        )
 
     db.session.add(fav1)
 

@@ -34,9 +34,19 @@ def all_product_types():
 # GET PRODUCT TYPE BY ID:
 @product_type_routes.route('/<int:product_type_id>')
 def product_type(product_type_id):
+
     product_type = ProductType.query.get(product_type_id)
 
     if product_type is None:
         return jsonify({'error': 'Product not found'}), 404
 
     return jsonify({'productType': product_type.to_dict()}), 200
+
+# GET ALL REVIEWS BY PRODUCT TYPE
+@product_type_routes.route('/<int:product_type_id>/reviews')
+def product_reviews(product_type_id):
+    print("---------------------------------- IN GET REVIEWS BY PRODUCT TYPE ID")
+    if ProductType.query.get(product_type_id) is None:
+         return jsonify({'error': 'Product not found'}), 404
+    reviews = Review.query.filter_by(product_type_id=product_type_id)
+    return {'reviews': [review.to_dict() for review in reviews]}

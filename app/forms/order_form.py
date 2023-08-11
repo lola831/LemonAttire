@@ -5,4 +5,4 @@ from app.models import Order
 
 class OrderForm(FlaskForm):
     status = StringField('status', validators=[DataRequired()])
-    total_price = FloatField('total_price', validators=[DataRequired()])
+    # total_price = FloatField('total_price', validators=[DataRequired()])
