@@ -61,7 +61,7 @@ function StylesDetails() {
   console.log("ERROR OUTSIDE OF CHNAGT TTITLE", errors)
 
   if (Object.keys(styles).length) {
-    
+
 
     return (
       <div className='style-details-container'>
@@ -99,7 +99,7 @@ function StylesDetails() {
               <DisplayStyleItems productValues={style.styleItems} />
             ) : (
               <div className='style-is-empty'>Your style is empty,
-                <Link className='add-items-link' to="/"> add some items!</Link>
+                <Link className='add-items-link' to="/"> shop and add some items!</Link>
               </div>
             )
           }
