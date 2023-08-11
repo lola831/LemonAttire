@@ -99,9 +99,9 @@ function Navigation({ isLoaded, bag, updateBag}) {
 										</li>
 										<li className='nav-item'>
 											<NavLink to='/checkout' className="nav-links my-bag" onClick={closeMobileMenu}>
-												My Bag
+												My Bag{bag > 0 && (` (${bag})`)}
 
-											{bag > 0 && <div className='nav-bag-circle'>{bag}</div>}
+											{/* {bag > 0 && <div className='nav-bag-circle'>{bag}</div>} */}
 											</NavLink>
 										</li>
 										<li className='nav-item'>
