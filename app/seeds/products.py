@@ -5,44 +5,82 @@ from sqlalchemy.sql import text
 # Adds a demo user, you can add other users here if you want
 def seed_products():
     jay_ribbed_knit_crop_top_pink_s = Product(
-        product_type_id=1, color="Pink", size="S",
+        product_type_id=1, color="LightPink",
         image1="https://img.tobi.com/product_images/md/1/pink-jake-ribbed-knit-crop-top@2x.jpg", #from image source">
         image2="https://img.tobi.com/product_images/sm/2/pink-jake-ribbed-knit-crop-top@2x.jpg",
         image3="https://img.tobi.com/product_images/sm/3/pink-jake-ribbed-knit-crop-top@2x.jpg",
         image4="https://img.tobi.com/product_images/sm/4/pink-jake-ribbed-knit-crop-top@2x.jpg",
         stock=100)
     jay_ribbed_knit_crop_top_yellow_s = Product(
-        product_type_id=1, color="Yellow", size="S",
+        product_type_id=1, color="LightYellow",
         image1="https://img.tobi.com/product_images/md/1/yellow-jake-ribbed-knit-crop-top@2x.jpg",
         image2="https://img.tobi.com/product_images/sm/2/yellow-jake-ribbed-knit-crop-top@2x.jpg",
         image3="https://img.tobi.com/product_images/sm/3/yellow-jake-ribbed-knit-crop-top@2x.jpg",
         image4="https://img.tobi.com/product_images/sm/4/yellow-jake-ribbed-knit-crop-top@2x.jpg",
         stock=100)
     jay_ribbed_knit_crop_top_white_s = Product(
-        product_type_id=1, color="White", size="S",
+        product_type_id=1, color="White",
         image1="https://img.tobi.com/product_images/md/1/off-white-jake-ribbed-knit-crop-top@2x.jpg",
         image2="https://img.tobi.com/product_images/sm/2/off-white-jake-ribbed-knit-crop-top@2x.jpg",
         image3="https://img.tobi.com/product_images/sm/3/off-white-jake-ribbed-knit-crop-top@2x.jpg",
         stock=100)
     charlie_ribbed_cropped_top_white_s = Product(
-        product_type_id=2, color="White", size="S",
+        product_type_id=2, color="White",
         image1="https://img.tobi.com/product_images/md/1/cream-eagerly-anticipate-ribbed-cropped-top@2x.jpg",
         image2="https://img.tobi.com/product_images/sm/2/cream-eagerly-anticipate-ribbed-cropped-top@2x.jpg",
         image3="https://img.tobi.com/product_images/sm/3/cream-eagerly-anticipate-ribbed-cropped-top@2x.jpg",
         image4="https://img.tobi.com/product_images/sm/4/cream-eagerly-anticipate-ribbed-cropped-top@2x.jpg",
         stock=100)
     abby_maxi_dress_taupe_s = Product(
-        product_type_id=3, color="Taupe", size="S",
+        product_type_id=3, color="Taupe",
         image1="https://img.tobi.com/product_images/md/1/taupe-abegayle-plunging-maxi-dress@2x.jpg",
         image2="https://img.tobi.com/product_images/sm/2/taupe-abegayle-plunging-maxi-dress@2x.jpg",
         image3="https://img.tobi.com/product_images/sm/3/taupe-abegayle-plunging-maxi-dress@2x.jpg",
         stock=100)
     france_white_belted_crop_pants_s = Product(
-        product_type_id=4, color="White", size="S",
+        product_type_id=4, color="White",
         image1="https://img.tobi.com/product_images/md/1/white-belgium-belted-cropped-pants@2x.jpg",
         image2="https://img.tobi.com/product_images/sm/2/white-belgium-belted-cropped-pants@2x.jpg",
         image3="https://img.tobi.com/product_images/sm/3/white-belgium-belted-cropped-pants@2x.jpg",
         stock=100)
+    satin_slit_mini_dress_blue = Product (
+        product_type_id=5, color="LightBlue",
+        image1="https://img.tobi.com/product_images/md/1/light-blue-in-depth-satin-slit-mini-slit-dress@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/light-blue-in-depth-satin-slit-mini-slit-dress@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/light-blue-in-depth-satin-slit-mini-slit-dress@2x.jpg",
+        image4="https://img.tobi.com/product_images/sm/4/light-blue-in-depth-satin-slit-mini-slit-dress@2x.jpg",
+        stock=100)
+    satin_slit_mini_dress_green = Product (
+        product_type_id=5, color="PaleGreen",
+        image1="https://img.tobi.com/product_images/md/1/green-in-depth-satin-slit-mini-slit-dress@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/green-in-depth-satin-slit-mini-slit-dress@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/green-in-depth-satin-slit-mini-slit-dress@2x.jpg",
+        image4="https://img.tobi.com/product_images/sm/4/green-in-depth-satin-slit-mini-slit-dress@2x.jpg",
+        stock=100)
+    go_glam_strapless_maxi_dress_purple = Product (
+        product_type_id=6, color="Plum",
+        image1="https://img.tobi.com/product_images/md/1/dusty-purple-go-glam-strapless-maxi-dress@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/dusty-purple-go-glam-strapless-maxi-dress@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/dusty-purple-go-glam-strapless-maxi-dress@2x.jpg",
+        stock=100,
+    )
+    go_glam_strapless_maxi_dress_emerald = Product (
+        product_type_id=6, color="Teal",
+        image1="https://img.tobi.com/product_images/md/1/emerald-go-glam-strapless-maxi-dress@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/emerald-go-glam-strapless-maxi-dress@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/emerald-go-glam-strapless-maxi-dress@2x.jpg",
+        image4="https://img.tobi.com/product_images/sm/4/emerald-go-glam-strapless-maxi-dress@2x.jpg",
+        stock=100,
+    )
+    go_glam_strapless_maxi_dress_mint = Product (
+        product_type_id=6, color="Aquamarine",
+        image1="https://img.tobi.com/product_images/md/1/mint-go-glam-strapless-maxi-dress@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/mint-go-glam-strapless-maxi-dress@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/mint-go-glam-strapless-maxi-dress@2x.jpg",
+        stock=100,
+    )
+
+
 
 
     db.session.add(jay_ribbed_knit_crop_top_pink_s)
@@ -51,6 +89,11 @@ def seed_products():
     db.session.add(charlie_ribbed_cropped_top_white_s)
     db.session.add(abby_maxi_dress_taupe_s)
     db.session.add(france_white_belted_crop_pants_s)
+    db.session.add(satin_slit_mini_dress_blue)
+    db.session.add(satin_slit_mini_dress_green)
+    db.session.add(go_glam_strapless_maxi_dress_purple)
+    db.session.add(go_glam_strapless_maxi_dress_emerald)
+    db.session.add(go_glam_strapless_maxi_dress_mint)
 
     db.session.commit()
 

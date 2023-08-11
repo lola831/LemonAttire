@@ -1,0 +1,70 @@
+.footer-container {
+    height: 100vh;
+    width: 100%;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    /* background-color: #caafa8; */
+    /* color: white; */
+    background-color: #fdf9f5;
+    color: #caafa8;
+
+}
+
+.thanks {
+    width: 100%;
+    height: 100%;
+    display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  margin-top: 50px;
+}
+
+
+
+.contact-info {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin-top: 5px;
+
+  }
+
+.other-proj {
+    margin-top: 20px;
+}
+
+.github-stuff {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.fa-brands.fa-github {
+    font-size: 80px;
+    margin-top: 10;
+}
+
+.link-github {
+    text-decoration: none;
+    color:#caafa8;
+}
+
+.link-github:hover {
+    color: #a8918c;
+
+}
+
+.github-handle {
+    font-size: 20px;
+}
+
+.my-name {
+    margin-top: 15px;
+    font-size: 30px;
+    /* font-family: Italiana; */
+}

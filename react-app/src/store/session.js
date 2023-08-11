@@ -26,6 +26,7 @@ export const authenticate = () => async (dispatch) => {
 		}
 
 		dispatch(setUser(data));
+		return data;
 	}
 };
 
@@ -67,14 +68,16 @@ export const logout = () => async (dispatch) => {
 	}
 };
 
-export const signUp = (username, email, password) => async (dispatch) => {
+export const signUp = (firstName, lastName, email, password) => async (dispatch) => {
+	console.log("in sign up thunk: ", firstName, lastName, email, password)
 	const response = await fetch("/api/auth/signup", {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
 		},
 		body: JSON.stringify({
-			username,
+			firstName,
+			lastName,
 			email,
 			password,
 		}),
@@ -86,6 +89,7 @@ export const signUp = (username, email, password) => async (dispatch) => {
 		return null;
 	} else if (response.status < 500) {
 		const data = await response.json();
+		console.log("DATA IN THUNK: ", data)
 		if (data.errors) {
 			return data.errors;
 		}

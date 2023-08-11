@@ -1,0 +1,62 @@
+.sign-up-container {
+    display: grid;
+    grid-template-rows:
+    "20px"
+    "auto";
+    justify-content: center;
+    padding-top: 20px;
+    background-color: #caafa8;
+    color: #fdf9f5;
+    /* gap: 10px; */
+}
+
+.create-account {
+    display: grid;
+    justify-items: center;
+}
+
+.sign-up-form{
+    display: grid;
+    grid-template-rows: repeat(12, 30px);
+    gap: 10px;
+    width: 400px;
+    height: 615px;
+}
+
+.sign-up-label {
+    display: grid;
+    height: 40px;
+    align-items: flex-end;
+}
+
+.sign-up-input {
+    border: none;
+    border-bottom: 1px solid white;
+    outline: none;
+    background-color: #d1bfba;
+    color: #fdf9f5;
+    display: grid;
+    justify-content: end;
+    padding-left: 10px;
+
+}
+
+.sign-up-errors {
+    color: #786560;
+}
+/* .sign-up-input:focus {
+    background-color: pink;
+    box-shadow: none;
+
+} */
+
+.sign-up-button {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.sign-up-b {
+    width: 200px;
+}

@@ -5,7 +5,17 @@ from sqlalchemy.sql import text
 # Adds a demo user, you can add other users here if you want
 def seed_order_items():
     order1 = OrderItem(
-        quantity=1, price=12.99, total_price=12.99, order_id=1, product_id=1)
+        order_id=1,
+        product_id=1,
+        product_type_id=1,
+        price=24.00,
+        quantity=1,
+        total_price=24.00,
+        color="Pink",
+        size="Small",
+        image="https://img.tobi.com/product_images/md/1/pink-jake-ribbed-knit-crop-top@2x.jpg",
+        name="Jay Ribbed Knit Crop Top"
+)
 
     db.session.add(order1)
 

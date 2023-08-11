@@ -5,19 +5,17 @@ from sqlalchemy.sql import text
 # Adds a demo user, you can add other users here if you want
 def seed_style_items():
     style_item1 = StyleItem(
-        style_id=1, product_id=1)
+        style_id=1, product_type_id=1)
     style_item2 = StyleItem(
-        style_id=1, product_id=2)
+        style_id=1, product_type_id=2)
     style_item3 = StyleItem(
-        style_id=1, product_id=3)
+        style_id=1, product_type_id=3)
     style_item4 = StyleItem(
-        style_id=1, product_id=4)
+        style_id=1, product_type_id=4)
     style_item5 = StyleItem(
-        style_id=2, product_id=5)
+        style_id=2, product_type_id=1)
     style_item6 = StyleItem(
-        style_id=2, product_id=1)
-    style_item7 = StyleItem(
-        style_id=2, product_id=2)
+        style_id=2, product_type_id=2)
 
 
     db.session.add(style_item1)
@@ -26,7 +24,7 @@ def seed_style_items():
     db.session.add(style_item4)
     db.session.add(style_item5)
     db.session.add(style_item6)
-    db.session.add(style_item7)
+
 
 
     db.session.commit()

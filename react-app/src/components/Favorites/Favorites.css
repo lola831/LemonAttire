@@ -1,0 +1,20 @@
+.fav-header {
+    background-color: #fdf9f5;
+    color: #caafa8;
+    height: 250px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size:  25px;
+}
+
+.fav-main-container {
+    background-color: #caafa8;
+    color: #fdf9f5;
+}
+
+.fav-img {
+    height: 300px;
+    width: 225px;
+}

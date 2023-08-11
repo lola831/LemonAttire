@@ -27,16 +27,19 @@ def all_orders():
     orders = Order.query.all()
     return {'orders': [order.to_dict() for order in orders]}
 
-# GET USER'S LAST ORDER
-@order_routes.route('/current/last')
+# GET USER'S CURRENT ORDER
+@order_routes.route('/current/pending')
 @login_required
-def last_order():
+def current_order():
     """
-    Query for user's last order and returns that order in a dictionary
+    Query for user's current order and returns that order in a dictionary
     """
     # curr_user_id = current_user.id
-    order = Order.query.filter_by(user_id=current_user.id).first()
-    return order.to_dict()
+    order = Order.query.filter_by(user_id=current_user.id, status="pending").first()
+    if order is None:
+        return {}
+    else:
+        return order.to_dict()
 
 # GET ALL USER'S ORDERS
 @order_routes.route('/current')
@@ -61,7 +64,7 @@ def create_order():
     if form.validate_on_submit():
         order = Order(
             status=form.data['status'],
-            total_price=form.data['total_price'],
+            # total_price=0.00,
             user_id=current_user.id
         )
         db.session.add(order)
@@ -80,16 +83,48 @@ def edit_order(order_id):
     if order is None:
         return jsonify({'error': 'Order not found'}), 404
     if current_user.id is not order.user_id:
-        return jsonify({'error': 'You are not authorized to edit this post'}), 400
+        return jsonify({'error': 'You are not authorized to edit this Order'}), 400
 
-    form = OrderForm()
-    form['csrf_token'].data = request.cookies['csrf_token']
-    if form.validate_on_submit():
-        form.populate_obj(order)
-        order.updated_at = datetime.utcnow()
+    data = request.get_json()
+    print("*********************************************", data)
+
+
+    if 'delete' in data.keys():
+        print("DELETE--------------------------------")
+        order.price -= data["delete"]
+        order.tax = (order.price * 7.25) / 100
+        order.total_price = order.price + order.tax
         db.session.commit()
         return order.to_dict()
-    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+    if 'add' in data.keys():
+        print("ADD------------------------", data["add"])
+        order.price += data["add"]
+        order.tax = (order.price * 7.25) / 100
+        order.total_price = order.price + order.tax
+        db.session.commit()
+        return order.to_dict()
+
+    if 'minus' in data.keys():
+        print("MINUS------------------------", data["minus"])
+        order.price -= data["minus"]
+        order.tax = (order.price * 7.25) / 100
+        order.total_price = order.price + order.tax
+        db.session.commit()
+        return order.to_dict()
+
+    if order.price is None:
+        order.price = data["total_price"]
+        order.tax = (order.price * 7.25) / 100
+        order.total_price = order.price + order.tax
+    else:
+        order.price += data["total_price"]
+        order.tax = (order.price * 7.25) / 100
+        order.total_price = order.price + order.tax
+
+
+    db.session.commit()
+    return order.to_dict()
 
 # DELETE AN ORDER
 @order_routes.route('/<int:order_id>', methods=['DELETE'])

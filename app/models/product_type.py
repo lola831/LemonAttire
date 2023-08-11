@@ -18,6 +18,10 @@ class ProductType(db.Model):
 
     category = db.relationship('Category', back_populates="product_types")
     products = db.relationship("Product", cascade="all, delete-orphan", back_populates="product_type")
+    favorites = db.relationship("Favorite", cascade="all, delete-orphan", back_populates="product_type")
+    order_items = db.relationship('OrderItem', cascade="all, delete-orphan", back_populates="product_type")
+    reviews= db.relationship('Review', cascade="all, delete-orphan", back_populates="product_type")
+    style_items = db.relationship('StyleItem', cascade="all, delete-orphan", back_populates="product_type" )
 
     def to_dict(self):
         return {
@@ -26,7 +30,7 @@ class ProductType(db.Model):
             'description': self.description,
             'price': self.price,
             'category': self.category.to_dict_name(),
-            'products': [product.to_dict() for product in self.products]
+            'products': [product.to_dict() for product in self.products],
         }
 
     def to_dict_simple(self):
@@ -37,5 +41,3 @@ class ProductType(db.Model):
             'price': self.price,
             'category': self.category.to_dict_name()
         }
-
-  

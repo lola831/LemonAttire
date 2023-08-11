@@ -17,12 +17,20 @@ def seed_product_types():
     product_type3 = ProductType(
         name="Abby Maxi Dress",
         description="Feelin' fancy? Add the Abegayle Maxi Dress to the front of your formal dress collection. This Taupe plunging maxi dress will transform any babe into a goddess. Whether it's prom, a wedding, or any other formal event, the lace trim and criss cross back on this maxi dress will stun. Watch this dress turn some heads.",
-        category_id=5,
+        category_id=4,
         price=59.00)
     product_type4 = ProductType(
         name="France White Belted Cropped Pants",
-        category_id=4,
+        category_id=3,
         price=49.00)
+    product_type5 = ProductType(
+        name="Satin Slit Mini Dress",
+        category_id=4,
+        price=44.00)
+    product_type6 = ProductType(
+        name="Go Glam Strapless Maxi Dress",
+        category_id=4,
+        price=69.00)
 
 
 
@@ -31,6 +39,8 @@ def seed_product_types():
     db.session.add(product_type2)
     db.session.add(product_type3)
     db.session.add(product_type4)
+    db.session.add(product_type5)
+    db.session.add(product_type6)
 
     db.session.commit()
 
