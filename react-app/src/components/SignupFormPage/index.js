@@ -48,6 +48,7 @@ function SignupFormPage() {
               onChange={(e) => setFirstName(e.target.value)}
               required
             />
+            { errors.firstName && (<p className="sign-up-errors">*{errors.firstName}</p>)}
           <label className="sign-up-label">
             Last Name
           </label>
@@ -58,6 +59,7 @@ function SignupFormPage() {
               onChange={(e) => setLastName(e.target.value)}
               required
             />
+            { errors.lastName && (<p className="sign-up-errors">*{errors.lastName}</p>)}
           <label className="sign-up-label">
             Email
           </label>
@@ -89,7 +91,7 @@ function SignupFormPage() {
               onChange={(e) => setConfirmPassword(e.target.value)}
               required
             />
-            { errors.password && (<p>{errors.password}</p>)}
+            { errors.password && (<p className="sign-up-errors">*{errors.password}</p>)}
             <div className="sign-up-button">
           <button className="store-button-white sign-up-b" type="submit">Sign up</button>
           </div>
