@@ -76,7 +76,7 @@ function Cart({ bag, updateBag }) {
                   <div className="order-item-info">
                     <div>{`${item.name}`}</div>
                     <div className="order-item-color-size">{`${item.color}`}, {`${item.size}`}</div>
-                    <div className="order-item-price">${`${item.total_price}`}</div>
+                    <div className="order-item-price">${`${item.total_price}`}.00</div>
 
                     <div className="quantity-container">
                       <div>Qty: </div>

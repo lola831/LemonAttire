@@ -25,7 +25,7 @@ function App() {
   const user = useSelector(state => state.session)
   const order = useSelector(state => state.orders)
   const [isLoaded, setIsLoaded] = useState(false);
-  const [bag, updateBag] = useState()
+  const [bag, updateBag] = useState(0)
 
   console.log("BAG IN APP.JS: ", bag)
   useEffect(() => {

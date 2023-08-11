@@ -8,6 +8,7 @@
 .new-style-button-container {
     display: flex;
     justify-content: center;
+    padding-top: 70px;
 }
 
 
@@ -27,11 +28,24 @@
     flex-wrap: wrap;
     gap: 4%;
     margin-top: 90px;
+    /* background-color: aquamarine; */
+    width: 100%;
 }
 
 .style-card {
     height: 300px;
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
+
+    /* background-color: lightsalmon; */
+}
+
+.delete-style2 {
+    width: 100px;
+    height: 30px;
+    margin-top: 10px;
+    margin-left: 15px;
 }
 
 
@@ -83,4 +97,15 @@
     /* margin-top: 15px; */
     /* padding-top: 10px; */
     /* margin-bottom: 50px; */
+}
+
+.no-styles-container {
+    padding-top: 80px;
+    color: #fdf9f5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+    padding-bottom: 200px;
 }

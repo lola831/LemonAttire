@@ -1,6 +1,6 @@
 import { React, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import { useParams, Redirect, Link } from 'react-router-dom';
+import { useParams, Redirect, Link, useHistory } from 'react-router-dom';
 import { deleteStyle, getUserStyles, modifyStyle } from '../../store/styles';
 import DisplayStyleItems from './DisplayStyleItems';
 import "./StyleDetails.css"
@@ -8,6 +8,7 @@ import "./StyleDetails.css"
 function StylesDetails() {
   const dispatch = useDispatch();
   const { styleId } = useParams();
+  const history = useHistory();
   const user = useSelector(state => state.session.user)
   const styles = useSelector(state => state.styles)
   const style = useSelector(state => state.styles[styleId])
@@ -55,6 +56,8 @@ function StylesDetails() {
     }
   }
 
+  const backToAll = () => history.push("/styles")
+
   console.log("ERROR OUTSIDE OF CHNAGT TTITLE", errors)
 
   if (Object.keys(styles).length) {
@@ -62,44 +65,55 @@ function StylesDetails() {
     return (
       <div className='style-details-container'>
         <div className='style-title-box'>
-        {
-          !edit ? (
-            <div className='style-title-container'>
-              <div className='style-details-title'>{style.title}</div>
-              <button  className='change-title-button' onClick={() => setEdit(true)}>
-              <i className="fa-solid fa-pen-to-square" title="Edit style title"></i>
-              </button>
-            </div>
-          ) : (
-            <form className='edit-style-title-container' onSubmit={handleSubmit}>
-              <div className="new-style-title">
-              <input
-                type="text"
-                className="new-style-title-input"
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-                required
-              />
+          {
+            !edit ? (
+              <div className='style-title-container'>
+                <div className='style-details-title'>{style.title}</div>
+                <button className='change-title-button' onClick={() => setEdit(true)}>
+                  <i className="fa-solid fa-pen-to-square" title="Edit style title"></i>
+                </button>
               </div>
-              {errors.title && (<span className="error">{errors.title}</span>)}
-              <button className='store-button style-submit-title' type='submit'>save title</button>
-              <button className='store-button cancel-title' onClick={()=> setEdit(false)}>cancel</button>
-            </form>
-          )
-        }
+            ) : (
+              <form className='edit-style-title-container' onSubmit={handleSubmit}>
+                <div className="new-style-title">
+                  <input
+                    type="text"
+                    className="new-style-title-input"
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)}
+                    required
+                  />
+                </div>
+                {errors.title && (<span className="error">{errors.title}</span>)}
+                <button className='store-button style-submit-title' type='submit'>save title</button>
+                <button className='store-button cancel-title' onClick={() => setEdit(false)}>cancel</button>
+              </form>
+            )
+          }
         </div>
-        <div className='style-items-display'>
+        <div className='main-style-details-container'>
+          <div className='style-items-display'>
+          {
+            style.styleItems.length ? (
+              <DisplayStyleItems productValues={style.styleItems} />
+            ) : (
+              <div className='style-is-empty'>Your style is empty,
+                <Link className='add-items-link' to="/"> add some items!</Link>
+              </div>
+            )
+          }
+          </div>
 
-          <DisplayStyleItems productValues={style.styleItems} />
+          <div>
+            <button className="delete-style-button store-button" onClick={removeStyle}>Delete style</button>
+
+          </div>
+
+
+          <button className='store-button link-back-styles' onClick={backToAll}>Go back to all styles</button>
+
+
         </div>
-
-        <div>
-          <button className="delete-style-button store-button" onClick={removeStyle}>Delete style</button>
-
-        </div>
-
-        <Link to="/styles">Go back to all styles</Link>
-
       </div>
 
     )

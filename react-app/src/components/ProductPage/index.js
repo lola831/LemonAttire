@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect, useHistory, useParams} from "react-router-dom";
+import { Redirect, useHistory, Link, useParams} from "react-router-dom";
 import { getProductType } from "../../store/productType";
 // import EditReviewForm from "../../Reviews/EditReview";
 // import DeleteReviewForm from "../../Reviews/DeleteReview";
@@ -280,6 +280,7 @@ const ProductPage = ({ bag, updateBag}) => {
 
                         <button className="store-button add-to-bag-button" onClick={addItem} >Add to bag</button>
                         {msg.cart && (<p className="sign-up-errors">*{msg.cart}</p>)}
+                        {msg.cart && (<Link className="go-to" to="/checkout">Go to my bag</Link>)}
                         {
                             user && (
                                  <OpenModalButton
@@ -291,6 +292,7 @@ const ProductPage = ({ bag, updateBag}) => {
 
                         }
                         {msg.style && (<p className="sign-up-errors">*{msg.style}</p>)}
+                        {msg.style && (<Link className="go-to" to="/styles">Go to my styles</Link>)}
                     </div>
                     <div>
                         <div>Reviews</div>

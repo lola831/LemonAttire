@@ -4,7 +4,6 @@
     padding-top: 10px;
     padding-bottom: 50px;
     background-color: #caafa8;
-
 }
 
 .product-area {
@@ -256,6 +255,6 @@
     background-color: green;
 }
 
-/* .openModalButton {
-
-} */
+.go-to {
+    color: #fdf9f5;
+}

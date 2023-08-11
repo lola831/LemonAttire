@@ -12,7 +12,7 @@ import './Navigation.css';
 import "../../App.css"
 import HomePage from '../HomePage';
 
-function Navigation({ isLoaded, bag}) {
+function Navigation({ isLoaded, bag, updateBag}) {
 
 	const dispatch = useDispatch();
 	const sessionUser = useSelector(state => state.session.user);
@@ -42,6 +42,7 @@ function Navigation({ isLoaded, bag}) {
 		console.log("IN HANDLE LOG OUTTTTTTTT")
 		// dispatch(logout());
 		dispatch(logout()).then(() => closeMobileMenu()).then(() => {
+			updateBag(0)
 			return (<Redirect to="/"></Redirect>)
 		} )
 

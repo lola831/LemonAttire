@@ -68,14 +68,14 @@ function AddStyleItem({ styleItem, setMsg }) {
                             <button className="store-button" onClick={handleOpen}>Your Styles</button>
                             {open ? (
                                 <ul className="drop-down-menu-styles" >
-                                    {
-                                        stylesArray.map(style => (
-                                            <li key={style.id}>
-                                                <button className="style-list-item" onClick={() => addToStyle(style)}>{style.title}</button>
-                                            </li>
-                                        ))
-                                    }
-                                </ul>
+                                {
+                                    stylesArray.map(style => (
+                                        <li key={style.id}>
+                                            <button className="style-list-item" onClick={() => addToStyle(style)}>{style.title}</button>
+                                        </li>
+                                    ))
+                                }
+                            </ul>
                             ) : null}
                             {
                                 styleExists && (
