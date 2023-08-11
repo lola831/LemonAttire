@@ -104,10 +104,10 @@ export const createStyle = data => async (dispatch) => {
         body: JSON.stringify(data)
     })
     if (response.ok) {
-        dispatch(getUserStyles())
         const style = await response.json();
-        console.log("style response: ", style)
         dispatch(addStyle(style))
+        dispatch(getUserStyles())
+        console.log("style response: ", style)
         return style;
     }else if (response.status < 500) {
 		const data = await response.json();

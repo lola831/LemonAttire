@@ -130,6 +130,7 @@ const ProductPage = ({ bag, updateBag}) => {
 
         }
         console.log("ITEMM DATA: ", itemData)
+        setMsg({cart: "This item has been added to your cart"})
 
         if (!order) {
             // order doesnt exist and must create new one
@@ -137,6 +138,7 @@ const ProductPage = ({ bag, updateBag}) => {
             dispatch(newOrder(orderData, itemData))
             // updateBag(bag + 1)
             updateBag(bag + quantity)
+            // setMsg({cart: "This item has been added to your cart"})
 
         } else {
             //check if item already exists in cart
@@ -156,7 +158,7 @@ const ProductPage = ({ bag, updateBag}) => {
                         add
                     }
                     dispatch(modifyItem(order.id, item.id, data))
-                    setMsg({cart: "This item has been added to your cart"})
+                    // setMsg({cart: "This item has been added to your cart"})
 
                     return;
                 }

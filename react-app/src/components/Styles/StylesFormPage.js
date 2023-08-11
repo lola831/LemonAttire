@@ -35,6 +35,9 @@ function StylesFormPage({ styleReturned, setMsg }) {
                 console.log("in heeeeeeeeeeeeeeee")
                 closeModal()
             }
+            else {
+                closeModal()
+            }
         }
     }
 
