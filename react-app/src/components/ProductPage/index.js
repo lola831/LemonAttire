@@ -91,38 +91,12 @@ const ProductPage = ({ bag, updateBag }) => {
             .catch((error) => console.log("Error adding favorite: ", error));
     };
 
-<<<<<<< HEAD
-    // const deleteFav = () => {
-    //     let favId;
-    //     for (let i = 0; i < favorites.length; i++) {
-    //         // if(favorites[i].restaurantId == id) {           ???product.product_type_id>??
-    //         //     favId = favorites[i].id
-    //         // }
-    //     }
-    //     // console.log("hereeeee, ", favId)
-    //             dispatch(deleteFavorites(favId))
-    //                 .then(() => dispatch(getUserFavorites()))
-    //                 .then(() => setFavorite(false))
-    //                 .catch((error) => console.log("Error deleting favorite: ", error));
-
-    // };
-
-    if (Object.keys(productType).length) {
-        let products = productType.products
-        console.log("products: ", products)
-        let images;
-        let imagesArray = [];
-        for (let i = 0; i < products.length; i++){
-            images = products[i].images.filter(Boolean)
-            imagesArray.push(images)
-=======
     const deleteFav = () => {
         let favId;
         for (let i = 0; i < favorites.length; i++) {
             if (favorites[i].product_type_id == id) {
                 favId = favorites[i].id
             }
->>>>>>> frontend
         }
         dispatch(deleteFavorites(favId))
             .then(() => dispatch(getUserFavorites()))
@@ -229,20 +203,6 @@ const ProductPage = ({ bag, updateBag }) => {
         }
 
         return (
-<<<<<<< HEAD
-            <div className="image-row">
-                {
-                    imagesArray[0].map(image => (
-                        <img
-                        height={"200px"}
-                        className="product-img"
-                        src={image}></img>
-                    ))
-                }
-
-
-
-=======
             <div className="product-page-container">
                 <div className="product-area">
                     <div className="product-img-container">
@@ -324,7 +284,6 @@ const ProductPage = ({ bag, updateBag }) => {
                             )
 
                         }
->>>>>>> frontend
 
 
                     </div>
