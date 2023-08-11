@@ -26,7 +26,6 @@ function StylesFormPage({ styleReturned, setMsg }) {
         const data = await dispatch(createStyle({ title }))
         if (data.errors) {
             setErrors(data.errors[0])
-
         } else {
             if (styleReturned) {
                 console.log("child component style returned", data)
