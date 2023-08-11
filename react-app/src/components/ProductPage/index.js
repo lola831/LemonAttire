@@ -19,7 +19,7 @@ import './ProductPage.css'
 import "../../App.css";
 // import { loadProductReviews } from "../../store/reviews";
 
-const ProductPage = ({ bag, updateBag }) => {
+const ProductPage = ({ bag, updateBag}) => {
     const dispatch = useDispatch();
     const history = useHistory();
     const { id } = useParams();
@@ -36,11 +36,13 @@ const ProductPage = ({ bag, updateBag }) => {
     const [circleS, setCircleS] = useState(true)
     const [circleM, setCircleM] = useState(false)
     const [circleL, setCircleL] = useState(false)
+    const [msg, setMsg] = useState({})
     const [quantity, setQuantity] = useState(1)
     const addOne = () => setQuantity(quantity + 1)
     const minusOne = () => setQuantity(quantity - 1)
 
     console.log("UPDATE BAG: ", updateBag)
+    console.log("MSG: ", msg)
 
 
     useEffect(() => {
@@ -154,6 +156,7 @@ const ProductPage = ({ bag, updateBag }) => {
                         add
                     }
                     dispatch(modifyItem(order.id, item.id, data))
+                    setMsg({cart: "This item has been added to your cart"})
 
                     return;
                 }
@@ -181,8 +184,8 @@ const ProductPage = ({ bag, updateBag }) => {
             setCircleM(false)
             setCircleS(false)
         }
-
     }
+
 
     // if (Object.keys(productType).length && (order === null || Object.keys(order).length)) {
         if (Object.keys(productType).length) {
@@ -274,18 +277,18 @@ const ProductPage = ({ bag, updateBag }) => {
                         </div>
 
                         <button className="store-button add-to-bag-button" onClick={addItem} >Add to bag</button>
+                        {msg.cart && (<p className="sign-up-errors">*{msg.cart}</p>)}
                         {
                             user && (
                                  <OpenModalButton
                                 className="store-button add-to-style"
                                 buttonText="Add to style"
-                                modalComponent={<AddStyleItem styleItem={productType} />}
+                                modalComponent={<AddStyleItem styleItem={productType} setMsg={setMsg} />}
                             />
                             )
 
                         }
-
-
+                        {msg.style && (<p className="sign-up-errors">*{msg.style}</p>)}
                     </div>
                     <div>
                         <div>Reviews</div>

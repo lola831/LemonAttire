@@ -5,7 +5,7 @@ import { useModal } from '../../context/Modal'
 import { createStyle } from '../../store/styles';
 import "./StylesFormPage.css"
 
-function StylesFormPage({ styleReturned }) {
+function StylesFormPage({ styleReturned, setMsg }) {
     console.log("IN STYLES FORM PAGE")
     const { closeModal } = useModal();
     const dispatch = useDispatch();
@@ -31,6 +31,7 @@ function StylesFormPage({ styleReturned }) {
 
             if (styleReturned) {
                 console.log("child component style returned", data)
+                setMsg({"style": "This item has been added to your style"})
                 styleReturned(data)
             }
         }
