@@ -29,7 +29,7 @@ function App() {
 
   console.log("BAG IN APP.JS: ", bag)
   useEffect(() => {
-    dispatch(authenticate())
+   dispatch(authenticate())
       .then((data) => {
         setIsLoaded(true)
         console.log("IN app.js ==================== ", data)
@@ -39,6 +39,7 @@ function App() {
           dispatch(getCurrentOrder())
             .then((order) => {
               if (Object.keys(order).length) {
+                console.log("IN CHECKING ORDER APP.JS-----------", order)
                 if (order.orderItems.length) {
                   let totalItems = 0;
                   order.orderItems.map(item => {
@@ -50,12 +51,6 @@ function App() {
             })
         }
       })
-    // .then(() => dispatch() );
-    // if (user) {
-    //   dispatch(getCurrentOrder()).then(() => {
-    //     if
-    //   })
-    // }
   }, [dispatch, bag]);
 
   return (
