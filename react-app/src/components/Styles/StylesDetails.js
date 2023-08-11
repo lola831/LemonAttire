@@ -66,8 +66,8 @@ function StylesDetails() {
           !edit ? (
             <div className='style-title-container'>
               <div className='style-details-title'>{style.title}</div>
-              <button className='change-title-button' onClick={() => setEdit(true)}>
-              <i className="fa-solid fa-pen-to-square"></i>
+              <button  className='change-title-button' onClick={() => setEdit(true)}>
+              <i className="fa-solid fa-pen-to-square" title="Edit style title"></i>
               </button>
             </div>
           ) : (
