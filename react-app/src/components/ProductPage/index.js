@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect, useHistory, useParams} from "react-router-dom";
+import { Redirect, useHistory, Link, useParams} from "react-router-dom";
 import { getProductType } from "../../store/productType";
 // import EditReviewForm from "../../Reviews/EditReview";
 // import DeleteReviewForm from "../../Reviews/DeleteReview";
@@ -19,7 +19,7 @@ import './ProductPage.css'
 import "../../App.css";
 // import { loadProductReviews } from "../../store/reviews";
 
-const ProductPage = ({ bag, updateBag }) => {
+const ProductPage = ({ bag, updateBag}) => {
     const dispatch = useDispatch();
     const history = useHistory();
     const { id } = useParams();
@@ -36,11 +36,13 @@ const ProductPage = ({ bag, updateBag }) => {
     const [circleS, setCircleS] = useState(true)
     const [circleM, setCircleM] = useState(false)
     const [circleL, setCircleL] = useState(false)
+    const [msg, setMsg] = useState({})
     const [quantity, setQuantity] = useState(1)
     const addOne = () => setQuantity(quantity + 1)
     const minusOne = () => setQuantity(quantity - 1)
 
     console.log("UPDATE BAG: ", updateBag)
+    console.log("MSG: ", msg)
 
 
     useEffect(() => {
@@ -128,6 +130,7 @@ const ProductPage = ({ bag, updateBag }) => {
 
         }
         console.log("ITEMM DATA: ", itemData)
+        setMsg({cart: "This item has been added to your cart"})
 
         if (!order) {
             // order doesnt exist and must create new one
@@ -135,6 +138,7 @@ const ProductPage = ({ bag, updateBag }) => {
             dispatch(newOrder(orderData, itemData))
             // updateBag(bag + 1)
             updateBag(bag + quantity)
+            // setMsg({cart: "This item has been added to your cart"})
 
         } else {
             //check if item already exists in cart
@@ -154,6 +158,7 @@ const ProductPage = ({ bag, updateBag }) => {
                         add
                     }
                     dispatch(modifyItem(order.id, item.id, data))
+                    // setMsg({cart: "This item has been added to your cart"})
 
                     return;
                 }
@@ -181,8 +186,8 @@ const ProductPage = ({ bag, updateBag }) => {
             setCircleM(false)
             setCircleS(false)
         }
-
     }
+
 
     // if (Object.keys(productType).length && (order === null || Object.keys(order).length)) {
         if (Object.keys(productType).length) {
@@ -274,18 +279,20 @@ const ProductPage = ({ bag, updateBag }) => {
                         </div>
 
                         <button className="store-button add-to-bag-button" onClick={addItem} >Add to bag</button>
+                        {msg.cart && (<p className="sign-up-errors">*{msg.cart}</p>)}
+                        {msg.cart && (<Link className="go-to" to="/checkout">Go to my bag</Link>)}
                         {
                             user && (
                                  <OpenModalButton
                                 className="store-button add-to-style"
                                 buttonText="Add to style"
-                                modalComponent={<AddStyleItem styleItem={productType} />}
+                                modalComponent={<AddStyleItem styleItem={productType} setMsg={setMsg} />}
                             />
                             )
 
                         }
-
-
+                        {msg.style && (<p className="sign-up-errors">*{msg.style}</p>)}
+                        {msg.style && (<Link className="go-to" to="/styles">Go to my styles</Link>)}
                     </div>
                     <div>
                         <div>Reviews</div>

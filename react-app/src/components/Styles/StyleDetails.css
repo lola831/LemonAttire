@@ -2,6 +2,19 @@
     display: grid;
     gap: 40px;
     background-color: #caafa8;
+    /* padding-left: 8%;
+    margin-right: 8%; */
+}
+
+.main-style-details-container {
+    padding-left: 8%;
+    padding-right: 8%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 50px;
+    gap: 20px;
 
 }
 
@@ -108,7 +121,7 @@
 }
 
 .delete-style-button {
-    width: 200px;
+    width: 250px;
 }
 
 .style-item-image {
@@ -125,4 +138,20 @@
     padding-top: 40px;
     margin-left: 5%;
     margin-right: 5%;
+}
+
+
+.style-is-empty {
+    color: #fdf9f5;
+    padding-bottom: 200px;
+
+}
+
+.add-items-link{
+    color: #fdf9f5;
+    cursor: pointer;
+}
+
+.link-back-styles {
+    margin-bottom: 70px;
 }

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect, Link } from "react-router-dom";
-import { getUserStyles } from "../../store/styles";
+import { getUserStyles, deleteStyle } from "../../store/styles";
 import OpenModalButton from '../OpenModalButton'
 import StylesFormPage from './StylesFormPage'
 import StylesDetails from "./StylesDetails";
@@ -28,6 +28,10 @@ function Styles() {
         <Redirect to='/login'></Redirect>
     )
 
+    const removeStyle = (style) => {
+        console.log("IN DELETE STYLE FUNCTION IN COMPONENT!!! ", style)
+        dispatch(deleteStyle(style.id))
+    }
 
 
     if (Object.keys(styles).length) {
@@ -57,27 +61,34 @@ function Styles() {
 
                                         <div className="style-card-title">{style.title.toLowerCase()}</div>
                                     </Link>
+                                    <button className="store-button delete-style2" onClick={() => removeStyle(style)}>delete style</button>
                                 </div>
                             ))
                         }
                     </div>
                 </div>
                 <div className="new-style-button-container">
-                <OpenModalButton
-                    buttonText="add new style"
-                    modalComponent={<StylesFormPage styles={stylesArray} />}
-                />
+                    <OpenModalButton
+                        buttonText="add new style"
+                        modalComponent={<StylesFormPage styles={stylesArray} />}
+                    />
                 </div>
             </div>
         )
     } else {
-        return (
-            <>
-                <div>You have no styles</div>
+        return (<>
+            <div className="page-header">
+                    <h1>My Styles</h1>
+                </div>
+            <div className="styles-container no-styles-container">
+
+
+                <div className="you-have-no-styles">You have no styles</div>
                 <OpenModalButton
-                    buttonText="NEW STYLE"
+                    buttonText="add new style"
                     modalComponent={<StylesFormPage />}
                 />
+            </div>
             </>
         )
     }
