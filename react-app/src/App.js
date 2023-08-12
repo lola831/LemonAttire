@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import SignupFormPage from "./components/SignupFormPage";
 import LoginFormPage from "./components/LoginFormPage";
 import { authenticate } from "./store/session";
@@ -25,38 +25,22 @@ function App() {
   const user = useSelector(state => state.session)
   const order = useSelector(state => state.orders)
   const [isLoaded, setIsLoaded] = useState(false);
-  const [bag, updateBag] = useState(0)
 
-  console.log("BAG IN APP.JS: ", bag)
+
+
   useEffect(() => {
-   dispatch(authenticate())
-      .then((data) => {
-        setIsLoaded(true)
-        console.log("IN app.js ==================== ", data)
-      })
+    dispatch(authenticate())
       .then(() => {
-        if (user) {
-          dispatch(getCurrentOrder())
-            .then((order) => {
-              if (Object.keys(order).length) {
-                console.log("IN CHECKING ORDER APP.JS-----------", order)
-                if (order.orderItems.length) {
-                  let totalItems = 0;
-                  order.orderItems.map(item => {
-                    totalItems += item.quantity
-                  })
-                  updateBag(totalItems)
-                }
-              }
-            })
-        }
+        setIsLoaded(true)
+        console.log("IN app.js ==================== ")
       })
-  }, [dispatch, bag]);
+
+  }, [dispatch]);
 
   return (
     <>
 
-      <Navigation isLoaded={isLoaded} bag={bag} updateBag={updateBag} />
+      <Navigation isLoaded={isLoaded}/>
       {isLoaded && (
         <Switch>
           <Route exact path="/">
@@ -75,7 +59,7 @@ function App() {
             <AllProducts />
           </Route>
           <Route exact path="/shop/:id">
-            <ProductPage bag={bag} updateBag={updateBag} />
+            <ProductPage />
           </Route>
           {/* <Route exact path="/new-arrivals">
             <NewArrivals />
@@ -84,7 +68,7 @@ function App() {
             <Favorites />
           </Route>
           <Route path="/checkout">
-            <Cart bag={bag} updateBag={updateBag} />
+            <Cart />
           </Route>
           <Route exact path="/styles/:styleId">
             <StylesDetails />
