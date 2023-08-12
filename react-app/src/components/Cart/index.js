@@ -98,7 +98,7 @@ function Cart() {
             }
           </div>
 
-          <div>
+          <div className="order-summary-box">
             <div className="order-summary-container">
               <div className="order-summary">Order Summary</div>
               <div className="order-price">
@@ -112,6 +112,7 @@ function Cart() {
                 </div>
             </div>
             <button className="store-button-white checkout-now">Checkout now</button>
+            
             <OpenModalButton
               buttonText="Empty bag"
               modalComponent={<DeleteOrder order={order} />}
