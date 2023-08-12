@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import "./Footer.css"
 
 function Footer() {
@@ -12,7 +12,7 @@ function Footer() {
 
                 <div className='other-proj'>Feel free to checkout my other projects at:</div>
                 <div className='github-stuff'>
-                    <Link className='link-github' to="https://github.com/lola831">
+                    <Link className='link-github' to={{ pathname: "https://github.com/lola831" }} target="_blank">
                     <i className="fa-brands fa-github"></i>
                     <div className='github-handle'>lola831</div>
                     </Link>
