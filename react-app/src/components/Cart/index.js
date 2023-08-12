@@ -2,19 +2,19 @@ import { useEffect } from "react";
 import { Link, Redirect } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getCurrentOrder, modifyItem, deleteItem } from "../../store/orders";
+import { editBag } from "../../store/bag";
 import OpenModalButton from "../OpenModalButton";
 import DeleteOrder from "../DeleteOrder";
 
 import "./Cart.css"
 
-function Cart({ bag, updateBag }) {
+function Cart() {
 
   const dispatch = useDispatch();
   const order = useSelector(state => state.orders)
   const user = useSelector(state => state.session.user)
-  // const [quantity, setQuantity] = useState()
-  // const addOne = () => setQuantity(quantity + 1)
-  // const minusOne = () => setQuantity(quantity - 1)
+  const bag = useSelector(state => state.bag)
+
 
   useEffect(() => {
     dispatch(getCurrentOrder())
@@ -23,8 +23,6 @@ function Cart({ bag, updateBag }) {
   if (!user) return (
     <Redirect to='/login'></Redirect>
   )
-
-  console.log("ORDER: ", order)
 
   const addOne = (item) => {
     let quantity = item.quantity + 1;
@@ -35,7 +33,7 @@ function Cart({ bag, updateBag }) {
       total_price,
       add
     }
-    updateBag(bag + 1)
+    dispatch(editBag(bag + 1))
     dispatch(modifyItem(order.id, item.id, data))
   }
   const minusOne = (item) => {
@@ -47,19 +45,19 @@ function Cart({ bag, updateBag }) {
       total_price,
       minus
     }
-    updateBag(bag - 1)
+    dispatch(editBag(bag - 1))
     dispatch(modifyItem(order.id, item.id, data))
   }
 
   const removeItem = (item) => {
-    console.log("Order  id : ", order.id)
-    console.log("ITEM $$$$$$$$$$$ : ", item)
     dispatch(deleteItem(order.id, item))
-    updateBag(bag - item.quantity)
+    console.log("BAAAAAAAG", bag)
+    console.log("ITEMMMMM ", item)
+    let newBag = bag - item.quantity;
+    console.log("new Bag", newBag)
+    dispatch(editBag(bag - item.quantity))
   }
 
-  // if (Object.keys(order).length) {
-  console.log("ORDER LINE 61 CART: ", order)
   if (order && Object.keys(order).length) {
     return (
       <>
@@ -98,7 +96,7 @@ function Cart({ bag, updateBag }) {
               ))
             }
           </div>
-          
+
           <div>
             <div className="order-summary-container">
               <div className="order-summary">Order Summary</div>
@@ -115,7 +113,7 @@ function Cart({ bag, updateBag }) {
             <button className="store-button-white checkout-now">Checkout now</button>
             <OpenModalButton
               buttonText="Empty bag"
-              modalComponent={<DeleteOrder order={order} bag={bag} updateBag={updateBag} />}
+              modalComponent={<DeleteOrder order={order} />}
             />
           </div>
         </div>

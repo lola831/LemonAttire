@@ -1,16 +1,17 @@
 import React from 'react'
 import { useModal } from '../../context/Modal'
 import { getCurrentOrder, removeOrder } from '../../store/orders'
+import { editBag } from '../../store/bag'
 import { useDispatch } from 'react-redux'
 import "./DeleteOrder.css"
 
-function DeleteOrder({ order, bag, updateBag }) {
+function DeleteOrder({ order}) {
     console.log("ORDER: ", order)
     const { closeModal } = useModal();
     const dispatch = useDispatch();
 
     const emptyBag = () => {
-        updateBag(0)
+        dispatch(editBag(0))
         dispatch(removeOrder(order.id))
         dispatch(getCurrentOrder())
         closeModal()

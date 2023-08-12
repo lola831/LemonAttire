@@ -1,28 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from "react-redux";
-import { NavLink, Redirect } from 'react-router-dom';
+import { NavLink, Redirect, useHistory } from 'react-router-dom';
 import { logout } from "../../store/session";
 import { useSelector } from 'react-redux';
 import { getCurrentOrder } from '../../store/orders';
+import { editBag } from '../../store/bag';
 // import { getCategoriesThunk } from '../../store/categories';
 import './Navigation.css';
-// import { Button } from '../Button';
 // import Dropdown from '../Dropdown/Index';
 // import AllProducts from '../AllProducts';
 import "../../App.css"
 import HomePage from '../HomePage';
 
-function Navigation({ isLoaded, bag, updateBag}) {
-
+function Navigation({ isLoaded}) {
+	const history = useHistory();
 	const dispatch = useDispatch();
 	const sessionUser = useSelector(state => state.session.user);
+	const bag = useSelector(state => state.bag)
 	const [click, setClick] = useState(false)
-	const [bagItems, setBagItems] = useState(false)
 	const order = useSelector(state => state.orders)
-	console.log("INNNNNNNNN NAVIGATION COMPONENT!!!!!!!!!!ORDER", order)
-	console.log("bagggg ", bag)
-	console.log(bag === 0)
-	// const [button, setButton] = useState(true)
+
 	// const categories = useSelector(state => state.categories)
 	const handleClick = () => setClick(!click);
 	const closeMobileMenu = () => setClick(false);
@@ -33,38 +30,19 @@ function Navigation({ isLoaded, bag, updateBag}) {
 		}
 	}, [dispatch, sessionUser])
 
-	console.log("CLICK:  ", click)
-	console.log("BAG ITEMS ", bagItems)
-	// console.log("categories", categories)
+
+
 
 	const handleLogout = (e) => {
 		e.preventDefault();
-		console.log("IN HANDLE LOG OUTTTTTTTT")
-		// dispatch(logout());
-		dispatch(logout()).then(() => closeMobileMenu()).then(() => {
-			updateBag(0)
-			return (<Redirect to="/"></Redirect>)
-		} )
+		dispatch(logout())
+		.then(() => closeMobileMenu())
+		// .then(() => {
+		// 	return (<Redirect to="/"></Redirect>)
+		// } )
+		history.push("/")
 
-
-		// closeMobileMenu()
-		// return (
-		// 	<Redirect to="/"></Redirect>
-		// )
 	};
-
-	useEffect(() => {
-
-        if (sessionUser && order && Object.keys(order).length) {
-           if (order.orderItems.length) {
-			setBagItems(order.orderItems.length)
-		   }
-        }
-    }, [order, sessionUser, bagItems]);
-
-
-
-
 
 
 	return (
@@ -100,8 +78,6 @@ function Navigation({ isLoaded, bag, updateBag}) {
 										<li className='nav-item'>
 											<NavLink to='/checkout' className="nav-links my-bag" onClick={closeMobileMenu}>
 												My Bag{bag > 0 && (` (${bag})`)}
-
-											{/* {bag > 0 && <div className='nav-bag-circle'>{bag}</div>} */}
 											</NavLink>
 										</li>
 										<li className='nav-item'>
