@@ -1,4 +1,5 @@
-import { loadBag, setBag } from "./bag";
+import { setBag, editBag } from "./bag";
+
 
 
 // constants
@@ -103,6 +104,7 @@ export const signUp = (firstName, lastName, email, password) => async (dispatch)
 
 	if (response.ok) {
 		const data = await response.json();
+		// dispatch(editBag(0))
 		dispatch(setUser(data));
 		return null;
 	} else if (response.status < 500) {

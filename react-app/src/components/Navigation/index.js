@@ -35,11 +35,9 @@ function Navigation({ isLoaded}) {
 
 	const handleLogout = (e) => {
 		e.preventDefault();
+		dispatch(editBag(0))
 		dispatch(logout())
 		.then(() => closeMobileMenu())
-		// .then(() => {
-		// 	return (<Redirect to="/"></Redirect>)
-		// } )
 		history.push("/")
 
 	};

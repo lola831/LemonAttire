@@ -58,7 +58,8 @@ function Cart() {
     dispatch(editBag(bag - item.quantity))
   }
 
-  if (order && Object.keys(order).length) {
+  // if (order && Object.keys(order).length) {
+    if (bag) {
     return (
       <>
         <h1 className="page-header">My bag</h1>
