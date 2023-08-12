@@ -1,11 +1,16 @@
+import { setBag, editBag } from "./bag";
+
+
+
 // constants
 const SET_USER = "session/SET_USER";
 const REMOVE_USER = "session/REMOVE_USER";
 
 const setUser = (user) => ({
 	type: SET_USER,
-	payload: user,
+	payload: user
 });
+
 
 const removeUser = () => ({
 	type: REMOVE_USER,
@@ -44,6 +49,20 @@ export const login = (email, password) => async (dispatch) => {
 
 	if (response.ok) {
 		const data = await response.json();
+		console.log("in auth thunk data ", data)
+		let bag = 0;
+		const orders = data.orders
+		console.log("ORDERS ", orders)
+		orders.map(order => {
+			if (order.status === "pending") {
+
+				order.orderItems.map(item => {
+					bag += item.quantity
+				})
+			}
+		})
+		console.log("totalbag, ", bag)
+		dispatch(setBag(bag))
 		dispatch(setUser(data));
 		return null;
 	} else if (response.status < 500) {
@@ -85,6 +104,7 @@ export const signUp = (firstName, lastName, email, password) => async (dispatch)
 
 	if (response.ok) {
 		const data = await response.json();
+		// dispatch(editBag(0))
 		dispatch(setUser(data));
 		return null;
 	} else if (response.status < 500) {

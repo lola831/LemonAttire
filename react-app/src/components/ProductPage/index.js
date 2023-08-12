@@ -1,14 +1,13 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect, useHistory, Link, useParams} from "react-router-dom";
+import { useHistory, Link, useParams} from "react-router-dom";
 import { getProductType } from "../../store/productType";
 // import EditReviewForm from "../../Reviews/EditReview";
 // import DeleteReviewForm from "../../Reviews/DeleteReview";
 // import ReservationForm from "../../ReservationForm";
 import { getUserFavorites, addFavorites, deleteFavorites } from "../../store/favorites";
-import { getCurrentOrder, modifyItem } from "../../store/orders";
-import { newOrderItem } from "../../store/orders";
-import { newOrder } from "../../store/orders";
+import { getCurrentOrder, modifyItem, newOrderItem, newOrder } from "../../store/orders";
+import { editBag } from "../../store/bag";
 import OpenModalButton from "../OpenModalButton";
 import AddStyleItem from "../Styles/AddStyleItem";
 
@@ -19,7 +18,7 @@ import './ProductPage.css'
 import "../../App.css";
 // import { loadProductReviews } from "../../store/reviews";
 
-const ProductPage = ({ bag, updateBag}) => {
+const ProductPage = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     const { id } = useParams();
@@ -27,6 +26,7 @@ const ProductPage = ({ bag, updateBag}) => {
     const favorites = useSelector(state => state.favorites);
     const user = useSelector(state => state.session.user);
     const order = useSelector(state => state.orders)
+    const bag = useSelector(state => state.bag)
     // const reviews = useSelector(state => state.reviews)
     const [loadingFavorites, setLoadingFavorites] = useState(true);
     const [favorite, setFavorite] = useState(false);
@@ -41,8 +41,7 @@ const ProductPage = ({ bag, updateBag}) => {
     const addOne = () => setQuantity(quantity + 1)
     const minusOne = () => setQuantity(quantity - 1)
 
-    console.log("UPDATE BAG: ", updateBag)
-    console.log("MSG: ", msg)
+
 
 
     useEffect(() => {
@@ -136,9 +135,8 @@ const ProductPage = ({ bag, updateBag}) => {
             // order doesnt exist and must create new one
             let orderData = { status: "pending" }
             dispatch(newOrder(orderData, itemData))
-            // updateBag(bag + 1)
-            updateBag(bag + quantity)
-            // setMsg({cart: "This item has been added to your cart"})
+            // updateBag(bag + quantity)
+            dispatch(editBag(bag + quantity))
 
         } else {
             //check if item already exists in cart
@@ -147,7 +145,8 @@ const ProductPage = ({ bag, updateBag}) => {
                 let item = orderItems[i]
                 if (item.image === itemData.image
                     && item.size === itemData.size) {
-                    updateBag(bag + itemData.quantity)
+                    // updateBag(bag + itemData.quantity)
+                    dispatch(editBag(bag + itemData.quantity))
                     console.log("ALREADY IN CARTTTTTTTTTT")
                     let quantity = item.quantity + itemData.quantity
                     let total_price = item.price * quantity
@@ -163,7 +162,8 @@ const ProductPage = ({ bag, updateBag}) => {
                     return;
                 }
             }
-            updateBag(bag + quantity)
+            dispatch(editBag(bag + quantity))
+            // updateBag(bag + quantity)
             dispatch(newOrderItem(itemData, order.id))
 
         }

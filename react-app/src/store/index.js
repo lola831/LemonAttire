@@ -8,6 +8,7 @@ import favoritesReducer from './favorites';
 import ordersReducer from './orders';
 import reviewsReducer from './reviews';
 import stylesReducer from './styles';
+import bagReducer from './bag';
 
 
 const rootReducer = combineReducers({
@@ -19,6 +20,7 @@ const rootReducer = combineReducers({
   favorites: favoritesReducer,
   styles: stylesReducer,
   orders: ordersReducer,
+  bag: bagReducer,
 
 });
 
