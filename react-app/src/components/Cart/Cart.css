@@ -32,6 +32,11 @@
     gap: 10px;
 }
 
+.order-summary-box{
+    display: flex;
+    flex-direction: column;
+}
+
 .order-summary-container {
     width: 300px;
     height: 150px;
