@@ -15,17 +15,18 @@ function Dropdown({ items }) {
 	// }, [dispatch])
 
     const categories = [
-        "tops",
-        "activeweivewear",
-        "bags",
-        "pants",
-        "dresses",
-        "hats",
-        "jackets",
-        "shorts",
-        "skirts",
-        "sweatersers",
-        "shoes",
+        "Tops",
+        "Activewear",
+        "Bags",
+        "Pants",
+        "Dresses",
+        "Hats",
+        "Jackets",
+        "Shorts",
+        "Skirts",
+        "Sweaters",
+        "Shoes",
+        "View All"
     ]
 
   return (

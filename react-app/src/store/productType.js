@@ -23,6 +23,7 @@ const productTypeReducer = (state = initialState, action) => {
     let newState;
     switch (action.type) {
         case GET_PRODUCT_TYPE:
+            console.log("IN HEEEEEEHEHEHEHEHE")
             newState = { ...state };
             newState = action.payload.productType
             return newState;

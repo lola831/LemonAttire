@@ -1,6 +1,5 @@
 from .db import db, environment, SCHEMA
 from .user import User
-from .category import Category
 from .product_type import ProductType
 from .product import Product
 from .order import Order

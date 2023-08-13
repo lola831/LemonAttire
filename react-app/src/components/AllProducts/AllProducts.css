@@ -7,8 +7,7 @@
     display: flex;
     justify-content: center;
     height: auto;
-    padding-top: 1%;
-    padding-bottom: 2%;
+    padding: 5%
 }
 
 .product-cards {

@@ -22,14 +22,19 @@ def all_product_types():
     """
     category = request.args.get('category')
 
-    query = ProductType.query
+    print("CATEGORY ================== ", category)
 
     if category:
-        query = query.filter(ProductType.category == category)
+        print("IN HEEEEEEREEEEEEEEEEE")
+        product_types = ProductType.query.filter(ProductType.category==category).all()
+        print("PRODUCT TYPES========================> ", product_types)
+    else:
+        product_types = ProductType.query.all()
 
-    product_types = [product.to_dict() for product in query.all()]
+    print("PRODUCT TYPES========================> ", product_types)
 
-    return jsonify({"products": product_types}), 200
+    return jsonify({"products": [product.to_dict() for product in product_types]}), 200
+
 
 # GET PRODUCT TYPE BY ID:
 @product_type_routes.route('/<int:product_type_id>')

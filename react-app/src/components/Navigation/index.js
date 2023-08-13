@@ -5,12 +5,10 @@ import { logout } from "../../store/session";
 import { useSelector } from 'react-redux';
 import { getCurrentOrder } from '../../store/orders';
 import { editBag } from '../../store/bag';
-// import { getCategoriesThunk } from '../../store/categories';
 import './Navigation.css';
-// import Dropdown from '../Dropdown/Index';
-// import AllProducts from '../AllProducts';
 import "../../App.css"
 import HomePage from '../HomePage';
+import AllProducts from '../AllProducts';
 
 function Navigation({ isLoaded}) {
 	const history = useHistory();
@@ -18,20 +16,29 @@ function Navigation({ isLoaded}) {
 	const sessionUser = useSelector(state => state.session.user);
 	const bag = useSelector(state => state.bag)
 	const [click, setClick] = useState(false)
+	const [isCategory, setIsCategory] = useState(false)
 	const order = useSelector(state => state.orders)
+	const [open, setOpen] = useState(false);
 
-	// const categories = useSelector(state => state.categories)
+
 	const handleClick = () => setClick(!click);
 	const closeMobileMenu = () => setClick(false);
 
 	useEffect(() => {
 		if (sessionUser) {
 			dispatch(getCurrentOrder())
+			// dispatch(getCategoriesThunk())
 		}
 	}, [dispatch, sessionUser])
 
 
+	const handleOpen = () => {
+        setOpen(true);
+    };
 
+	const handleClose = () => {
+        setOpen(false);
+    };
 
 	const handleLogout = (e) => {
 		e.preventDefault();
@@ -41,6 +48,30 @@ function Navigation({ isLoaded}) {
 		history.push("/")
 
 	};
+
+	const categoryClick = (category) => {
+		// console.log("in cat")
+		// setIsCategory(true)
+		return (
+			<AllProducts category={category} />
+		)
+	}
+
+	const categories = [
+        "Tops",
+        "Activewear",
+        "Pants",
+		"Jeans",
+        "Dresses",
+        "Jackets",
+        "Skirts",
+		"Shorts",
+        "Sweaters",
+		"Hats",
+		"Shoes",
+		"Jewelry",
+		"View All",
+    ]
 
 
 	return (
@@ -54,10 +85,28 @@ function Navigation({ isLoaded}) {
 						<i className={click ? 'fa-solid fa-xmark' : 'fa-solid fa-bars'}></i>
 					</div>
 					<ul className={click ? 'menu active' : 'menu'}>
-						<li className='nav-item'>
-							<NavLink to='/shop/' className="nav-links" onClick={closeMobileMenu}>
-								Shop
-							</NavLink>
+						<li className='nav-item shop-item'>
+						<div className="dropdown-categories">
+                            <button className="nav-links shop-btn" onMouseOver={handleOpen} onMouseLeave={handleClose}>Shop</button>
+                            {open ? (
+                                <ul onMouseEnter={handleOpen} onMouseLeave={handleClose} className="drop-down-menu-categories" >
+                                {
+                                    categories.map((category,i) => (
+										<div className='category-list-container'>
+                                        <li key={category}>
+											<NavLink onClick={handleClose} className="category-link"
+											  to={{
+												pathname: '/shop',
+												search: `?category=${category}`,
+											  }}>{category}</NavLink>
+                                        </li>
+
+										</div>
+                                    ))
+                                }
+                            </ul>
+                            ) : null}
+                        </div>
 						</li>
 						{isLoaded && (
 							<>
