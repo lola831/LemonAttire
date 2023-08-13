@@ -245,7 +245,7 @@ const ProductPage = () => {
                     </div>
                     <div className="product-info">
                         <div className="product-name">{`${productType.name}`}</div>
-                        <div className="prod-price">${`${productType.price}`}.00</div>
+                        <div className="prod-price-2">${`${productType.price}`}.00</div>
                         {
                             productType.products.length > 1 && (
                                 <div className="color-container">

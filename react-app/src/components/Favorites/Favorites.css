@@ -12,9 +12,30 @@
 .fav-main-container {
     background-color: #caafa8;
     color: #fdf9f5;
+    display: flex;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 50px;
+    flex-wrap: wrap;
+    gap: 40px;
+    padding-bottom: 50px;
+
 }
 
 .fav-img {
     height: 300px;
     width: 225px;
+}
+
+.fav-card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+   align-items: center;
+}
+
+.fav-remove-button {
+    width: 150px;
+    height: 30px;
+    padding-bottom: 20px;
 }

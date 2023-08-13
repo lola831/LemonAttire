@@ -77,6 +77,7 @@ function StylesDetails() {
             ) : (
               <form className='edit-style-title-container' onSubmit={handleSubmit}>
                 <div className="new-style-title">
+                  <label className='new-style-label'>title</label>
                   <input
                     type="text"
                     className="new-style-title-input"
@@ -86,8 +87,9 @@ function StylesDetails() {
                   />
                 </div>
                 {errors.title && (<span className="error">{errors.title}</span>)}
+                <i className="fa-solid fa-x cancel-title" onClick={() => setEdit(false)}></i>
                 <button className='store-button style-submit-title' type='submit'>save title</button>
-                <button className='store-button cancel-title' onClick={() => setEdit(false)}>cancel</button>
+                {/* <button className='store-button cancel-title' onClick={() => setEdit(false)}>cancel</button> */}
               </form>
             )
           }

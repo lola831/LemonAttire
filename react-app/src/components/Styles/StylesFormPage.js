@@ -44,7 +44,7 @@ function StylesFormPage({ styleReturned, setMsg }) {
     return (
 
 
-        <form className='new-style-form' onSubmit={handleSubmit}>
+        <form className='new-style-form' onSubmit={handleSubmit} onMouseLeave={closeModal}>
 
             <div className='new-style-form-container'>
                 <div className="style-title-input-area">

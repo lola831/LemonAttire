@@ -53,12 +53,12 @@ export const removeItem = (orderItemId) => ({
 
 // Thunks
 export const getCurrentOrder = () => async (dispatch) => {
-    console.log("in thunk")
+
     const response = await fetch(`/api/orders/current/pending`);
     if (response.ok) {
-        console.log("IN RESSSPONSSSEEEEEEEEE")
+
         const order = await response.json();
-        console.log("in thunk response, ", order)
+
         dispatch(currentOrder(order));
         return order;
     } else {
@@ -67,7 +67,7 @@ export const getCurrentOrder = () => async (dispatch) => {
 }
 
 export const getUserOrders = () => async (dispatch) => {
-    console.log("in thunk")
+
     const response = await fetch(`/api/orders/current`, {
         headers: {
             'Content-Type': 'application/json'
@@ -75,7 +75,7 @@ export const getUserOrders = () => async (dispatch) => {
     });
     if (response.ok) {
         const orders = await response.json();
-        console.log("in thunk response, ", orders)
+
         dispatch(loadOrders(orders));
         return orders;
     } else {
@@ -84,7 +84,7 @@ export const getUserOrders = () => async (dispatch) => {
 }
 
 export const newOrder = (orderData, itemData) => async dispatch => {
-    console.log("in thunk, data", orderData)
+    // console.log("in thunk, data", orderData)
     const response = await fetch('/api/orders/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -93,7 +93,7 @@ export const newOrder = (orderData, itemData) => async dispatch => {
 
     if (response.ok) {
         const order = await response.json();
-        console.log("response!!!!! ", order)
+        // console.log("response!!!!! ", order)
         dispatch(addOrder(order));
         dispatch(newOrderItem(itemData, order.id))
         return order;
@@ -104,9 +104,9 @@ export const newOrder = (orderData, itemData) => async dispatch => {
 }
 
 export const newOrderItem = (data, orderId) => async dispatch => {
-    console.log("in new order item thunk, data = ", data)
-    console.log("ORDER ID: ", orderId)
-    console.log("item DATA: ", data)
+    // console.log("in new order item thunk, data = ", data)
+    // console.log("ORDER ID: ", orderId)
+    // console.log("item DATA: ", data)
     dispatch(modifyOrder(orderId, data))
 
     const response = await fetch(`/api/orders/${orderId}/order_items/`, {
@@ -117,11 +117,11 @@ export const newOrderItem = (data, orderId) => async dispatch => {
 
     if (response.ok) {
         const orderItem = await response.json();
-        console.log("ORDER ITEM response!!!!! ", orderItem)
+        // console.log("ORDER ITEM response!!!!! ", orderItem)
         dispatch(addOrderItem(orderItem));
         return orderItem;
     } else {
-        console.log("EERROR: ", response)
+        // console.log("EERROR: ", response)
         return response
     }
 
@@ -129,7 +129,7 @@ export const newOrderItem = (data, orderId) => async dispatch => {
 }
 
 export const modifyOrder = (orderId, data) => async dispatch => {
-    console.log("in thunkkkkkkk for edit order", data)
+    // console.log("in thunkkkkkkk for edit order", data)
      const response = await fetch(`/api/orders/${orderId}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
@@ -139,7 +139,7 @@ export const modifyOrder = (orderId, data) => async dispatch => {
     //  console.log("MODIFY ORDER RESPONSE", response)
     if (response.ok) {
         const order = await response.json();
-        console.log("ORDER response!!!!! ", order)
+        // console.log("ORDER response!!!!! ", order)
         dispatch(editOrder(order));
         return order;
     } else {
@@ -149,7 +149,7 @@ export const modifyOrder = (orderId, data) => async dispatch => {
 
 export const modifyItem = (orderId, itemId, data) => async dispatch => {
 
-    console.log("HEREeeeeeeeeeeeeee", orderId, itemId, data)
+    // console.log("HEREeeeeeeeeeeeeee", orderId, itemId, data)
 
     dispatch(modifyOrder(orderId, data))
 
@@ -188,7 +188,7 @@ export const removeOrder = (orderId) => async (dispatch) => {
 
 export const deleteItem = (orderId, item) => async (dispatch) => {
     let itemId = item.id;
-    console.log("in thunkkkkkkk for delete item")
+    // console.log("in thunkkkkkkk for delete item")
     dispatch(modifyOrder(orderId, {delete: item.total_price}))
     const response = await fetch(`/api/orders/${orderId}/order_items/${itemId}`, {
         method: 'DELETE',
@@ -215,7 +215,7 @@ const ordersReducer = (state = initialState, action) => {
         }
         case GET_CURRENT_ORDER:
             newState = { ...state };
-            console.log("ACTION PAYLOAD: ", action.payload)
+            // console.log("ACTION PAYLOAD: ", action.payload)
             if (!Object.keys(action.payload).length) {
                 newState = null;
                 return newState
@@ -229,14 +229,14 @@ const ordersReducer = (state = initialState, action) => {
         }
         case ADD_ORDER_ITEM: {
             newState = { ...state };
-            console.log("NEW STATE:  ", newState)
+            // console.log("NEW STATE:  ", newState)
             newState.orderItems.push(action.payload)
             return newState;
         }
         case EDIT_ORDER_ITEM: {
             newState = { ...state };
             let index = newState.orderItems.findIndex(x => x.id === action.payload.id);
-            console.log("INDEX: ", index)
+            // console.log("INDEX: ", index)
             newState.orderItems[index] = action.payload
             return newState;
         }
@@ -251,7 +251,7 @@ const ordersReducer = (state = initialState, action) => {
         case DELETE_ORDER: {
             newState = { ...state };
             if (newState.id === action.payload){
-                console.log("SAMMMMEEEE ID ")
+                // console.log("SAMMMMEEEE ID ")
                 newState = {}
             }
             return newState;

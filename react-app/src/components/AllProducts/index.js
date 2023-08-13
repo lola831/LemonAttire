@@ -13,7 +13,7 @@ function AllProducts() {
   const [color, setColor] = useState("")
 
 
-  const category = new URLSearchParams(location.search).get('category');
+  let category = new URLSearchParams(location.search).get('category');
   console.log("PARAMS: ", category)
 
   const products = useSelector(state => state.products)
@@ -27,12 +27,13 @@ function AllProducts() {
 
 
   console.log("PROD VALS ", productValues)
+  if (category === "View All") category = null;
 
 
   return (
     <>
 
-    {category !== "View All" &&  <h1 className='page-header'>{category}
+    {category &&  <h1 className='page-header'>{category}
       {/* <img alt="dress" className='dress-img' src="https://media.istockphoto.com/id/1324859934/photo/a-tourist-woman-in-a-red-dress-and-hat-sits-on-a-balcony-in-the-village-of-oia-santorini.jpg?s=2048x2048&w=is&k=20&c=P5H9M2BpVqT7lMaAG5-Hk9qPvpRFNeNfbKXDAljPG0A="></img> */}
 
     </h1>}
