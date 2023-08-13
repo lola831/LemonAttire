@@ -10,6 +10,18 @@
     max-width:1500px;
 }
 
+.msg-container {
+    margin-top: -110px; /* added to erase white line and keep 100vh */
+    height: 550px; /* original was 100vh but gave white line underneath  79vh doesnt*/
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    object-fit: contain;
+    max-width:1500px;
+}
+
 
 video {
     position: absolute;
@@ -41,6 +53,23 @@ video {
     padding: 12px 26px;
     font-size: 15px;
     margin-top: 200px;;
+}
+
+.msg {
+    /* opacity: .5; */
+
+    border-radius: 2px;
+    margin-right: 165px;
+    font-family: Italiana;
+    font-size: 60px;
+    font-weight: bold;
+    /* margin-right: 30px; */
+    color: #fdf9f5;
+    /* color: #caafa8; */
+    padding: 8px 10px;
+    border: 2px solid white;
+    padding: 12px 300px;
+    margin-top: 100px;;
 }
 
 
