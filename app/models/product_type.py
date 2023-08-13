@@ -11,12 +11,11 @@ class ProductType(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(225), nullable=False, unique=True)
     description = db.Column(db.String(500), nullable=True)
-    category_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('categories.id')))
+    category = db.Column(db.String(50), nullable=False)
     price = db.Column(db.Float, nullable=False )
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     updated_at = db.Column(db.DateTime, default=datetime.utcnow)
 
-    category = db.relationship('Category', back_populates="product_types")
     products = db.relationship("Product", cascade="all, delete-orphan", back_populates="product_type")
     favorites = db.relationship("Favorite", cascade="all, delete-orphan", back_populates="product_type")
     order_items = db.relationship('OrderItem', cascade="all, delete-orphan", back_populates="product_type")
@@ -29,7 +28,7 @@ class ProductType(db.Model):
             'name': self.name,
             'description': self.description,
             'price': self.price,
-            'category': self.category.to_dict_name(),
+            'category': self.category,
             'products': [product.to_dict() for product in self.products],
         }
 
@@ -39,5 +38,5 @@ class ProductType(db.Model):
             'name': self.name,
             'description': self.description,
             'price': self.price,
-            'category': self.category.to_dict_name()
+            'category': self.category
         }

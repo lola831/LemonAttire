@@ -8,12 +8,14 @@
 
 h1 {
   font-family: Italiana;
-  font-size: 40px;
+  font-size: 35px;
 }
 
 .page-header {
   background-color: #fdf9f5;
     color: #caafa8;
+    /* background-color: #caafa8;
+    color: #fdf9f5; */
     height: 250px;
     width: 100%;
     display: flex;
@@ -58,5 +60,3 @@ h1 {
   background-color: #caafa8;
   border: 2px solid #fdf9f5;
 }
-
-

@@ -7,29 +7,29 @@ def seed_product_types():
     product_type1 = ProductType(
         name="Jay Ribbed Knit Crop Top",
         description="Bring it back to the basics with the Jake Pink Ribbed Knit Crop Top. This halter tank top features ribbed material, a racerback, and high neck design that will make it your go-to basic top for everyday wear. Pair with denim jeans or shorts for a casual day out, or wear with a mini skirt for more elevated occasions.",
-        category_id=1,
+        category="Tops",
         price=24.00)
     product_type2 = ProductType(
         name="Charlie Ribbed Cropped Top",
         description="Wardrobe essential alert! You'll love the Eagerly Anticipate Hunter Green Ribbed Cropped Top. This surplice top long sleeve is a key piece for your colder weather wardrobe. With a long sleeve and fitted crop top silhouette, this top is perfect for layering. The deep v neckline and ribbed fabric give this top a little extra something special. Add this fitted crop top to your wardrobe today!",
-        category_id=1,
+        category="Tops",
         price=25.00)
     product_type3 = ProductType(
         name="Abby Maxi Dress",
         description="Feelin' fancy? Add the Abegayle Maxi Dress to the front of your formal dress collection. This Taupe plunging maxi dress will transform any babe into a goddess. Whether it's prom, a wedding, or any other formal event, the lace trim and criss cross back on this maxi dress will stun. Watch this dress turn some heads.",
-        category_id=4,
+        category="Dresses",
         price=59.00)
     product_type4 = ProductType(
         name="France White Belted Cropped Pants",
-        category_id=3,
+        category="Pants",
         price=49.00)
     product_type5 = ProductType(
         name="Satin Slit Mini Dress",
-        category_id=4,
+        category="Dresses",
         price=44.00)
     product_type6 = ProductType(
         name="Go Glam Strapless Maxi Dress",
-        category_id=4,
+        category="Dresses",
         price=69.00)
 
 

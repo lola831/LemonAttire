@@ -2,7 +2,6 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import session from './session'
 import productsReducer from './products';
-import categoriesReducer from './categories';
 import productTypeReducer from './productType';
 import favoritesReducer from './favorites';
 import ordersReducer from './orders';
@@ -13,7 +12,6 @@ import bagReducer from './bag';
 
 const rootReducer = combineReducers({
   session,
-  categories: categoriesReducer,
   products: productsReducer,
   productType: productTypeReducer,
   reviews: reviewsReducer,

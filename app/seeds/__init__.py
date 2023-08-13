@@ -1,6 +1,5 @@
 from flask.cli import AppGroup
 from .users import seed_users, undo_users
-from .categories import seed_categories, undo_categories
 from .favorites import seed_favorites, undo_favorites
 from .order_items import seed_order_items, undo_order_items
 from .orders import seed_orders, undo_orders
@@ -33,10 +32,8 @@ def seed():
         undo_orders()
         undo_products()
         undo_product_types()
-        undo_categories()
         undo_users()
     seed_users()
-    seed_categories()
     seed_product_types()
     seed_products()
     seed_orders()
@@ -58,5 +55,4 @@ def undo():
     undo_orders()
     undo_products()
     undo_product_types()
-    undo_categories()
     undo_users()
