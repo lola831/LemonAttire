@@ -27,7 +27,7 @@ function HomePage() {
   return (
     <div className="homepage-container">
       <div className="vid-container">
-          <Video category={"Homepage"} />
+          <Video />
       </div>
 
       <div className="featured-collection-box">

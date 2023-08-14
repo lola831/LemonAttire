@@ -4,7 +4,6 @@ import { useLocation, Link } from "react-router-dom";
 import { getAllProductsThunk } from "../../store/products";
 import "./AllProducts.css"
 import "../../App.css";
-import Video from '../Video';
 
 
 
@@ -36,13 +35,11 @@ function AllProducts() {
 
     {category &&
 
-    // <h1 className='page-header'>{category}
-    //   {/* <img alt="dress" className='dress-img' src="https://media.istockphoto.com/id/1324859934/photo/a-tourist-woman-in-a-red-dress-and-hat-sits-on-a-balcony-in-the-village-of-oia-santorini.jpg?s=2048x2048&w=is&k=20&c=P5H9M2BpVqT7lMaAG5-Hk9qPvpRFNeNfbKXDAljPG0A="></img> */
-    //   }
-    // </h1>
-      <Video category={category} />
-
-    }
+    <h1 className='page-header'>{category}
+      {/* <img alt="dress" className='dress-img' src="https://media.istockphoto.com/id/1324859934/photo/a-tourist-woman-in-a-red-dress-and-hat-sits-on-a-balcony-in-the-village-of-oia-santorini.jpg?s=2048x2048&w=is&k=20&c=P5H9M2BpVqT7lMaAG5-Hk9qPvpRFNeNfbKXDAljPG0A="></img> */
+      }
+    </h1>}
+    
     <div className='all-prods-container'>
 
       <div className='product-cards'>
