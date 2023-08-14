@@ -20,7 +20,7 @@ def seed_product_types():
         category="Dresses",
         price=59.00)
     product_type4 = ProductType(
-        name="France White Belted Cropped Pants",
+        name="France Belted Cropped Pants",
         category="Pants",
         price=49.00)
     product_type5 = ProductType(
@@ -31,6 +31,46 @@ def seed_product_types():
         name="Go Glam Strapless Maxi Dress",
         category="Dresses",
         price=69.00)
+    product_type7 = ProductType(
+        name="Floral Keyhole Midi Dress",
+        category="Dresses",
+        price=49.00)
+    product_type8 = ProductType(
+        name="Blue Floral Mini Dress",
+        category="Dresses",
+        price=44.00)
+    product_type9 = ProductType(
+        name="Multi Floral Ribbed Mini Dress",
+        category="Dresses",
+        price=31.00)
+    product_type10 = ProductType(
+        name="Sherbert Cutout Maxi Dress",
+        category="Dresses",
+        price=54.00)
+    product_type11 = ProductType(
+        name="Daisy Flutter Sleeve Dress",
+        category="Dresses",
+        price=48.00)
+    product_type12 = ProductType(
+        name="Valencia Lace Maxi Dress",
+        category="Dresses",
+        price=59.00)
+    product_type13 = ProductType(
+        name="Daniela Bodycon Mini Dress",
+        category="Dresses",
+        price=48.00)
+    product_type14 = ProductType(
+        name="Satin Cowl Neck Ruched Dress",
+        category="Dresses",
+        price=50.00)
+    product_type15 = ProductType(
+        name="Sofia Flower BodyCon Dress",
+        category="Dresses",
+        price=44.00)
+    product_type16 = ProductType(
+        name="Green Plaid Midi Dress",
+        category="Dresses",
+        price=37.00)
 
 
 
@@ -41,6 +81,17 @@ def seed_product_types():
     db.session.add(product_type4)
     db.session.add(product_type5)
     db.session.add(product_type6)
+    db.session.add(product_type7)
+    db.session.add(product_type8)
+    db.session.add(product_type9)
+    db.session.add(product_type10)
+    db.session.add(product_type11)
+    db.session.add(product_type12)
+    db.session.add(product_type13)
+    db.session.add(product_type14)
+    db.session.add(product_type15)
+    db.session.add(product_type16)
+
 
     db.session.commit()
 

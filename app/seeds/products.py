@@ -79,6 +79,113 @@ def seed_products():
         image3="https://img.tobi.com/product_images/sm/3/mint-go-glam-strapless-maxi-dress@2x.jpg",
         stock=100,
     )
+    floral_keyhole_midi_dress = Product (
+        product_type_id=7, color="DarkSeaGreen",
+        image1="https://img.tobi.com/product_images/md/1/blue-cheryl-floral-keyhole-midi-dress@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/blue-cheryl-floral-keyhole-midi-dress@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/blue-cheryl-floral-keyhole-midi-dress@2x.jpg",
+        stock=100,
+    )
+    blue_floral_mini_dress = Product (
+        product_type_id=8, color="SteelBlue",
+        image1="https://img.tobi.com/product_images/md/1/navy-cool-and-calm-ditsy-floral-smocked-skater-dress@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/navy-cool-and-calm-ditsy-floral-smocked-skater-dress@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/navy-cool-and-calm-ditsy-floral-smocked-skater-dress@2x.jpg",
+        image4="https://img.tobi.com/product_images/sn/4/navy-cool-and-calm-ditsy-floral-smocked-skater-dress@2x.jpg",
+        stock=100,
+    )
+    multi_floral_ribbed_mini_dress = Product (
+        product_type_id=9, color="White",
+        image1="https://img.tobi.com/product_images/md/1/ivory-multi-left-you-on-read-floral-ribbed-mini-dress@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/ivory-multi-left-you-on-read-floral-ribbed-mini-dress@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/ivory-multi-left-you-on-read-floral-ribbed-mini-dress@2x.jpg",
+        image4="https://img.tobi.com/product_images/sm/4/ivory-multi-left-you-on-read-floral-ribbed-mini-dress@2x.jpg",
+        stock=100,
+    )
+    sherbert_dress = Product (
+        product_type_id=10, color="PeachPuff",
+        image1="https://img.tobi.com/product_images/md/1/orange-sherbert-summer-cutout-maxi-dress@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/orange-sherbert-summer-cutout-maxi-dress@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/orange-sherbert-summer-cutout-maxi-dress@2x.jpg",
+        image4="https://img.tobi.com/product_images/sm/4/orange-sherbert-summer-cutout-maxi-dress@2x.jpg",
+        stock=100,
+    )
+    daisy_flutter_dress = Product (
+        product_type_id=11, color="Honeydew",
+        image1="https://img.tobi.com/product_images/md/1/lime-avah-ditsy-flutter-sleeve-full-dress@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/lime-avah-ditsy-flutter-sleeve-full-dress@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/lime-avah-ditsy-flutter-sleeve-full-dress@2x.jpg",
+        stock=100,
+    )
+    valencia_dress = Product (
+        product_type_id=12, color="OldLace",
+        image1="https://img.tobi.com/product_images/md/1/cream-valence-lace-maxi-dress@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/cream-valence-lace-maxi-dress@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/cream-valence-lace-maxi-dress@2x.jpg",
+        stock=100,
+    )
+    daniela_dress_pink = Product (
+        product_type_id=13, color="Thistle",
+        image1="https://img.tobi.com/product_images/md/1/lilac-dani-ribbed-ruched-bodycon-mini-dress@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/lilac-dani-ribbed-ruched-bodycon-mini-dress@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/lilac-dani-ribbed-ruched-bodycon-mini-dress@2x.jpg",
+        stock=100,
+    )
+    daniela_dress_brown = Product (
+        product_type_id=13, color="Sienna",
+        image1="https://img.tobi.com/product_images/md/1/toffee-brown-dani-ribbed-ruched-bodycon-mini-dress@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/toffee-brown-dani-ribbed-ruched-bodycon-mini-dress@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/toffee-brown-dani-ribbed-ruched-bodycon-mini-dress@2x.jpg",
+        stock=100,
+    )
+    satin_cowl_dress_hot_pink = Product (
+        product_type_id=14, color="MediumVioletRed",
+        image1="https://img.tobi.com/product_images/md/1/magenta-listen-to-me-satin-cowl-neck-adjustable-ruched-dress@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/magenta-listen-to-me-satin-cowl-neck-adjustable-ruched-dress@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/magenta-listen-to-me-satin-cowl-neck-adjustable-ruched-dress@2x.jpg",
+        image4="https://img.tobi.com/product_images/sm/4/magenta-listen-to-me-satin-cowl-neck-adjustable-ruched-dress@2x.jpg",
+        stock=100,
+    )
+    satin_cowl_dress_blush = Product (
+        product_type_id=14, color="RosyBrown",
+        image1="https://img.tobi.com/product_images/md/1/blush-listen-to-me-satin-cowl-neck-adjustable-ruched-dress@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/blush-listen-to-me-satin-cowl-neck-adjustable-ruched-dress@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/blush-listen-to-me-satin-cowl-neck-adjustable-ruched-dress@2x.jpg",
+        image4="https://img.tobi.com/product_images/sm/4/blush-listen-to-me-satin-cowl-neck-adjustable-ruched-dress@2x.jpg",
+        stock=100,
+    )
+    satin_cowl_dress_white = Product (
+        product_type_id=14, color="White",
+        image1="https://img.tobi.com/product_images/md/1/cream-listen-to-me-satin-cowl-neck-adjustable-ruched-dress@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/cream-listen-to-me-satin-cowl-neck-adjustable-ruched-dress@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/cream-listen-to-me-satin-cowl-neck-adjustable-ruched-dress@2x.jpg",
+        image4="https://img.tobi.com/product_images/sm/4/cream-listen-to-me-satin-cowl-neck-adjustable-ruched-dress@2x.jpg",
+        stock=100,
+    )
+    floral_openback_bodycon_dress_cream = Product (
+        product_type_id=15, color="White",
+        image1="https://img.tobi.com/product_images/md/1/cream-kiana-flower-open-back-bodycon-mini-dress@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/cream-kiana-flower-open-back-bodycon-mini-dress@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/cream-kiana-flower-open-back-bodycon-mini-dress@2x.jpg",
+        image4="https://img.tobi.com/product_images/sm/4/cream-kiana-flower-open-back-bodycon-mini-dress@2x.jpg",
+        stock=100,
+    )
+    floral_openback_bodycon_dress_black = Product (
+        product_type_id=15, color="Jet",
+        image1="https://img.tobi.com/product_images/md/1/black-kiana-flower-open-back-bodycon-mini-dress@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/black-kiana-flower-open-back-bodycon-mini-dress@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/black-kiana-flower-open-back-bodycon-mini-dress@2x.jpg",
+        image4="https://img.tobi.com/product_images/sm/4/black-kiana-flower-open-back-bodycon-mini-dress@2x.jpg",
+        stock=100,
+    )
+    green_plaid_dress = Product (
+        product_type_id=16, color="Olive",
+        image1="https://img.tobi.com/product_images/md/1/green-ramie-plaid-cowl-neck-midi-dress@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/green-ramie-plaid-cowl-neck-midi-dress@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/green-ramie-plaid-cowl-neck-midi-dress@2x.jpg",
+        stock=100,
+    )
+
 
 
 
@@ -94,6 +201,21 @@ def seed_products():
     db.session.add(go_glam_strapless_maxi_dress_purple)
     db.session.add(go_glam_strapless_maxi_dress_emerald)
     db.session.add(go_glam_strapless_maxi_dress_mint)
+    db.session.add(floral_keyhole_midi_dress)
+    db.session.add(blue_floral_mini_dress)
+    db.session.add(multi_floral_ribbed_mini_dress)
+    db.session.add(sherbert_dress)
+    db.session.add(daisy_flutter_dress)
+    db.session.add(valencia_dress)
+    db.session.add(daniela_dress_pink)
+    db.session.add(daniela_dress_brown)
+    db.session.add(satin_cowl_dress_hot_pink)
+    db.session.add(satin_cowl_dress_blush)
+    db.session.add(satin_cowl_dress_white)
+    db.session.add(floral_openback_bodycon_dress_cream)
+    db.session.add(floral_openback_bodycon_dress_black)
+    db.session.add(green_plaid_dress)
+
 
     db.session.commit()
 
