@@ -27,7 +27,7 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 1%;
+    gap: 6%;
     margin-top: 90px;
     /* background-color: aquamarine; */
     width: 100%;
@@ -46,8 +46,11 @@
 .delete-style2 {
     width: 100px;
     height: 30px;
-    margin-top: 10px;
+    margin-top: 15px;
     margin-left: 15px;
+    font-size: 12px;
+    border: 1px solid #fdf9f5
+
 }
 
 

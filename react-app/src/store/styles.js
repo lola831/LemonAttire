@@ -213,7 +213,7 @@ const stylesReducer = (state = initialState, action) => {
     let newState;
     switch (action.type) {
         case GET_USER_STYLES: {
-            newState = { ...state };
+            newState = {};
             action.payload.user_styles.forEach(style => {
                 newState[style.id] = style;
             });

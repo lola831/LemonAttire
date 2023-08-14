@@ -41,7 +41,9 @@ function App() {
     <>
 
       <Navigation isLoaded={isLoaded}/>
+      <div className="main-wrap">
       {isLoaded && (
+
         <Switch>
           <Route exact path="/">
             <HomePage />
@@ -78,7 +80,11 @@ function App() {
           </Route>
         </Switch>
       )}
+      </div>
+   <footer className="app-footer">
       <Footer />
+      </footer>
+
     </>
   );
 }

@@ -5,6 +5,7 @@ import "./Footer.css"
 function Footer() {
     return (
         <div className='footer-container'>
+            <>
             <div>
                 <h1 className='thanks'>Thanks for stopping by!</h1>
             </div>
@@ -18,9 +19,8 @@ function Footer() {
                     </Link>
                     <div className='my-name'>Lola Marrero</div>
                 </div>
-
-
             </div>
+            </>
         </div>
     )
 }

@@ -12,7 +12,7 @@ function Styles() {
     const dispatch = useDispatch()
     const user = useSelector(state => state.session.user)
     const styles = useSelector(state => state.styles)
-
+    const [stylesLoaded, setStylesLoaded] = useState(false)
 
     console.log("USER: ", user)
     console.log("STYLES: ", styles)
@@ -21,8 +21,8 @@ function Styles() {
 
 
     useEffect(() => {
-        dispatch(getUserStyles())
-    }, [dispatch]);
+        dispatch(getUserStyles()).then(() => setStylesLoaded(true) )
+    }, [dispatch, user]);
 
     if (!user) return (
         <Redirect to='/login'></Redirect>
@@ -32,8 +32,7 @@ function Styles() {
         console.log("IN DELETE STYLE FUNCTION IN COMPONENT!!! ", style)
         dispatch(deleteStyle(style.id))
     }
-
-
+if (stylesLoaded) {
     if (Object.keys(styles).length) {
         let stylesArray = Object.entries(styles).map((style) => (style[1]))
         console.log("STYLES ARRAY: ", stylesArray)
@@ -42,7 +41,7 @@ function Styles() {
             <div className="styles-container">
                 <div className="page-header">
 
-                    <h1>My Styles</h1>
+                    <h1>my styles</h1>
                 </div>
                 <div className="styles-cards-container">
                     <div className="style-cards-box">
@@ -78,7 +77,7 @@ function Styles() {
     } else {
         return (<>
             <div className="page-header">
-                    <h1>My Styles</h1>
+                    <h1>my styles</h1>
                 </div>
             <div className="styles-container no-styles-container">
 
@@ -92,6 +91,11 @@ function Styles() {
             </>
         )
     }
+}else {
+    return <div>Loading...</div>
+}
+
+
 
 }
 

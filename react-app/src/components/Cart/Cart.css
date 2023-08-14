@@ -19,6 +19,10 @@
     width: 500px;
 }
 
+.order-item-name {
+    font-size: 15px;
+}
+
 .order-item-img {
     height: 200px;
     width: 150px;
@@ -97,6 +101,8 @@
     margin-top: 10px;
     width: 75px;
     height: 30px;
+    font-size: 12px;
+    border: 1px solid #fdf9f5;
 }
 
 

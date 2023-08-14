@@ -1,5 +1,6 @@
 const SET_BAG = 'bag/SET_BAG'
 const EDIT_BAG = 'bag/EDIT_BAG'
+const GET_BAG = 'bag/GET_BAG'
 
 
 export const setBag = (bag) => ({
@@ -12,6 +13,10 @@ export const editBag = (bag) => ({
     payload: bag
 })
 
+export const getBag = () => ({
+    type: GET_BAG
+})
+
 const initialState = 0
 
 const bagReducer = (state = initialState, action) => {
@@ -22,6 +27,8 @@ const bagReducer = (state = initialState, action) => {
         case EDIT_BAG:
             console.log("in edit bag")
             return action.payload;
+        case GET_BAG:
+            return state;
         default:
             return state;
     }

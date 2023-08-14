@@ -6,9 +6,27 @@
     font-size: 15px;
   }
 
+  html, body {
+    height: 100%;
+  }
+  .main-wrap {
+    min-height: 100%;
+    /* equal to footer height */
+    margin-bottom: -350px;
+  }
+  .main-wrap:after {
+    content: "";
+    display: block;
+  }
+  .app-footer, .main-wrap:after {
+    height: 350px;
+  }
+
+
 h1 {
   font-family: Italiana;
-  font-size: 35px;
+  font-size: 40px;
+  color: #caafa8;
 }
 
 .page-header {

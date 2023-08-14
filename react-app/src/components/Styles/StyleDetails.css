@@ -42,7 +42,7 @@
     width: auto;
     /* background-color: greenyellow; */
     font-family: Italiana;
-    font-size: 50px;
+    font-size: 40px;
     color: #caafa8;
 }
 
@@ -70,54 +70,80 @@
 .edit-style-title-container {
     display: grid;
     grid-template-areas:
-    "new-style-title style-submit-title"
     "new-style-title cancel-title"
+    "new-style-title style-submit-title"
     "error error";
     grid-template-rows: auto;
-    gap: 5px;
+    /* gap: 5px; */
+    background-color: #caafa8;
+    color: #fdf9f5;
+    padding: 30px;
+    height: 100px;
+    width: 600px;
+    border-radius: 3px;
+}
+
+.new-style-label {
+    /* color: #caafa8; */
+    /* background-color: blue; */
+    padding-right: 10px;
 }
 
 .new-style-title {
     grid-area: new-style-title;
     display: flex;
     align-items: flex-end;
-    width: auto;
+    width: 400px;
+    /* background-color: green; */
 }
 
 .new-style-title-input {
     display: flex;
     align-items: center;
-    width: auto;
-    /* background-color: red; */
-    font-family: Italiana;
-    font-size: 50px;
+    background-color: #d1bfba;
+    border: none;
+    border-bottom: 2px solid #fdf9f5;
+    /* font-family: Italiana;
+    font-size: 12px; */
+    width: 360px;
     color: #fdf9f5;
+    padding-left: 10px;
+    cursor: pointer;
+    outline: none;
 }
 
 .cancel-title {
     grid-area: cancel-title;
     border-radius: 3px;
-    background-color: #fdf9f5;
-    color: #caafa8;
-    border: 2px solid #caafa8;
+    color: #fdf9f5;
+    /* background-color: #caafa8; */
+    /* background-color: blue; */
+    width: 160px;
+    margin-top: -20px;
+    height: 30px;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .cancel-title:hover {
-    color: #fdf9f5;
-    background-color: #caafa8;
+    font-size: 15px;
 }
 
 .style-submit-title {
     grid-area: style-submit-title;
     border-radius: 3px;
-    background-color: #fdf9f5;
-    color: #caafa8;
-    border: 2px solid #caafa8;
+    color: #fdf9f5;
+    background-color: #caafa8;
+    border: 2px solid #fdf9f5;
+    width: 100px;
+    height: 30px;
+    margin-left: 20px;
 }
 
 .style-submit-title:hover {
-    color: #fdf9f5;
-    background-color: #caafa8;
+
+    background-color: #fdf9f5;
+    color: #caafa8;
 }
 
 .delete-style-button {
