@@ -26,6 +26,7 @@ function StylesFormPage({ styleReturned, setMsg }) {
         const data = await dispatch(createStyle({ title }))
         if (data.errors) {
             setErrors(data.errors[0])
+            console.log("errors in from responseee, ", errors)
         } else {
             if (styleReturned) {
                 console.log("child component style returned", data)
@@ -41,8 +42,8 @@ function StylesFormPage({ styleReturned, setMsg }) {
     }
 
 
+    console.log("errors in return comp, " , errors)
     return (
-
 
         <form className='new-style-form' onSubmit={handleSubmit} onMouseLeave={closeModal}>
 

@@ -5,12 +5,12 @@ from sqlalchemy.sql import text
 # Adds a demo user, you can add other users here if you want
 def seed_product_types():
     product_type1 = ProductType(
-        name="Jay Ribbed Knit Crop Top",
+        name="Jay Ribbed Crop Top",
         description="Bring it back to the basics with the Jake Pink Ribbed Knit Crop Top. This halter tank top features ribbed material, a racerback, and high neck design that will make it your go-to basic top for everyday wear. Pair with denim jeans or shorts for a casual day out, or wear with a mini skirt for more elevated occasions.",
         category="Tops",
         price=24.00)
     product_type2 = ProductType(
-        name="Charlie Ribbed Cropped Top",
+        name="Charlie Ribbed Crop Top",
         description="Wardrobe essential alert! You'll love the Eagerly Anticipate Hunter Green Ribbed Cropped Top. This surplice top long sleeve is a key piece for your colder weather wardrobe. With a long sleeve and fitted crop top silhouette, this top is perfect for layering. The deep v neckline and ribbed fabric give this top a little extra something special. Add this fitted crop top to your wardrobe today!",
         category="Tops",
         price=25.00)
@@ -20,7 +20,7 @@ def seed_product_types():
         category="Dresses",
         price=59.00)
     product_type4 = ProductType(
-        name="France Belted Cropped Pants",
+        name="Belted Cropped Pants",
         category="Pants",
         price=49.00)
     product_type5 = ProductType(
@@ -28,7 +28,7 @@ def seed_product_types():
         category="Dresses",
         price=44.00)
     product_type6 = ProductType(
-        name="Go Glam Strapless Maxi Dress",
+        name="Glam Strapless Maxi Dress",
         category="Dresses",
         price=69.00)
     product_type7 = ProductType(
@@ -40,7 +40,7 @@ def seed_product_types():
         category="Dresses",
         price=44.00)
     product_type9 = ProductType(
-        name="Multi Floral Ribbed Mini Dress",
+        name="Multi Floral Mini Dress",
         category="Dresses",
         price=31.00)
     product_type10 = ProductType(
@@ -56,19 +56,19 @@ def seed_product_types():
         category="Dresses",
         price=59.00)
     product_type13 = ProductType(
-        name="Daniela Bodycon Mini Dress",
+        name="Daniela Mini Dress",
         category="Dresses",
         price=48.00)
     product_type14 = ProductType(
-        name="Satin Cowl Neck Ruched Dress",
+        name="Satin Ruched Dress",
         category="Dresses",
         price=50.00)
     product_type15 = ProductType(
-        name="Sofia Flower BodyCon Dress",
+        name="Flower BodyCon Dress",
         category="Dresses",
         price=44.00)
     product_type16 = ProductType(
-        name="Green Plaid Midi Dress",
+        name="Green Plaid Dress",
         category="Dresses",
         price=37.00)
     product_type17 = ProductType(
@@ -76,7 +76,7 @@ def seed_product_types():
         category="Tops",
         price=27.00)
     product_type18 = ProductType(
-        name="Layla One Shoulder Bodysuit",
+        name="Layla Bodysuit Top",
         category="Tops",
         price=39.00)
     product_type19 = ProductType(
