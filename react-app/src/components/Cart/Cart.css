@@ -20,6 +20,10 @@
 }
 
 .order-item-name {
+    font-size: 18px;
+}
+
+.order-item-price, .order-item-color-size {
     font-size: 15px;
 }
 
@@ -79,6 +83,10 @@
     font-weight: lighter;
 }
 
+.quantity-container {
+    font-size: 15px;
+}
+
 .total {
     font-size: 16px;
     font-weight: bolder;
@@ -94,6 +102,7 @@
     align-items: center;
     padding-top: 60px;
     gap: 50px;
+    font-size: 17px;
 
 }
 
@@ -101,7 +110,7 @@
     margin-top: 10px;
     width: 75px;
     height: 30px;
-    font-size: 12px;
+    font-size: 15px;
     border: 1px solid #fdf9f5;
 }
 
@@ -110,4 +119,13 @@
     width: 300px;
     height: 60px;
     margin-bottom: 50px;
+    font-size: 17px;
+}
+
+.quanty-order {
+    font-size: 15px;
+}
+
+.number {
+    font-size: 15px;
 }

@@ -104,7 +104,7 @@ function Cart() {
                         <div className="order-item-price">${`${item.price}`}.00</div>
 
                         <div className="quantity-container">
-                          <div>quantity: </div>
+                          <div className="quanty-order">quantity: </div>
                           <button className="add" disabled={item.quantity >= 10 ? true : false} onClick={() => addOne(item)}>
                             <i className="fa-solid fa-plus"></i>
                           </button>
