@@ -185,7 +185,79 @@ def seed_products():
         image3="https://img.tobi.com/product_images/sm/3/green-ramie-plaid-cowl-neck-midi-dress@2x.jpg",
         stock=100,
     )
-
+    black_lace_top = Product (
+        product_type_id=17, color="Jet",
+        image1="https://img.tobi.com/product_images/md/1/black-zita-laced-cami-top@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/black-zita-laced-cami-top@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/black-zita-laced-cami-top@2x.jpg",
+        stock=100,
+    )
+    one_shoulder_bodysuit = Product (
+        product_type_id=18, color="White",
+        image1="https://img.tobi.com/product_images/md/1/off-white-go-get-her-one-shoulder-cutout-bodysuit@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/off-white-go-get-her-one-shoulder-cutout-bodysuit@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/off-white-go-get-her-one-shoulder-cutout-bodysuit@2x.jpg",
+        stock=100,
+    )
+    ivory_halter_top = Product (
+        product_type_id=19, color="White",
+        image1="https://img.tobi.com/product_images/md/1/ivory-curtis-halter-smocked-crop-top@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/ivory-curtis-halter-smocked-crop-top@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/ivory-curtis-halter-smocked-crop-top@2x.jpg",
+        stock=100,
+    )
+    mint_ditsy_top = Product (
+        product_type_id=20, color="Mint",
+        image1="https://img.tobi.com/product_images/md/1/mint-lazy-afternoon-ditsy-floral-smocked-crop-top@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/mint-lazy-afternoon-ditsy-floral-smocked-crop-top@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/mint-lazy-afternoon-ditsy-floral-smocked-crop-top@2x.jpg",
+        stock=100,
+    )
+    lala_top = Product (
+        product_type_id=21, color="Taupe",
+        image1="https://img.tobi.com/product_images/md/1/taupe-look-at-the-light-surplice-top@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/taupe-look-at-the-light-surplice-top@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/taupe-look-at-the-light-surplice-top@2x.jpg",
+        stock=100,
+    )
+    macie_blouse_top_pink = Product (
+        product_type_id=22, color="LightPink",
+        image1="https://img.tobi.com/product_images/md/1/toast-maci-plunging-blouse@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/toast-maci-plunging-blouse@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/toast-maci-plunging-blouse@2x.jpg",
+        image4="https://img.tobi.com/product_images/sm/4/toast-maci-plunging-blouse@2x.jpg",
+        stock=100,
+    )
+    stitch_crop_top_blue = Product (
+        product_type_id=23, color="LightCyan",
+        image1="https://img.tobi.com/product_images/md/1/mint-ivory-quinn-colorblocked-exposed-stitch-crop-top@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/mint-ivory-quinn-colorblocked-exposed-stitch-crop-top@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/mint-ivory-quinn-colorblocked-exposed-stitch-crop-top@2x.jpg",
+        image4="https://img.tobi.com/product_images/sm/4/mint-ivory-quinn-colorblocked-exposed-stitch-crop-top@2x.jpg",
+        stock=100,
+    )
+    stitch_crop_top_pink = Product (
+        product_type_id=23, color="MistyRose",
+        image1="https://img.tobi.com/product_images/md/1/peach-orchid-quinn-colorblocked-exposed-stitch-crop-top@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/peach-orchid-quinn-colorblocked-exposed-stitch-crop-top@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/peach-orchid-quinn-colorblocked-exposed-stitch-crop-top@2x.jpg",
+        image4="https://img.tobi.com/product_images/sm/4/peach-orchid-quinn-colorblocked-exposed-stitch-crop-top@2x.jpg",
+        stock=100,
+    )
+    cream_wide_leg_pants = Product (
+        product_type_id=24, color="Linen",
+        image1="https://img.tobi.com/product_images/md/1/cream-erikah-elastic-waist-wide-leg-pants@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/cream-erikah-elastic-waist-wide-leg-pants@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/cream-erikah-elastic-waist-wide-leg-pants@2x.jpg",
+        stock=100,
+    )
+    striped_pants = Product (
+        product_type_id=25, color="White",
+        image1="https://img.tobi.com/product_images/md/1/white-multi-rosa-stripe-wide-leg-pants@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/white-multi-rosa-stripe-wide-leg-pants@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/white-multi-rosa-stripe-wide-leg-pants@2x.jpg",
+        stock=100,
+    )
 
 
 
@@ -215,6 +287,17 @@ def seed_products():
     db.session.add(floral_openback_bodycon_dress_cream)
     db.session.add(floral_openback_bodycon_dress_black)
     db.session.add(green_plaid_dress)
+    db.session.add(black_lace_top)
+    db.session.add(one_shoulder_bodysuit)
+    db.session.add(ivory_halter_top)
+    db.session.add(mint_ditsy_top)
+    db.session.add(lala_top)
+    db.session.add(macie_blouse_top_pink)
+    db.session.add(stitch_crop_top_blue)
+    db.session.add(stitch_crop_top_pink)
+    db.session.add(cream_wide_leg_pants)
+    db.session.add(striped_pants)
+
 
 
     db.session.commit()

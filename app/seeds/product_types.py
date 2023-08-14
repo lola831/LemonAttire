@@ -71,6 +71,42 @@ def seed_product_types():
         name="Green Plaid Midi Dress",
         category="Dresses",
         price=37.00)
+    product_type17 = ProductType(
+        name="Lace Black Cami Top",
+        category="Tops",
+        price=27.00)
+    product_type18 = ProductType(
+        name="Layla One Shoulder Bodysuit",
+        category="Tops",
+        price=39.00)
+    product_type19 = ProductType(
+        name="Ivory Halter Top",
+        category="Tops",
+        price=32.00)
+    product_type20 = ProductType(
+        name="Mint Ditsy Floral Top",
+        category="Tops",
+        price=35.00)
+    product_type21 = ProductType(
+        name="Lala Taupe Top",
+        category="Tops",
+        price=31.00)
+    product_type22 = ProductType(
+        name="Macie Blouse Top",
+        category="Tops",
+        price=30.00)
+    product_type23 = ProductType(
+        name="Stitch Crop Top",
+        category="Tops",
+        price=38.00)
+    product_type24 = ProductType(
+        name="Cream Wide Leg Pants",
+        category="Pants",
+        price=64.00)
+    product_type25 = ProductType(
+        name="White Stripe Pants",
+        category="Pants",
+        price=52.00)
 
 
 
@@ -91,7 +127,15 @@ def seed_product_types():
     db.session.add(product_type14)
     db.session.add(product_type15)
     db.session.add(product_type16)
-
+    db.session.add(product_type17)
+    db.session.add(product_type18)
+    db.session.add(product_type19)
+    db.session.add(product_type20)
+    db.session.add(product_type21)
+    db.session.add(product_type22)
+    db.session.add(product_type23)
+    db.session.add(product_type24)
+    db.session.add(product_type25)
 
     db.session.commit()
 
