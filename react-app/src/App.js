@@ -78,7 +78,10 @@ function App() {
           </Route>
         </Switch>
       )}
+   <footer>
       <Footer />
+      </footer>
+
     </>
   );
 }

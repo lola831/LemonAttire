@@ -4,12 +4,13 @@
     padding: 0;
     font-family: Quicksand;
     font-size: 15px;
-    color: #fdf9f5;
+    /* color: #fdf9f5; */
   }
 
 h1 {
   font-family: Italiana;
   font-size: 40px;
+  color: #caafa8;
 }
 
 .page-header {
