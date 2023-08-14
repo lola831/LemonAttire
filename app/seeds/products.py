@@ -171,7 +171,7 @@ def seed_products():
         stock=100,
     )
     floral_openback_bodycon_dress_black = Product (
-        product_type_id=15, color="Jet",
+        product_type_id=15, color="Black",
         image1="https://img.tobi.com/product_images/md/1/black-kiana-flower-open-back-bodycon-mini-dress@2x.jpg",
         image2="https://img.tobi.com/product_images/sm/2/black-kiana-flower-open-back-bodycon-mini-dress@2x.jpg",
         image3="https://img.tobi.com/product_images/sm/3/black-kiana-flower-open-back-bodycon-mini-dress@2x.jpg",

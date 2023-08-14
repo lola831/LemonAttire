@@ -4,8 +4,24 @@
     padding: 0;
     font-family: Quicksand;
     font-size: 15px;
-    /* color: #fdf9f5; */
   }
+
+  html, body {
+    height: 100%;
+  }
+  .main-wrap {
+    min-height: 100%;
+    /* equal to footer height */
+    margin-bottom: -350px;
+  }
+  .main-wrap:after {
+    content: "";
+    display: block;
+  }
+  .app-footer, .main-wrap:after {
+    height: 350px;
+  }
+
 
 h1 {
   font-family: Italiana;
