@@ -11,4 +11,4 @@ def style_title_exists(form, field):
         raise ValidationError('you already have a style with this title, please choose a new one')
 
 class StyleForm(FlaskForm):
-    title = StringField('title', validators=[DataRequired(), style_title_exists, Length(max=20)])
+    title = StringField('title', validators=[DataRequired(), style_title_exists, Length(max=50)])
