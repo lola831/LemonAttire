@@ -16,6 +16,7 @@
     display: grid;
     justify-items: center;
     height: 50px;
+    color: #fdf9f5;
 }
 
 .log-in-form{

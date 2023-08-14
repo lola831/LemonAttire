@@ -13,6 +13,7 @@
 .create-account {
     display: grid;
     justify-items: center;
+    color: #fdf9f5;
 }
 
 .sign-up-form{
