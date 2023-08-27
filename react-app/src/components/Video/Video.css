@@ -17,8 +17,8 @@ video {
     bottom: 0;
     min-width: 100%;
     min-height: 100%;
-    width: auto;
-    height: auto;
+    width: 640px;
+    height: 640px;
     z-index: -100;
     background-size: cover;
     overflow: hidden;
