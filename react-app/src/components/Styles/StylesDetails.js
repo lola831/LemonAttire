@@ -21,8 +21,10 @@ function StylesDetails() {
   console.log("STYLE: ", style)
   console.log("EDIT: ", edit)
   console.log("EROOR: ", errors)
+  console.log("TITLE", title)
 
   useEffect(() => {
+    console.log("in use eff")
     dispatch(getUserStyles())
   }, [dispatch]);
 
@@ -39,24 +41,43 @@ function StylesDetails() {
     setIsDeleted(true)
   }
 
+  const cancelEdit = () => {
+    console.log("title!", title)
+    console.log("style title!", style.title)
+    setTitle(style.title)
+    setErrors("")
+    setEdit(false)
+  }
+
+  console.log("before handle submit", errors)
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (title === style.title) setEdit(false)
+    if (title === style.title) return setEdit(false);
 
-    console.log("errors: ", errors)
-    if (errors.title) errors.title = "";
+    console.log("out")
+
+    // console.log("errors: ", errors)
+    // if (errors.title) errors.title = "";
 
     const data = await dispatch(modifyStyle(style.id, { title }))
     if (data.errors) {
+      console.log("here")
       setErrors(data.errors[0])
-
+      console.log("newwwww error: ", errors)
     } else {
       setEdit(false)
     }
+
   }
 
   const backToAll = () => history.push("/styles")
+
+  const onChangeTitle = e => {
+    setTitle(e.target.value)
+    setErrors("")
+  }
 
   console.log("ERROR OUTSIDE OF CHNAGT TTITLE", errors)
 
@@ -82,12 +103,13 @@ function StylesDetails() {
                     type="text"
                     className="new-style-title-input"
                     value={title}
-                    onChange={(e) => setTitle(e.target.value)}
+                    // onChange={(e) => setTitle(e.target.value)}
+                    onChange={(e) => onChangeTitle(e)}
                     required
                   />
                 </div>
-                {errors.title && (<span className="error">{errors.title}</span>)}
-                <i className="fa-solid fa-x cancel-title" onClick={() => setEdit(false)}></i>
+                {errors.title && (<span className="error"> *{errors.title}</span>)}
+                <i className="fa-solid fa-x cancel-title" onClick={cancelEdit}></i>
                 <button className='store-button style-submit-title' type='submit'>save title</button>
                 {/* <button className='store-button cancel-title' onClick={() => setEdit(false)}>cancel</button> */}
               </form>
@@ -96,15 +118,15 @@ function StylesDetails() {
         </div>
         <div className='main-style-details-container'>
           <div className='style-items-display'>
-          {
-            style.styleItems.length ? (
-              <DisplayStyleItems productValues={style.styleItems} />
-            ) : (
-              <div className='style-is-empty'>Your style is empty,
-                <Link className='add-items-link' to="/"> shop and add some items!</Link>
-              </div>
-            )
-          }
+            {
+              style.styleItems.length ? (
+                <DisplayStyleItems productValues={style.styleItems} />
+              ) : (
+                <div className='style-is-empty'>Your style is empty,
+                  <Link className='add-items-link' to="/"> shop and add some items!</Link>
+                </div>
+              )
+            }
           </div>
 
           <div>

@@ -93,7 +93,7 @@ def edit_style(style_id):
         db.session.commit()
         return style.to_dict()
     print("^^^^^^^^^^^^^^^^ ERROR: ", form.errors)
-    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 400
 
 # DELETE A STYLE
 @style_routes.route('/<int:style_id>', methods=['DELETE'])
