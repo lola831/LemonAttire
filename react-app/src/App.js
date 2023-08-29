@@ -15,7 +15,7 @@ import ProductPage from "./components/ProductPage";
 import Styles from "./components/Styles";
 import StylesDetails from "./components/Styles/StylesDetails";
 import Footer from "./components/Footer";
-// import NewArrivals from "./components/NewArrivals";
+import NewArrivals from "./components/NewArrivals/NewArrivals";
 import "./App.css"
 import { getCurrentOrder } from "./store/orders";
 
@@ -63,9 +63,9 @@ function App() {
           <Route exact path="/shop/:id">
             <ProductPage />
           </Route>
-          {/* <Route exact path="/new-arrivals">
+          <Route exact path="/new-arrivals">
             <NewArrivals />
-          </Route> */}
+          </Route>
           <Route path="/favorites">
             <Favorites />
           </Route>
