@@ -78,7 +78,7 @@
     background-color: #caafa8;
     color: #fdf9f5;
     padding: 30px;
-    height: 100px;
+    height: 120px;
     width: 600px;
     border-radius: 3px;
 }
@@ -156,7 +156,9 @@
 }
 
 .error {
-    color:#caafa8;
+    /* color:#caafa8; */
+    color: #fdf9f5;
+    font-size: 12px;
 }
 
 .style-items-display {
