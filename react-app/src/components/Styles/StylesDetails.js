@@ -45,6 +45,7 @@ function StylesDetails() {
     console.log("title!", title)
     console.log("style title!", style.title)
     setTitle(style.title)
+    setErrors("")
     setEdit(false)
   }
 
@@ -54,8 +55,6 @@ function StylesDetails() {
     e.preventDefault();
 
     if (title === style.title) return setEdit(false);
-
-
 
     console.log("out")
 
@@ -67,13 +66,18 @@ function StylesDetails() {
       console.log("here")
       setErrors(data.errors[0])
       console.log("newwwww error: ", errors)
-
     } else {
       setEdit(false)
     }
+
   }
 
   const backToAll = () => history.push("/styles")
+
+  const onChangeTitle = e => {
+    setTitle(e.target.value)
+    setErrors("")
+  }
 
   console.log("ERROR OUTSIDE OF CHNAGT TTITLE", errors)
 
@@ -99,7 +103,8 @@ function StylesDetails() {
                     type="text"
                     className="new-style-title-input"
                     value={title}
-                    onChange={(e) => setTitle(e.target.value)}
+                    // onChange={(e) => setTitle(e.target.value)}
+                    onChange={(e) => onChangeTitle(e)}
                     required
                   />
                 </div>
