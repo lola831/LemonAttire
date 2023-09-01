@@ -113,7 +113,7 @@ def seed_product_types():
         price=49.00
     )
     product_type27 = ProductType(
-        name="Kory Cut Out Sports Bra",
+        name="Cut Out Sports Bra",
         category="Activewear",
         price=31.00
     )
@@ -126,6 +126,46 @@ def seed_product_types():
         name="Lavender Workout Set",
         category="Activewear",
         price=64.00
+    )
+    product_type30 = ProductType(
+        name="Medium Wash Jeans",
+        category="Jeans",
+        price=66.00
+    )
+    product_type31 = ProductType(
+        name="Distressed Jeans",
+        category="Jeans",
+        price=65.00
+    )
+    product_type32 = ProductType(
+        name="Boyfriend Jeans",
+        category="Jeans",
+        price=72.00
+    )
+    product_type33 = ProductType(
+        name="Furry Zip Up Jacket",
+        category="Jackets",
+        price=49.00
+    )
+    product_type34 = ProductType(
+        name="Red Corduroy Jacket",
+        category="Jackets",
+        price=69.00
+    )
+    product_type35 = ProductType(
+        name="Fleece Crop Jacket",
+        category="Jackets",
+        price=55.00
+    )
+    product_type36 = ProductType(
+        name="Pixie Floral Skirt",
+        category="Skirts",
+        price=55.00
+    )
+    product_type37 = ProductType(
+        name="Sherbert Mini Skirt",
+        category="Skirts",
+        price=59.00
     )
 
 
