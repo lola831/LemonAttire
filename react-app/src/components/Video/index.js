@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 // import "./NewArrivals.css"
 // import "../../App.css";
 import "./Video.css"
-import vid from "./AdobeStock_174736847.mov"
 
 function Video() {
 
