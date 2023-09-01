@@ -107,6 +107,82 @@ def seed_product_types():
         name="White Stripe Pants",
         category="Pants",
         price=52.00)
+    product_type26 = ProductType(
+        name="Homebody Sweatpants",
+        category="Activewear",
+        price=49.00
+    )
+    product_type27 = ProductType(
+        name="Cut Out Sports Bra",
+        category="Activewear",
+        price=31.00
+    )
+    product_type28 = ProductType(
+        name="Chill Sweatshorts",
+        category="Activewear",
+        price=42.00
+    )
+    product_type29 = ProductType(
+        name="Lavender Workout Set",
+        category="Activewear",
+        price=64.00
+    )
+    product_type30 = ProductType(
+        name="Medium Wash Jeans",
+        category="Jeans",
+        price=66.00
+    )
+    product_type31 = ProductType(
+        name="Distressed Jeans",
+        category="Jeans",
+        price=65.00
+    )
+    product_type32 = ProductType(
+        name="Boyfriend Jeans",
+        category="Jeans",
+        price=72.00
+    )
+    product_type33 = ProductType(
+        name="Furry Zip Up Jacket",
+        category="Jackets",
+        price=49.00
+    )
+    product_type34 = ProductType(
+        name="Red Corduroy Jacket",
+        category="Jackets",
+        price=69.00
+    )
+    product_type35 = ProductType(
+        name="Fleece Crop Jacket",
+        category="Jackets",
+        price=55.00
+    )
+    product_type36 = ProductType(
+        name="Pixie Floral Skirt",
+        category="Skirts",
+        price=55.00
+    )
+    product_type37 = ProductType(
+        name="Sherbert Mini Skirt",
+        category="Skirts",
+        price=59.00
+    )
+    product_type38 = ProductType(
+        name="Striped Shorts Set",
+        category="Shorts",
+        price=56.00
+    )
+    product_type39 = ProductType(
+        name="Casual Adventure Shorts",
+        category="Shorts",
+        price=48.00
+    )
+    product_type40 = ProductType(
+        name="Moody Button Up",
+        category="Sweaters",
+        price=39.00
+    )
+
 
 
 
@@ -136,6 +212,22 @@ def seed_product_types():
     db.session.add(product_type23)
     db.session.add(product_type24)
     db.session.add(product_type25)
+    db.session.add(product_type26)
+    db.session.add(product_type27)
+    db.session.add(product_type28)
+    db.session.add(product_type29)
+    db.session.add(product_type30)
+    db.session.add(product_type31)
+    db.session.add(product_type32)
+    db.session.add(product_type33)
+    db.session.add(product_type34)
+    db.session.add(product_type35)
+    db.session.add(product_type36)
+    db.session.add(product_type37)
+    db.session.add(product_type38)
+    db.session.add(product_type39)
+    db.session.add(product_type40)
+
 
     db.session.commit()
 
