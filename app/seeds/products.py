@@ -9,14 +9,12 @@ def seed_products():
         image1="https://img.tobi.com/product_images/md/1/pink-jake-ribbed-knit-crop-top@2x.jpg", #from image source">
         image2="https://img.tobi.com/product_images/sm/2/pink-jake-ribbed-knit-crop-top@2x.jpg",
         image3="https://img.tobi.com/product_images/sm/3/pink-jake-ribbed-knit-crop-top@2x.jpg",
-        image4="https://img.tobi.com/product_images/sm/4/pink-jake-ribbed-knit-crop-top@2x.jpg",
         stock=100)
     jay_ribbed_knit_crop_top_yellow_s = Product(
         product_type_id=1, color="LightYellow",
         image1="https://img.tobi.com/product_images/md/1/yellow-jake-ribbed-knit-crop-top@2x.jpg",
         image2="https://img.tobi.com/product_images/sm/2/yellow-jake-ribbed-knit-crop-top@2x.jpg",
         image3="https://img.tobi.com/product_images/sm/3/yellow-jake-ribbed-knit-crop-top@2x.jpg",
-        image4="https://img.tobi.com/product_images/sm/4/yellow-jake-ribbed-knit-crop-top@2x.jpg",
         stock=100)
     jay_ribbed_knit_crop_top_white_s = Product(
         product_type_id=1, color="White",
@@ -69,7 +67,6 @@ def seed_products():
         image1="https://img.tobi.com/product_images/md/1/emerald-go-glam-strapless-maxi-dress@2x.jpg",
         image2="https://img.tobi.com/product_images/sm/2/emerald-go-glam-strapless-maxi-dress@2x.jpg",
         image3="https://img.tobi.com/product_images/sm/3/emerald-go-glam-strapless-maxi-dress@2x.jpg",
-        image4="https://img.tobi.com/product_images/sm/4/emerald-go-glam-strapless-maxi-dress@2x.jpg",
         stock=100,
     )
     go_glam_strapless_maxi_dress_mint = Product (
@@ -258,6 +255,73 @@ def seed_products():
         image3="https://img.tobi.com/product_images/sm/3/white-multi-rosa-stripe-wide-leg-pants@2x.jpg",
         stock=100,
     )
+    homebody_sweat_pants_pink = Product (
+        product_type_id=26, color="Pink",
+        image1="https://img.tobi.com/product_images/md/1/pink-homebody-sweatpants@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/pink-homebody-sweatpants@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/pink-homebody-sweatpants@2x.jpg",
+        image4="https://img.tobi.com/product_images/sm/4/pink-homebody-sweatpants@2x.jpg",
+        stock=100,
+    )
+    homebody_sweat_pants_pink = Product (
+        product_type_id=26, color="Pink",
+        image1="https://img.tobi.com/product_images/md/1/pink-homebody-sweatpants@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/pink-homebody-sweatpants@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/pink-homebody-sweatpants@2x.jpg",
+        image4="https://img.tobi.com/product_images/sm/4/pink-homebody-sweatpants@2x.jpg",
+        stock=100,
+    )
+    homebody_sweat_pants_blue = Product (
+        product_type_id=26, color="Royalblue",
+        image1="https://img.tobi.com/product_images/md/1/blue-homebody-sweatpants@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/blue-homebody-sweatpants@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/blue-homebody-sweatpants@2x.jpg",
+        image4="https://img.tobi.com/product_images/sm/4/blue-homebody-sweatpants@2x.jpg",
+        stock=100,
+    )
+    homebody_sweat_pants_green = Product (
+        product_type_id=26, color="Aquamarine",
+        image1="https://img.tobi.com/product_images/md/1/green-homebody-sweatpants@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/green-homebody-sweatpants@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/green-homebody-sweatpants@2x.jpg",
+        image4="https://img.tobi.com/product_images/sm/4/green-homebody-sweatpants@2x.jpg",
+        stock=100,
+    )
+    kory_sports_bra = Product (
+        product_type_id=27, color="Jet",
+        image1="https://img.tobi.com/product_images/md/1/black-kora-cut-out-back-sports-bra@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/black-kora-cut-out-back-sports-bra@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/black-kora-cut-out-back-sports-bra@2x.jpg",
+        stock=100,
+    )
+    tie_dye_shorts_beige = Product (
+        product_type_id=28, color="Beige",
+        image1="https://img.tobi.com/product_images/sm/1/beige-come-thru-and-chill-elastic-waistband-sweatshorts@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/beige-come-thru-and-chill-elastic-waistband-sweatshorts@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/beige-come-thru-and-chill-elastic-waistband-sweatshorts@2x.jpg",
+        stock=100,
+    )
+    tie_dye_shorts_rainbow = Product (
+        product_type_id=28, color="Pink",
+        image1="https://img.tobi.com/product_images/sm/1/rainbow-tie-dye-come-thru-and-chill-elastic-waistband-sweatshorts@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/rainbow-tie-dye-come-thru-and-chill-elastic-waistband-sweatshorts@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/rainbow-tie-dye-come-thru-and-chill-elastic-waistband-sweatshorts@2x.jpg",
+        stock=100,
+    )
+    tie_dye_shorts_blue = Product (
+        product_type_id=28, color="Darkslateblue",
+        image1="https://img.tobi.com/product_images/sm/1/slate-blue-come-thru-and-chill-elastic-waistband-sweatshorts@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/slate-blue-come-thru-and-chill-elastic-waistband-sweatshorts@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/slate-blue-come-thru-and-chill-elastic-waistband-sweatshorts@2x.jpg",
+        stock=100,
+    )
+    workout_set = Product (
+        product_type_id=29, color="Plum",
+        image1="https://img.tobi.com/product_images/sm/1/lavender-warm-up-ribbed-one-shoulder-bra-and-biker-shorts-set@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/lavender-warm-up-ribbed-one-shoulder-bra-and-biker-shorts-set@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/lavender-warm-up-ribbed-one-shoulder-bra-and-biker-shorts-set@2x.jpg",
+        stock=100,
+    )
 
 
 
@@ -297,6 +361,14 @@ def seed_products():
     db.session.add(stitch_crop_top_pink)
     db.session.add(cream_wide_leg_pants)
     db.session.add(striped_pants)
+    db.session.add(homebody_sweat_pants_blue)
+    db.session.add(homebody_sweat_pants_green)
+    db.session.add(homebody_sweat_pants_pink)
+    db.session.add(kory_sports_bra)
+    db.session.add(tie_dye_shorts_beige)
+    db.session.add(tie_dye_shorts_blue)
+    db.session.add(tie_dye_shorts_rainbow)
+    db.session.add(workout_set)
 
 
 

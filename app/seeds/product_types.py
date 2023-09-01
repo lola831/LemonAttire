@@ -107,6 +107,27 @@ def seed_product_types():
         name="White Stripe Pants",
         category="Pants",
         price=52.00)
+    product_type26 = ProductType(
+        name="Homebody Sweatpants",
+        category="Activewear",
+        price=49.00
+    )
+    product_type27 = ProductType(
+        name="Kory Cut Out Sports Bra",
+        category="Activewear",
+        price=31.00
+    )
+    product_type28 = ProductType(
+        name="Chill Sweatshorts",
+        category="Activewear",
+        price=42.00
+    )
+    product_type29 = ProductType(
+        name="Lavender Workout Set",
+        category="Activewear",
+        price=64.00
+    )
+
 
 
 
