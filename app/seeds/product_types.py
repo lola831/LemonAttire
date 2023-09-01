@@ -167,6 +167,21 @@ def seed_product_types():
         category="Skirts",
         price=59.00
     )
+    product_type38 = ProductType(
+        name="Striped Shorts Set",
+        category="Shorts",
+        price=56.00
+    )
+    product_type39 = ProductType(
+        name="Casual Adventure Shorts",
+        category="Shorts",
+        price=48.00
+    )
+    product_type40 = ProductType(
+        name="Moody Button Up",
+        category="Sweaters",
+        price=39.00
+    )
 
 
 
@@ -197,6 +212,22 @@ def seed_product_types():
     db.session.add(product_type23)
     db.session.add(product_type24)
     db.session.add(product_type25)
+    db.session.add(product_type26)
+    db.session.add(product_type27)
+    db.session.add(product_type28)
+    db.session.add(product_type29)
+    db.session.add(product_type30)
+    db.session.add(product_type31)
+    db.session.add(product_type32)
+    db.session.add(product_type33)
+    db.session.add(product_type34)
+    db.session.add(product_type35)
+    db.session.add(product_type36)
+    db.session.add(product_type37)
+    db.session.add(product_type38)
+    db.session.add(product_type39)
+    db.session.add(product_type40)
+
 
     db.session.commit()
 

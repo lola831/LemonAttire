@@ -389,6 +389,34 @@ def seed_products():
         image4="https://img.tobi.com/product_images/sm/4/orange-summer-rays-french-terry-crop-top-and-mini-skirt-set@2x.jpg",
         stock=100,
     )
+    striped_shorts = Product (
+        product_type_id=38, color="Lightblue",
+        image1="https://img.tobi.com/product_images/sm/1/blue-fly-away-striped-shorts@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/blue-fly-away-striped-shorts@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/blue-fly-away-striped-shorts@2x.jpg",
+        stock=100,
+    )
+    casual_shorts_beige = Product (
+        product_type_id=39, color="Bisque",
+        image1="https://img.tobi.com/product_images/sm/1/light-olive-on-purpose-paperbag-shorts@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/light-olive-on-purpose-paperbag-shorts@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/light-olive-on-purpose-paperbag-shorts@2x.jpg",
+        stock=100,
+    )
+    casual_shorts_white = Product (
+        product_type_id=39, color="Ivory",
+        image1="https://img.tobi.com/product_images/sm/1/ecru-on-purpose-paperbag-shorts@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/ecru-on-purpose-paperbag-shorts@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/ecru-on-purpose-paperbag-shorts@2x.jpg",
+        stock=100,
+    )
+    button_up = Product (
+        product_type_id=40, color="Gold",
+        image1="https://img.tobi.com/product_images/sm/1/multi-bood-up-striped-button-up-sweater@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/multi-bood-up-striped-button-up-sweater@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/multi-bood-up-striped-button-up-sweater@2x.jpg",
+        stock=100,
+    )
 
 
 
@@ -446,7 +474,10 @@ def seed_products():
     db.session.add(pixie_beige)
     db.session.add(pixie_blue)
     db.session.add(sherbert_skirt)
-
+    db.session.add(striped_shorts)
+    db.session.add(casual_shorts_beige)
+    db.session.add(casual_shorts_white)
+    db.session.add(button_up)
 
 
 
