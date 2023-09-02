@@ -21,9 +21,9 @@ function ShippingPage() {
         <Redirect to='/login'></Redirect>
     )
 
-    const handleSubmit = async (e) => {
-        e.PreventDefault();
-        const data = await dispatch()
+    const handleSubmit = () => {
+ 
+        console.log("heeeeree!@#")
     }
     console.log("order", order)
 
@@ -127,6 +127,8 @@ function ShippingPage() {
                             required>
                         </input>
                     </div>
+
+                    <button onClick={handleSubmit} className='store-button-white'>Place Order</button>
 
                 </form>
 
