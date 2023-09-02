@@ -8,6 +8,7 @@ const DELETE_ORDER = 'orders/DELETE_ORDER';
 const EDIT_ORDER_ITEM = 'orders/EDIT_ORDER_ITEM';
 const EDIT_ORDER = 'orders/EDIT_ORDER';
 const REMOVE_ORDER_ITEM = 'orders/REMOVE_ORDER_ITEM';
+const ADD_SHIPPING = 'orders/ADD_SHIPPING'
 
 
 // Action Creators
@@ -49,6 +50,11 @@ export const editOrder = (order) => ({
 export const removeItem = (orderItemId) => ({
     type: REMOVE_ORDER_ITEM,
     payload: orderItemId
+})
+
+export const addShipping = (order) => ({
+    type: ADD_SHIPPING,
+    payload: order
 })
 
 // Thunks
