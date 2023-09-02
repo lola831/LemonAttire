@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Link, Redirect, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getCurrentOrder, modifyItem, deleteItem } from "../../store/orders";
 import { editBag, setBag } from "../../store/bag";
 import OpenModalButton from "../OpenModalButton";
 import DeleteOrder from "../DeleteOrder";
+import ShippingPage from "../ShippingPage";
 
 import "./Cart.css"
 
@@ -13,6 +14,7 @@ function Cart() {
   const [orderLoaded, setOrderLoaded] = useState(false)
 
   const dispatch = useDispatch();
+  const history = useHistory();
   const order = useSelector(state => state.orders)
   const user = useSelector(state => state.session.user)
   const bag = useSelector(state => state.bag)
@@ -83,6 +85,11 @@ function Cart() {
     dispatch(editBag(bag - item.quantity))
   }
 
+  const toShipping = () => {
+    let path = `\shipping`;
+    history.push(path)
+  }
+
   // if (order && Object.keys(order).length) {
     if (orderLoaded) {
       if (bag) {
@@ -137,7 +144,7 @@ function Cart() {
                   total price:<span>${order.totalPrice.toFixed(2)}</span>
                     </div>
                 </div>
-                <button className="store-button-white checkout-now">Checkout now</button>
+                <button className="store-button-white checkout-now" onClick={toShipping}>Checkout now</button>
 
                 <OpenModalButton
                   buttonText="Empty bag"

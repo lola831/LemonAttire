@@ -72,6 +72,24 @@ def create_order():
         return order.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
+#PLACE ORDER
+@order_routes.route('/<int:order_id>/shipping', methods=['PUT'])
+@login_required
+def place_order(order_id):
+    print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+
+    order = Order.query.get(order_id)
+
+    if order is None:
+        return jsonify({'error': 'Order not found'}), 404
+    if current_user.id is not order.user_id:
+        return jsonify({'error': 'You are not authorized to place this Order'}), 400
+
+    order.status = "paid"
+    db.session.commit()
+
+    return order_id
+
 # EDITS AN ORDER
 @order_routes.route('/<int:order_id>', methods=['PUT'])
 @login_required
@@ -125,6 +143,8 @@ def edit_order(order_id):
 
     db.session.commit()
     return order.to_dict()
+
+
 
 # DELETE AN ORDER
 @order_routes.route('/<int:order_id>', methods=['DELETE'])

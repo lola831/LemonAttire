@@ -197,13 +197,16 @@ const ProductPage = () => {
         }
 
         const itemImageCheck = () => {
+            console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
             if (item) {
                 console.log("ITEMMMMM IMGGGG", item)
                 let images = item.images.filter(ele => ele !== null)
                 console.log("imageeeeee", images)
                 return images
             } else {
-                return productType.products[0].images
+                console.log(productType.products[0].images)
+                // return productType.products[0].images
+                return productType.products[0].images.filter(img => img)
             }
         }
 

@@ -10,7 +10,9 @@ const EDIT_ORDER = 'orders/EDIT_ORDER';
 const REMOVE_ORDER_ITEM = 'orders/REMOVE_ORDER_ITEM';
 
 
+
 // Action Creators
+
 export const currentOrder = (order) => ({
     type: GET_CURRENT_ORDER,
     payload: order
@@ -51,7 +53,22 @@ export const removeItem = (orderItemId) => ({
     payload: orderItemId
 })
 
+
 // Thunks
+export const submitOrder = (orderId) => async dispatch => {
+    // console.log("in thunkkkkkkk for edit order", data)
+     const response = await fetch(`/api/orders/${orderId}/shipping`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+    })
+
+    if (response.ok) {
+        dispatch(deleteOrder(orderId))
+    } else {
+        return response;
+    }
+};
+
 export const getCurrentOrder = () => async (dispatch) => {
 
     const response = await fetch(`/api/orders/current/pending`);
@@ -259,9 +276,8 @@ const ordersReducer = (state = initialState, action) => {
         case REMOVE_ORDER_ITEM: {
             newState = { ...state };
             return newState.orderItems.filter((item) => item.id !== action.payload)
-
-
         }
+
         default:
             return state;
     }

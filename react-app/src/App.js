@@ -16,6 +16,7 @@ import Styles from "./components/Styles";
 import StylesDetails from "./components/Styles/StylesDetails";
 import Footer from "./components/Footer";
 import NewArrivals from "./components/NewArrivals/NewArrivals";
+import ShippingPage from "./components/ShippingPage";
 import "./App.css"
 import { getCurrentOrder } from "./store/orders";
 
@@ -71,6 +72,9 @@ function App() {
           </Route>
           <Route path="/checkout">
             <Cart />
+          </Route>
+          <Route exact path="/shipping">
+            <ShippingPage />
           </Route>
           <Route exact path="/styles/:styleId">
             <StylesDetails />
