@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Redirect } from 'react-router-dom';
+import { submitOrder } from '../../store/orders';
 import "./ShippingPage.css"
 
 function ShippingPage() {
@@ -22,12 +23,20 @@ function ShippingPage() {
     )
 
     const handleSubmit = () => {
- 
-        console.log("heeeeree!@#")
+        dispatch(submitOrder(order.id))
     }
     console.log("order", order)
 
-    if (Object.keys(order).length) {
+    if (!order) {
+        return (
+            <div>
+                Youre order has been placed!
+            </div>
+        )
+    }
+
+
+    if (order && Object.keys(order).length) {
         return (
             <div className='shipping-container'>
 
