@@ -60,3 +60,32 @@
 .order-sum-box {
     padding-left: 50px;;
 }
+
+
+.order-conf-container {
+    width: 100%;
+    height: 500px;
+    background-color: #caafa8;
+    color: #fdf9f5;
+    display: flex;
+    flex-direction: column;
+    padding: 100px 200px;
+    font-size: 15px;
+    gap: 20px;
+    /* align-items: center; */
+}
+
+.order-conf-title {
+    font-family: Italiana;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.new-order {
+    color: #fdf9f5;
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+}
