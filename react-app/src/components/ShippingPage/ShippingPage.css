@@ -1,0 +1,62 @@
+.shipping-container {
+    width: 100%;
+    height: auto;
+    background-color: #caafa8;
+    color: #fdf9f5;
+    /* display: grid;
+    grid-template-columns: 1fr 1fr; */
+    display: flex;
+    /* gap: 100px; */
+    padding: 100px 100px;
+}
+
+.shipping-form {
+    display: flex;
+    flex-direction: column;
+    width: 450px;
+}
+
+.shipping-name, .payment-details {
+    background-color: #fdf9f5;
+    color: #caafa8;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #fdf9f5;
+}
+
+.shipping-input {
+    padding: 10px;
+    border-left: 1px solid #fdf9f5;
+    border-right: 1px solid #fdf9f5;;
+    display: flex;
+    gap: 10px;
+
+}
+
+.zip, .cvv{
+    border-bottom: 1px solid #fdf9f5;
+    margin-bottom: 50px;
+}
+
+.ship-input {
+    border: none;
+    border-bottom: 1px solid #fdf9f5;
+    outline: none;
+    background-color: #d1bfba;
+    color: #fdf9f5;
+    padding-left: 3px;
+}
+
+.short-input {
+    width: 100px;
+}
+
+.long-input {
+    width: 300px;
+}
+
+.order-sum-box {
+    padding-left: 50px;;
+}
