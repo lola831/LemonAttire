@@ -45,7 +45,7 @@ function Favorites() {
             <img alt="" className="fav-img" src={`${fav.image}`}></img>
             </Link>
             {/* <i className="fa-solid fa-x" onClick={() => deleteFav(fav.id)}></i> */}
-            <button className="store-button fav-remove-button">remove</button>
+            <button onClick={() => deleteFav(fav.id)} className="store-button fav-remove-button">remove</button>
 
           </div>
         ))
