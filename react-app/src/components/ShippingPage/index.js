@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, Redirect } from 'react-router-dom';
 import { submitOrder } from '../../store/orders';
+import { AddressAutofill } from '@mapbox/search-js-react'
 import "./ShippingPage.css"
 
 function ShippingPage() {
@@ -48,18 +49,21 @@ function ShippingPage() {
 
                     <div className='shipping-name'>Shipping Address</div>
 
+                <AddressAutofill accessToken='pk.eyJ1IjoibG9sYW1hcnJlcm8iLCJhIjoiY2xtODJlYzFxMDRxYjNzbGJ0NzBmN3Z2bCJ9._0qzVpfHwA3vy3a47nT8DQ'>
                     <div className='shipping-input'>
                         <label>
                             Street Address:
                         </label>
                         <input
                             className='ship-input long-input'
+                            autoComplete='address-line1'
                             type="text"
                             value={address}
                             onChange={(e) => setAddress(e.target.value)}
                             required>
                         </input>
                     </div>
+                    </AddressAutofill>
 
                     <div className='shipping-input'>
                         <label>
@@ -67,6 +71,7 @@ function ShippingPage() {
                         </label>
                         <input
                             className='ship-input long-input'
+                            autoComplete='address-level2'
                             type="text"
                             value={city}
                             onChange={(e) => setCity(e.target.value)}
@@ -80,6 +85,7 @@ function ShippingPage() {
                         </label>
                         <input
                             className='ship-input short-input'
+                            autoComplete='address-level1'
                             type="text"
                             value={state}
                             onChange={(e) => setState(e.target.value)}
@@ -93,6 +99,7 @@ function ShippingPage() {
                         </label>
                         <input
                             className='ship-input short-input'
+                            autoComplete='postal-code'
                             type="text"
                             value={zipcode}
                             onChange={(e) => setZipcode(e.target.value)}
