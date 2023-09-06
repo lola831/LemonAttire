@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link, Redirect } from 'react-router-dom';
 import { submitOrder } from '../../store/orders';
 import { AddressAutofill } from '@mapbox/search-js-react'
+import emailjs from '@emailjs/browser';
 import "./ShippingPage.css"
 
 function ShippingPage() {
@@ -24,6 +25,17 @@ function ShippingPage() {
     )
 
     const handleSubmit = () => {
+
+
+        // console.log("form", form)
+        const data = {
+            name: user.firstName,
+            email: user.email,
+            confirmation_number: "#8485950505"
+        }
+
+
+        emailjs.send('gmail', 'template_h3e28eo', data, '8AnBwut9yyPZ1CjYX')
         dispatch(submitOrder(order.id))
     }
     console.log("user", user)
