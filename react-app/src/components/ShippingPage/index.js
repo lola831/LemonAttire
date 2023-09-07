@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link, Redirect } from 'react-router-dom';
 import { submitOrder } from '../../store/orders';
 import { AddressAutofill } from '@mapbox/search-js-react'
+import { setBag } from '../../store/bag';
 import emailjs from '@emailjs/browser';
 import "./ShippingPage.css"
 
@@ -44,8 +45,10 @@ function ShippingPage() {
         }, (error) => {
             console.log(error.text);
         })
+            dispatch(setBag(0))
 
             dispatch(submitOrder(order.id))
+
 
 
 
