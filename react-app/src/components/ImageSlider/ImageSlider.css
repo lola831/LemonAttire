@@ -1,21 +1,20 @@
 .slider-container {
-    font-family: sans-serif;
     align-items: center;
     display: flex;
     justify-content: center;
-    margin-top: 150px;
+    margin-top: 30px;
   }
   .slider-images-container {
     display: flex;
-    max-width: 500px;
+    max-width: 900px;
     overflow: scroll;
     /* Add the following lines for smooth scrolling */
     scroll-behavior: smooth;
     transition: scroll 0.3s ease-in-out;
   }
   .image-slider {
-    width: 200px;
-    height: 200px;
+    width: 250px;
+    height: 300px;
     margin: 5px;
     border-radius: 8px;
   }
@@ -27,6 +26,7 @@
     cursor: pointer;
     outline: inherit;
     background-color: #c3c3c3;
+    /* background-color: transparent; */
     border-radius: 6px;
     height: 200px;
     width: 30px;

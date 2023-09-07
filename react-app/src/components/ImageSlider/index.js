@@ -30,6 +30,7 @@ if (Object.keys(products).length) {
     delete products[productType]
 
     let productValues = Object.values(products)
+    console.log("prod vals: ", productValues)
 
 
     return (
