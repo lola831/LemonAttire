@@ -244,3 +244,18 @@
 .go-to {
     color: #fdf9f5;
 }
+
+.you-may-also {
+    width: 100%;
+    /* background-color: green; */
+}
+
+.you-may-title {
+    /* background-color: pink; */
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    font-family: Italiana;
+    font-size: 30px;
+    font-weight: bolder;
+}

@@ -10,6 +10,7 @@ import { getCurrentOrder, modifyItem, newOrderItem, newOrder } from "../../store
 import { editBag } from "../../store/bag";
 import OpenModalButton from "../OpenModalButton";
 import AddStyleItem from "../Styles/AddStyleItem";
+import ImageSlider from "../ImageSlider";
 
 
 
@@ -297,11 +298,16 @@ const ProductPage = () => {
                         {msg.style && (<p className="sign-up-errors">*{msg.style}</p>)}
                         {msg.style && (<Link className="go-to" to="/styles">Go to my styles</Link>)}
                     </div>
-                    <div>
-                        <div>Reviews</div>
+
+                </div>
+                <div className="you-may-also">
+                        <div className="you-may-title">You may also like...</div>
+                        <ImageSlider
+                            productType={productType.id}
+                            category={productType.category}
+                        />
 
                     </div>
-                </div>
             </div>
         )
     } else {
