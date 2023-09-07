@@ -88,7 +88,7 @@ def place_order(order_id):
     order.status = "paid"
     db.session.commit()
 
-    return order_id
+    return order.to_dict()
 
 # EDITS AN ORDER
 @order_routes.route('/<int:order_id>', methods=['PUT'])

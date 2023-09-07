@@ -1,8 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, Redirect } from 'react-router-dom';
 import { submitOrder } from '../../store/orders';
 import { AddressAutofill } from '@mapbox/search-js-react'
+import { setBag } from '../../store/bag';
+import emailjs from '@emailjs/browser';
 import "./ShippingPage.css"
 
 function ShippingPage() {
@@ -19,14 +21,42 @@ function ShippingPage() {
     const [cvv, setCvv] = useState("")
 
 
+
+
     if (!user) return (
         <Redirect to='/login'></Redirect>
     )
 
-    const handleSubmit = () => {
-        dispatch(submitOrder(order.id))
+     const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        const data = {
+            name: user.firstName,
+            confirmation_number: "#8485950505",
+            email: user.email
+        }
+
+        // dispatch(submitOrder(order.id))
+
+        await emailjs.send('gmail', 'template_h3e28eo', data, '8AnBwut9yyPZ1CjYX')
+        .then((result) => {
+            console.log(result.text);
+            // dispatch(submitOrder(order.id))
+        }, (error) => {
+            console.log(error.text);
+        })
+            dispatch(setBag(0))
+
+            dispatch(submitOrder(order.id))
+
+
+
+
+
+
     }
     console.log("user", user)
+    console.log("order, ", order)
 
     if (!order) {
         return (
@@ -48,6 +78,7 @@ function ShippingPage() {
                 <form className='shipping-form'>
 
                     <div className='shipping-name'>Shipping Address</div>
+
 
                 <AddressAutofill accessToken='pk.eyJ1IjoibG9sYW1hcnJlcm8iLCJhIjoiY2xtODJlYzFxMDRxYjNzbGJ0NzBmN3Z2bCJ9._0qzVpfHwA3vy3a47nT8DQ'>
                     <div className='shipping-input'>
