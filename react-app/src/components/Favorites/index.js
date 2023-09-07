@@ -13,6 +13,9 @@ function Favorites() {
     console.log("USER: ", user)
     console.log("FAVORITES: ", favorites)
 
+    useEffect(() => {
+      window.scrollTo(0, 0)
+    }, [])
 
     useEffect(() => {
         console.log("in usefecy")

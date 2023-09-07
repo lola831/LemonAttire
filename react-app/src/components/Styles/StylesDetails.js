@@ -24,6 +24,10 @@ function StylesDetails() {
   console.log("TITLE", title)
 
   useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
+  useEffect(() => {
     console.log("in use eff")
     dispatch(getUserStyles())
   }, [dispatch]);

@@ -1,9 +1,10 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, Redirect } from 'react-router-dom';
 import { submitOrder } from '../../store/orders';
 import { AddressAutofill } from '@mapbox/search-js-react'
 import { setBag } from '../../store/bag';
+import ConfirmationPage from '../ConfirmationPage';
 import emailjs from '@emailjs/browser';
 import "./ShippingPage.css"
 
@@ -20,7 +21,9 @@ function ShippingPage() {
     const [expDate, setExpDate] = useState("")
     const [cvv, setCvv] = useState("")
 
-
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
 
 
     if (!user) return (
@@ -49,25 +52,12 @@ function ShippingPage() {
 
             dispatch(submitOrder(order.id))
 
-
-
-
-
-
     }
-    console.log("user", user)
-    console.log("order, ", order)
+
+
 
     if (!order) {
-        return (
-            <div className='order-conf-container'>
-                <div className='order-conf-title'>Order Confirmation</div>
-                <div>Order Number: #8485950505</div>
-                <div>{user.firstName}, thank you for your order!</div>
-                <div className='conf-msg'>We've received your order and will contact you as soon as your package is shipped. You'll soon receive a confirmation email in your inbox.</div>
-                <Link className='new-order' to="/">Place a new order!</Link>
-            </div>
-        )
+        return <ConfirmationPage />
     }
 
 
