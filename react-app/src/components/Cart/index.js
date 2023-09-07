@@ -22,7 +22,10 @@ function Cart() {
   console.log("BAG, ", bag)
   console.log("order loaded???" , orderLoaded)
 
-
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+  
   useEffect(() => {
 
     dispatch(getCurrentOrder()).then((data) => {

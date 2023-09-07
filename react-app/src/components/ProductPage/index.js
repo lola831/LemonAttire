@@ -43,7 +43,9 @@ const ProductPage = () => {
     const minusOne = () => setQuantity(quantity - 1)
 
 
-
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
 
     useEffect(() => {
         dispatch(getProductType(id));

@@ -19,6 +19,9 @@ function Styles() {
 
     let greyImage = "https://garden.spoonflower.com/c/5090068/p/f/m/3yDyWOWB4oECjSmqcc9qmveAYXj9WfizlmWcqq8S3gEqvqlo5DilMA/Light%20Gray%20Solid.jpg"
 
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
 
     useEffect(() => {
         dispatch(getUserStyles()).then(() => setStylesLoaded(true) )

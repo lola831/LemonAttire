@@ -11,12 +11,11 @@ import Video from "../Video";
 
 function HomePage() {
     const dispatch = useDispatch();
-    // const location = useLocation();
-    // const queryParams = new URLSearchParams(location.search);
-    // const category = queryParams.get("category");
+    
 
-    // const AllProducts = useSelector(state => state.products)
-
+    useEffect(() => {
+      window.scrollTo(0, 0)
+    }, [])
 
     useEffect(() => {
         dispatch(getAllProductsThunk());

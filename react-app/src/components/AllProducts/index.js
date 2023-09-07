@@ -12,6 +12,9 @@ function AllProducts() {
   const location = useLocation();
   const [color, setColor] = useState("")
 
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
   let category = new URLSearchParams(location.search).get('category');
   console.log("PARAMS: ", category)
@@ -35,10 +38,7 @@ function AllProducts() {
 
       {category &&
 
-        <h1 className='page-header'>{category}
-          {/* <img alt="dress" className='dress-img' src="https://media.istockphoto.com/id/1324859934/photo/a-tourist-woman-in-a-red-dress-and-hat-sits-on-a-balcony-in-the-village-of-oia-santorini.jpg?s=2048x2048&w=is&k=20&c=P5H9M2BpVqT7lMaAG5-Hk9qPvpRFNeNfbKXDAljPG0A="></img> */
-          }
-        </h1>}
+        <h1 className='page-header'>{category}</h1>}
 
       <div className='all-prods-container'>
 
