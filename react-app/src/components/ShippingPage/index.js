@@ -8,7 +8,6 @@ import "./ShippingPage.css"
 
 function ShippingPage() {
 
-    const form = useRef();
     const dispatch = useDispatch();
     const user = useSelector(state => state.session.user)
     const order = useSelector(state => state.orders)
@@ -27,7 +26,7 @@ function ShippingPage() {
         <Redirect to='/login'></Redirect>
     )
 
-    const handleSubmit = (e) => {
+     const handleSubmit = async (e) => {
         e.preventDefault();
 
         const data = {
@@ -36,14 +35,19 @@ function ShippingPage() {
             email: user.email
         }
 
-        emailjs.send('gmail', 'template_h3e28eo', data, '8AnBwut9yyPZ1CjYX')
+        // dispatch(submitOrder(order.id))
+
+        await emailjs.send('gmail', 'template_h3e28eo', data, '8AnBwut9yyPZ1CjYX')
         .then((result) => {
             console.log(result.text);
+            // dispatch(submitOrder(order.id))
         }, (error) => {
             console.log(error.text);
         })
 
-        dispatch(submitOrder(order.id))
+            dispatch(submitOrder(order.id))
+
+
 
 
 

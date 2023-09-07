@@ -56,7 +56,9 @@ export const removeItem = (orderItemId) => ({
 
 // Thunks
 export const submitOrder = (orderId) => async dispatch => {
-    // console.log("in thunkkkkkkk for edit order", data)
+    console.log("hi")
+    console.log("in thunkkkkkkk for edit order", orderId)
+
      const response = await fetch(`/api/orders/${orderId}/shipping`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
@@ -266,12 +268,13 @@ const ordersReducer = (state = initialState, action) => {
         }
 
         case DELETE_ORDER: {
-            newState = { ...state };
-            if (newState.id === action.payload){
-                // console.log("SAMMMMEEEE ID ")
-                newState = {}
-            }
-            return newState;
+            // newState = { ...state };
+            // if (newState.id === action.payload){
+            //     // console.log("SAMMMMEEEE ID ")
+            //     newState = {}
+            // }
+            // return newState;
+            return null
         }
         case REMOVE_ORDER_ITEM: {
             newState = { ...state };
