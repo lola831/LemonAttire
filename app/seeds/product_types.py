@@ -182,6 +182,56 @@ def seed_product_types():
         category="Sweaters",
         price=39.00
     )
+    product_type41 = ProductType(
+        name="Teal Biker Shorts",
+        category="Activewear",
+        price=39.00
+    )
+    product_type42 = ProductType(
+        name="Stay Here Sweatpants",
+        category="Activewear",
+        price=42.00
+    )
+    product_type43 = ProductType(
+        name="Sky Blue Set",
+        category="Activewear",
+        price=54.00
+    )
+    product_type44 = ProductType(
+        name="Good Sport Sweatpants",
+        category="Activewear",
+        price=39.00
+    )
+    product_type45 = ProductType(
+        name="Lace Up Sweatpants",
+        category="Activewear",
+        price=42.00
+    )
+    product_type46 = ProductType(
+        name="Break Free Track Jacket",
+        category="Activewear",
+        price=42.00
+    )
+    product_type47 = ProductType(
+        name="Tori Black High Waist",
+        category="Pants",
+        price=32.00
+    )
+    product_type48 = ProductType(
+        name="Archer Wide Leg Pants",
+        category="Pants",
+        price=52.00
+    )
+    product_type49 = ProductType(
+        name="Stella Straight Pants",
+        category="Pants",
+        price=49.00
+    )
+    product_type50 = ProductType(
+        name="Laura Khaki Pants",
+        category="Pants",
+        price=56.00
+    )
 
 
 

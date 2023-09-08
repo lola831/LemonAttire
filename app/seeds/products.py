@@ -417,6 +417,86 @@ def seed_products():
         image3="https://img.tobi.com/product_images/sm/3/multi-bood-up-striped-button-up-sweater@2x.jpg",
         stock=100,
     )
+    biker_shorts_teal = Product (
+        product_type_id=41, color="Teal",
+        image1="https://img.tobi.com/product_images/sm/1/teal-becks-ribbed-biker-shorts@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/teal-becks-ribbed-biker-shorts@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/teal-becks-ribbed-biker-shorts@2x.jpg",
+        stock=100,
+    )
+    stay_here = Product (
+        product_type_id=42, color="Black",
+        image1="https://img.tobi.com/product_images/sm/1/black-stay-right-here-sweatpants@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/black-stay-right-here-sweatpants@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/black-stay-right-here-sweatpants@2x.jpg",
+        stock=100,
+    )
+    skyblue = Product (
+        product_type_id=43, color="SkyBlue",
+        image1="https://img.tobi.com/product_images/sm/1/sky-blue-never-sorry-drawstring-sweatshorts@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/sky-blue-never-sorry-drawstring-sweatshorts@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/sky-blue-never-sorry-drawstring-sweatshorts@2x.jpg",
+        stock=100,
+    )
+    goodSport = Product (
+        product_type_id=44, color="Olive",
+        image1="https://img.tobi.com/product_images/sm/1/olive-good-sport-drawstring-sweatpants@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/olive-good-sport-drawstring-sweatpants@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/olive-good-sport-drawstring-sweatpants@2x.jpg",
+        stock=100,
+    )
+    goodSport2 = Product (
+        product_type_id=44, color="Black",
+        image1="https://img.tobi.com/product_images/sm/1/black-good-sport-drawstring-sweatpants@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/black-good-sport-drawstring-sweatpants@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/black-good-sport-drawstring-sweatpants@2x.jpg",
+        stock=100,
+    )
+    laceup = Product (
+        product_type_id=45, color="Grey",
+        image1="https://img.tobi.com/product_images/sm/1/heather-grey-better-days-lace-up-pants@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/heather-grey-better-days-lace-up-pants@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/heather-grey-better-days-lace-up-pants@2x.jpg",
+        stock=100,
+    )
+    break_free = Product (
+        product_type_id=46, color="Black",
+        image1="https://img.tobi.com/product_images/sm/1/black-break-free-zip-up-track-jacket@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/black-break-free-zip-up-track-jacket@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/black-break-free-zip-up-track-jacket@2x.jpg",
+        stock=100,
+    )
+    tori = Product (
+        product_type_id=47, color="Black",
+        image1="https://img.tobi.com/product_images/sm/1/black-xyla-high-waist-seamless-flare-leggings@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/black-xyla-high-waist-seamless-flare-leggings@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/black-xyla-high-waist-seamless-flare-leggings@2x.jpg",
+        image4="https://img.tobi.com/product_images/sm/4/black-xyla-high-waist-seamless-flare-leggings@2x.jpg",
+        stock=100,
+    )
+    archer = Product (
+        product_type_id=48, color="Charcoal",
+        image1="https://img.tobi.com/product_images/sm/1/charcoal-grey-archer-wide-leg-pants@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/charcoal-grey-archer-wide-leg-pants@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/charcoal-grey-archer-wide-leg-pants@2x.jpg",
+        image4="https://img.tobi.com/product_images/sm/4/charcoal-grey-archer-wide-leg-pants@2x.jpg",
+        stock=100,
+    )
+    stella = Product (
+        product_type_id=49, color="Beige",
+        image1="https://img.tobi.com/product_images/sm/1/ecru-stella-ruffle-paperbag-straight-pants@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/ecru-stella-ruffle-paperbag-straight-pants@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/ecru-stella-ruffle-paperbag-straight-pants@2x.jpg",
+        stock=100,
+    )
+    laura = Product (
+        product_type_id=50, color="Tan",
+        image1="https://img.tobi.com/product_images/sm/1/ecru-stella-ruffle-paperbag-straight-pants@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/ecru-stella-ruffle-paperbag-straight-pants@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/ecru-stella-ruffle-paperbag-straight-pants@2x.jpg",
+        stock=100,
+    )
+
 
 
 
@@ -478,6 +558,17 @@ def seed_products():
     db.session.add(casual_shorts_beige)
     db.session.add(casual_shorts_white)
     db.session.add(button_up)
+    db.session.add(biker_shorts_teal)
+    db.session.add(stay_here)
+    db.session.add(skyblue)
+    db.session.add(goodSport)
+    db.session.add(goodSport2)
+    db.session.add(laceup)
+    db.session.add(break_free)
+    db.session.add(tori)
+    db.session.add(archer)
+    db.session.add(stella)
+    db.session.add(laura)
 
 
 
