@@ -417,6 +417,226 @@ def seed_products():
         image3="https://img.tobi.com/product_images/sm/3/multi-bood-up-striped-button-up-sweater@2x.jpg",
         stock=100,
     )
+    biker_shorts_teal = Product (
+        product_type_id=41, color="Teal",
+        image1="https://img.tobi.com/product_images/sm/1/teal-becks-ribbed-biker-shorts@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/teal-becks-ribbed-biker-shorts@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/teal-becks-ribbed-biker-shorts@2x.jpg",
+        stock=100,
+    )
+    stay_here = Product (
+        product_type_id=42, color="Black",
+        image1="https://img.tobi.com/product_images/sm/1/black-stay-right-here-sweatpants@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/black-stay-right-here-sweatpants@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/black-stay-right-here-sweatpants@2x.jpg",
+        stock=100,
+    )
+    skyblue = Product (
+        product_type_id=43, color="SkyBlue",
+        image1="https://img.tobi.com/product_images/sm/1/sky-blue-never-sorry-drawstring-sweatshorts@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/sky-blue-never-sorry-drawstring-sweatshorts@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/sky-blue-never-sorry-drawstring-sweatshorts@2x.jpg",
+        stock=100,
+    )
+    goodSport = Product (
+        product_type_id=44, color="Olive",
+        image1="https://img.tobi.com/product_images/sm/1/olive-good-sport-drawstring-sweatpants@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/olive-good-sport-drawstring-sweatpants@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/olive-good-sport-drawstring-sweatpants@2x.jpg",
+        stock=100,
+    )
+    goodSport2 = Product (
+        product_type_id=44, color="Black",
+        image1="https://img.tobi.com/product_images/sm/1/black-good-sport-drawstring-sweatpants@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/black-good-sport-drawstring-sweatpants@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/black-good-sport-drawstring-sweatpants@2x.jpg",
+        stock=100,
+    )
+    laceup = Product (
+        product_type_id=45, color="Grey",
+        image1="https://img.tobi.com/product_images/sm/1/heather-grey-better-days-lace-up-pants@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/heather-grey-better-days-lace-up-pants@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/heather-grey-better-days-lace-up-pants@2x.jpg",
+        stock=100,
+    )
+    break_free = Product (
+        product_type_id=46, color="Black",
+        image1="https://img.tobi.com/product_images/sm/1/black-break-free-zip-up-track-jacket@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/black-break-free-zip-up-track-jacket@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/black-break-free-zip-up-track-jacket@2x.jpg",
+        stock=100,
+    )
+    tori = Product (
+        product_type_id=47, color="Black",
+        image1="https://img.tobi.com/product_images/sm/1/black-xyla-high-waist-seamless-flare-leggings@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/black-xyla-high-waist-seamless-flare-leggings@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/black-xyla-high-waist-seamless-flare-leggings@2x.jpg",
+        image4="https://img.tobi.com/product_images/sm/4/black-xyla-high-waist-seamless-flare-leggings@2x.jpg",
+        stock=100,
+    )
+    archer = Product (
+        product_type_id=48, color="Charcoal",
+        image1="https://img.tobi.com/product_images/sm/1/charcoal-grey-archer-wide-leg-pants@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/charcoal-grey-archer-wide-leg-pants@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/charcoal-grey-archer-wide-leg-pants@2x.jpg",
+        image4="https://img.tobi.com/product_images/sm/4/charcoal-grey-archer-wide-leg-pants@2x.jpg",
+        stock=100,
+    )
+    stella = Product (
+        product_type_id=49, color="Beige",
+        image1="https://img.tobi.com/product_images/sm/1/ecru-stella-ruffle-paperbag-straight-pants@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/ecru-stella-ruffle-paperbag-straight-pants@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/ecru-stella-ruffle-paperbag-straight-pants@2x.jpg",
+        stock=100,
+    )
+    laura = Product (
+        product_type_id=50, color="Tan",
+        image1="https://img.tobi.com/product_images/sm/1/ecru-stella-ruffle-paperbag-straight-pants@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/ecru-stella-ruffle-paperbag-straight-pants@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/ecru-stella-ruffle-paperbag-straight-pants@2x.jpg",
+        stock=100,
+    )
+    brooke = Product (
+        product_type_id=51, color="Tan",
+        image1="https://img.tobi.com/product_images/sm/1/taupe-multi-brooke-belted-stripe-pants@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/taupe-multi-brooke-belted-stripe-pants@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/taupe-multi-brooke-belted-stripe-pants@2x.jpg",
+        stock=100,
+    )
+    macie = Product (
+        product_type_id=52, color="Maroon",
+        image1="https://img.tobi.com/product_images/sm/1/brown-stella-ruffle-paperbag-straight-pants@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/brown-stella-ruffle-paperbag-straight-pants@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/brown-stella-ruffle-paperbag-straight-pants@2x.jpg",
+        stock=100,
+    )
+    lars = Product (
+        product_type_id=53, color="Black",
+        image1="https://img.tobi.com/product_images/sm/1/black-lars-high-waist-front-ankle-zipper-pants@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/black-lars-high-waist-front-ankle-zipper-pants@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/black-lars-high-waist-front-ankle-zipper-pants@2x.jpg",
+        stock=100,
+    )
+    FloralWide = Product (
+        product_type_id=54, color="Black",
+        image1="https://img.tobi.com/product_images/sm/1/black-multi-where-did-our-love-grow-floral-pants@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/black-multi-where-did-our-love-grow-floral-pants@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/black-multi-where-did-our-love-grow-floral-pants@2x.jpg",
+        stock=100,
+    )
+    Holby = Product (
+        product_type_id=55, color="Blue",
+        image1="https://img.tobi.com/product_images/sm/1/distressed-light-wash-holmby-hills-overlap-straight-leg-jeans@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/distressed-light-wash-holmby-hills-overlap-straight-leg-jeans@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/distressed-light-wash-holmby-hills-overlap-straight-leg-jeans@2x.jpg",
+        stock=100,
+    )
+    Montana = Product (
+        product_type_id=56, color="Blue",
+        image1="https://img.tobi.com/product_images/sm/1/vintage-wash-montana-low-rise-distressed-jean@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/vintage-wash-montana-low-rise-distressed-jean@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/vintage-wash-montana-low-rise-distressed-jean@2x.jpg",
+        stock=100,
+    )
+    SilverLake = Product (
+        product_type_id=57, color="Blue",
+        image1="https://img.tobi.com/product_images/sm/1/balboa-silver-lake-boyfriend-jeans@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/balboa-silver-lake-boyfriend-jeans@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/balboa-silver-lake-boyfriend-jeans@2x.jpg",
+        stock=100,
+    )
+    Quincy = Product (
+        product_type_id=58, color="Blue",
+        image1="https://img.tobi.com/product_images/sm/1/sky-trash-queen-skinny-cropped-jeans@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/sky-trash-queen-skinny-cropped-jeans@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/sky-trash-queen-skinny-cropped-jeans@2x.jpg",
+        stock=100,
+    )
+    Spoton = Product (
+        product_type_id=59, color="Olive",
+        image1="https://img.tobi.com/product_images/sm/1/olive-spot-on-zip-up-jacket@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/olive-spot-on-zip-up-jacket@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/olive-spot-on-zip-up-jacket@2x.jpg",
+        stock=100,
+    )
+    Justlisten = Product (
+        product_type_id=60, color="Purple",
+        image1="https://img.tobi.com/product_images/sm/1/lavender-just-listen-oversized-washed-corduroy-shacket@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/lavender-just-listen-oversized-washed-corduroy-shacket@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/lavender-just-listen-oversized-washed-corduroy-shacket@2x.jpg",
+        stock=100,
+    )
+    Easy = Product (
+        product_type_id=61, color="Brown",
+        image1="https://img.tobi.com/product_images/sm/1/brown-multi-with-ease-cropped-plaid-jacket@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/brown-multi-with-ease-cropped-plaid-jacket@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/brown-multi-with-ease-cropped-plaid-jacket@2x.jpg",
+        stock=100,
+    )
+    Marleen = Product (
+        product_type_id=62, color="Tan",
+        image1="https://img.tobi.com/product_images/sm/1/beige-marleen-elastic-waist-mini-skirt@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/beige-marleen-elastic-waist-mini-skirt@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/beige-marleen-elastic-waist-mini-skirt@2x.jpg",
+        stock=100,
+    )
+    Into = Product (
+        product_type_id=63, color="Blue",
+        image1="https://img.tobi.com/product_images/sm/1/blue-into-it-floral-crop-top-and-wrap-skirt-set@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/blue-into-it-floral-crop-top-and-wrap-skirt-set@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/blue-into-it-floral-crop-top-and-wrap-skirt-set@2x.jpg",
+        stock=100,
+    )
+    Club = Product (
+        product_type_id=64, color="White",
+        image1="https://img.tobi.com/product_images/sm/1/white-club-life-sequin-midi-skirt@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/white-club-life-sequin-midi-skirt@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/white-club-life-sequin-midi-skirt@2x.jpg",
+        stock=100,
+    )
+    Wine = Product (
+        product_type_id=65, color="Purple",
+        image1="https://img.tobi.com/product_images/sm/1/wine-all-of-me-satin-maxi-skirt@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/wine-all-of-me-satin-maxi-skirt@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/wine-all-of-me-satin-maxi-skirt@2x.jpg",
+        stock=100,
+    )
+    Warm = Product (
+        product_type_id=66, color="White",
+        image1="https://img.tobi.com/product_images/sm/1/cream-warm-hug-soft-fuzzy-top-and-shorts-set@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/cream-warm-hug-soft-fuzzy-top-and-shorts-set@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/cream-warm-hug-soft-fuzzy-top-and-shorts-set@2x.jpg",
+        stock=100,
+    )
+    Justbe = Product (
+        product_type_id=67, color="Olive",
+        image1="https://img.tobi.com/product_images/sm/1/olive-be-aware-belted-cargo-shorts@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/olive-be-aware-belted-cargo-shorts@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/olive-be-aware-belted-cargo-shorts@2x.jpg",
+        stock=100,
+    )
+    Meeting = Product (
+        product_type_id=68, color="Blue",
+        image1="https://img.tobi.com/product_images/sm/1/blue-run-the-meeting-paperbag-waist-shorts@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/blue-run-the-meeting-paperbag-waist-shorts@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/blue-run-the-meeting-paperbag-waist-shorts@2x.jpg",
+        stock=100,
+    )
+    Callie = Product (
+        product_type_id=69, color="Blue",
+        image1="https://img.tobi.com/product_images/sm/1/dark-wash-goldenwest-mid-rise-shorts@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/dark-wash-goldenwest-mid-rise-shorts@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/dark-wash-goldenwest-mid-rise-shorts@2x.jpg",
+        stock=100,
+    )
+    CrissCross = Product (
+        product_type_id=70, color="Beige",
+        image1="https://img.tobi.com/product_images/sm/1/toast-be-on-my-side-lace-up-sweater@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/toast-be-on-my-side-lace-up-sweater@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/toast-be-on-my-side-lace-up-sweater@2x.jpg",
+        stock=100,
+    )
+
 
 
 
@@ -478,6 +698,37 @@ def seed_products():
     db.session.add(casual_shorts_beige)
     db.session.add(casual_shorts_white)
     db.session.add(button_up)
+    db.session.add(biker_shorts_teal)
+    db.session.add(stay_here)
+    db.session.add(skyblue)
+    db.session.add(goodSport)
+    db.session.add(goodSport2)
+    db.session.add(laceup)
+    db.session.add(break_free)
+    db.session.add(tori)
+    db.session.add(archer)
+    db.session.add(stella)
+    db.session.add(laura)
+    db.session.add(brooke)
+    db.session.add(macie)
+    db.session.add(lars)
+    db.session.add(FloralWide)
+    db.session.add(Holby)
+    db.session.add(Montana)
+    db.session.add(SilverLake)
+    db.session.add(Quincy)
+    db.session.add(Spoton)
+    db.session.add(Justlisten)
+    db.session.add(Easy)
+    db.session.add(Marleen)
+    db.session.add(Into)
+    db.session.add(Club)
+    db.session.add(Wine)
+    db.session.add(Warm)
+    db.session.add(Justbe)
+    db.session.add(Meeting)
+    db.session.add(Callie)
+    db.session.add(CrissCross)
 
 
 

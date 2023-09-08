@@ -182,6 +182,156 @@ def seed_product_types():
         category="Sweaters",
         price=39.00
     )
+    product_type41 = ProductType(
+        name="Teal Biker Shorts",
+        category="Activewear",
+        price=39.00
+    )
+    product_type42 = ProductType(
+        name="Stay Here Sweatpants",
+        category="Activewear",
+        price=42.00
+    )
+    product_type43 = ProductType(
+        name="Sky Blue Set",
+        category="Activewear",
+        price=54.00
+    )
+    product_type44 = ProductType(
+        name="Good Sport Sweatpants",
+        category="Activewear",
+        price=39.00
+    )
+    product_type45 = ProductType(
+        name="Lace Up Sweatpants",
+        category="Activewear",
+        price=42.00
+    )
+    product_type46 = ProductType(
+        name="Break Free Track Jacket",
+        category="Activewear",
+        price=42.00
+    )
+    product_type47 = ProductType(
+        name="Tori Black High Waist",
+        category="Pants",
+        price=32.00
+    )
+    product_type48 = ProductType(
+        name="Archer Wide Leg Pants",
+        category="Pants",
+        price=52.00
+    )
+    product_type49 = ProductType(
+        name="Stella Straight Pants",
+        category="Pants",
+        price=49.00
+    )
+    product_type50 = ProductType(
+        name="Laura Khaki Pants",
+        category="Pants",
+        price=56.00
+    )
+    product_type51 = ProductType(
+        name="Brooke Striped Pants",
+        category="Pants",
+        price=56.00
+    )
+    product_type52 = ProductType(
+        name="Macie Straight Pants",
+        category="Pants",
+        price=52.00
+    )
+    product_type53 = ProductType(
+        name="Lars Black Pants",
+        category="Pants",
+        price=38.00
+    )
+    product_type54 = ProductType(
+        name="Floral Wide Leg Pants",
+        category="Pants",
+        price=43.00
+    )
+    product_type55 = ProductType(
+        name="Holby Hills Jeans",
+        category="Jeans",
+        price=52.00
+    )
+    product_type56 = ProductType(
+        name="Montana Vintage Jeans",
+        category="Jeans",
+        price=51.00
+    )
+    product_type57 = ProductType(
+        name="Silverlake Jeans",
+        category="Jeans",
+        price=48.00
+    )
+    product_type58 = ProductType(
+        name="Quincy Skinny Jeans",
+        category="Jeans",
+        price=48.00
+    )
+    product_type59 = ProductType(
+        name="Spot On Olive Jacket",
+        category="Jackets",
+        price=39.00
+    )
+    product_type60 = ProductType(
+        name="Just Listen Purple Jacket",
+        category="Jackets",
+        price=50.00
+    )
+    product_type61 = ProductType(
+        name="Easy Plaid Jacket",
+        category="Jackets",
+        price=48.00
+    )
+    product_type62 = ProductType(
+        name="Marleen Skirt",
+        category="Skirts",
+        price=42.00
+    )
+    product_type63 = ProductType(
+        name="Into It Blue Skirt",
+        category="Skirts",
+        price=35.00
+    )
+    product_type64 = ProductType(
+        name="Club White Pencil Skirt",
+        category="Skirts",
+        price=32.00
+    )
+    product_type65 = ProductType(
+        name="Wine Satin Maxi Skirt",
+        category="Skirts",
+        price=49.00
+    )
+    product_type66 = ProductType(
+        name="Warm Hug Fuzzy Shorts",
+        category="Shorts",
+        price=38.00
+    )
+    product_type67 = ProductType(
+        name="Just Be Shorts",
+        category="Shorts",
+        price=38.00
+    )
+    product_type68 = ProductType(
+        name="Meeting Blue Shorts",
+        category="Shorts",
+        price=42.00
+    )
+    product_type69 = ProductType(
+        name="Callie Jean Shorts",
+        category="Shorts",
+        price=39.00
+    )
+    product_type70 = ProductType(
+        name="Criss Cross Sweater",
+        category="Sweaters",
+        price=35.00
+    )
 
 
 
@@ -227,6 +377,36 @@ def seed_product_types():
     db.session.add(product_type38)
     db.session.add(product_type39)
     db.session.add(product_type40)
+    db.session.add(product_type41)
+    db.session.add(product_type42)
+    db.session.add(product_type43)
+    db.session.add(product_type44)
+    db.session.add(product_type45)
+    db.session.add(product_type46)
+    db.session.add(product_type47)
+    db.session.add(product_type48)
+    db.session.add(product_type49)
+    db.session.add(product_type50)
+    db.session.add(product_type51)
+    db.session.add(product_type52)
+    db.session.add(product_type53)
+    db.session.add(product_type54)
+    db.session.add(product_type55)
+    db.session.add(product_type56)
+    db.session.add(product_type57)
+    db.session.add(product_type58)
+    db.session.add(product_type59)
+    db.session.add(product_type60)
+    db.session.add(product_type61)
+    db.session.add(product_type62)
+    db.session.add(product_type63)
+    db.session.add(product_type64)
+    db.session.add(product_type65)
+    db.session.add(product_type66)
+    db.session.add(product_type67)
+    db.session.add(product_type68)
+    db.session.add(product_type69)
+    db.session.add(product_type70)
 
 
     db.session.commit()

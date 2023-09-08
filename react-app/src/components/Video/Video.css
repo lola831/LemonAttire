@@ -7,8 +7,11 @@
     justify-content: center;
     align-items: flex-end;
     object-fit: contain;
-    max-width:1500px;
+     max-width:1500px;
+
 }
+
+
 
 
 video {
@@ -23,6 +26,8 @@ video {
     background-size: cover;
     overflow: hidden;
     object-fit: cover;
+
+
 }
 
 

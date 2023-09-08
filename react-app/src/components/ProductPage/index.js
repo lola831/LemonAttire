@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory, Link, useParams} from "react-router-dom";
+import { useHistory, Link, useParams } from "react-router-dom";
 import { getProductType } from "../../store/productType";
 // import EditReviewForm from "../../Reviews/EditReview";
 // import DeleteReviewForm from "../../Reviews/DeleteReview";
@@ -45,11 +45,10 @@ const ProductPage = () => {
 
     useEffect(() => {
         window.scrollTo(0, 0)
-      }, [])
+    }, [])
 
     useEffect(() => {
         dispatch(getProductType(id));
-        // dispatch(loadProductReviews(productType.id))
 
         if (user) {
             dispatch(getCurrentOrder())
@@ -64,21 +63,11 @@ const ProductPage = () => {
         }
     }, [dispatch, id, user]);
 
-    console.log("PRODUCT TYPE: ", productType)
-    console.log("favorites: ", favorites)
-    console.log("USER: ", user)
-    console.log("ITEM: ", item)
-    console.log("ORDER: ", order)
-    console.log("SIZE: ", size)
-
     // checks if product is in user's favorites
     useEffect(() => {
         if (user && favorites.length) {
             for (let i = 0; i < favorites.length; i++) {
-                console.log("ID: ", id)
-                console.log("FAV PRODUCT ID", favorites[i].product_type_id)
                 if (favorites[i].product_type_id == id) {
-                    console.log("HERE IN FAV")
                     setFavorite(true)
                 }
             }
@@ -111,10 +100,9 @@ const ProductPage = () => {
 
 
     const addItem = () => {
-        console.log("in add item")
         if (!user) {
-         history.push("/login")
-         return
+            history.push("/login")
+            return
         }
 
 
@@ -131,8 +119,7 @@ const ProductPage = () => {
             total_price: totalPrice
 
         }
-        console.log("ITEMM DATA: ", itemData)
-        setMsg({cart: "This item has been added to your cart"})
+        setMsg({ cart: "This item has been added to your cart" })
 
         if (!order) {
             // order doesnt exist and must create new one
@@ -150,7 +137,6 @@ const ProductPage = () => {
                     && item.size === itemData.size) {
                     // updateBag(bag + itemData.quantity)
                     dispatch(editBag(bag + itemData.quantity))
-                    console.log("ALREADY IN CARTTTTTTTTTT")
                     let quantity = item.quantity + itemData.quantity
                     let total_price = item.price * quantity
                     let add = itemData.total_price
@@ -160,8 +146,6 @@ const ProductPage = () => {
                         add
                     }
                     dispatch(modifyItem(order.id, item.id, data))
-                    // setMsg({cart: "This item has been added to your cart"})
-
                     return;
                 }
             }
@@ -192,23 +176,17 @@ const ProductPage = () => {
     }
 
 
-    // if (Object.keys(productType).length && (order === null || Object.keys(order).length)) {
-        if (Object.keys(productType).length) {
+    if (Object.keys(productType).length) {
 
         if (loadingFavorites && !user) {
             return <div>Loading favorites....</div>
         }
 
         const itemImageCheck = () => {
-            console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
             if (item) {
-                console.log("ITEMMMMM IMGGGG", item)
                 let images = item.images.filter(ele => ele !== null)
-                console.log("imageeeeee", images)
                 return images
             } else {
-                console.log(productType.products[0].images)
-                // return productType.products[0].images
                 return productType.products[0].images.filter(img => img)
             }
         }
@@ -289,11 +267,11 @@ const ProductPage = () => {
                         {msg.cart && (<Link className="go-to" to="/checkout">Go to my bag</Link>)}
                         {
                             user && (
-                                 <OpenModalButton
-                                className="store-button add-to-style"
-                                buttonText="Add to style"
-                                modalComponent={<AddStyleItem styleItem={productType} setMsg={setMsg} />}
-                            />
+                                <OpenModalButton
+                                    className="store-button add-to-style"
+                                    buttonText="Add to style"
+                                    modalComponent={<AddStyleItem styleItem={productType} setMsg={setMsg} />}
+                                />
                             )
 
                         }
@@ -302,14 +280,15 @@ const ProductPage = () => {
                     </div>
 
                 </div>
-                <div className="you-may-also">
-                        <div className="you-may-title">You may also like...</div>
-                        <ImageSlider
-                            productType={productType.id}
-                            category={productType.category}
-                        />
 
-                    </div>
+                <div className="you-may-also">
+                    {/* <div className="you-may-title">You may also like...</div> */}
+                    <ImageSlider
+                        productType={productType.id}
+                        category={productType.category}
+                    />
+
+                </div>
             </div>
         )
     } else {

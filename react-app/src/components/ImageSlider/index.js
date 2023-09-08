@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef} from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from "react-router-dom";
 import { getAllProductsThunk } from '../../store/products';
@@ -9,31 +9,32 @@ function ImageSlider({ productType, category }) {
     const dispatch = useDispatch();
     const sliderRef = useRef(null);
     const scrollAmount = 100;
+    const products = useSelector(state => state.products)
+
+    // useEffect(() => {
+    //   window.scrollTo(0, 0)
+    // }, [])
 
     useEffect(() => {
         dispatch(getAllProductsThunk(category))
     }, [dispatch, category])
 
-const products = useSelector(state => state.products)
 
-console.log()
 console.log("products", products)
 console.log("product type! ", productType)
 
 
 
-
-
-
-if (Object.keys(products).length) {
-
-    delete products[productType]
+if (Object.keys(products).length > 5) {
+    console.log("before ------------------------>", Object.keys(products).length)
 
     let productValues = Object.values(products)
-    console.log("prod vals: ", productValues)
+    console.log("prod vals length: ", productValues.length)
 
 
     return (
+        <>
+        <div className="you-may-title">You may also like...</div>
         <div className="slider-container">
         {/* Left navigation button */}
           <button
@@ -49,7 +50,8 @@ if (Object.keys(products).length) {
           <div className="slider-images-container" ref={sliderRef}>
             {
                 productValues.length && productValues.map(product => (
-                    <Link className='all-prod-link-prod' to={`/shop/${product.id}`} key={product.id}>
+                   product.id !== productType && (
+                    <Link onClick={window.scrollTo(0, 0)} className='all-prod-link-prod' to={`/shop/${product.id}`} key={product.id}>
                         <img
                         alt="sliderImage"
                         className='image-slider'
@@ -59,6 +61,8 @@ if (Object.keys(products).length) {
                         onMouseOut={e => (e.currentTarget.src = `${product.products[0].image1}`)}>
                     </img>
                     </Link>
+                   )
+
                 ))
             }
           </div>
@@ -73,9 +77,10 @@ if (Object.keys(products).length) {
            <i className="fa-solid fa-chevron-right"></i>
           </button>
        </div>
+       </>
       )
 }else {
-    return <div>Loading...</div>
+    return <div></div>
 }
 
 

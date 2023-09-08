@@ -9,7 +9,6 @@ export const getAllProducts = (products) => ({
 
 
 export const getAllProductsThunk = (category) => async (dispatch) => {
-    console.log("IN THUNK: ===========> ", category)
 
     if (category === "View All") category = null;
     let url = '/api/product_types/'
@@ -21,9 +20,6 @@ export const getAllProductsThunk = (category) => async (dispatch) => {
         url += '?' + params.toString();
     }
 
-    console.log("URLLLLLLLLLLL: ", url)
-    console.log("CATEGORY: ", category)
-
 
     const response = await fetch(url, {
         headers: {
@@ -32,7 +28,6 @@ export const getAllProductsThunk = (category) => async (dispatch) => {
     });
     if (response.ok) {
         const products = await response.json();
-        console.log("THUNK RESPNSEEE, ", products)
         dispatch(getAllProducts(products))
         return products;
     }
@@ -45,12 +40,9 @@ const productsReducer = (state = initialState, action) => {
     switch (action.type) {
         case GET_ALL_PRODUCTS:
             newState = {};
-            console.log("ACTION.PRODUCTS", action.payload)
-            console.log("NEW STATE: ", newState)
             action.payload.products.forEach(product => {
                 newState[product.id] = product;
             });
-            console.log("NEW STATE: ", newState)
             return newState;
         default:
             return state;

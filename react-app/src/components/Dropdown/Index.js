@@ -6,13 +6,9 @@ import AllProducts from '../AllProducts'
 // import { getCategoriesThunk } from '../../store/categories';
 
 function Dropdown({ items }) {
-    // const dispatch = useDispatch();
+ 
     const [dropdown, setDropdown] = useState(false)
-    // const categories = useSelector(state => state.categories)
 
-    // useEffect(() => {
-	// 	dispatch(getCategoriesThunk())
-	// }, [dispatch])
 
     const categories = [
         "Tops",
