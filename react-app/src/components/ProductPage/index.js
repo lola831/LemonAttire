@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory, Link, useParams} from "react-router-dom";
+import { useHistory, Link, useParams } from "react-router-dom";
 import { getProductType } from "../../store/productType";
 // import EditReviewForm from "../../Reviews/EditReview";
 // import DeleteReviewForm from "../../Reviews/DeleteReview";
@@ -45,11 +45,10 @@ const ProductPage = () => {
 
     useEffect(() => {
         window.scrollTo(0, 0)
-      }, [])
+    }, [])
 
     useEffect(() => {
         dispatch(getProductType(id));
-        // dispatch(loadProductReviews(productType.id))
 
         if (user) {
             dispatch(getCurrentOrder())
@@ -102,8 +101,8 @@ const ProductPage = () => {
 
     const addItem = () => {
         if (!user) {
-         history.push("/login")
-         return
+            history.push("/login")
+            return
         }
 
 
@@ -120,7 +119,7 @@ const ProductPage = () => {
             total_price: totalPrice
 
         }
-        setMsg({cart: "This item has been added to your cart"})
+        setMsg({ cart: "This item has been added to your cart" })
 
         if (!order) {
             // order doesnt exist and must create new one
@@ -177,7 +176,7 @@ const ProductPage = () => {
     }
 
 
-        if (Object.keys(productType).length) {
+    if (Object.keys(productType).length) {
 
         if (loadingFavorites && !user) {
             return <div>Loading favorites....</div>
@@ -268,11 +267,11 @@ const ProductPage = () => {
                         {msg.cart && (<Link className="go-to" to="/checkout">Go to my bag</Link>)}
                         {
                             user && (
-                                 <OpenModalButton
-                                className="store-button add-to-style"
-                                buttonText="Add to style"
-                                modalComponent={<AddStyleItem styleItem={productType} setMsg={setMsg} />}
-                            />
+                                <OpenModalButton
+                                    className="store-button add-to-style"
+                                    buttonText="Add to style"
+                                    modalComponent={<AddStyleItem styleItem={productType} setMsg={setMsg} />}
+                                />
                             )
 
                         }
@@ -281,14 +280,15 @@ const ProductPage = () => {
                     </div>
 
                 </div>
-                <div className="you-may-also">
-                        <div className="you-may-title">You may also like...</div>
-                        <ImageSlider
-                            productType={productType.id}
-                            category={productType.category}
-                        />
 
-                    </div>
+                <div className="you-may-also">
+                    {/* <div className="you-may-title">You may also like...</div> */}
+                    <ImageSlider
+                        productType={productType.id}
+                        category={productType.category}
+                    />
+
+                </div>
             </div>
         )
     } else {

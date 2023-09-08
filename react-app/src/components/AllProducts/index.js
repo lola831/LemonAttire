@@ -13,6 +13,7 @@ function AllProducts() {
   const [color, setColor] = useState("")
 
   useEffect(() => {
+    console.log("--------------------- here")
     window.scrollTo(0, 0)
   }, [])
 

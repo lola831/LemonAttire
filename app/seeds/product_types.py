@@ -322,6 +322,16 @@ def seed_product_types():
         category="Shorts",
         price=42.00
     )
+    product_type69 = ProductType(
+        name="Callie Jean Shorts",
+        category="Shorts",
+        price=39.00
+    )
+    product_type70 = ProductType(
+        name="Criss Cross Sweater",
+        category="Sweaters",
+        price=35.00
+    )
 
 
 
@@ -367,6 +377,36 @@ def seed_product_types():
     db.session.add(product_type38)
     db.session.add(product_type39)
     db.session.add(product_type40)
+    db.session.add(product_type41)
+    db.session.add(product_type42)
+    db.session.add(product_type43)
+    db.session.add(product_type44)
+    db.session.add(product_type45)
+    db.session.add(product_type46)
+    db.session.add(product_type47)
+    db.session.add(product_type48)
+    db.session.add(product_type49)
+    db.session.add(product_type50)
+    db.session.add(product_type51)
+    db.session.add(product_type52)
+    db.session.add(product_type53)
+    db.session.add(product_type54)
+    db.session.add(product_type55)
+    db.session.add(product_type56)
+    db.session.add(product_type57)
+    db.session.add(product_type58)
+    db.session.add(product_type59)
+    db.session.add(product_type60)
+    db.session.add(product_type61)
+    db.session.add(product_type62)
+    db.session.add(product_type63)
+    db.session.add(product_type64)
+    db.session.add(product_type65)
+    db.session.add(product_type66)
+    db.session.add(product_type67)
+    db.session.add(product_type68)
+    db.session.add(product_type69)
+    db.session.add(product_type70)
 
 
     db.session.commit()

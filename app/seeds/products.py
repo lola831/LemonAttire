@@ -622,6 +622,20 @@ def seed_products():
         image3="https://img.tobi.com/product_images/sm/3/blue-run-the-meeting-paperbag-waist-shorts@2x.jpg",
         stock=100,
     )
+    Callie = Product (
+        product_type_id=69, color="Blue",
+        image1="https://img.tobi.com/product_images/sm/1/dark-wash-goldenwest-mid-rise-shorts@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/dark-wash-goldenwest-mid-rise-shorts@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/dark-wash-goldenwest-mid-rise-shorts@2x.jpg",
+        stock=100,
+    )
+    CrissCross = Product (
+        product_type_id=70, color="Beige",
+        image1="https://img.tobi.com/product_images/sm/1/toast-be-on-my-side-lace-up-sweater@2x.jpg",
+        image2="https://img.tobi.com/product_images/sm/2/toast-be-on-my-side-lace-up-sweater@2x.jpg",
+        image3="https://img.tobi.com/product_images/sm/3/toast-be-on-my-side-lace-up-sweater@2x.jpg",
+        stock=100,
+    )
 
 
 
@@ -713,6 +727,8 @@ def seed_products():
     db.session.add(Warm)
     db.session.add(Justbe)
     db.session.add(Meeting)
+    db.session.add(Callie)
+    db.session.add(CrissCross)
 
 
 

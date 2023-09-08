@@ -1,0 +1,48 @@
+.fall-container {
+    margin-top: -110px; /* added to erase white line and keep 100vh */
+    height: 100vh; /* original was 100vh but gave white line underneath  79vh doesnt*/
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    object-fit: contain;
+    max-width:1500px;
+}
+
+.fall-photo {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: 640px;
+    height: 640px;
+    z-index: -100;
+    background-size: cover;
+    overflow: hidden;
+    object-fit: cover;
+
+}
+
+.fall-collection {
+    padding: 8px 80px;
+    border-radius: 2px;
+    /* margin-right: 680px; */
+    margin-right: 30px;
+    color: #fdf9f5;
+    padding: 8px 10px;
+    border: 2px solid white;
+    padding: 12px 26px;
+    font-size: 50px;
+    margin-top: -200px;
+    font-family: Italiana;
+}
+
+.fall-coming-soon {
+    margin-right: 40px;
+    color: #fdf9f5;
+    font-size: 30px;
+    margin-top: 15px;;
+
+}

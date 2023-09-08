@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef} from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from "react-router-dom";
 import { getAllProductsThunk } from '../../store/products';
@@ -10,7 +10,10 @@ function ImageSlider({ productType, category }) {
     const sliderRef = useRef(null);
     const scrollAmount = 100;
     const products = useSelector(state => state.products)
-    const [imageSlide, setImageSlide] = useState([])
+
+    // useEffect(() => {
+    //   window.scrollTo(0, 0)
+    // }, [])
 
     useEffect(() => {
         dispatch(getAllProductsThunk(category))
@@ -22,14 +25,16 @@ console.log("product type! ", productType)
 
 
 
-if (Object.keys(products).length) {
+if (Object.keys(products).length > 5) {
     console.log("before ------------------------>", Object.keys(products).length)
 
     let productValues = Object.values(products)
-    console.log("prod vals: ", productValues)
+    console.log("prod vals length: ", productValues.length)
 
 
     return (
+        <>
+        <div className="you-may-title">You may also like...</div>
         <div className="slider-container">
         {/* Left navigation button */}
           <button
@@ -46,7 +51,7 @@ if (Object.keys(products).length) {
             {
                 productValues.length && productValues.map(product => (
                    product.id !== productType && (
-                    <Link className='all-prod-link-prod' to={`/shop/${product.id}`} key={product.id}>
+                    <Link onClick={window.scrollTo(0, 0)} className='all-prod-link-prod' to={`/shop/${product.id}`} key={product.id}>
                         <img
                         alt="sliderImage"
                         className='image-slider'
@@ -72,9 +77,10 @@ if (Object.keys(products).length) {
            <i className="fa-solid fa-chevron-right"></i>
           </button>
        </div>
+       </>
       )
 }else {
-    return <div>Loading...</div>
+    return <div></div>
 }
 
 
