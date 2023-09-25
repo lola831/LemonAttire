@@ -23,17 +23,17 @@ function ShippingPage() {
 
     useEffect(() => {
         window.scrollTo(0, 0)
-      }, [])
+    }, [])
 
 
     if (!user) return (
         <Redirect to='/login'></Redirect>
     )
 
-     const handleSubmit = async (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
-        
+
         const data = {
             name: user.firstName,
             confirmation_number: "#8485950505",
@@ -43,15 +43,15 @@ function ShippingPage() {
         // dispatch(submitOrder(order.id))
 
         await emailjs.send('gmail', 'template_h3e28eo', data, '8AnBwut9yyPZ1CjYX')
-        .then((result) => {
-            console.log(result.text);
-            // dispatch(submitOrder(order.id))
-        }, (error) => {
-            console.log(error.text);
-        })
-            dispatch(setBag(0))
+            .then((result) => {
 
-            dispatch(submitOrder(order.id))
+                // dispatch(submitOrder(order.id))
+            }, (error) => {
+
+            })
+        dispatch(setBag(0))
+
+        dispatch(submitOrder(order.id))
 
     }
 
@@ -71,20 +71,20 @@ function ShippingPage() {
                     <div className='shipping-name'>Shipping Address</div>
 
 
-                <AddressAutofill accessToken='pk.eyJ1IjoibG9sYW1hcnJlcm8iLCJhIjoiY2xtODJlYzFxMDRxYjNzbGJ0NzBmN3Z2bCJ9._0qzVpfHwA3vy3a47nT8DQ'>
-                    <div className='shipping-input'>
-                        <label>
-                            Street Address:
-                        </label>
-                        <input
-                            className='ship-input long-input'
-                            autoComplete='address-line1'
-                            type="text"
-                            value={address}
-                            onChange={(e) => setAddress(e.target.value)}
-                            required>
-                        </input>
-                    </div>
+                    <AddressAutofill accessToken='pk.eyJ1IjoibG9sYW1hcnJlcm8iLCJhIjoiY2xtODJlYzFxMDRxYjNzbGJ0NzBmN3Z2bCJ9._0qzVpfHwA3vy3a47nT8DQ'>
+                        <div className='shipping-input'>
+                            <label>
+                                Street Address:
+                            </label>
+                            <input
+                                className='ship-input long-input'
+                                autoComplete='address-line1'
+                                type="text"
+                                value={address}
+                                onChange={(e) => setAddress(e.target.value)}
+                                required>
+                            </input>
+                        </div>
                     </AddressAutofill>
 
                     <div className='shipping-input'>

@@ -56,10 +56,10 @@ export const removeItem = (orderItemId) => ({
 
 // Thunks
 export const submitOrder = (orderId) => async dispatch => {
-    console.log("hi")
-    console.log("in thunkkkkkkk for edit order", orderId)
 
-     const response = await fetch(`/api/orders/${orderId}/shipping`, {
+
+
+    const response = await fetch(`/api/orders/${orderId}/shipping`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
     })
@@ -103,7 +103,6 @@ export const getUserOrders = () => async (dispatch) => {
 }
 
 export const newOrder = (orderData, itemData) => async dispatch => {
-    // console.log("in thunk, data", orderData)
     const response = await fetch('/api/orders/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -112,7 +111,6 @@ export const newOrder = (orderData, itemData) => async dispatch => {
 
     if (response.ok) {
         const order = await response.json();
-        // console.log("response!!!!! ", order)
         dispatch(addOrder(order));
         dispatch(newOrderItem(itemData, order.id))
         return order;
@@ -123,9 +121,7 @@ export const newOrder = (orderData, itemData) => async dispatch => {
 }
 
 export const newOrderItem = (data, orderId) => async dispatch => {
-    // console.log("in new order item thunk, data = ", data)
-    // console.log("ORDER ID: ", orderId)
-    // console.log("item DATA: ", data)
+
     dispatch(modifyOrder(orderId, data))
 
     const response = await fetch(`/api/orders/${orderId}/order_items/`, {
@@ -136,29 +132,23 @@ export const newOrderItem = (data, orderId) => async dispatch => {
 
     if (response.ok) {
         const orderItem = await response.json();
-        // console.log("ORDER ITEM response!!!!! ", orderItem)
         dispatch(addOrderItem(orderItem));
         return orderItem;
     } else {
-        // console.log("EERROR: ", response)
         return response
     }
-
-
 }
 
 export const modifyOrder = (orderId, data) => async dispatch => {
-    // console.log("in thunkkkkkkk for edit order", data)
-     const response = await fetch(`/api/orders/${orderId}`, {
+
+    const response = await fetch(`/api/orders/${orderId}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
     })
 
-    //  console.log("MODIFY ORDER RESPONSE", response)
     if (response.ok) {
         const order = await response.json();
-        // console.log("ORDER response!!!!! ", order)
         dispatch(editOrder(order));
         return order;
     } else {
@@ -167,8 +157,6 @@ export const modifyOrder = (orderId, data) => async dispatch => {
 };
 
 export const modifyItem = (orderId, itemId, data) => async dispatch => {
-
-    // console.log("HEREeeeeeeeeeeeeee", orderId, itemId, data)
 
     dispatch(modifyOrder(orderId, data))
 
@@ -179,7 +167,7 @@ export const modifyItem = (orderId, itemId, data) => async dispatch => {
         },
         body: JSON.stringify(data)
     });
-    //  console.log("MODIFY ORDER RESPONSE", response)
+
     if (response.ok) {
         const orderItem = await response.json();
         dispatch(editOrderItem(orderItem))
@@ -197,18 +185,17 @@ export const removeOrder = (orderId) => async (dispatch) => {
         }
     });
 
-    if (response.ok){
+    if (response.ok) {
         dispatch(deleteOrder(orderId))
-         return response;
-       }else {
         return response;
-       }
+    } else {
+        return response;
+    }
 }
 
 export const deleteItem = (orderId, item) => async (dispatch) => {
     let itemId = item.id;
-    // console.log("in thunkkkkkkk for delete item")
-    dispatch(modifyOrder(orderId, {delete: item.total_price}))
+    dispatch(modifyOrder(orderId, { delete: item.total_price }))
     const response = await fetch(`/api/orders/${orderId}/order_items/${itemId}`, {
         method: 'DELETE',
         headers: {
@@ -216,7 +203,6 @@ export const deleteItem = (orderId, item) => async (dispatch) => {
         }
     });
     if (response.ok) {
-        // dispatch(removeItem(itemId))
         dispatch(getCurrentOrder())
         return response;
     } else {
@@ -234,7 +220,7 @@ const ordersReducer = (state = initialState, action) => {
         }
         case GET_CURRENT_ORDER:
             newState = { ...state };
-            // console.log("ACTION PAYLOAD: ", action.payload)
+
             if (!Object.keys(action.payload).length) {
                 newState = null;
                 return newState
@@ -248,14 +234,12 @@ const ordersReducer = (state = initialState, action) => {
         }
         case ADD_ORDER_ITEM: {
             newState = { ...state };
-            // console.log("NEW STATE:  ", newState)
             newState.orderItems.push(action.payload)
             return newState;
         }
         case EDIT_ORDER_ITEM: {
             newState = { ...state };
             let index = newState.orderItems.findIndex(x => x.id === action.payload.id);
-            // console.log("INDEX: ", index)
             newState.orderItems[index] = action.payload
             return newState;
         }
@@ -268,12 +252,6 @@ const ordersReducer = (state = initialState, action) => {
         }
 
         case DELETE_ORDER: {
-            // newState = { ...state };
-            // if (newState.id === action.payload){
-            //     // console.log("SAMMMMEEEE ID ")
-            //     newState = {}
-            // }
-            // return newState;
             return null
         }
         case REMOVE_ORDER_ITEM: {

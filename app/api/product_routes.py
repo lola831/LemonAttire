@@ -19,21 +19,11 @@ def validation_errors_to_error_messages(validation_errors):
 # GET ALL OF PRODUCTS OF PRODUCT TYPE
 @product_routes.route('/')
 def all_products(product_type_id):
-    print("IN PRODUCTS ROUTE--------------------------------------------")
     """
     Query for all products and returns them in a list of product dictionaries
     """
     products = Product.query.filter_by(product_type_id=product_type_id)
     return {'products': [product.to_dict() for product in products]}
-
-
-# # GET ALL REVIEWS BY PRODUCT ID
-# @product_routes.route('/<int:product_id>/reviews')
-# def product_reviews(product_type_id, product_id):
-#     if Product.query.get(product_id) is None:
-#          return jsonify({'error': 'Product not found'}), 404
-#     reviews = Review.query.filter_by(product_id=product_id)
-#     return {'reviews': [review.to_dict() for review in reviews]}
 
 # CREATE A REVIEW BASED ON PRODUCT ID
 @product_routes.route('/<int:product_id>/reviews', methods=['POST'])
@@ -62,33 +52,17 @@ def product_favs(product_type_id, product_id):
     if Product.query.get(product_id) is None:
          return jsonify({'error': 'Product not found'}), 404
     favs = Favorite.query.filter_by(product_id=product_id)
-    # if favs in None:
-    #     return {'message': 'There are no favs'}
     return {'favorites': [fav.to_dict() for fav in favs]}
 
 # CREATE A FAV BASED ON PRODUCT ID
 @product_routes.route('/<int:product_id>/favorites', methods=['POST'])
 @login_required
 def create_fav(product_type_id, product_id):
-    print("==============================================================>")
-    print("PRODUCTTTTT TYPPPPPEEEEEE IDDDDDD", product_type_id)
-    print("PRODUCT IDDDDDDDDDDDDD", product_id)
     image = request.get_json()
-    print("IMAAAAGEEEEEEEE", image)
     """
     Creates a new favorite
     """
-    # form = FavoriteForm()
-    # form['csrf_token'].data = request.cookies['csrf_token']
-    # if form.validate_on_submit():
-    #     fav = Favorite(user_id=form['userId'].data,
-    #                       product_id=form['productId'].data)
-    #     db.session.add(fav)
-    #     db.session.commit()
-    #     return fav.to_dict()
-    # else:
-    #     return {'errors': validation_errors_to_error_messages(form.errors)}, 400
-    print("user id: ", current_user.id)
+
     fav = Favorite(
         user_id=current_user.id,
         product_id=product_id,

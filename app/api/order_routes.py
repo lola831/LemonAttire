@@ -58,13 +58,11 @@ def create_order():
     """
     Creates a new order
     """
-    print("WHATTTTTTTTTTT---------------------------------------------------")
     form = OrderForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         order = Order(
             status=form.data['status'],
-            # total_price=0.00,
             user_id=current_user.id
         )
         db.session.add(order)
@@ -76,8 +74,6 @@ def create_order():
 @order_routes.route('/<int:order_id>/shipping', methods=['PUT'])
 @login_required
 def place_order(order_id):
-    print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
-
     order = Order.query.get(order_id)
 
     if order is None:
@@ -104,11 +100,8 @@ def edit_order(order_id):
         return jsonify({'error': 'You are not authorized to edit this Order'}), 400
 
     data = request.get_json()
-    print("*********************************************", data)
-
 
     if 'delete' in data.keys():
-        print("DELETE--------------------------------")
         order.price -= data["delete"]
         order.tax = (order.price * 7.25) / 100
         order.total_price = order.price + order.tax
@@ -116,7 +109,6 @@ def edit_order(order_id):
         return order.to_dict()
 
     if 'add' in data.keys():
-        print("ADD------------------------", data["add"])
         order.price += data["add"]
         order.tax = (order.price * 7.25) / 100
         order.total_price = order.price + order.tax
@@ -124,7 +116,6 @@ def edit_order(order_id):
         return order.to_dict()
 
     if 'minus' in data.keys():
-        print("MINUS------------------------", data["minus"])
         order.price -= data["minus"]
         order.tax = (order.price * 7.25) / 100
         order.total_price = order.price + order.tax
@@ -139,12 +130,9 @@ def edit_order(order_id):
         order.price += data["total_price"]
         order.tax = (order.price * 7.25) / 100
         order.total_price = order.price + order.tax
-
-
+        
     db.session.commit()
     return order.to_dict()
-
-
 
 # DELETE AN ORDER
 @order_routes.route('/<int:order_id>', methods=['DELETE'])

@@ -10,7 +10,7 @@ import "../../App.css"
 import HomePage from '../HomePage';
 import AllProducts from '../AllProducts';
 
-function Navigation({ isLoaded}) {
+function Navigation({ isLoaded }) {
 	const history = useHistory();
 	const dispatch = useDispatch();
 	const sessionUser = useSelector(state => state.session.user);
@@ -27,51 +27,48 @@ function Navigation({ isLoaded}) {
 	useEffect(() => {
 		if (sessionUser) {
 			dispatch(getCurrentOrder())
-			// dispatch(getCategoriesThunk())
 		}
 	}, [dispatch, sessionUser])
 
 
 	const handleOpen = () => {
-        setOpen(true);
-    };
+		setOpen(true);
+	};
 
 	const handleClose = () => {
-        setOpen(false);
-    };
+		setOpen(false);
+	};
 
 	const handleLogout = (e) => {
 		e.preventDefault();
 		dispatch(editBag(0))
 		dispatch(logout())
-		.then(() => closeMobileMenu())
+			.then(() => closeMobileMenu())
 		history.push("/")
 
 	};
 
 	const categoryClick = (category) => {
-		// console.log("in cat")
-		// setIsCategory(true)
 		return (
 			<AllProducts category={category} />
 		)
 	}
 
 	const categories = [
-        "Tops",
-        "Activewear",
-        "Pants",
+		"Tops",
+		"Activewear",
+		"Pants",
 		"Jeans",
-        "Dresses",
-        "Jackets",
-        "Skirts",
+		"Dresses",
+		"Jackets",
+		"Skirts",
 		"Shorts",
-        "Sweaters",
+		"Sweaters",
 		"Hats",
 		"Shoes",
 		"Jewelry",
 		"View All",
-    ]
+	]
 
 
 	return (
@@ -86,27 +83,27 @@ function Navigation({ isLoaded}) {
 					</div>
 					<ul className={click ? 'menu active' : 'menu'}>
 						<li className='nav-item shop-item'>
-						<div className="dropdown-categories">
-                            <button className="nav-links shop-btn" onMouseOver={handleOpen} onMouseLeave={handleClose}>Shop</button>
-                            {open ? (
-                                <ul onMouseEnter={handleOpen} onMouseLeave={handleClose} className="drop-down-menu-categories" >
-                                {
-                                    categories.map((category,i) => (
-										<div className='category-list-container'>
-                                        <li key={category}>
-											<NavLink onClick={handleClose} className="category-link"
-											  to={{
-												pathname: '/shop',
-												search: `?category=${category}`,
-											  }}>{category}</NavLink>
-                                        </li>
+							<div className="dropdown-categories">
+								<button className="nav-links shop-btn" onMouseOver={handleOpen} onMouseLeave={handleClose}>Shop</button>
+								{open ? (
+									<ul onMouseEnter={handleOpen} onMouseLeave={handleClose} className="drop-down-menu-categories" >
+										{
+											categories.map((category, i) => (
+												<div className='category-list-container'>
+													<li key={category}>
+														<NavLink onClick={handleClose} className="category-link"
+															to={{
+																pathname: '/shop',
+																search: `?category=${category}`,
+															}}>{category}</NavLink>
+													</li>
 
-										</div>
-                                    ))
-                                }
-                            </ul>
-                            ) : null}
-                        </div>
+												</div>
+											))
+										}
+									</ul>
+								) : null}
+							</div>
 						</li>
 						{isLoaded && (
 							<>

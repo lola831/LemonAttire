@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { Redirect} from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { useModal } from '../../context/Modal'
 import { createStyle } from '../../store/styles';
 import "./StylesFormPage.css"
 
 function StylesFormPage({ styleReturned, setMsg }) {
-    console.log("IN STYLES FORM PAGE")
+
     const { closeModal } = useModal();
     const dispatch = useDispatch();
     const user = useSelector(state => state.session.user)
@@ -20,19 +20,19 @@ function StylesFormPage({ styleReturned, setMsg }) {
         e.preventDefault();
 
 
-        console.log("errors: ", errors)
+
         if (errors.title) errors.title = "";
 
         const data = await dispatch(createStyle({ title }))
         if (data.errors) {
             setErrors(data.errors[0])
-            console.log("errors in from responseee, ", errors)
+
         } else {
             if (styleReturned) {
-                console.log("child component style returned", data)
+
                 setMsg({ "style": "Your style has been created and this item has been added to it" })
                 styleReturned(data)
-                console.log("in heeeeeeeeeeeeeeee")
+
                 closeModal()
             }
             else {
@@ -42,7 +42,7 @@ function StylesFormPage({ styleReturned, setMsg }) {
     }
 
 
-    console.log("errors in return comp, " , errors)
+
     return (
 
         <form className='new-style-form' onSubmit={handleSubmit} onMouseLeave={closeModal}>

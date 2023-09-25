@@ -4,10 +4,6 @@
     margin-top: 10px;
     display: flex;
     flex-direction: column;
-
-    /* gap: 100px; */
-
-
 }
 
 .featured-collection-box {
@@ -21,8 +17,6 @@
 .feature-collection-text {
     font-family: Italiana;
     font-size: 50px;
-    /* border-top: thin white solid;
-    border-bottom: thin white solid; */
     border-top: thin #caafa8 solid;
     border-bottom: thin #caafa8 solid;
     color: #caafa8;

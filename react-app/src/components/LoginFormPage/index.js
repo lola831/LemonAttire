@@ -21,13 +21,13 @@ function LoginFormPage() {
     e.preventDefault();
     const data = await dispatch(login(email, password));
     if (data) {
-      console.log("DATTAAAA: ", data)
+
       setErrors(data);
     }
   };
 
   const demoUser = e => {
-    console.log("IN DEMO USER BUTTON CLICK")
+
     e.preventDefault();
     dispatch(login('dummyemaillemon@gmail.com', 'password'));
   }
@@ -62,8 +62,8 @@ function LoginFormPage() {
           />
           {!errors.email && errors.password && (<p className={errors ? "errors-box" : "no-errors-box"}>*{errors.password}</p>)}
           <div className="log-in-buttons-container">
-          <button className="store-button-white log-in-buttons" type="submit">Log In</button>
-          <button className="store-button-white log-in-buttons" onClick={demoUser} type='submit'>Demo User</button>
+            <button className="store-button-white log-in-buttons" type="submit">Log In</button>
+            <button className="store-button-white log-in-buttons" onClick={demoUser} type='submit'>Demo User</button>
           </div>
         </form>
       </div>

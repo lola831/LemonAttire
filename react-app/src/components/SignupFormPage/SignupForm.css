@@ -7,7 +7,6 @@
     padding-top: 20px;
     background-color: #caafa8;
     color: #fdf9f5;
-    /* gap: 10px; */
 }
 
 .create-account {
@@ -45,11 +44,6 @@
 .sign-up-errors {
     color: #786560;
 }
-/* .sign-up-input:focus {
-    background-color: pink;
-    box-shadow: none;
-
-} */
 
 .sign-up-button {
     margin-top: 20px;

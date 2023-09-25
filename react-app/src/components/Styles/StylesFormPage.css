@@ -9,13 +9,11 @@
     grid-template-areas:
     "style-title-input-area style-form-button"
     "new-style-errors-container new-style-errors-container";
-    /* padding: 50px; */
 }
 
 .style-title-input-area {
     grid-area: style-title-input-area;
     display: flex;
-    /* background-color: blue; */
     align-items: flex-end;
     justify-content: center;
    width: 100%;
@@ -43,13 +41,11 @@
 
 .style-form-button  {
     grid-area: style-form-button;
-    /* background-color: orange; */
     display: flex;
     align-items: flex-end;
     padding-left: 20px;
     padding-top: 30px;
     height: 100%;
-    /* justify-content: center; */
 }
 
 .new-style-form-btn {
