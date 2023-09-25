@@ -13,24 +13,24 @@ function AllProducts() {
   const [color, setColor] = useState("")
 
   useEffect(() => {
-    console.log("--------------------- here")
+
     window.scrollTo(0, 0)
   }, [])
 
   let category = new URLSearchParams(location.search).get('category');
-  console.log("PARAMS: ", category)
+
 
   const products = useSelector(state => state.products)
   let productValues = Object.values(products)
 
-  console.log("PRODUCTSSS", products)
+
 
   useEffect(() => {
     dispatch(getAllProductsThunk(category));
   }, [dispatch, category])
 
 
-  console.log("PROD VALS ", productValues)
+
   if (category === "View All") category = null;
 
 
@@ -51,7 +51,7 @@ function AllProducts() {
                 <div>
                   <Link className='all-prod-link-prod' to={`/shop/${product.id}`} key={product.id}>
                     <img alt=""
-                    loading="lazy"
+                      loading="lazy"
                       className='card-img'
                       id="img-change-color"
                       src={color.product_type_id === product.id ? color.image1 : `${product.products[0].image1}`}

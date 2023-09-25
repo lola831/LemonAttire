@@ -33,7 +33,7 @@ def user_styles():
     Query for all styles by user id and returns them in a list of style dictionaries ordered by most recent first
     """
     styles = Style.query.filter_by(user_id=current_user.id).order_by(Style.created_at) #.desc() ????
-    print("USERRRRRRRR------------------ID: ", current_user.id)
+
     return {'user_styles': [style.to_dict() for style in styles]}
 
 # GET STYLE BY STYLE ID:
@@ -51,15 +51,12 @@ def user_style(style_id):
 @style_routes.route('/', methods=['POST'])
 @login_required
 def create_style():
-    print("IN BACKEND ======================")
     """
     Creates a new style
     """
     form = StyleForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-
     if form.validate_on_submit():
-        print("IN FORM VAL: ", form.data)
         style = Style(
             title=form.data['title'],
             user_id=current_user.id
@@ -73,7 +70,6 @@ def create_style():
 @style_routes.route('/<int:style_id>', methods=['PUT'])
 @login_required
 def edit_style(style_id):
-    print("*************************** in edit style")
     """
     Edits a style
     """
@@ -86,13 +82,10 @@ def edit_style(style_id):
     form = StyleForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
-        # form.populate_obj(style)
-        print("TITLE: ==========================> ", form.data['title'], )
         style.title = form.data['title']
         style.updated_at = datetime.utcnow()
         db.session.commit()
         return style.to_dict()
-    print("^^^^^^^^^^^^^^^^ ERROR: ", form.errors)
     return {'errors': validation_errors_to_error_messages(form.errors)}, 400
 
 # DELETE A STYLE

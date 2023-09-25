@@ -7,7 +7,7 @@ export const loadProductType = (productType) => ({
     payload: productType,
 })
 
-export const getProductType = ( productTypeId) => async (dispatch) => {
+export const getProductType = (productTypeId) => async (dispatch) => {
     const response = await fetch(`/api/product_types/${productTypeId}`);
     if (response.ok) {
         const productType = await response.json();
@@ -23,7 +23,7 @@ const productTypeReducer = (state = initialState, action) => {
     let newState;
     switch (action.type) {
         case GET_PRODUCT_TYPE:
-            console.log("IN HEEEEEEHEHEHEHEHE")
+
             newState = { ...state };
             newState = action.payload.productType
             return newState;

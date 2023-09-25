@@ -55,7 +55,7 @@ const ProductPage = () => {
             dispatch(getUserFavorites())
                 .then(() => setLoadingFavorites(false))
                 .catch((error) => {
-                    console.log("Error fetching favorites:", error);
+
                     setLoadingFavorites(false);
                 });
         } else {
@@ -81,7 +81,7 @@ const ProductPage = () => {
         dispatch(addFavorites(productType.id, productId, image))
             .then(() => dispatch(getUserFavorites()))
             .then(() => setFavorite(true))
-            .catch((error) => console.log("Error adding favorite: ", error));
+            .catch((error) => console.log("error deleting fav"))
     };
 
     const deleteFav = () => {
@@ -94,7 +94,7 @@ const ProductPage = () => {
         dispatch(deleteFavorites(favId))
             .then(() => dispatch(getUserFavorites()))
             .then(() => setFavorite(false))
-            .catch((error) => console.log("Error deleting favorite: ", error));
+            ((error) => console.log("error deleting fav"))
 
     };
 

@@ -49,10 +49,10 @@ export const login = (email, password) => async (dispatch) => {
 
 	if (response.ok) {
 		const data = await response.json();
-		console.log("in auth thunk data ", data)
+
 		let bag = 0;
 		const orders = data.orders
-		console.log("ORDERS ", orders)
+
 		orders.map(order => {
 			if (order.status === "pending") {
 
@@ -61,7 +61,7 @@ export const login = (email, password) => async (dispatch) => {
 				})
 			}
 		})
-		console.log("totalbag, ", bag)
+
 		dispatch(setBag(bag))
 		dispatch(setUser(data));
 		return null;
@@ -88,7 +88,7 @@ export const logout = () => async (dispatch) => {
 };
 
 export const signUp = (firstName, lastName, email, password) => async (dispatch) => {
-	console.log("in sign up thunk: ", firstName, lastName, email, password)
+
 	const response = await fetch("/api/auth/signup", {
 		method: "POST",
 		headers: {
@@ -109,7 +109,7 @@ export const signUp = (firstName, lastName, email, password) => async (dispatch)
 		return null;
 	} else if (response.status < 500) {
 		const data = await response.json();
-		console.log("DATA IN THUNK: ", data)
+
 		if (data.errors) {
 			return data.errors;
 		}

@@ -32,11 +32,9 @@ def all_order_items(order_id):
 @order_item_routes.route('/', methods=['POST'])
 @login_required
 def add_order_item(order_id):
-    print("===========IN ADD ORDER ITEM BACKEND===============================")
     """
     Creates a new order item
     """
-
     form = OrderItemForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
@@ -71,11 +69,8 @@ def edit_order_item(order_id, order_item_id):
         return jsonify({'error': 'Order item not found'}), 404
 
     data = request.get_json()
-    print("DATA: ", data)
     quantity = data["quantity"]
     total_price = data["total_price"]
-    print("DAAATTAAAAAAAA =====================", quantity, total_price)
-
     order_item.quantity = quantity
     order_item.total_price = total_price
     db.session.commit()

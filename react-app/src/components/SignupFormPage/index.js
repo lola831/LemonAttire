@@ -26,80 +26,80 @@ function SignupFormPage() {
     if (password === confirmPassword) {
       const data = await dispatch(signUp(firstName, lastName, email, password));
       if (data) {
-        console.log("data ", data)
+
         setErrors(data)
-        console.log("errrors", errors)
+
       }
     } else {
-      setErrors({password: "Confirm Password field must be the same as the Password field."})
+      setErrors({ password: "Confirm Password field must be the same as the Password field." })
     }
   };
 
   return (
     <div className="sign-up-container">
 
-        <h1 className="create-account">Sign up</h1>
+      <h1 className="create-account">Sign up</h1>
 
-        <form  className="sign-up-form" onSubmit={handleSubmit}>
+      <form className="sign-up-form" onSubmit={handleSubmit}>
 
-          <label className="sign-up-label">
-            First Name
-          </label>
-          <input
-              className="sign-up-input"
-              type="text"
-              value={firstName}
-              onChange={(e) => setFirstName(e.target.value)}
-              required
-            />
-            { errors.firstName && (<p className="sign-up-errors">*{errors.firstName}</p>)}
-          <label className="sign-up-label">
-            Last Name
-          </label>
-          <input
-            className="sign-up-input"
-              type="text"
-              value={lastName}
-              onChange={(e) => setLastName(e.target.value)}
-              required
-            />
-            { errors.lastName && (<p className="sign-up-errors">*{errors.lastName}</p>)}
-          <label className="sign-up-label">
-            Email
-          </label>
-          <input
-            className="sign-up-input"
-              type="text"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-           { errors.email && (<p className="sign-up-errors">*{errors.email}</p>)}
-          <label className="sign-up-label">
-            Password
-          </label>
-          <input
-            className="sign-up-input"
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-          <label className="sign-up-label">
-            Confirm Password
-          </label>
-          <input
-            className="sign-up-input"
-              type="password"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              required
-            />
-            { errors.password && (<p className="sign-up-errors">*{errors.password}</p>)}
-            <div className="sign-up-button">
+        <label className="sign-up-label">
+          First Name
+        </label>
+        <input
+          className="sign-up-input"
+          type="text"
+          value={firstName}
+          onChange={(e) => setFirstName(e.target.value)}
+          required
+        />
+        {errors.firstName && (<p className="sign-up-errors">*{errors.firstName}</p>)}
+        <label className="sign-up-label">
+          Last Name
+        </label>
+        <input
+          className="sign-up-input"
+          type="text"
+          value={lastName}
+          onChange={(e) => setLastName(e.target.value)}
+          required
+        />
+        {errors.lastName && (<p className="sign-up-errors">*{errors.lastName}</p>)}
+        <label className="sign-up-label">
+          Email
+        </label>
+        <input
+          className="sign-up-input"
+          type="text"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+        {errors.email && (<p className="sign-up-errors">*{errors.email}</p>)}
+        <label className="sign-up-label">
+          Password
+        </label>
+        <input
+          className="sign-up-input"
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+        <label className="sign-up-label">
+          Confirm Password
+        </label>
+        <input
+          className="sign-up-input"
+          type="password"
+          value={confirmPassword}
+          onChange={(e) => setConfirmPassword(e.target.value)}
+          required
+        />
+        {errors.password && (<p className="sign-up-errors">*{errors.password}</p>)}
+        <div className="sign-up-button">
           <button className="store-button-white sign-up-b" type="submit">Sign up</button>
-          </div>
-        </form>
+        </div>
+      </form>
 
 
     </div>

@@ -14,7 +14,6 @@
 
 .order-item-container {
     display: flex;
-    /* background-color: pink; */
     margin-bottom: 60px;
     width: 500px;
 }
@@ -33,7 +32,6 @@
 }
 
 .order-item-info {
-    /* background-color: lightseagreen; */
     padding: 10px;
     display: flex;
     flex-direction: column;
@@ -59,10 +57,6 @@
 }
 
 .order-summary {
-    /* background-color: #bfbdbd;
-    color: #fdf9f5; */
-    /* background-color: #fdf9f5;
-    color: #caafa8; */
     background-color: #fdf9f5;
     color: #caafa8;
     height: 40px;
@@ -76,7 +70,6 @@
 }
 
 .order-price {
-    /* background-color: aqua; */
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -93,7 +86,6 @@
 }
 
 .empty-cart {
-    /* background-color: #caafa8; */
     background-color: #fdf9f5;
     height: 600px;
     color: #caafa8;

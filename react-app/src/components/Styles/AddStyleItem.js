@@ -16,9 +16,9 @@ function AddStyleItem({ styleItem, setMsg }) {
     const [open, setOpen] = useState(false);
     const [chosenStyle, setChosenStyle] = useState(false)
     const [styleExists, setStyleExists] = useState(false)
-    console.log("STYLES, ", styles)
-    let stylesArray = Object.entries(styles).map((style) => ( style[1]))
-    console.log("styles array: ", stylesArray)
+
+    let stylesArray = Object.entries(styles).map((style) => (style[1]))
+
 
     useEffect(() => {
         dispatch(getUserStyles())
@@ -33,21 +33,21 @@ function AddStyleItem({ styleItem, setMsg }) {
 
 
     const addToStyle = (style) => {
-        console.log("HEREEEE", style)
+
         setChosenStyle(style)
         setOpen(false)
 
         for (let i = 0; i < style.styleItems.length; i++) {
             if (style.styleItems[i].productTypeId == styleItem.id) {
-                console.log("ALREADY IN HERREEEE")
+
                 setStyleExists(true)
                 return;
             }
         }
 
-        console.log("GOOD TO ADD")
+
         dispatch(newStyleItem(styleItem.id, style.id))
-        setMsg({"style": "This item has been added to your style"})
+        setMsg({ "style": "This item has been added to your style" })
         closeModal()
     }
 
@@ -63,27 +63,27 @@ function AddStyleItem({ styleItem, setMsg }) {
                     <div className="would-you-box">
                         <div className="would-you">Would you like to add to an existing Style or create a new one?</div>
                         <div className="would-you-buttons">
-                        <button className="store-button would-you-new-style" onClick={() => setNewStyle(true)}>Create a New One</button>
-                        <div className="dropdown-styles">
-                            <button className="store-button" onClick={handleOpen}>Your Styles</button>
-                            {open ? (
-                                <ul className="drop-down-menu-styles" >
+                            <button className="store-button would-you-new-style" onClick={() => setNewStyle(true)}>Create a New One</button>
+                            <div className="dropdown-styles">
+                                <button className="store-button" onClick={handleOpen}>Your Styles</button>
+                                {open ? (
+                                    <ul className="drop-down-menu-styles" >
+                                        {
+                                            stylesArray.map(style => (
+                                                <li key={style.id}>
+                                                    <button className="style-list-item" onClick={() => addToStyle(style)}>{style.title}</button>
+                                                </li>
+                                            ))
+                                        }
+                                    </ul>
+                                ) : null}
                                 {
-                                    stylesArray.map(style => (
-                                        <li key={style.id}>
-                                            <button className="style-list-item" onClick={() => addToStyle(style)}>{style.title}</button>
-                                        </li>
-                                    ))
+                                    styleExists && (
+                                        <div className="already-has-item">*This Style already has this item</div>
+                                    )
                                 }
-                            </ul>
-                            ) : null}
-                            {
-                                styleExists && (
-                                    <div className="already-has-item">*This Style already has this item</div>
-                                )
-                            }
 
-                        </div>
+                            </div>
                         </div>
                     </div>
                 )
@@ -91,7 +91,7 @@ function AddStyleItem({ styleItem, setMsg }) {
 
             {newStyle && (
                 <div className="new-style-modal-container">
-                    <StylesFormPage styleReturned={styleReturned} setMsg={setMsg}/>
+                    <StylesFormPage styleReturned={styleReturned} setMsg={setMsg} />
                     <button className="nevermind-new-style" onClick={() => setNewStyle(false)}>Nevermind, I want to add it to an existing Style</button>
 
                 </div>

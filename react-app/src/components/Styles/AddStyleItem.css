@@ -1,5 +1,4 @@
 .add-style-item-container {
-    /* margin-top: 20%; */
     height: auto;
     width: auto;
     background-color: #caafa8;
@@ -12,7 +11,6 @@
 .would-you-box {
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
     padding: 20px;
     gap: 20px;
     height: 200px;
@@ -38,7 +36,6 @@
     color: white;
     font-weight: lighter;
     font-size: 13px;
-    /* margin-bottom: 80px; */
     padding-bottom: 80px;
     cursor: pointer;
 }
@@ -70,7 +67,6 @@
     border: none;
     color: #caafa8;
     background-color: transparent;
-    /* background-color: pink; */
     width: 230px;
     cursor: pointer;
     display: grid;

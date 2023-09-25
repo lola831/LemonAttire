@@ -22,10 +22,10 @@ const initialState = 0
 const bagReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_BAG:
-            console.log("in set bag")
+
             return action.payload;
         case EDIT_BAG:
-            console.log("in edit bag")
+
             return action.payload;
         case GET_BAG:
             return state;

@@ -3,7 +3,6 @@
     width: 100%;
     background-color: #caafa8;
     padding-bottom: 100px;
-    /* background-color: black; */
 }
 
 .new-style-button-container {
@@ -29,7 +28,6 @@
     flex-wrap: wrap;
     gap: 6%;
     margin-top: 90px;
-    /* background-color: aquamarine; */
     width: 100%;
 }
 
@@ -39,8 +37,6 @@
     display: flex;
     flex-direction: column;
     margin-bottom: 50px;
-/*
-    background-color: lightsalmon; */
 }
 
 .delete-style2 {
@@ -50,7 +46,6 @@
     margin-left: 15px;
     font-size: 15px;
     border: 1px solid #fdf9f5
-
 }
 
 
@@ -99,9 +94,6 @@
     font-weight: lighter;
     font-size: 18px;
     padding-left: 15px;
-    /* margin-top: 15px; */
-    /* padding-top: 10px; */
-    /* margin-bottom: 50px; */
 }
 
 .no-styles-container {

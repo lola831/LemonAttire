@@ -54,10 +54,6 @@
     flex-direction: column;
     gap: 30px;
     padding-top: 50px;
-
-    /* background-color: plum; */
-
-
 }
 
 .product-name {
@@ -69,13 +65,9 @@
 .fav-button {
     position: absolute;
     background: transparent;
-    /* background-color: pink; */
     border-style: none;
     margin-left: 430px;
     margin-top: 20px;
-    /* transition: all ease-in-out 0.2s; */
-
-
 }
 
 
@@ -91,9 +83,6 @@
     color: #caafa8;
 }
 
-
-
-
 .color-container {
     display: flex;
     flex-direction: row;
@@ -101,7 +90,6 @@
 }
 
 .color-options {
-    /* background-color: aqua; */
     height: 20px;
     width: 20px;
 }
@@ -147,7 +135,6 @@
     height: 25px;
     border-radius: 50%;
     vertical-align: middle;
-    /* border: 1px solid #ddd; */
     appearance: none;
     -webkit-appearance: none;
     outline: none;
@@ -160,16 +147,11 @@
     height: 25px;
     border-radius: 50%;
     vertical-align: middle;
-    /* border: 1px solid #ddd; */
     appearance: none;
     -webkit-appearance: none;
     outline: none;
     cursor: pointer;
 }
-
-/* .color-circle:checked {
-    border: solid thin black;
-} */
 
 .quantity-container {
     display: flex;
@@ -197,14 +179,11 @@
 .add:hover, .subtract:hover {
     background-color: #fdf9f5;
     color:#caafa8;
-    /* border: #544643 2px solid; */
-
 }
 
 .number {
     width: 50px;
     border: thin solid #fdf9f5;
-    /* background-color: #ddd; */
     display: flex;
     justify-content: center;
     background-color: #fdf9f5;
@@ -216,28 +195,13 @@
     color: #caafa8;
     background-color: white;
     border: 2px solid white;
-} */
-
-/* .description {
-    color: white;
-    font-size: 15px;
-    font-weight: lighter;
-    border-bottom: 1px solid white;
-    width: 76px;
 }
-
-.description-text {
-    color: white;
-    font-size: 12px;
-    line-height: 20px;
-} */
 
 .prod-price-2 {
     color: #fdf9f5
 }
 
 .add-style {
-    /* font-family: Italiana; */
     background-color: green;
 }
 
@@ -247,11 +211,9 @@
 
 .you-may-also {
     width: 100%;
-    /* background-color: green; */
 }
 
 .you-may-title {
-    /* background-color: pink; */
     display: flex;
     justify-content: center;
     margin-top: 40px;
