@@ -30,7 +30,9 @@ function DisplayStyleItems({ productValues }) {
 
           <div key={i} className='card-container style-i-card-container'>
             <Link to={`/shop/${product.product.id}`} >
-              <img alt="product"
+              <img
+              loading="lazy"
+               alt="product"
                 className='card-img card-i-image'
                 id="img-change-color"
                 src={color.product_type_id === product.product.id ? color.image1 : `${product.product.products[0].image1}`}

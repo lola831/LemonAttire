@@ -33,6 +33,7 @@ function ShippingPage() {
      const handleSubmit = async (e) => {
         e.preventDefault();
 
+        
         const data = {
             name: user.firstName,
             confirmation_number: "#8485950505",
