@@ -197,11 +197,11 @@ const ProductPage = () => {
                     <div className="product-img-container">
                         <div className="product-small-area">
                             {itemImageCheck().map((img, i) => (
-                                <img key={i} alt="" className="product-img-small" src={`${img}`} onMouseOver={() => setImageIndex(i)}></img>
+                                <img loading="lazy" key={i} alt="" className="product-img-small" src={`${img}`} onMouseOver={() => setImageIndex(i)}></img>
                             ))}
                         </div>
                         <div className="product-img-big-container">
-                            <img className="product-img-big" src={imageIndex ? `${itemImageCheck()[imageIndex]}` : `${itemImageCheck()[0]}`}></img>
+                            <img loading="lazy" className="product-img-big" src={imageIndex ? `${itemImageCheck()[imageIndex]}` : `${itemImageCheck()[0]}`}></img>
                             {
                                 user && (
                                     <>

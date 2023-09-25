@@ -45,7 +45,7 @@ function Favorites() {
         favorites.map(fav => (
           <div className="fav-card">
             <Link to={`/shop/${fav.product_type_id}`}>
-            <img alt="" className="fav-img" src={`${fav.image}`}></img>
+            <img alt="" className="fav-img" src={`${fav.image}`} loading="lazy"></img>
             </Link>
             {/* <i className="fa-solid fa-x" onClick={() => deleteFav(fav.id)}></i> */}
             <button onClick={() => deleteFav(fav.id)} className="store-button fav-remove-button">remove</button>

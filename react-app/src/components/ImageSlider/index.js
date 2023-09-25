@@ -53,6 +53,7 @@ if (Object.keys(products).length > 5) {
                    product.id !== productType && (
                     <Link onClick={window.scrollTo(0, 0)} className='all-prod-link-prod' to={`/shop/${product.id}`} key={product.id}>
                         <img
+                        loading="lazy"
                         alt="sliderImage"
                         className='image-slider'
                         key={product.id}

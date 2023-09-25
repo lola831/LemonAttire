@@ -53,11 +53,11 @@ if (stylesLoaded) {
                                 <div key={i} className="style-card">
                                     <Link className="style-link" to={`/styles/${style.id}`}>
                                         <div className="style-card-image-container">
-                                            <img className="style-card-image1" src={style.styleItems.length > 0 ? style.styleItems[0].product.products[0].image1 : greyImage}></img>
+                                            <img loading="lazy" className="style-card-image1" src={style.styleItems.length > 0 ? style.styleItems[0].product.products[0].image1 : greyImage}></img>
 
                                             <div className="style-small-images">
-                                                <img className="style-card-image2" src={style.styleItems.length > 1 ? style.styleItems[1].product.products[0].image1 : greyImage}></img>
-                                                <img className="style-card-image3" src={style.styleItems.length > 2 ? style.styleItems[2].product.products[0].image1 : greyImage}></img>
+                                                <img loading="lazy" className="style-card-image2" src={style.styleItems.length > 1 ? style.styleItems[1].product.products[0].image1 : greyImage}></img>
+                                                <img loading="lazy" className="style-card-image3" src={style.styleItems.length > 2 ? style.styleItems[2].product.products[0].image1 : greyImage}></img>
                                             </div>
                                         </div>
 

@@ -51,6 +51,7 @@ function AllProducts() {
                 <div>
                   <Link className='all-prod-link-prod' to={`/shop/${product.id}`} key={product.id}>
                     <img alt=""
+                    loading="lazy"
                       className='card-img'
                       id="img-change-color"
                       src={color.product_type_id === product.id ? color.image1 : `${product.products[0].image1}`}

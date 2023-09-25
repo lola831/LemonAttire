@@ -18,10 +18,10 @@ class User(db.Model, UserMixin):
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     updated_at = db.Column(db.DateTime, default=datetime.utcnow)
 
-    orders = db.relationship('Order', cascade="all, delete-orphan", back_populates="user")
-    favorites = db.relationship('Favorite', cascade="all, delete-orphan", back_populates="user")
-    reviews = db.relationship('Review', cascade="all, delete-orphan", back_populates="user")
-    styles = db.relationship('Style', cascade="all, delete-orphan", back_populates="user")
+    orders = db.relationship('Order', cascade="all, delete-orphan", lazy="joined", back_populates="user")
+    favorites = db.relationship('Favorite', cascade="all, delete-orphan", lazy="joined", back_populates="user")
+    reviews = db.relationship('Review', cascade="all, delete-orphan", lazy="joined", back_populates="user")
+    styles = db.relationship('Style', cascade="all, delete-orphan", lazy="joined", back_populates="user")
 
     @property
     def password(self):
