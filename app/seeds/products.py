@@ -88,7 +88,6 @@ def seed_products():
         image1="https://img.tobi.com/product_images/md/1/navy-cool-and-calm-ditsy-floral-smocked-skater-dress@2x.jpg",
         image2="https://img.tobi.com/product_images/sm/2/navy-cool-and-calm-ditsy-floral-smocked-skater-dress@2x.jpg",
         image3="https://img.tobi.com/product_images/sm/3/navy-cool-and-calm-ditsy-floral-smocked-skater-dress@2x.jpg",
-        image4="https://img.tobi.com/product_images/sn/4/navy-cool-and-calm-ditsy-floral-smocked-skater-dress@2x.jpg",
         stock=100,
     )
     multi_floral_ribbed_mini_dress = Product (
