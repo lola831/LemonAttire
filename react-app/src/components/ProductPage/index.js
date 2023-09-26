@@ -282,12 +282,10 @@ const ProductPage = () => {
                 </div>
 
                 <div className="you-may-also">
-                    {/* <div className="you-may-title">You may also like...</div> */}
                     <ImageSlider
                         productType={productType.id}
                         category={productType.category}
                     />
-
                 </div>
             </div>
         )
