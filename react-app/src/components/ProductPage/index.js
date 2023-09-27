@@ -5,25 +5,22 @@ import { getProductType } from "../../store/productType";
 // import EditReviewForm from "../../Reviews/EditReview";
 // import DeleteReviewForm from "../../Reviews/DeleteReview";
 // import ReservationForm from "../../ReservationForm";
+// import { loadProductReviews } from "../../store/reviews";
 import { getUserFavorites, addFavorites, deleteFavorites } from "../../store/favorites";
 import { getCurrentOrder, modifyItem, newOrderItem, newOrder } from "../../store/orders";
 import { editBag } from "../../store/bag";
 import OpenModalButton from "../OpenModalButton";
 import AddStyleItem from "../Styles/AddStyleItem";
 import ImageSlider from "../ImageSlider";
-
-
-
-// import OpenModalButton from "../OpenModalButton";
 import './ProductPage.css'
 import "../../App.css";
-// import { loadProductReviews } from "../../store/reviews";
 
 const ProductPage = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     const { id } = useParams();
-    const productType = useSelector(state => state.productType);
+    let productType = null;
+    productType = useSelector(state => state.productType);
     const favorites = useSelector(state => state.favorites);
     const user = useSelector(state => state.session.user);
     const order = useSelector(state => state.orders)
@@ -41,33 +38,51 @@ const ProductPage = () => {
     const [quantity, setQuantity] = useState(1)
     const addOne = () => setQuantity(quantity + 1)
     const minusOne = () => setQuantity(quantity - 1)
+    const [loadingState, setLoadingState] = useState(false)
+    const [checkFav, setCheckFav] = useState(false)
 
+    console.log("product type on product page: ", productType)
 
     useEffect(() => {
         window.scrollTo(0, 0)
     }, [])
 
     useEffect(() => {
-        dispatch(getProductType(id));
+        dispatch(getProductType(id))
+            .then(() => setLoadingState(true))
+            .then(() => {
+                if (item) {
+                    if (item.product_type_id !== id) setItem(false);
+                }
+            })
 
         if (user) {
             dispatch(getCurrentOrder())
             dispatch(getUserFavorites())
-                .then(() => setLoadingFavorites(false))
+                .then(() => {
+                    setLoadingFavorites(false)
+                    setCheckFav(true)
+                    console.log("yes user and yes checked for favs")
+                })
                 .catch((error) => {
-
                     setLoadingFavorites(false);
                 });
         } else {
             setLoadingFavorites(false);
+            console.log("NOOOOOOOOOOOOOOO USERRRRRRRRRRRRRR")
+            setCheckFav(true)
         }
     }, [dispatch, id, user]);
 
     // checks if product is in user's favorites
     useEffect(() => {
+        console.log("CHECKING FAVVVVVVV----------------")
+        setFavorite(false)
         if (user && favorites.length) {
             for (let i = 0; i < favorites.length; i++) {
+                console.log("favorites", favorites, id)
                 if (favorites[i].product_type_id == id) {
+                    console.log("setting fav to true")
                     setFavorite(true)
                 }
             }
@@ -94,7 +109,7 @@ const ProductPage = () => {
         dispatch(deleteFavorites(favId))
             .then(() => dispatch(getUserFavorites()))
             .then(() => setFavorite(false))
-            ((error) => console.log("error deleting fav"))
+            // ((error) => console.log("error deleting fav"))
 
     };
 
@@ -104,7 +119,6 @@ const ProductPage = () => {
             history.push("/login")
             return
         }
-
 
         let totalPrice = quantity * productType.price
         let itemData = {
@@ -150,9 +164,7 @@ const ProductPage = () => {
                 }
             }
             dispatch(editBag(bag + quantity))
-            // updateBag(bag + quantity)
             dispatch(newOrderItem(itemData, order.id))
-
         }
     }
 
@@ -175,8 +187,10 @@ const ProductPage = () => {
         }
     }
 
+    console.log("fav---------------", favorite)
 
-    if (Object.keys(productType).length) {
+
+    if (loadingState && checkFav) {
 
         if (loadingFavorites && !user) {
             return <div>Loading favorites....</div>

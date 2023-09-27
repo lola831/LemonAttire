@@ -6,31 +6,19 @@ import "./ImageSlider.css"
 
 function ImageSlider({ productType, category }) {
 
+  console.log("PRODUCT TYPE ID passed into dslider============", productType)
   const dispatch = useDispatch();
   const sliderRef = useRef(null);
   const scrollAmount = 100;
   const products = useSelector(state => state.products)
 
-  // useEffect(() => {
-  //   window.scrollTo(0, 0)
-  // }, [])
-
   useEffect(() => {
     dispatch(getAllProductsThunk(category))
   }, [dispatch, category])
 
-
-
-
-
-
-
   if (Object.keys(products).length > 5) {
 
-
     let productValues = Object.values(products)
-
-
 
     return (
       <>
