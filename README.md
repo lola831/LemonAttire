@@ -7,7 +7,7 @@ Lemon Attire is an eCommerce website that specializes in selling women's clothin
 
  - [Feature List](https://github.com/lola831/LemonAttire/wiki/Features-List)
  - [Database Schema](https://github.com/lola831/LemonAttire/wiki/SCHEMA)
- - [API Routes](https://github.com/lola831/LemonAttire/wiki/API-Routes)
+ - [API Documentation](https://github.com/lola831/LemonAttire/wiki/API-Routes)
  - [User Stories](https://github.com/lola831/LemonAttire/wiki/User-Stories)
 
 ## Technologies Used:
