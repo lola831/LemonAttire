@@ -6,7 +6,6 @@ import "./ImageSlider.css"
 
 function ImageSlider({ productType, category }) {
 
-  console.log("PRODUCT TYPE ID passed into dslider============", productType)
   const dispatch = useDispatch();
   const sliderRef = useRef(null);
   const scrollAmount = 100;

@@ -41,7 +41,6 @@ const ProductPage = () => {
     const [loadingState, setLoadingState] = useState(false)
     const [checkFav, setCheckFav] = useState(false)
 
-    console.log("product type on product page: ", productType)
 
     useEffect(() => {
         window.scrollTo(0, 0)
@@ -62,27 +61,24 @@ const ProductPage = () => {
                 .then(() => {
                     setLoadingFavorites(false)
                     setCheckFav(true)
-                    console.log("yes user and yes checked for favs")
                 })
                 .catch((error) => {
                     setLoadingFavorites(false);
                 });
         } else {
             setLoadingFavorites(false);
-            console.log("NOOOOOOOOOOOOOOO USERRRRRRRRRRRRRR")
             setCheckFav(true)
         }
     }, [dispatch, id, user]);
 
     // checks if product is in user's favorites
     useEffect(() => {
-        console.log("CHECKING FAVVVVVVV----------------")
+
         setFavorite(false)
         if (user && favorites.length) {
             for (let i = 0; i < favorites.length; i++) {
-                console.log("favorites", favorites, id)
+
                 if (favorites[i].product_type_id == id) {
-                    console.log("setting fav to true")
                     setFavorite(true)
                 }
             }
@@ -109,8 +105,6 @@ const ProductPage = () => {
         dispatch(deleteFavorites(favId))
             .then(() => dispatch(getUserFavorites()))
             .then(() => setFavorite(false))
-            // ((error) => console.log("error deleting fav"))
-
     };
 
 
@@ -186,9 +180,6 @@ const ProductPage = () => {
             setCircleS(false)
         }
     }
-
-    console.log("fav---------------", favorite)
-
 
     if (loadingState && checkFav) {
 
