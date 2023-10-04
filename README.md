@@ -1,5 +1,5 @@
 # 🍋 Lemon Attire 
-Lemon Attire is an eCommerce website that specializes in selling women's clothing. Any user can browse through Lemon Attire's extensive clothing selection. However, to add items to their cart, a user must sign up or log in. Additionally, a logged-in user has the option to save items to their favorites or add them to their styles. Upon checkout, a confirmation email will be promptly sent to the user, utilizing the email address associated with their account.
+Lemon Attire is an eCommerce website that specializes in selling clothing. Any user can browse through Lemon Attire's extensive clothing selection. However, to add items to their cart, a user must sign up or log in. Additionally, a logged-in user has the option to save items to their favorites or add them to their styles. Upon checkout, a confirmation email will be promptly sent to the user, utilizing the email address associated with their account.
 
 **Live Site:** [Lemon Attire](https://my-shop-i5b8.onrender.com)
 
