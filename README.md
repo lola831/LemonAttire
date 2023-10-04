@@ -14,12 +14,16 @@ Lemon Attire is an eCommerce website that specializes in selling clothing. Any u
 Backend:
  - Python
  - Flask
+ - SQLAlchemy
  - PostgreSQL
+ - Mapbox (for autofill address feature)
 
 Frontend:
  - JavaScript
  - React
  - Redux
+ - EmailJS (for sending confirmation emails)
+ - AWS S3 (for image and video storage)
 
 ## Splash Page
 <img width="1440" alt="Screen Shot 2023-09-19 at 11 42 46 AM" src="https://github.com/lola831/LemonAttire/assets/110120745/455ddad3-444f-456f-891d-decedafb9f56">
