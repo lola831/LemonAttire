@@ -26,7 +26,7 @@ Frontend:
  - AWS S3 (for image and video storage)
 
 ## Splash Page
-<img width="1440" alt="Screen Shot 2023-09-19 at 11 42 46 AM" src="https://github.com/lola831/LemonAttire/assets/110120745/455ddad3-444f-456f-891d-decedafb9f56">
+<img style=" pointer-events: none" width="1440" alt="Screen Shot 2023-09-19 at 11 42 46 AM" src="https://github.com/lola831/LemonAttire/assets/110120745/455ddad3-444f-456f-891d-decedafb9f56">
 
 ## Featured Collection
 <img width="1440" alt="Screen Shot 2023-09-20 at 5 57 37 PM" src="https://github.com/lola831/LemonAttire/assets/110120745/f2fce99b-1502-438e-99b8-4b4990335385">
