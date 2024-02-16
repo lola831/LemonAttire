@@ -2,10 +2,6 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, Link, useParams } from "react-router-dom";
 import { getProductType } from "../../store/productType";
-// import EditReviewForm from "../../Reviews/EditReview";
-// import DeleteReviewForm from "../../Reviews/DeleteReview";
-// import ReservationForm from "../../ReservationForm";
-// import { loadProductReviews } from "../../store/reviews";
 import { getUserFavorites, addFavorites, deleteFavorites } from "../../store/favorites";
 import { getCurrentOrder, modifyItem, newOrderItem, newOrder } from "../../store/orders";
 import { editBag } from "../../store/bag";
@@ -25,7 +21,6 @@ const ProductPage = () => {
     const user = useSelector(state => state.session.user);
     const order = useSelector(state => state.orders)
     const bag = useSelector(state => state.bag)
-    // const reviews = useSelector(state => state.reviews)
     const [loadingFavorites, setLoadingFavorites] = useState(true);
     const [favorite, setFavorite] = useState(false);
     const [item, setItem] = useState("")
@@ -133,7 +128,6 @@ const ProductPage = () => {
             // order doesnt exist and must create new one
             let orderData = { status: "pending" }
             dispatch(newOrder(orderData, itemData))
-            // updateBag(bag + quantity)
             dispatch(editBag(bag + quantity))
 
         } else {
@@ -143,7 +137,6 @@ const ProductPage = () => {
                 let item = orderItems[i]
                 if (item.image === itemData.image
                     && item.size === itemData.size) {
-                    // updateBag(bag + itemData.quantity)
                     dispatch(editBag(bag + itemData.quantity))
                     let quantity = item.quantity + itemData.quantity
                     let total_price = item.price * quantity
